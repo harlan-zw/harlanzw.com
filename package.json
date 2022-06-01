@@ -20,7 +20,7 @@
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "eslint": "^8.16.0",
     "nuxt": "^3.0.0-rc.3",
-    "nuxt-windicss": "^2.4.0",
+    "nuxt-windicss": "^2.4.1",
     "typescript": "^4.7.2",
     "unplugin-icons": "^0.14.3",
     "unplugin-vue-components": "^0.19.6"

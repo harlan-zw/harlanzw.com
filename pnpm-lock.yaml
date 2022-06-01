@@ -12,7 +12,7 @@ specifiers:
   '@nuxtjs/eslint-config-typescript': ^10.0.0
   eslint: ^8.16.0
   nuxt: ^3.0.0-rc.3
-  nuxt-windicss: ^2.4.0
+  nuxt-windicss: ^2.4.1
   typescript: ^4.7.2
   unplugin-icons: ^0.14.3
   unplugin-vue-components: ^0.19.6
@@ -29,7 +29,7 @@ devDependencies:
   '@nuxtjs/eslint-config-typescript': 10.0.0_xztl6dhthcahlo6akmb2bmjmle
   eslint: 8.16.0
   nuxt: 3.0.0-rc.3
-  nuxt-windicss: 2.4.0
+  nuxt-windicss: 2.4.1
   typescript: 4.7.2
   unplugin-icons: 0.14.3
   unplugin-vue-components: 0.19.6
@@ -5461,8 +5461,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-windicss/2.4.0:
-    resolution: {integrity: sha512-Dge5ARm0Fx1tYU4DY5Q6u0r/64Zcwi9tUKP5A8eYCHwdR3FBo3vurL5m5JerPV97Q5xCh8Q8P/+6tTRV3pY3Zg==}
+  /nuxt-windicss/2.4.1:
+    resolution: {integrity: sha512-I4DhTO+UBHArQBfZLEoKBlGKzX2p8JjWNSI6bdJ9UNY4AXGWx5G/8BOSxe3c3jmHgLMzNAwOJ3x8o5BeZvEDHQ==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.3
       '@windicss/plugin-utils': 1.8.4

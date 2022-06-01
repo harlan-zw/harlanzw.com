@@ -9,14 +9,10 @@ A lightweight Nuxt template to write a Markdown driven website, based on [Nuxt C
 
 ## Features
 
-- Create pages in Markdown in the `content/` directory
-- Enjoy meta tag generation from Markdown files
-- Switch between Light & Dark mode :moon:
-- Generated navigation based on your pages
-- Access 100,000 icons from 100+ icon sets with the `<Icon>` component
-- Highlight code blocks with [Shiki](https://shiki.matsu.io)
-- Create Vue components and use them in your Markdown
-- Deploy on any Node or Static hosting: GH Pages, Vercel, Netlify, Heroku, etc.
+- pnpm
+- WindiCSS
+- UnpluginIcons (no FOUC)
+- SchemaOrg (todo)
 
 ## Usage
 
