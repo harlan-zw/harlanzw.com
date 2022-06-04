@@ -1,12 +1,16 @@
+<script lang="ts" setup>
+const contentQuery = queryContent('pages')
+</script>
+
 <template>
   <div class="flex justify-between max-w-2xl px-4 py-4 mx-auto sm:px-8">
     <!-- Navigation -->
     <div class="text-gray-700 dark:text-gray-200">
-      <ContentNavigation v-slot="{ navigation }">
+      <ContentNavigation v-slot="{ navigation }" :query="contentQuery">
         <NuxtLink
-          v-for="link of navigation"
+          v-for="link of navigation[0].children"
           :key="link._path"
-          :to="link._path"
+          :to="link._path.replace('pages', '')"
           active-class="font-bold"
           class="mr-4"
         >

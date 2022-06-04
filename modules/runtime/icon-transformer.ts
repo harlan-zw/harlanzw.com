@@ -45,6 +45,10 @@ export default {
           ...node.props,
           ...map[node.tag],
         }
+        node.props.style = {
+          ...node.props.style,
+          display: 'inline-block',
+        }
         node.tag = 'svg'
       },
     )
