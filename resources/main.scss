@@ -1,0 +1,56 @@
+a:not(.unstyled):not(.header-anchor) {
+  position: relative;
+  display: inline-block;
+
+  &:before, &:after {
+    position: absolute;
+    height: 4px;
+    bottom: -5px;
+    content: ' ';
+    display: block;
+    width: 12px;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: -1;
+  }
+  &:before {
+    background-image: linear-gradient(90deg, rgb(5, 150, 105), rgb(5, 200, 150));
+    left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  &:after {
+    background-image: linear-gradient(270deg, rgb(5, 150, 105), rgb(5, 200, 150));
+    right: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &:hover, &.active {
+    &:after, &:before {
+      opacity: 1;
+      width: 50%;
+    }
+  }
+}
+
+@keyframes effect {
+  0% {
+  }
+  50% {
+  }
+  100% {
+    transform: rotate(-0.35deg);
+    background-position: 672px;
+  }
+}
+
+/* Customize headers to remove default underline */
+.prose h2 a,
+.prose h3 a {
+  @apply no-underline;
+  &:hover {
+    @apply border-b border-neutral-600 dark:border-neutral-300;
+  }
+}

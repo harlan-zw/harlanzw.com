@@ -37,19 +37,6 @@ head:
     content: "https://harlanzw.com/social/home.png"
 ---
 
-<script setup>
-import { useData } from 'vitepress'
-const { page } = useData()
-
-useSchemaOrg([
- defineWebPagePartial({
-  '@type': 'ContactPage',
- })
-])
-</script>
-
-# {{ page.title }}
-
 Get in touch, let's chat! :)
 
 ## Email me

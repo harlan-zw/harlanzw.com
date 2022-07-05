@@ -6,4 +6,4 @@ export interface ArticleCard extends ParsedContent {
 }
 
 export const articleQuery = queryContent<ArticleCard>('articles')
-export const articleCardQuery = articleQuery.without(['excerpt', 'head'])
+export const articleCardQuery = articleQuery.without(['head'])

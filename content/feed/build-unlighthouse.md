@@ -37,8 +37,6 @@ head:
     content: "https://next.unlighthouse.dev/og.png"
 ---
 
-<SchemaOrgArticle date-published="2022-02-28" />
-
 ## Introduction
 
 [Unlighthouse](https://github.com/harlan-zw/unlighthouse) is an open-source package to scan your entire site using Google Lighthouse. Featuring a modern UI, minimal config and smart sampling.

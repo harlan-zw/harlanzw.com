@@ -3,10 +3,21 @@
   <Html lang="en" />
   <Meta property="og:image" content="/cover.jpg" />
   <Meta name="twitter:card" content="summary_large_image" />
-  <Navbar />
-  <main class="pb-10 sm:pb-16 md:pb-20">
-    <NuxtPage />
-  </main>
+  <div>
+    <Navbar class="w-3xl flex-shrink" />
+  </div>
+  <div class="max-w-5xl flex items-start py-15 relative ml-1/5">
+    <aside class="top-25 sticky px-10 mr-10 opacity-60 text-xl children:(mb-4 inline-block)">
+      <NuxtLink class="!block" to="/">Home</NuxtLink>
+      <NuxtLink class="!block" to="/articles">Articles</NuxtLink>
+      <NuxtLink class="!block" to="/projects">Projects</NuxtLink>
+      <NuxtLink class="!block" to="/snippets">Snippets</NuxtLink>
+      <NuxtLink class="!block" to="/about">About</NuxtLink>
+    </aside>
+    <main class="w-672px pb-10 sm:pb-16 md:pb-20">
+      <NuxtPage />
+    </main>
+  </div>
   <footer class="px-5 sm:px-7 md:px-10 text-center text-gray-400 text-sm my-5">
     <div class="text-center mb-5">
       <a href="https://github.com/harlan-zw" target="_blank" class="unstyled transition-opacity inline-block opacity-70 hover:opacity-100 mr-5" title="Github: harlan-zw">
