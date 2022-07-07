@@ -13,8 +13,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="flex items-center">
-    <div v-for="tag in tags" :key="tag" class="text-sm inline-flex items-center mr-3 transform group transition hover:(underline -translate-y-2px)">
+  <div class="inline-flex items-center">
+    <div v-for="tag in tags" :key="tag" class="text-xs opacity-80 inline-flex items-center mr-3 transform group transition hover:(underline -translate-y-2px)">
       <nuxt-link :to="`/tags/${tag}`">
         <template v-if="tag === 'github'">
           <svg class="inline-block mr-1" viewBox="0 0 1024 1024" fill="none" height="16" xmlns="http://www.w3.org/2000/svg">

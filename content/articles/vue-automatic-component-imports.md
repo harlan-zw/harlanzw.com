@@ -1,8 +1,7 @@
 ---
 title: "Building a Vue Auto Component Importer - A Better Dev Experience"
 description: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
-publishDate: '22nd Dec 2020'
-date: '2020-12-22'
+published: '2020-12-22'
 excerpt: "Having component folders auto-magically imported into your app is the latest craze. How does it work and is it good?"
 status: 'published'
 readMins: 10

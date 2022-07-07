@@ -1,13 +1,17 @@
 <script lang="ts" setup>
-import { articleCardQuery } from '~/logic'
+import { fetchPost } from '~/logic'
+import ArticleTags from "~/components/content/ArticleTags.vue";
 
-const articles = await articleCardQuery.find()
+console.log('path', `/articles/${useRoute().params.slug}`)
+const post = await fetchPost(`articles/${useRoute().params.slug}` as string)
 </script>
 
 <template>
-  <div class="max-w-2xl px-4 py-10 m-auto bg-white sm:px-8 sm:shadow dark:bg-gray-800 sm:rounded">
+  <div class="max-w-2xl prose prose-gray dark:prose-invert ">
+    <h1>{{ post.title }}</h1>
+    <ArticleTags :tags="post.tags" />
     <!-- Fetch and display the Markdown document from current path -->
-    <ContentDoc path="/pages/" class="prose prose-gray dark:prose-invert max-w-none">
+    <ContentDoc class="max-w-none">
       <!-- Slot if document is not found -->
       <template #not-found>
         <h1 class="text-2xl">

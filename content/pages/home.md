@@ -2,191 +2,42 @@
 navTitle: 'Home'
 ---
 
-# Content Wind :i-carbon-sailboat-coastal{class="text-indigo-400"}
 
-A [Nuxt]{class="text-sky-600 font-bold"} :i-heroicons-outline-beaker{class="text-sky-600"} to build a Markdown driven website, based on [Nuxt Content](https://content.nuxtjs.org), [TailwindCSS](https://tailwindcss.com) and [Iconify](https://iconify.design) :sparkles:
+# Harlan Wilton :i-line-md-coffee-loop{class="ml-2 text-emerald-400"}
 
-## Features
+Hey there! I'm a full-stack web developer from :i-heroicons-outline-location-marker{class="opacity-75"} _Sydney, Australia_. 
 
-::list
-- Create pages in Markdown in the `content/` directory
-- Enjoy meta tag generation from Markdown files
-- Switch between Light & Dark mode :moon:
-- Generated navigation based on your pages
-- Access 100,000 icons from 100+ icon sets with the `<Icon>` component
-- Highlight code blocks with [Shiki](https://shiki.matsu.io)
-- Create Vue components and use them in your Markdown
-- Deploy on any Node or Static hosting: GH Pages, Vercel, Netlify, Heroku, etc.
-::
+I'm passionate about building delightful [open source](https://github.com/harlan-zw) projects. I support myself financially as a [freelancer](/work-with-me). 
 
-## Setup
+<figure class="text-center">
+<img src="https://avatars.githubusercontent.com/u/5326365?v=4" class="rounded-lg h-50 w-50 mx-auto" />
+ <figcaption>Me when I'm not behind a computer</figcaption>
+</figure>
 
-Open a terminal and run the following command:
+I'm an avid consumer of [books](https://www.goodreads.com/user/show/122898515-harlan-wilton), [music](https://open.spotify.com/user/22ryw6esbmedc7fxo75rfw7ia?si=8505d295412e45c2), coffee and craft beer.
 
-```
-npx nuxi init my-website -t atinux/content-wind
-```
 
-Or start by clicking on **Use this template** on [github.com/Atinux/content-wind](https://github.com/Atinux/content-wind).
+## Open Source
 
-## Usage
+Creating delightful open-source packages is what I'm passionate about.
 
-This template has some built-in features to make it as easy as possible to create a content-driven website.
+I work with <a href="https://nuxtjs.org" target="_blank" class="flex items-center"> :i-logos-nuxt-icon Nuxt.js</a> and :i-logos-laravel Laravel.
 
-### Pages
+Occasionally I write articles, check my latest here:
+<ArticleCard>Unlighthouse</ArticleCard>
 
-Create your Markdown pages in the `content/` directory:
+## Freelancing
 
-```md
-# My title
+I worked at an [agency](https://4mation.com.au) and then a [startup](https://kintell.com) for many years while freelancing on the side. 
 
-This first paragraph will be treated as the page meta description.
-```
+With wanting to pursue open-source and SaaS development, I decided to leave my full-time job and keep my freelancing going.
 
-You can overwrite meta tags by using front-matter:
+These days I have limited capacity for new work, but I'm always interested to hear about opportunities.
+If you're interested in working with me, check the [work with me](/work-with-me) page.
 
-```md
----
-head.title: 'Custom <title>'
-head.description: 'Custom meta description'
-head.image: 'Custom image injected as `og:image`'
----
+The great companies I get to work with are mostly using  :i-logos-nuxt-icon Nuxt.js</a> and :i-logos-laravel Laravel. 
 
-# My title
 
-This first paragraph will be treated as the page meta description.
-```
+## My Stack
 
-This is done thanks to the [`<ContentDoc>`](https://content.nuxtjs.org/api/components/content-doc) component of Nuxt Content.
-
-### Navigation
-
-The navigation is generated from your pages, you can take a look at the [`<Navbar>`](https://github.com/Atinux/content-wind/blob/main/components/Navbar.vue) component to see how it works.
-
-It uses the [`<ContentNavigation>`](https://content.nuxtjs.org/api/components/content-navigation) component from Nuxt Content to fetch the navigation object.
-
-To customize the title displayed in the navigation, you can set the `navTitle` property in the front-matter of your pages:
-
-```md
----
-navTitle: 'Home'
----
-
-# Welcome to my site
-
-With a beautiful description
-```
-
-### Icons
-
-Use any icon from [icones.js.org](https://icones.js.org) with the `<Icon>` component:
-
-```html
-<Icon name="ph:music-notes-fill" />
-```
-
-You can also use it in your Markdown:
-
-```md
-:i-ph-music-notes-fill
-```
-
-Will result in :i-ph-music-notes-fill
-
-### Code Highlight
-
-It supports code highlighting with Shiki and as well as different [VS Code themes](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes).
-
-::markdown-block
-\```ts
-export default () => 'Hello Content Wind'
-\```
-::
-
-Will result in:
-
-```ts
-export default () => 'Hello Content Wind'
-```
-
-Updating the theme is as simple as editing your `nuxt.config`:
-
-```ts
-import { defineNuxtConfig } from 'nuxt'
-
-export default defineNuxtConfig({
-  content: {
-    highlight: {
-      theme: 'one-dark-pro',
-    }
-  }
-})
-```
-
-Learn more in the [Content Code Highlight section](https://content.nuxtjs.org/api/configuration#highlight).
-
-### Vue Components
-
-Add Vue components into the `components/content/` directory and start using them in Markdown.
-
-See the `<Alert>` component in [`components/content/Alert.vue`](https://github.com/Atinux/content-wind/blob/main/components/content/Alert.vue).
-
-By leveraging the [`<Markdown>`](https://content.nuxtjs.org/api/components/markdown) component from Nuxt Content, you can use both slots and props in Markdown thanks to the [MDC syntax](https://content.nuxtjs.org/guide/writing/mdc).
-
-```md
-::alert{icon="ph:circle-wavy-warning-duotone"}
-#title
-This is an alert
-#default
-This is the default content of my alert!
-::
-```
-
-Will result in:
-
-::alert{icon="ph:circle-wavy-warning-duotone"}
-#title
-This is an alert
-#default
-This is the default content of my alert!
-::
-
-If you want to go deeper, take a look at the [`<List>`](https://github.com/Atinux/content-wind/blob/main/components/content/List.vue) component to see some `useUnwrap()` magic :magic_wand:
-
-
-## Deployment
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAtinux%2Fcontent-wind) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Atinux/content-wind)
-
-
-### Static Hosting
-
-Pre-render the website to be deployed on any static hosting:
-
-```bash
-npm run generate
-```
-
-The `dist/` directory is ready to be deployed (symlink to `.output/public`), [learn more on Nuxt docs](https://v3.nuxtjs.org/guide/deploy/static-hosting).
-
-### Node server
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Start the server in production:
-
-```bash
-node .output/server/index.mjs
-```
-
-Learn more on [Nuxt docs](https://v3.nuxtjs.org/guide/deploy/node-server) for more information.
-
----
-
-You are at the end of the page, you can checkout the [about page](/about) or the [GitHub repository](https://github.com/Atinux/content-wind) and give a :i-ph-star-duotone
-
-Thanks for reading and happy writing, [Atinux](https://twitter.com/Atinux).
+<img src="/keyboard.png" width="300" class="transform rotate-30">

@@ -1,12 +1,12 @@
 <script lang="ts">
 import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import type { ArticleCard } from '~/logic'
+import type { Post } from '~/logic'
 
 export default defineComponent({
   props: {
     post: {
-      type: Object as PropType<ArticleCard>,
+      type: Object as PropType<Post>,
       required: true,
     },
   },

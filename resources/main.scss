@@ -1,10 +1,11 @@
 a:not(.unstyled):not(.header-anchor) {
   position: relative;
   display: inline-block;
+  transition: 0.2s;
 
   &:before, &:after {
     position: absolute;
-    height: 4px;
+    height: 3px;
     bottom: -5px;
     content: ' ';
     display: block;
@@ -14,23 +15,34 @@ a:not(.unstyled):not(.header-anchor) {
     z-index: -1;
   }
   &:before {
-    background-image: linear-gradient(90deg, rgb(5, 150, 105), rgb(5, 200, 150));
+    background-image: linear-gradient(90deg, #11998e, #38ef7d);
     left: 0;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
   }
 
   &:after {
-    background-image: linear-gradient(270deg, rgb(5, 150, 105), rgb(5, 200, 150));
+    background-image: linear-gradient(270deg, #11998e, #38ef7d);
     right: 0;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
   }
 
   &:hover, &.active {
+    transform: translateY(-1px);
+    text-shadow: #38ef7d 0px 0px 10px;
     &:after, &:before {
       opacity: 1;
       width: 50%;
+    }
+  }
+  &.router-link-exact-active {
+    font-weight: bold;
+    background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#38ef7d, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &:after, &:before {
+      opacity: 0;
     }
   }
 }
@@ -47,10 +59,32 @@ a:not(.unstyled):not(.header-anchor) {
 }
 
 /* Customize headers to remove default underline */
+.prose h1 {
+  /* Fix icons in headers */
+  display: flex;
+  align-items: center;
+}
 .prose h2 a,
 .prose h3 a {
   @apply no-underline;
   &:hover {
-    @apply border-b border-neutral-600 dark:border-neutral-300;
+    border: none !important;
   }
+}
+
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(.5rem)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.animate-enter {
+  animation: enter .6s forwards
 }
