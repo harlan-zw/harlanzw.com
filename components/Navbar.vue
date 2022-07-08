@@ -1,5 +1,5 @@
 <template>
-<div class="flex justify-between items-center max-w-7xl mx-auto px-4 py-7 mx-auto sm:px-8">
+<div class="flex justify-between items-center max-w-8xl mx-auto px-4 py-4 mx-auto sm:px-8">
   <!-- Logo -->
   <nuxt-link to="/" class="flex items-center group unstyled">
     <img src="https://avatars.githubusercontent.com/u/5326365?v=4" class="rounded-lg h-10 w-10 mr-5 group-hover:(h-12 w-12) transition-all" />

@@ -21,7 +21,7 @@ export interface ProjectCategory extends ParsedContent {
   }[]
 }
 
-export const articleQuery = queryContent<Post>('articles')
+export const articleQuery = queryContent<Post>('posts')
 
 export const fetchProjects = () => {
   return useAsyncData('projects', () => queryContent<JsonParsedContent<ProjectCategory>>('projects').findOne())

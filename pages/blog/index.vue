@@ -3,6 +3,10 @@ import { fetchPosts } from '~/logic'
 
 const { data: postGroups } = await fetchPosts()
 const yearKeys = Object.keys(unref(postGroups)).reverse()
+
+definePageMeta({
+  title: 'Blog',
+})
 </script>
 
 <template>

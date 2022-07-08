@@ -30,13 +30,13 @@ a:not(.unstyled):not(.header-anchor) {
 
   &:hover, &.active {
     transform: translateY(-1px);
-    text-shadow: #38ef7d 0px 0px 10px;
+    animation: text-glow 1s alternate infinite;
     &:after, &:before {
       opacity: 1;
       width: 50%;
     }
   }
-  &.router-link-exact-active {
+  &.router-link-active {
     font-weight: bold;
     background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#38ef7d, 1));
     -webkit-background-clip: text;
@@ -47,14 +47,12 @@ a:not(.unstyled):not(.header-anchor) {
   }
 }
 
-@keyframes effect {
+@keyframes text-glow {
   0% {
-  }
-  50% {
+    filter: drop-shadow(0px 0px 4px rgba(56,239,125, .5));
   }
   100% {
-    transform: rotate(-0.35deg);
-    background-position: 672px;
+    filter: drop-shadow(0px 1px 6px rgba(56,239,125, .75));
   }
 }
 
