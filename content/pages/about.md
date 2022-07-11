@@ -7,18 +7,8 @@ head:
   - name: description
     content: "My name's Harlan Wilton. I am a full stack developer living and working out of Sydney, Australia."
 ---
-<script setup>
-import { useData } from 'vitepress'
-const { page } = useData()
 
-useSchemaOrg([
- defineWebPagePartial({
-  '@type': 'AboutPage',
- })
-])
-</script>
-
-# {{ page.title }}
+# About
 
 Hey! My name is Harlan Wilton. Thank you for checking out my site 😊
 

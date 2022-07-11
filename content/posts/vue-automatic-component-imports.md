@@ -1,40 +1,47 @@
 ---
 title: "Building a Vue Auto Component Importer - A Better Dev Experience"
 description: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
+published: '2020-12-22'
+excerpt: "Having component folders auto-magically imported into your app is the latest craze. How does it work and is it good?"
+status: 'published'
+readMins: 10
+tags: 
+ - webpack
+ - vue
 head:
-- - meta
-  - name: description
-    content: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
-- - meta
-  - property: "og:type"
-    content: "website"
-- - meta
-  - property: "og:url"
-    content: "https://harlanzw.com/blog/vue-automatic-component-imports/"
-- - meta
-  - property: "og:title"
-    content: "Building a Vue Auto Component Importer - A Better Dev Experience"
-- - meta
-  - property: "og:description"
-    content: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
-- - meta
-  - property: "og:image"
-    content: "https://harlanzw.com/social/vue-automatic-component-imports.png"
-- - meta
-  - property: "twitter:card"
-    content: "summary_large_image"
-- - meta
-  - property: "twitter:url"
-    content: "https://harlanzw.com/blog/vue-automatic-component-imports/"
-- - meta
-  - property: "twitter:title"
-    content: "Building a Vue Auto Component Importer - A Better Dev Experience"
-- - meta
-  - property: "twitter:description"
-    content: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
-- - meta
-  - property: "twitter:image"
-    content: "https://harlanzw.com/social/vue-automatic-component-imports.png"
+ - - meta
+   - name: description
+     content: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
+ - - meta
+   - property: "og:type"
+     content: "website"
+ - - meta
+   - property: "og:url"
+     content: "https://harlanzw.com/blog/vue-automatic-component-imports/"
+ - - meta
+   - property: "og:title"
+     content: "Building a Vue Auto Component Importer - A Better Dev Experience"
+ - - meta
+   - property: "og:description"
+     content: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
+ - - meta
+   - property: "og:image"
+     content: "https://harlanzw.com/social/vue-automatic-component-imports.png"
+ - - meta
+   - property: "twitter:card"
+     content: "summary_large_image"
+ - - meta
+   - property: "twitter:url"
+     content: "https://harlanzw.com/blog/vue-automatic-component-imports/"
+ - - meta
+   - property: "twitter:title"
+     content: "Building a Vue Auto Component Importer - A Better Dev Experience"
+ - - meta
+   - property: "twitter:description"
+     content: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
+ - - meta
+   - property: "twitter:image"
+     content: "https://harlanzw.com/social/vue-automatic-component-imports.png"
 ---
 
 <SchemaOrgArticle date-published="2020-12-22" />

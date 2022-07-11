@@ -1,6 +1,11 @@
 ---
 title: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
 description: "Going into detail of what goes into making a modern open-source package."
+published: "2022-06-12"
+readMins: 5
+tags:
+  - webpack
+  - vue
 head:
 - - meta
   - name: description
@@ -36,8 +41,6 @@ head:
   - property: "twitter:image"
     content: "https://next.unlighthouse.dev/og.png"
 ---
-
-<SchemaOrgArticle date-published="2022-02-28" />
 
 ## Introduction
 

@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     '~/modules/icons',
     '@nuxt/content',
   ],
+  css: [
+    '@/resources/main.scss',
+  ],
   // https://color-mode.nuxtjs.org
   colorMode: {
     classSuffix: '',

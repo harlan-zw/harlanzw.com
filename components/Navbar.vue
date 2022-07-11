@@ -1,31 +1,66 @@
-<script lang="ts" setup>
-const contentQuery = queryContent('pages')
-</script>
-
 <template>
-  <div class="flex justify-between max-w-2xl px-4 py-4 mx-auto sm:px-8">
-    <!-- Navigation -->
-    <div class="text-gray-700 dark:text-gray-200">
-      <ContentNavigation v-slot="{ navigation }" :query="contentQuery">
-        <NuxtLink
-          v-for="link of navigation[0].children"
-          :key="link._path"
-          :to="link._path.replace('pages', '')"
-          active-class="font-bold"
-          class="mr-4"
-        >
-          {{ link.navTitle || link.title }}
-        </NuxtLink>
-      </ContentNavigation>
+<div class="flex justify-between items-center max-w-8xl mx-auto px-4 py-4 mx-auto sm:px-8">
+  <!-- Logo -->
+  <nuxt-link to="/" class="flex items-center group unstyled">
+    <img src="https://avatars.githubusercontent.com/u/5326365?v=4" class="rounded-lg h-10 w-10 mr-5 group-hover:(h-12 w-12) transition-all" />
+    <div class="text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
+      <span class="block text-green-700 font-bold text-3xl logo">hw</span>
+      <span class="block text-green-700 font-bold text-3xl logo">hw</span>
     </div>
+  </nuxt-link>
+  <div class="flex">
+    <!-- Navigation -->
+    <nav class="space-x-7 mr-15 opacity-75">
+      <NuxtLink to="/blog">Blog</NuxtLink>
+      <NuxtLink to="/projects">Projects</NuxtLink>
+      <NuxtLink to="/sponsors">Sponsors</NuxtLink>
+    </nav>
+    <button class="mr-15 bg-sky-200 hover:(bg-sky-700 text-white) transition-all text-sm px-2 rounded-lg text-sky-900">
+      Work with me
+    </button>
     <!-- Social icons & Color Mode -->
-    <div class="space-x-3 text-gray-500 transition">
-      <a href="https://twitter.com/Atinux" title="Twitter" class="hover:text-gray-700 dark:hover:text-gray-300"><i-line-md-twitter class="w-8 h-8" /></a>
-      <a href="https://github.com/Atinux/content-wind" title="GitHub" class="hover:text-gray-700 dark:hover:text-gray-300 group">
+    <div class="space-x-5 text-gray-500 transition flex items-center">
+      <a target="_blank" href="https://twitter.com/harlan_zw" title="Twitter" class="hover:text-gray-700 dark:hover:text-gray-300">
+        <i-line-md-twitter class="w-8 h-8" />
+      </a>
+      <a target="_blank" href="https://github.com/harlan-zw" title="GitHub" class="hover:text-gray-700 dark:hover:text-gray-300 group">
         <i-line-md-github class="w-8 h-8 group-hover:hidden inline-block" />
         <i-line-md-github-loop class="w-8 h-8 hidden group-hover:inline-block" />
+      </a>
+      <a target="_blank" href="https://discord.com/invite/5jDAMswWwX" title="GitHub" class="hover:text-gray-700 dark:hover:text-gray-300 group">
+        <i-line-md-discord class="w-8 h-8" />
       </a>
       <ColorModeSwitch class="hover:text-gray-700 dark:hover:text-gray-300" />
     </div>
   </div>
+</div>
 </template>
+
+<style lang="scss">
+.group:hover {
+  .logo {
+    background: linear-gradient(90deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(0px) translateY(0px) skewX(0deg);
+    letter-spacing: 5px;
+  }
+  .logo:nth-of-type(2) {
+    transform: translateX(0px) translateY(0px) skewX(0deg);
+  }
+}
+.logo {
+  transform: skewX(-10deg);
+  font-weight: 400;
+  transition: 0.2s;
+  background: linear-gradient(90deg, rgba(#11998e, 0.3), rgba(#38ef7d, 0.3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logo:nth-of-type(2) {
+  background: linear-gradient(90deg, #38ef7d, #11998e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(-3px) translateY(-17px) skewX(-10deg);
+}
+</style>
