@@ -16,9 +16,14 @@ const onClick = () => (colorMode.value === 'light' ? (colorMode.preference = 'da
 
 <template>
   <button aria-label="Color Mode" class="inline-block" @click="onClick">
-    <ColorScheme placeholder="" class="w-8 h-8">
-      <i-heroicons-outline-moon v-if="colorMode.value === 'dark'" class="w-8 h-8" />
-      <i-heroicons-outline-sun v-else class="w-8 h-8" />
+    <ColorScheme placeholder="test" class="w-8 h-8">
+      <div v-if="colorMode.value === 'dark'">
+        <i-line-md-moon class="w-8 h-8 inline-block" />
+      </div>
+      <div v-else class="group">
+        <i-line-md-sunny-outline class="w-8 h-8 group-hover:hidden inline-block" />
+        <i-line-md-sunny-outline-loop class="w-8 h-8 hidden group-hover:inline-block" />
+      </div>
     </ColorScheme>
   </button>
 </template>

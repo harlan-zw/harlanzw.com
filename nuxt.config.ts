@@ -18,6 +18,9 @@ export default defineNuxtConfig({
   css: [
     '@/resources/main.scss',
   ],
+  css: [
+    '@/resources/main.scss',
+  ],
   // https://color-mode.nuxtjs.org
   colorMode: {
     classSuffix: '',

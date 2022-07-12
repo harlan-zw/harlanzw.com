@@ -3,20 +3,19 @@ navTitle: 'Home'
 ---
 
 
-# Harlan Wilton :i-line-md-coffee-loop{class="ml-2 glowy-text"}
+# Harlan Wilton :i-line-md-coffee-loop{class="ml-2 text-emerald-400"}
 
-Hey, welcome to my site! I'm a full-stack web developer from :i-heroicons-outline-location-marker{class="opacity-75"} _Sydney, Australia_. 
+Hey there! I'm a full-stack web developer from :i-heroicons-outline-location-marker{class="opacity-75"} _Sydney, Australia_. 
 
-I'm passionate about building delightful [open-source](https://github.com/harlan-zw) projects, in the Vue ecosystem and beyond.
-
-When not working on open-source, I help companies scale their [Nuxt.js](/work-with-me) and [Laravel](/work-with-me) projects.
-
-My interests, outside of coding, are [books](https://www.goodreads.com/user/show/122898515-harlan-wilton), [music](https://open.spotify.com/user/22ryw6esbmedc7fxo75rfw7ia?si=8505d295412e45c2), coffee, craft beer and health.
+I'm passionate about building delightful [open source](https://github.com/harlan-zw) projects. I support myself financially as a [freelancer](/work-with-me). 
 
 <figure class="text-center">
-<img src="https://avatars.githubusercontent.com/u/5326365?v=4" class="rounded-lg h-60 w-60 mx-auto" />
+<img src="https://avatars.githubusercontent.com/u/5326365?v=4" class="rounded-lg h-50 w-50 mx-auto" />
  <figcaption>Me when I'm not behind a computer</figcaption>
 </figure>
+
+I'm an avid consumer of [books](https://www.goodreads.com/user/show/122898515-harlan-wilton), [music](https://open.spotify.com/user/22ryw6esbmedc7fxo75rfw7ia?si=8505d295412e45c2), coffee and craft beer.
+
 
 ## Open Source
 
@@ -25,7 +24,7 @@ Creating delightful open-source packages is what I'm passionate about.
 I work with <a href="https://nuxtjs.org" target="_blank" class="flex items-center"> :i-logos-nuxt-icon Nuxt.js</a> and :i-logos-laravel Laravel.
 
 Occasionally I write articles, check my latest here:
-<LinkCard>Unlighthouse</LinkCard>
+<ArticleCard>Unlighthouse</ArticleCard>
 
 ## Freelancing
 
