@@ -5,8 +5,18 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
     'nuxt-windicss',
-    '~/modules/icons',
+    // content modules need to come first
+    '~/modules/unplugin-icons',
+    '~/modules/content-utils',
     '@nuxt/content',
+    'nuxt-schema-org',
+  ],
+  schemaOrg: {
+    // set to your production domain
+    canonicalHost: 'https://harlanzw.com',
+  },
+  css: [
+    '@/resources/main.scss',
   ],
   // https://color-mode.nuxtjs.org
   colorMode: {

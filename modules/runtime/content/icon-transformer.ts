@@ -6,7 +6,7 @@ export const collections = ['mdi', 'mdi-light', 'ic', 'ph', 'icon-park-outline',
 
 export default {
   name: 'icon-transformer',
-  extentions: ['.*'],
+  extentions: ['.md'],
   async transform(content) {
     const tags: string[] = []
     const map: Record<string, any> = {}

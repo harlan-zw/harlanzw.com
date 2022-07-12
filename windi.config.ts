@@ -1,9 +1,13 @@
 import { defineConfig } from 'windicss/helpers'
+import typography from 'windicss/plugin/typography'
 
 export default defineConfig({
   plugins: [
     require('windicss/plugin/forms'),
-    require('windicss/plugin/typography'),
+    typography({
+      // Turns text color to light, when dark mode enabled. Default = false
+      dark: true,
+    }),
   ],
   theme: {
     extend: {
@@ -23,33 +27,31 @@ export default defineConfig({
       typography: theme => ({
         DEFAULT: {
           css: {
+            lineHeight: 1.3,
             a: {
               textDecoration: 'none',
             },
             h1: {
-              color: 'rgb(55, 70, 60)',
+              color: theme('colors.gray.800'),
               fontWeight: '600',
               fontFamily: theme('fontFamily.header'),
               lineHeight: 1.3,
             },
             h2: {
-              color: 'rgb(55, 70, 60)',
+              color: theme('colors.gray.800'),
               fontFamily: theme('fontFamily.header'),
             },
             h3: {
-              color: 'rgb(55, 70, 60)',
+              color: theme('colors.gray.800'),
               fontFamily: theme('fontFamily.header'),
             },
             h4: {
-              color: 'rgb(55, 70, 60)',
+              color: theme('colors.gray.800'),
               fontWeight: '600',
               fontSize: '1.5rem',
               lineHeight: '2rem',
               fontFamily: theme('fontFamily.header'),
               textDecoration: 'underline',
-            },
-            a: {
-              textDecoration: 'initial',
             },
             blockquote: {
               fontWeight: '400',
