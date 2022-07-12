@@ -5,6 +5,6 @@ definePageMeta({
 </script>
 <template>
 <div>
-  <ContentDoc path="pages/about" class="animate-enter prose prose-lg prose-gray dark:prose-white max-w-none" />
+  <ContentDoc path="pages/home" class="animate-enter prose prose-lg prose-gray dark:prose-white max-w-none" />
 </div>
 </template>
