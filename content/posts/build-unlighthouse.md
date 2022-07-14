@@ -2,7 +2,6 @@
 title: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
 description: "Going into detail of what goes into making a modern open-source package."
 publishedAt: "2022-06-12"
-readingMins: 5
 tags:
   - webpack
   - vue
@@ -46,7 +45,11 @@ head:
 
 [Unlighthouse](https://github.com/harlan-zw/unlighthouse) is an open-source package to scan your entire site using Google Lighthouse. Featuring a modern UI, minimal config and smart sampling.
 
-## The Journey To An Idea
+It's a package I worked for a number of months on, and I'm proud of it.
+
+I learnt a lot while building it, and I'm excited to share my findings in this article.
+
+## The Need For Unlighthouse
 
 As a freelancer I  keep on top of my clients organic growth with Google Search Console.
 
@@ -54,9 +57,10 @@ Was a day like any other, looking at one of my clients' dashboard. Seemingly out
 
 ![Trending down Google Search Console](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n4ajn7qv5iir7kmido0p.png)
 
-Isolating the reason for the falling page rank wasn't easy. The site had issues, but what was causing the free fall. There was no way to know.
+Isolating the reason for the falling page rank wasn't easy. The site had issues, but what was causing the free fall? There was no easy way to know.
 
-To diagnose the issue, I used Google Lighthouse. I went through all pages of the site, fixing all reported issues.
+To diagnose the issue, I used Google Lighthouse. I went through all pages of the site, noticing quite a number of issues. I spent a couple of days
+fixing them all up and improving the general performance of the site.
 
 What happened next? Things started turning around. I was able to invert the graph. Organic growth doubled in the next few months. Happy client.
 

@@ -1,15 +1,15 @@
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { ContentTransformer } from '@nuxt/content/dist/runtime/types'
+import type { Post } from '~/logic'
 
-export default {
+export default <ContentTransformer> {
   name: 'meta-normaliser',
-  extentions: ['.*'],
-  async transform(content: ParsedContent) {
-    if (content.publishedAt)
-      content.publishedAt = new Date(content.publishedAt)
+  extentions: ['.md'],
+  async transform(content: Post) {
+    // if no published at / modified at is set we can infer from the storage meta
     if (!content.publishedAt)
-      content.publishedAt = new Date()
-    if (content.updatedAt)
-      content.updatedAt = new Date(content.updatedAt)
+      content.publishedAt = content.storageMeta.atime
+    if (!content.modifiedAt)
+      content.modifiedAt = content.storageMeta.mtime
     return content
   },
 }

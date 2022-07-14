@@ -2,6 +2,10 @@
 definePageMeta({
   title: 'Home',
 })
+
+useHead({
+  title: 'Harlan Wilton - Nuxt Freelance Developer',
+})
 </script>
 <template>
 <div>

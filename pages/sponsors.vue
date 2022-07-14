@@ -2,6 +2,10 @@
 definePageMeta({
   title: 'Sponsors',
 })
+
+useHead({
+  title: 'Sponsors - Harlan Wilton',
+})
 </script>
 <template>
 <div>

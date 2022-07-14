@@ -4,7 +4,6 @@ description: "I used Vite to build a new blazing fast blog ⚡, find out what I 
 publishedAt: '2020-12-01'
 excerpt: 'I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing.'
 status: published
-readingMins: 10
 tags: 
   - webpack
   - vue
@@ -43,8 +42,6 @@ head:
     - property: "twitter:image"
       content: "https://harlanzw.com/social/how-vite-works.png"    
 ---
-
-<SchemaOrgArticle date-published="2020-12-01" />
 
 In rebuilding my old Nuxt.js personal site, I wanted to challenge myself to learn the latest tech, the unknown.
 

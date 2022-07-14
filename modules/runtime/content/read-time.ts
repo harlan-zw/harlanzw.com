@@ -1,25 +1,53 @@
 import { visit } from 'unist-util-visit'
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { ContentTransformer, MarkdownNode } from '@nuxt/content/dist/runtime/types'
+import type { Post } from '~/logic'
 
 function calculateReadingMins(text: string) {
-  const wordsPerMinute = 170
+  const wordsPerMinute = 220
   const words = text.trim().split(' ').length
   return Math.ceil(words / wordsPerMinute)
 }
 
-export default {
+const TEXT_NODES = [
+  'p',
+  'a',
+  'blockquote',
+  'code-inline',
+  'code',
+  'em',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'hr',
+  'ul',
+  'ol',
+  'li',
+  'strong',
+  'table',
+  'thead',
+  'tbody',
+  'td',
+  'th',
+  'tr',
+]
+
+export default <ContentTransformer> {
   name: 'read-time',
   extentions: ['.md'],
-  async transform(content: ParsedContent) {
+  async transform(content: Post) {
     const textNodes: string[] = []
     visit(
       content.body,
-      (node: any) => {
-        return node?.tag === 'p'
+      (node: MarkdownNode) => {
+        return node?.tag && TEXT_NODES.includes(node?.tag)
       },
-      (node) => {
+      (node: MarkdownNode) => {
         textNodes.push(
-          ...node.children
+          // check the node itself and children for text nodes
+          ...[...node.children, node]
             .filter(n => n.type === 'text')
             .map(n => n.value.trim()),
         )

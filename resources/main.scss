@@ -30,7 +30,7 @@ a:not(.unstyled):not(.header-anchor) {
 
   &:hover, &.active {
     transform: translateY(-1px);
-    animation: text-glow 1s alternate infinite;
+    animation: text-glow 1.5s alternate infinite ease-in-out;
     &:after, &:before {
       opacity: 1;
       width: 50%;
@@ -38,21 +38,47 @@ a:not(.unstyled):not(.header-anchor) {
   }
   &.router-link-active {
     font-weight: bold;
-    background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#38ef7d, 1));
+    background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#23e75e, 1));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     &:after, &:before {
       opacity: 0;
     }
   }
 }
 
+.prose h2 a {
+  @apply bg-gradient-to-b from-emerald-500 to-teal-600 bg-clip-text;
+  -webkit-text-fill-color: transparent !important;
+
+  &:after, &:before {
+    opacity: 0 !important;
+  }
+}
+
+.dark .prose h2 a {
+  background: linear-gradient(180deg, rgba(#6ee7b7, 1), rgba(#2dd4bf, 0.9)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  &:after, &:before {
+    opacity: 0 !important;
+  }
+}
+
+.prose h3 a {
+  opacity: 0.9;
+
+  &:after, &:before {
+    opacity: 0 !important;
+  }
+}
+
 @keyframes text-glow {
   0% {
-    filter: drop-shadow(0px 0px 4px rgba(56,239,125, .5));
+    filter: drop-shadow(0px 0px 2px rgba(56,239,125, 0.5));
   }
   100% {
-    filter: drop-shadow(0px 1px 6px rgba(56,239,125, .75));
+    filter: drop-shadow(0px 1px 8px rgba(56,239,125, 1));
   }
 }
 

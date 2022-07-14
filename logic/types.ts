@@ -1,9 +1,15 @@
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { ParsedContent as DefaultParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { StorageMeta } from 'unstorage'
+
+export interface ParsedContent extends DefaultParsedContent {
+  storageMeta: StorageMeta
+}
 
 export interface Post extends ParsedContent {
+  readingMins: number
   description: string
-  published: string
-  publishedDate: Date
+  publishedAt: Date
+  modifiedAt: Date
 }
 
 export interface JsonParsedContent<T> extends ParsedContent {

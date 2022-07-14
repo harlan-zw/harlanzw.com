@@ -3,8 +3,6 @@ title: "Building a Vue Auto Component Importer - A Better Dev Experience"
 description: "Components magically being imported into your app is the latest developer experience trend in Vue. Why does it exist and how does it work?"
 publishedAt: '2020-12-22'
 excerpt: "Having component folders auto-magically imported into your app is the latest craze. How does it work and is it good?"
-status: 'published'
-readingMins: 10
 tags: 
  - webpack
  - vue
@@ -43,9 +41,6 @@ head:
    - property: "twitter:image"
      content: "https://harlanzw.com/social/vue-automatic-component-imports.png"
 ---
-
-<SchemaOrgArticle date-published="2020-12-22" />
-
 
 When first learning Vue, you are taught you need to import and add components to `components` in the script block.
 

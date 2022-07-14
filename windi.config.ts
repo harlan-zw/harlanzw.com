@@ -9,6 +9,12 @@ export default defineConfig({
       dark: true,
     }),
   ],
+  shortcuts: {
+    'bg-clip-text': {
+      '-webkit-background-clip': 'text',
+      'background-clip': 'text',
+    },
+  },
   theme: {
     extend: {
       animation: {

@@ -2,6 +2,10 @@
 definePageMeta({
   title: 'Blog',
 })
+
+useHead({
+  title: 'Blog - Harlan Wilton',
+})
 </script>
 
 <template>

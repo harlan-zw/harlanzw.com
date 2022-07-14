@@ -16,8 +16,8 @@
         <NuxtLink to="/projects">Projects</NuxtLink>
         <NuxtLink to="/sponsors">Sponsors</NuxtLink>
       </nav>
-      <NuxtLink href="/work-with-me" class="mr-15 h-7 dark:(text-blue-200 from-blue-700 to-sky-900  bg-gradient-to-b) border-2 font-semibold text-xs border-blue-600/70 text-blue-600/70 hover:(bg-sky-700 text-white) transition-all text-sm px-2 py-1 rounded-lg">
-        Need Help? Hire me
+      <NuxtLink href="/sydney-nuxt-freelance-developer" class="mr-15 h-7 dark:(text-blue-200 from-blue-700 to-sky-900  bg-gradient-to-b) border-2 font-semibold text-xs border-blue-600/70 text-blue-600/70 hover:(bg-sky-700 text-white) transition-all text-sm px-2 py-1 rounded-lg">
+        Need Nuxt Help? Hire me
       </NuxtLink>
       <!-- Social icons & Color Mode -->
       <div class="space-x-5 text-gray-500 transition flex items-center">

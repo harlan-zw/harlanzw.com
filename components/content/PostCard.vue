@@ -17,7 +17,7 @@ const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 <template>
   <nuxt-link :to="`/blog/${post._path.replace('/posts/', '')}`" class="block max-w-full transition-all group">
     <div class="flex items-center">
-      <div class="opacity-70 group-hover:(opacity-100) transition-all absolute top-3 -left-20">
+      <div class="opacity-70 group-hover:(opacity-90) transition-all absolute top-3 -left-20">
         <div class="text-lg">
           {{ month }}
         </div>
