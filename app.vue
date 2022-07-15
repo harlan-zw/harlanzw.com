@@ -1,8 +1,3 @@
-<script lang="ts" setup>
-useHead({
-  title: 'Harlan Wilton',
-})
-</script>
 <template>
 <!-- App Meta -->
 <Html lang="en" />

@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { fetchPost } from '~/logic'
-
-const { data: post } = await fetchPost(`posts/${useRoute().params.slug}`)
+const { data: post } = await usePost(`posts/${useRoute().params.slug}`)
 
 useHead({
   title: `${post.value.title} - Harlan Wilton`,

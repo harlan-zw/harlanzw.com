@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { fetchProjects } from '~/logic'
-
-const { data: categories } = await fetchProjects()
+const { data: categories } = await useProjects()
 </script>
 <template>
 <div class="space-y-10">

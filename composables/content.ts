@@ -1,13 +1,13 @@
 import { useAsyncData } from '#app'
-import { groupBy } from '~/logic'
+import { groupBy } from '~/app/util'
 import { queryContent } from '#imports'
-import type { JsonParsedContent, Post, ProjectCategory } from '~/logic/types'
+import type { JsonParsedContent, Post, ProjectCategory } from '~/types'
 
-export const fetchProjects = () => {
+export const useProjects = () => {
   return useAsyncData('projects', () => queryContent<JsonParsedContent<ProjectCategory>>('projects').findOne())
 }
 
-export const fetchPosts = () => {
+export const usePosts = () => {
   return useAsyncData('posts', () => queryContent<Post>('posts')
     .without(['head', 'body', 'excerpt'])
     .sort({
@@ -26,7 +26,7 @@ export const fetchPosts = () => {
   })
 }
 
-export const fetchPost = async (slug: string) => {
+export const usePost = async (slug: string) => {
   return useAsyncData(`post-${slug}`, () => queryContent<Post>(slug)
     .without(['excerpt'])
     .sort({

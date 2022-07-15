@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 import type { ContentTransformer, MarkdownNode } from '@nuxt/content/dist/runtime/types'
-import type { Post } from '~/logic'
+import type { Post } from '~/types'
 
 function calculateReadingMins(text: string) {
   const wordsPerMinute = 220

@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { fetchPosts } from '~/logic'
-
-const { data: postGroups } = await fetchPosts()
+const { data: postGroups } = await usePosts()
 const yearKeys = Object.keys(unref(postGroups)).reverse()
 </script>
 

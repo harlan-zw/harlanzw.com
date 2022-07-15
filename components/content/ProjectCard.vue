@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import type { Project } from '~/logic'
+import type { Project } from '~/types'
 
 const props = defineProps({
   project: Object as PropType<Project>,

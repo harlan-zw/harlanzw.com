@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useBreadcrumbs } from '~/logic'
-
 const breadcrumbs = useBreadcrumbs()
 </script>
 
