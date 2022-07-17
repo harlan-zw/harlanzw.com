@@ -1,9 +1,11 @@
 <template>
 <!-- App Meta -->
-<Html lang="en" />
+<Html lang="en-AU" />
 <Meta property="og:image" content="/cover.jpg" />
 <Meta name="twitter:card" content="summary_large_image" />
-<Link rel="icon" href="https://avatars.githubusercontent.com/u/5326365?v=4" sizes="any" type="image/jpeg" />
+<Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <SchemaOrgPerson
   name="Harlan Wilton"
   image="/harlan-wilton.jpeg"
@@ -15,16 +17,17 @@
 <SchemaOrgWebSite name="Harlan Wilton" />
 <SchemaOrgWebPage />
 <!-- App template -->
-<div class="text-gray-800 dark:text-gray-100">
+<div class="text-gray-800 dark:text-gray-100 antialiased ">
   <Navbar />
-  <main class="max-w-3xl mx-auto px-8 py-7 pb-10 sm:pb-16 md:pb-20">
-    <Breadcrumbs class="mb-3" />
+  <main class="md:max-w-700px mx-auto px-8 lg:px-0 py-7 pb-10 sm:pb-16 md:pb-20 max-w-full">
+<!--    <div class="mb-3">-->
+<!--      <Breadcrumbs />-->
+<!--    </div>-->
     <NuxtPage class="animate-enter" />
   </main>
   <footer class="px-5 sm:px-7 md:px-10 text-center text-gray-400 text-sm my-5">
-    <div class="mb-3 space-x-5">
-      <NuxtLink to="/credits" class="unstyled underline">Credits</NuxtLink>
-      <NuxtLink to="/credits" class="unstyled underline">Clone this site</NuxtLink>
+    <div class="flex justify-center mb-3">
+      <SocialIcons />
     </div>
     <p class="mb-3">
       © 2022-PRESENT Harlan Wilton. All rights reserved.

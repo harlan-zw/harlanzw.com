@@ -100,9 +100,9 @@ Don't worry if the below terms don't make sense to you, we'll be exploring them 
 - Dev Server: Native-ES-Modules, served via Vite using a [Koa](https://github.com/koajs/koa) web server
 - Production build: [Rollup](https://github.com/rollup/rollup)
 
-::: tip TIP
+::tip TIP
 Check out Mozilla's <a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank">article</a> on ES Modules if their new to you.
-:::
+::
 
 ## Understanding webpack
 
@@ -123,10 +123,7 @@ Assuming you're using one of the main Vue frameworks, when you start your app in
 
 As you may notice with your own apps, the bigger they grow, the longer you have to wait to start coding.
 
-<figure>
-  <img src="../../resources/nuxt-start.png">
-  <figcaption>The Nuxt logo is almost burnt into my monitor at this point.</figcaption>
-</figure>
+![The Nuxt logo is almost burnt into my monitor at this point.](/resources/nuxt-start.png){height="600"}
 
 Bundling in development is quicker because you don't need to do as much with the code, however, 
 as your app grows, it will become painfully slow, especially on older machines. 
@@ -138,7 +135,7 @@ Let's see how this component gets to my browser.
 
 HelloWorld.vue component:
 
-```vue
+```vue [HelloWorld.vue]
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -283,16 +280,13 @@ const theme = {
 export default theme;
 ```
 
-::: tip TIP
-Normally, in webpack, you would have to transpile this code to something legacy browsers can understand. Newer browsers know
-what to do with it: https://caniuse.com/es6-module-dynamic-import.
-:::
+::tip
+Normally, in webpack, you would have to transpile this code to something legacy browsers can understand. Newer browsers know what to do with it, see [es6 module dynamic import](https://caniuse.com/es6-module-dynamic-import).
+::
 
 Let's drill into that highlighted line which is requesting the CardPost SFC. The browser will turn that import into a request for `http://localhost:3000/@theme/components/CardPost.vue`.
 
-This is the `CardPost.vue` component in my code.
-
-```vue
+```vue [CardPost.vue]
 <template>
 <div class="card-post">
   ...
@@ -329,7 +323,7 @@ optimisations around the Vue compiling so this takes no time.
  
 Let's see what comes through:
 
-```js
+```js [CardPost.vue - Transpiled]
 import posts from '/.vitepress/posts.ts'
 
 const __script = {
@@ -368,7 +362,7 @@ will need separate requests to fetch. It hasn't bundled these imports into the S
 
 If you're curious, this is what the style component response looks like, some nifty for sure.
 
-```js
+```js  [CardPost.vue - CSS]
 import {updateStyle} from "/vite/client"
 const css = ".card-post[data-v-287b4794] {\n  position: relative;\n}\n.card-post .prose[data-v-287b4794] {\n  max-width: 100% !important;\n}\n.card-post__link[data-v-287b4794] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  content: \" \";\n  z-index: 1;\n}\n.card-post__content[data-v-287b4794] {\n  background-color: white;\n  z-index: 1;\n}\n.card-post__effect[data-v-287b4794] {\n  z-index: -1;\n  content: \" \";\n  height: 30px;\n  width: 100%;\n  position: absolute;\n  background-color: #059669;\n  transition: 0.2s;\n  opacity: 0;\n  top: 30px;\n}\n.card-post:hover .card-post__effect[data-v-287b4794] {\n  top: -5px;\n  opacity: 1;\n  transform: rotate(0.25deg);\n}"
 updateStyle("287b4794-0", css)
@@ -410,7 +404,7 @@ If you want to find out more about Vite, I'd watch Evan's talk on [Vite & VitePr
 
 I'd recommend just spinning up bare-bones Vite to get a feel for it. It's really easy, takes less than a minute.
 
-```shell script
+```shell [bash]
 npm init vite-app
 ```
 
@@ -418,7 +412,7 @@ Once you are sold, it's worth checking out [the ecosystem](https://github.com/vi
 
 ### Recommendations
 
-::: warning TIP
+:::warning TIP
 You shouldn't be looking to replace Vue CLI or webpack with Vite for existing projects yet, but it may be worthwhile to check out for new smaller scoped projects.
 :::
 

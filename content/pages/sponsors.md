@@ -1,8 +1,7 @@
 ---
-title: "Test"
-head.title: "Harlan Wilton - Nuxt Freelance Developer"
+title: "Sponsors"
 ---
-# Sponsors
+# Sponsors :i-line-md-heart
 
 Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source.
 

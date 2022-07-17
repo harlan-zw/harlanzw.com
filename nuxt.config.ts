@@ -1,19 +1,21 @@
 import { defineNuxtConfig } from 'nuxt'
+import { SiteLanguage, SiteUrl } from './logic'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
+    '@nuxt/image-edge',
+    'nuxt-schema-org',
     'nuxt-windicss',
-    // content modules need to come first
+    // custom content modules, need to come before the content module
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
     '@nuxt/content',
-    'nuxt-schema-org',
   ],
   schemaOrg: {
-    // set to your production domain
-    canonicalHost: 'https://harlanzw.com',
+    canonicalHost: SiteUrl,
+    defaultLanguage: SiteLanguage,
   },
   css: [
     '@/resources/main.scss',

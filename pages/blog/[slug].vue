@@ -1,19 +1,17 @@
 <script lang="ts" setup>
 const { data: post } = await usePost(`posts/${useRoute().params.slug}`)
 
-useHead({
-  title: `${post.value.title} - Harlan Wilton`,
-})
+addHead(post)
 </script>
 
 <template>
 <div>
   <SchemaOrgArticle :date-published="post.publishedAt" :data-modified="post.modifiedAt" />
-  <div v-if="post" class="max-w-2xl prose prose-gray dark:prose-invert">
-    <h1>{{ post.title }}</h1>
-    <div class="flex items-center space-x-7 text-lg mb-10">
-      <div class="opacity-580">
-        {{  post.readingMins }} minute read
+  <Prose>
+    <h1 class="!text-3xl !leading-11 !md:(text-5xl leading-16)">{{ post.title }}</h1>
+    <div class="sm:(flex space-x-7 mb-10 text-lg) mb-5 items-center">
+      <div class="opacity-80 mb-5 sm:mb-0">
+        {{ post.readingMins }} minute read
       </div>
       <TagList :tags="post.tags" />
     </div>
@@ -26,6 +24,6 @@ useHead({
       </h1>
       </template>
     </ContentRenderer>
-  </div>
+  </Prose>
 </div>
 </template>

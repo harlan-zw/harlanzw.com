@@ -33,6 +33,7 @@ export default defineConfig({
       typography: theme => ({
         DEFAULT: {
           css: {
+            maxWidth: '100%',
             lineHeight: 1.3,
             a: {
               textDecoration: 'none',

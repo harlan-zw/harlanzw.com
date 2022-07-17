@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import type { Post } from '~/types'
-import { dayNth } from '~/app/util'
+import { dayNth } from '~/logic'
 
 const props = defineProps({
   post: Object as PropType<Post>,
@@ -9,7 +9,6 @@ const props = defineProps({
 
 const formatPublishedDate = (options: any) => new Intl.DateTimeFormat('en', options).format(new Date(props.post.publishedAt))
 
-const year = formatPublishedDate({ year: 'numeric' })
 const month = formatPublishedDate({ month: 'short' })
 const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 </script>

@@ -3,6 +3,7 @@ import type { StorageMeta } from 'unstorage'
 
 export interface ParsedContent extends DefaultParsedContent {
   storageMeta: StorageMeta
+  prose?: boolean
 }
 
 export interface Post extends ParsedContent {

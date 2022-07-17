@@ -15,15 +15,16 @@ const onClick = () => (colorMode.value === 'light' ? (colorMode.preference = 'da
 </script>
 
 <template>
-  <button aria-label="Color Mode" class="inline-block" @click="onClick">
-    <ColorScheme placeholder="test" class="w-8 h-8">
-      <div v-if="colorMode.value === 'dark'">
-        <i-line-md-moon class="w-8 h-8 inline-block" />
-      </div>
-      <div v-else class="group">
-        <i-line-md-sunny-outline class="w-8 h-8 group-hover:hidden inline-block" />
-        <i-line-md-sunny-outline-loop class="w-8 h-8 hidden group-hover:inline-block" />
-      </div>
+  <button aria-label="Color Mode"  :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`" class="link inline-block group icon hover:text-gray-700 dark:hover:text-gray-300 group" @click.prevent="onClick">
+    <ColorScheme placeholder="">
+      <template v-if="colorMode.value === 'dark'">
+        <i-line-md-moon class="icon icon--off" />
+        <i-line-md-moon-twotone class="icon icon--on" />
+      </template>
+      <template v-else>
+        <i-line-md-sunny-outline class="icon icon--off" />
+        <i-line-md-sunny-outline-loop class="icon icon--on" />
+      </template>
     </ColorScheme>
   </button>
 </template>

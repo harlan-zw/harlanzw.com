@@ -28,7 +28,6 @@ const getBreadcrumbs = (input: string) => {
 
 export function useBreadcrumbs() {
   const route = useRoute()
-  const routes = useRouter().getRoutes()
 
   const breadcrumbs = ref([])
   watch(route, () => {
@@ -37,10 +36,16 @@ export function useBreadcrumbs() {
     breadcrumbs.value = links
       .reverse()
       .map((path) => {
+        if (path === '/') {
+          return {
+            name: 'Home',
+            item: '/',
+          }
+        }
         const route = routes.find(p => p.path === path)
         return {
-          name: route.meta.title,
-          item: route.path,
+          name: 'test', // route.meta.title,
+          item: path,
         }
       })
   })
