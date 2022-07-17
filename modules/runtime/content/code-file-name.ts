@@ -31,7 +31,6 @@ export default <ContentTransformer> {
             ],
           },
         ])
-        console.log(node.children)
       },
     )
     return content

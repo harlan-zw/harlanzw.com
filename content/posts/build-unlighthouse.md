@@ -146,7 +146,7 @@ const engineContext = createContext<UnlighthouseContext>()
 
 export const useUnlighthouse = engineContext.use as () => UnlighthouseContext
 
-export const createUnlighthouse = async(userConfig: UserConfig, provider?: Provider) => {
+export const createUnlighthouse = async (userConfig: UserConfig, provider?: Provider) => {
   // ...
   engineContext.set(ctx, true)
 }
@@ -161,54 +161,54 @@ The current JS offerings were a bit lackluster. I wanted something that just wor
 I ended up building unrouted as a way to solve that.
 
 ```ts
- group('/api', () => {
-      group('/reports', () => {
-        post('/rescan', () => {
-          const { worker } = useUnlighthouse()
+group('/api', () => {
+  group('/reports', () => {
+    post('/rescan', () => {
+      const { worker } = useUnlighthouse()
 
-          const reports = [...worker.routeReports.values()]
-          logger.info(`Doing site rescan, clearing ${reports.length} reports.`)
-          worker.routeReports.clear()
-          reports.forEach((route) => {
-            const dir = route.artifactPath
-            if (fs.existsSync(dir))
-              fs.rmSync(dir, { recursive: true })
-          })
-          worker.queueRoutes(reports.map(report => report.route))
-          return true
-        })
-
-        post('/:id/rescan', () => {
-          const report = useReport()
-          const { worker } = useUnlighthouse()
-
-          if (report)
-            worker.requeueReport(report)
-        })
+      const reports = [...worker.routeReports.values()]
+      logger.info(`Doing site rescan, clearing ${reports.length} reports.`)
+      worker.routeReports.clear()
+      reports.forEach((route) => {
+        const dir = route.artifactPath
+        if (fs.existsSync(dir))
+          fs.rmSync(dir, { recursive: true })
       })
-
-      get('__launch', () => {
-        const { file } = useQuery<{ file: string }>()
-        if (!file) {
-          setStatusCode(400)
-          return false
-        }
-        const path = file.replace(resolvedConfig.root, '')
-        const resolved = join(resolvedConfig.root, path)
-        logger.info(`Launching file in editor: \`${path}\``)
-        launch(resolved)
-      })
-
-      get('ws', req => ws.serve(req))
-
-      get('reports', () => {
-        const { worker } = useUnlighthouse()
-
-        return worker.reports().filter(r => r.tasks.inspectHtmlTask === 'completed')
-      })
-
-      get('scan-meta', () => createScanMeta())
+      worker.queueRoutes(reports.map(report => report.route))
+      return true
     })
+
+    post('/:id/rescan', () => {
+      const report = useReport()
+      const { worker } = useUnlighthouse()
+
+      if (report)
+        worker.requeueReport(report)
+    })
+  })
+
+  get('__launch', () => {
+    const { file } = useQuery<{ file: string }>()
+    if (!file) {
+      setStatusCode(400)
+      return false
+    }
+    const path = file.replace(resolvedConfig.root, '')
+    const resolved = join(resolvedConfig.root, path)
+    logger.info(`Launching file in editor: \`${path}\``)
+    launch(resolved)
+  })
+
+  get('ws', req => ws.serve(req))
+
+  get('reports', () => {
+    const { worker } = useUnlighthouse()
+
+    return worker.reports().filter(r => r.tasks.inspectHtmlTask === 'completed')
+  })
+
+  get('scan-meta', () => createScanMeta())
+})
 ```
 
 ### [hookable](https://github.com/unjs/hookable)
@@ -224,9 +224,9 @@ For example, I wanted to make sure that Unlighthouse didn't start for integratio
 I simply set a hook for it to start only when they visit the client.
 
 ```ts
-     hooks.hookOnce('visited-client', () => {
-        ctx.start()
-      })
+hooks.hookOnce('visited-client', () => {
+  ctx.start()
+})
 ```
 
 ### [unconfig](https://github.com/antfu/unconfig)
@@ -236,24 +236,24 @@ Unconfig is a universal solution for loading configurations. This let me allow t
 ```ts
 import { loadConfig } from 'unconfig'
 
-  const configDefinition = await loadConfig<UserConfig>({
-    cwd: userConfig.root,
-    sources: [
-      {
-        files: [
-          'unlighthouse.config',
-          // may provide the config file as an argument
-          ...(userConfig.configFile ? [userConfig.configFile] : []),
-        ],
-        // default extensions
-        extensions: ['ts', 'js'],
-      },
-    ],
-  })
-  if (configDefinition.sources?.[0]) {
-    configFile = configDefinition.sources[0]
-    userConfig = defu(configDefinition.config, userConfig)
-  }
+const configDefinition = await loadConfig<UserConfig>({
+  cwd: userConfig.root,
+  sources: [
+    {
+      files: [
+        'unlighthouse.config',
+        // may provide the config file as an argument
+        ...(userConfig.configFile ? [userConfig.configFile] : []),
+      ],
+      // default extensions
+      extensions: ['ts', 'js'],
+    },
+  ],
+})
+if (configDefinition.sources?.[0]) {
+  configFile = configDefinition.sources[0]
+  userConfig = defu(configDefinition.config, userConfig)
+}
 ```
 
 ### [ufo](https://github.com/unjs/ufo)
@@ -269,7 +269,7 @@ export const trimSlashes = (s: string) => withoutLeadingSlash(withoutTrailingSla
 ```
 
 ```ts
-  const site = new $URL(url).origin
+const site = new $URL(url).origin
 ```
 
 ## Putting It Together - Part 2

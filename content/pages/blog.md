@@ -1,6 +1,7 @@
 ---
 title: "Blog"
 prose: false
+schema.type: CollectionPage
 ---
 
 ::prose{class="mb-15"}

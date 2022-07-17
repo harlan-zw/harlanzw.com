@@ -1,6 +1,6 @@
 import type { ParsedURL } from 'ufo'
-import { hasTrailingSlash, parseURL, stringifyParsedURL, withTrailingSlash } from 'ufo'
-import { ref, useRoute, useRouter, watch } from '#imports'
+import { hasTrailingSlash, joinURL, parseURL, stringifyParsedURL, withTrailingSlash } from 'ufo'
+import { useRoute } from '#imports'
 
 const getBreadcrumbs = (input: string) => {
   const startNode = parseURL(input)
@@ -26,28 +26,26 @@ const getBreadcrumbs = (input: string) => {
   return stepNode(startNode)
 }
 
-export function useBreadcrumbs() {
+export async function useBreadcrumbs() {
   const route = useRoute()
-
-  const breadcrumbs = ref([])
-  watch(route, () => {
-    const links = getBreadcrumbs(route.fullPath)
-    links.shift()
-    breadcrumbs.value = links
-      .reverse()
-      .map((path) => {
-        if (path === '/') {
-          return {
-            name: 'Home',
-            item: '/',
-          }
-        }
-        const route = routes.find(p => p.path === path)
+  const links = getBreadcrumbs(route.fullPath)
+  return await Promise.all(links
+    .reverse()
+    .map(async (path, key) => {
+      let contentSlug = path.startsWith('/blog/') || path.startsWith('/posts/')
+        ? path.replace('/blog', '/posts')
+        : joinURL('/pages', path)
+      if (contentSlug === '/pages')
+        contentSlug = '/pages/home'
+      const { data: page } = await (contentSlug.startsWith('pages') ? usePage(contentSlug) : usePost(contentSlug))
+      if (key === links.length - 1) {
         return {
-          name: 'test', // route.meta.title,
-          item: path,
+          name: page.value?.title,
         }
-      })
-  })
-  return breadcrumbs
+      }
+      return {
+        name: page.value?.title,
+        item: path,
+      }
+    }))
 }

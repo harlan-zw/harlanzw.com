@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-<div class="inline-flex items-center space-x-4">
-  <Tag v-for="tag in tags" :key="tag" :tag="tag" />
-</div>
+  <div class="inline-flex items-center space-x-4">
+    <Tag v-for="tag in tags" :key="tag" :tag="tag" />
+  </div>
 </template>

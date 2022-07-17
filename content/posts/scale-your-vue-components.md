@@ -124,11 +124,11 @@ You should use something which relates to your app, for example, I use `h` as th
 
 ```vue
 <template>
-<p>Please enter your email to subscribe</p>
-<!-- Vuetify components use a V prefix -->
-<v-text-field label="Your Email"></v-text-field>
-<!-- H is the prefix for my apps components -->
-<h-button>Submit</h-button>
+  <p>Please enter your email to subscribe</p>
+  <!-- Vuetify components use a V prefix -->
+  <v-text-field label="Your Email" />
+  <!-- H is the prefix for my apps components -->
+  <h-button>Submit</h-button>
 </template>
 ```
 
@@ -136,18 +136,18 @@ You can use many prefixes for your components to help you with scoping code.
 
 ```vue
 <template>
-<!-- 'the' as a prefix for layout components -->
-<the-header>
-  <!-- 'v' prefix for vuetify components -->
-  <v-img src="logo.png" />
-  <!-- 'h' prefix for our branded components -->
-  <h-button>Sign In</h-button>
-</the-header>
-<main>
-  <the-sidebar />
-  <the-content v-html="content" />
-</main>
-<the-footer />
+  <!-- 'the' as a prefix for layout components -->
+  <the-header>
+    <!-- 'v' prefix for vuetify components -->
+    <v-img src="logo.png" />
+    <!-- 'h' prefix for our branded components -->
+    <h-button>Sign In</h-button>
+  </the-header>
+  <main>
+    <the-sidebar />
+    <the-content v-html="content" />
+  </main>
+  <the-footer />
 </template>
 ```
 
@@ -267,34 +267,36 @@ components/
 
 ```vue
 <template>
-<!-- HNewsletterForm.vue -->
-<h-form @submit="submit">
-  <h-field-email
-    label="Enter your email"
-    v-model="email"
-  />
-  <h-button type="submit">Subscribe</h-button>
-</h-form>
+  <!-- HNewsletterForm.vue -->
+  <h-form @submit="submit">
+    <h-field-email
+      v-model="email"
+      label="Enter your email"
+    />
+    <h-button type="submit">
+      Subscribe
+    </h-button>
+  </h-form>
 </template>
 ```
 
 ```vue
 <template>
-<!-- HNewsletterCard.vue -->
-<h-card>
-  <div class="pl-3">
-    <h2>Keep up to date</h2>
-    <h-newsletter-form
-      v-if="!success"
-      @submit="success = true"
-    />
-    <h-alert-success
-      v-else
-    >
-      Thanks for signing up :)
-    </h-alert-success>
-  </div>
-</h-card>
+  <!-- HNewsletterCard.vue -->
+  <h-card>
+    <div class="pl-3">
+      <h2>Keep up to date</h2>
+      <h-newsletter-form
+        v-if="!success"
+        @submit="success = true"
+      />
+      <h-alert-success
+        v-else
+      >
+        Thanks for signing up :)
+      </h-alert-success>
+    </div>
+  </h-card>
 </template>
 ```
 
@@ -336,49 +338,51 @@ components/
 
 ```vue
 <template>
-<!-- FThread.vue -->
-<f-thread-post
-  v-for="posts as post"
-  :key="post.id"
-  :post="post"
-/>
-<f-thread-reply @submit="addPost" />
-</template>
-```
-
-```vue
-<template>
-<!-- FThreadPost.vue -->
-<f-card>
-  <div class="p-3 border-b-2 border-gray-500 flex">
-    <f-img-avatar :src="post.author.avatar" />
-    <span>{{ post.author.name }}</span>
-    <span>{{ post.publishedAgo }}</span>
-  </div>
-  <div class="p-3 border-b-2 border-gray-500 prose" v-html="post.content"></div>
-  <div class="p-3">
-    <f-button-upvote
-      @click="upvote"
-      :upvotes="post.upvotes"
-      class="border-r-2 border-gray-500 pr-3"
-    />
-  </div>
-</f-card>
-</template>
-```
-
-```vue
-<template>
-<!-- FThreadFormReply.vue -->
-<f-form @submit="submitComment">
-  <f-field-comment
-    label="Write a reply"
+  <!-- FThread.vue -->
+  <f-thread-post
+    v-for="posts as post"
+    :key="post.id"
+    :post="post"
   />
-  <div class="flex">
-    <p>Please make sure you've read our Forum Rules before replying.</p>
-    <f-button type="submit">Reply</f-button>
-  </div>
-</f-form>
+  <f-thread-reply @submit="addPost" />
+</template>
+```
+
+```vue
+<template>
+  <!-- FThreadPost.vue -->
+  <f-card>
+    <div class="p-3 border-b-2 border-gray-500 flex">
+      <f-img-avatar :src="post.author.avatar" />
+      <span>{{ post.author.name }}</span>
+      <span>{{ post.publishedAgo }}</span>
+    </div>
+    <div class="p-3 border-b-2 border-gray-500 prose" v-html="post.content" />
+    <div class="p-3">
+      <f-button-upvote
+        :upvotes="post.upvotes"
+        class="border-r-2 border-gray-500 pr-3"
+        @click="upvote"
+      />
+    </div>
+  </f-card>
+</template>
+```
+
+```vue
+<template>
+  <!-- FThreadFormReply.vue -->
+  <f-form @submit="submitComment">
+    <f-field-comment
+      label="Write a reply"
+    />
+    <div class="flex">
+      <p>Please make sure you've read our Forum Rules before replying.</p>
+      <f-button type="submit">
+        Reply
+      </f-button>
+    </div>
+  </f-form>
 </template>
 ```
 
@@ -396,8 +400,9 @@ The value of types, when you're working with objects is too good to pass up. Wil
 
 ```vue
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { Post } from './types'
+import type { PropType } from 'vue'
+import { defineComponent } from 'vue'
+import type { Post } from './types'
 
 export default defineComponent({
   props: {

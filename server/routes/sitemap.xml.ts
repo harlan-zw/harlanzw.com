@@ -1,5 +1,6 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { serverQueryContent } from '#content/server'
+import { SiteUrl } from '~/logic'
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
@@ -8,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const routes = [...pages, { _path: '/projects' }, { _path: '/blog' }, ...posts]
 
   const sitemap = new SitemapStream({
-    hostname: 'https://harlanzw.com',
+    hostname: SiteUrl,
   })
   for (const doc of routes) {
     sitemap.write({

@@ -45,9 +45,6 @@ head:
 When first learning Vue, you are taught you need to import and add components to `components` in the script block.
 
 ```vue
-<template>
-  <HelloWorld />
-</template>
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
 export default {
@@ -56,6 +53,10 @@ export default {
   }
 }
 </script>
+
+<template>
+  <HelloWorld />
+</template>
 ```
 
 However, there's been a recent trend to "upgrade" the Vue developer experience (DX), having components magically import themselves
@@ -72,7 +73,7 @@ In the wild, you can find auto component imports in most popular Vue frameworks,
 - [Nuxt Components](https://github.com/nuxt/components)
 - [Vuetify](https://github.com/vuetifyjs/vuetify-loader)
 - [Chakra](https://github.com/segunadebayo/chakra-ui)
-- [Vue CLI](https://github.com/loonpwn/vue-cli-plugin-import-components) (built by me)
+- [Vue CLI](https://github.com/harlan-zw/vue-cli-plugin-import-components) (built by me)
 - [Vite](https://github.com/antfu/vite-plugin-components)
 
 This article will look at: why automatic component imports exist, how you can easily build our own auto component importer using
@@ -133,7 +134,7 @@ For example, the [raw-loader](https://v4.webpack.js.org/loaders/raw-loader/) wil
 The `input` is a path to a file in your filesystem, the `output` is the string contents of the file.
 
 ```js
-import txt from 'raw-loader!./hello.txt';
+import txt from 'raw-loader!./hello.txt'
 // txt=HelloWorld
 ```
 
@@ -150,11 +151,6 @@ Let's take a look at an example of input and output from the vue-loader.
 This is the default entry file for Vue CLI with Vue 3.
 
 ```vue
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
@@ -165,6 +161,11 @@ export default {
   }
 }
 </script>
+
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App" />
+</template>
 
 <style>
 #app {
@@ -185,13 +186,13 @@ final string output of the loader.
 
 
 ```js
-import { render } from "./App.vue?vue&type=template&id=7ba5bd90"
-import script from "./App.vue?vue&type=script&lang=js"
-export * from "./App.vue?vue&type=script&lang=js"
+import { render } from './App.vue?vue&type=template&id=7ba5bd90'
+import script from './App.vue?vue&type=script&lang=js'
 
-import "./App.vue?vue&type=style&index=0&id=7ba5bd90&lang=css"
+import './App.vue?vue&type=style&index=0&id=7ba5bd90&lang=css'
+export * from './App.vue?vue&type=script&lang=js'
 script.render = render
-script.__file = "src/App.vue"
+script.__file = 'src/App.vue'
 
 export default script
 ```
@@ -214,16 +215,16 @@ To begin, let's remove the manual import from the entry SFC, like so:
 #### New App.vue
 
 ```vue
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
 export default {
   name: 'App',
 }
 </script>
+
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App" />
+</template>
 
 <style>
 #app {
@@ -246,7 +247,7 @@ We need to make sure the loader we'll be making is going to run after the vue-lo
 ```js
 // ./vue.config.js
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rules
       .get('vue')
@@ -314,11 +315,11 @@ Now we create the loader called `imports-loader.js` in your apps root directory.
 // imports-loader.js
 module.exports = function loader(source) {
   // only run for the virtual SFC
-  if (this.resourceQuery) {
+  if (this.resourceQuery)
     return source
-  }
+
   console.log(source)
-  return source;
+  return source
 }
 ```
 
@@ -334,15 +335,15 @@ At this stage, we can just append the import code on to the `source`.
 
 ```js
 // imports-loader.js
-module.exports = function loader (source) {
+module.exports = function loader(source) {
   // only run for the virtual SFC
-  if (this.resourceQuery) {
+  if (this.resourceQuery)
     return source
-  }
-  return source + `
+
+  return `${source}
 import HelloWorld from "@/components/HelloWorld.vue"
 script.components = Object.assign({ HelloWorld }, script.components)
-`;
+`
 }
 ```
 
@@ -364,15 +365,15 @@ We recursively iterate over the components folder and do some mapping.
 ```js
 // a. Scan components
 const base = './src/components/'
-const fileComponents = (await globby('*.vue', { cwd: base })).map(c => {
+const fileComponents = (await globby('*.vue', { cwd: base })).map((c) => {
   const name = path.parse(c).name
   const shortPath = path.resolve(base).replace(path.resolve('./src'), '@')
   return {
-    name: name,
+    name,
     import: `import ${name} from "${shortPath}/${c}"`
   }
 })
-//[ { name: 'HelloWorld', import: 'import HelloWorld from "@/components/HelloWorld.vue"' } ]
+// [ { name: 'HelloWorld', import: 'import HelloWorld from "@/components/HelloWorld.vue"' } ]
 ```
 
 #### b. Find the template tags
@@ -382,7 +383,7 @@ To understand what components are being used, we need to have our new loader to 
 ```js
 // b. Find the template tags
 const compiler = require('@vue/compiler-sfc')
-const parsed = compiler.parse(fs.readFileSync(this.context + '/' + path.basename(this.resourcePath), 'utf8')).descriptor
+const parsed = compiler.parse(fs.readFileSync(`${this.context}/${path.basename(this.resourcePath)}`, 'utf8')).descriptor
 const template = compiler.compileTemplate({
   id: 'tmp',
   source: parsed.template.content,
@@ -403,7 +404,7 @@ from [a. Scan Components](#a-scan-components).
 // c. Match making
 const matches = []
 componentTags.forEach(tag => matches.push(first(filter(fileComponents, c => c.name === tag))))
-//[ { name: 'HelloWorld', import: 'import HelloWorld from "@/components/HelloWorld.vue"' } ]
+// [ { name: 'HelloWorld', import: 'import HelloWorld from "@/components/HelloWorld.vue"' } ]
 ```
 
 If you wanted to match non-PascalCase names, you would modify this matcher function.
@@ -415,19 +416,19 @@ the components.
 
 ```js
 // d. Insert the new dynamic imports
-if (!matches.length) {
+if (!matches.length)
   return source
-}
+
 const newContent = `
 ${matches.map(c => c.import).join('\n')}
 script.components = Object.assign({ ${matches.map(c => c.name).join(', ')} }, script.components);
-`;
+`
 const hotReload = source.indexOf('/* hot reload */')
-if (hotReload > -1) {
-  source = source.slice(0, hotReload) + newContent + '\n\n' + source.slice(hotReload)
-} else {
-  source += '\n\n' + newContent
-}
+if (hotReload > -1)
+  source = `${source.slice(0, hotReload) + newContent}\n\n${source.slice(hotReload)}`
+else
+  source += `\n\n${newContent}`
+
 return source
 ```
 
@@ -441,32 +442,31 @@ a new component and then use it straight away, make sure you use PascalCase.
 
 ```js
 // imports-loader.js
-const globby = require('globby')
 const fs = require('fs')
 const path = require('path')
+const globby = require('globby')
 const first = require('lodash/first')
 const filter = require('lodash/filter')
 
-module.exports = async function loader (source) {
+module.exports = async function loader(source) {
   // only run for the non-query requests
-  if (this.resourceQuery) {
+  if (this.resourceQuery)
     return source
-  }
 
   // a. Scan components
   const base = './src/components/'
-  const fileComponents = (await globby('*.vue', { cwd: base })).map(c => {
+  const fileComponents = (await globby('*.vue', { cwd: base })).map((c) => {
     const name = path.parse(c).name
     const shortPath = path.resolve(base).replace(path.resolve('./src'), '@')
     return {
-      name: name,
+      name,
       import: `import ${name} from "${shortPath}/${c}"`
     }
   })
 
   // b. Find the template tags
   const compiler = require('@vue/compiler-sfc')
-  const parsed = compiler.parse(fs.readFileSync(this.context + '/' + path.basename(this.resourcePath), 'utf8')).descriptor
+  const parsed = compiler.parse(fs.readFileSync(`${this.context}/${path.basename(this.resourcePath)}`, 'utf8')).descriptor
   const template = compiler.compileTemplate({
     id: 'na',
     source: parsed.template.content,
@@ -479,19 +479,19 @@ module.exports = async function loader (source) {
   componentTags.forEach(tag => matches.push(first(filter(fileComponents, c => c.name === tag))))
 
   // d. Insert the new dynamic imports
-  if (!matches.length) {
+  if (!matches.length)
     return source
-  }
+
   const newContent = `
 ${matches.map(c => c.import).join('\n')}
 script.components = Object.assign({ ${matches.map(c => c.name).join(', ')} }, script.components);
-`;
+`
   const hotReload = source.indexOf('/* hot reload */')
-  if (hotReload > -1) {
-    source = source.slice(0, hotReload) + newContent + '\n\n' + source.slice(hotReload)
-  } else {
-    source += '\n\n' + newContent
-  }
+  if (hotReload > -1)
+    source = `${source.slice(0, hotReload) + newContent}\n\n${source.slice(hotReload)}`
+  else
+    source += `\n\n${newContent}`
+
   return source
 }
 ```
@@ -521,8 +521,8 @@ we don't need to recompile it.
 
 ```js
 // imports-loaders.js
-// ... 
-module.exports = async function loader (source) {
+// ...
+module.exports = async function loader(source) {
   this.cache()
   // ...
 }
@@ -538,18 +538,19 @@ work around it with manual imports or using the `v-if` on inline components. Con
 code:
 
 ```vue
-<template>
-  <component :is="myComponent" />
-</template>
 <script>
 export default {
   computed: {
-    myComponent () {
+    myComponent() {
       return Math.random() * 100 > 50 ? ComponentA : ComponentB
     }
   }
 }
 </script>
+
+<template>
+  <component :is="myComponent" />
+</template>
 ```
 
 For now, the automatic import of `ComponentA` and `ComponentB` is not possible.
@@ -572,20 +573,21 @@ When compiling the template, we can also see when specific directives are used.
 If the directive is not globally registered, then we can do an automatic compile-time import of it.
 
 ```vue
-<template>
-<div>
-  <input v-my-directive="bar">
-</div>
-</template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       bar: 'foo'
     }
   }
 }
 </script>
+
+<template>
+  <div>
+    <input v-my-directive="bar">
+  </div>
+</template>
 ```
 
 We could imagine that we could write some code which would inject the directive such as `import MyDirective from "@/directives/MyDirective"`.

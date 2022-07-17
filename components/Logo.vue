@@ -1,12 +1,13 @@
 <template>
-<nuxt-link to="/" class="flex items-center group unstyled sm:py-4 py-1">
-  <NuxtImg src="/harlan-wilton.jpeg" width="44" height="44" alt="Harlan Wilton" class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all" />
-  <div class="text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
-    <span class="block text-green-700 font-bold text-3xl logo">hw</span>
-    <span class="block text-green-700 font-bold text-3xl logo">hw</span>
-  </div>
-</nuxt-link>
+  <nuxt-link to="/" class="flex items-center group unstyled sm:py-4 py-1">
+    <NuxtImg src="/harlan-wilton.jpeg" width="44" height="44" alt="Harlan Wilton" class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all" />
+    <div class="text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
+      <span class="block text-green-700 font-bold text-3xl logo">hw</span>
+      <span class="block text-green-700 font-bold text-3xl logo">hw</span>
+    </div>
+  </nuxt-link>
 </template>
+
 <style lang="scss">
 .group:hover {
   .logo {

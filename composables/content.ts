@@ -2,7 +2,7 @@ import { useAsyncData } from '#app'
 import type { MaybeRef } from '@vueuse/schema-org'
 import { nextTick, queryContent, unref, useHead } from '#imports'
 import type { JsonParsedContent, ParsedContent, Post, ProjectCategory } from '~/types'
-import { AppName, groupBy } from '~/logic'
+import { SiteAuthor, groupBy } from '~/logic'
 
 export const useProjects = () => {
   return useAsyncData('projects', () => queryContent<JsonParsedContent<ProjectCategory>>('projects').findOne())
@@ -49,10 +49,10 @@ export const usePage = async (slug: string) => {
 
 export const addHead = (doc: MaybeRef<Partial<ParsedContent>>) => {
   doc = unref(doc)
-  if (!doc?.head)
+  if (!doc)
     return
-  const head = Object.assign({}, doc.head)
-  head.title = `${head.title || doc.title} - ${AppName}`
+  const head = Object.assign({}, doc?.head || {})
+  head.title = `${head.title || doc.title} - ${SiteAuthor}`
   head.meta = head.meta || []
   const description = head.description || doc.description
   if (description && head.meta.filter(m => m.name === 'description').length === 0) {
