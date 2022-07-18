@@ -12,7 +12,7 @@ defineProps<{
 
 <template>
   <figure class="w-900px">
-    <nuxt-img v-bind="$attrs" :alt="alt" />
+    <nuxt-img v-bind="$attrs" :alt="alt" loading="lazy" />
     <figcaption v-if="alt" class="text-center">
       {{ alt }}
     </figcaption>

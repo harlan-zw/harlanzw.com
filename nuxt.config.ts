@@ -34,4 +34,13 @@ export default defineNuxtConfig({
       theme: 'dracula',
     },
   },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+      ],
+    },
+  }
 })

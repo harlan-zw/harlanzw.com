@@ -1,5 +1,12 @@
 <script lang="ts" setup>
+import { dayNth } from '~/logic'
+
 const { data: post } = await usePost(`posts/${useRoute().params.slug}`)
+
+const formatPublishedDate = (options: any) => new Intl.DateTimeFormat('en', options).format(new Date(post.value.publishedAt))
+const year = formatPublishedDate({ year: 'numeric' })
+const month = formatPublishedDate({ month: 'short' })
+const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
 addHead(post)
 </script>
@@ -16,8 +23,20 @@ addHead(post)
       {{ post.title }}
     </h1>
     <div class="sm:(flex space-x-7 mb-10 text-lg) mb-5 items-center">
+      <div class="space-x-1 opacity-80">
+        <span>Published</span>
+        <span>{{ month }}</span>
+        <span>{{ day }}</span>
+        <span>{{ year }}</span>
+      </div>
+      <div class="opacity-50 text-xs">
+        ●
+      </div>
       <div class="opacity-80 mb-5 sm:mb-0">
         {{ post.readingMins }} minute read
+      </div>
+      <div class="opacity-50 text-xs">
+        ●
       </div>
       <TagList :tags="post.tags" />
     </div>

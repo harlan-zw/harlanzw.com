@@ -28,7 +28,7 @@ const getBreadcrumbs = (input: string) => {
 
 export async function useBreadcrumbs() {
   const route = useRoute()
-  const links = getBreadcrumbs(route.fullPath)
+  const links = getBreadcrumbs(route.path)
   return await Promise.all(links
     .reverse()
     .map(async (path, key) => {

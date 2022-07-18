@@ -20,9 +20,6 @@
   <!-- App template -->
   <Navbar />
   <main class="md:max-w-700px mx-auto px-8 lg:px-0 py-7 pb-10 sm:pb-16 md:pb-20 max-w-full">
-    <!--    <div class="mb-3"> -->
-    <!--      <Breadcrumbs /> -->
-    <!--    </div> -->
     <NuxtPage class="animate-enter" />
   </main>
   <footer class="px-5 sm:px-7 md:px-10 text-center text-gray-400 text-sm my-5">
