@@ -7,6 +7,7 @@
   <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <Link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Dosis:wght@300;400;500;600;700&amp;display=swap" />
   <SchemaOrgPerson
     name="Harlan Wilton"
     image="/harlan-wilton.jpeg"

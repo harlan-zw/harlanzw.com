@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
   ],
   schemaOrg: {
+    disableRuntimeScriptsWhenSSR: true,
     canonicalHost: SiteUrl,
     defaultLanguage: SiteLanguage,
   },
@@ -42,5 +43,5 @@ export default defineNuxtConfig({
         '/',
       ],
     },
-  }
+  },
 })

@@ -19,7 +19,7 @@ addHead(post)
       :data-modified="post.modifiedAt"
     />
     <Breadcrumbs class="mb-2" />
-    <h1 class="!text-3xl font-bold !leading-11 !md:(text-5xl leading-16) mb-10">
+    <h1 class="!text-3xl font-header font-bold !leading-11 !md:(text-5xl leading-16) mb-10">
       {{ post.title }}
     </h1>
     <div class="sm:(flex space-x-7 mb-10 text-lg) mb-5 items-center">
