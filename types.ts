@@ -4,6 +4,7 @@ import type { StorageMeta } from 'unstorage'
 export interface ParsedContent extends DefaultParsedContent {
   storageMeta: StorageMeta
   prose?: boolean
+  schema: [string: any]
 }
 
 export interface Post extends ParsedContent {

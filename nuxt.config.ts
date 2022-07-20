@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     defaultLanguage: SiteLanguage,
   },
   css: [
+    '@/resources/code.css',
     '@/resources/main.scss',
   ],
   // https://color-mode.nuxtjs.org

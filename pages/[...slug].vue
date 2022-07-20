@@ -7,15 +7,17 @@ const { data: page } = await usePage(path)
 
 const contentComponent = computed(() => page?.value?.prose !== false ? Prose : 'div')
 
-const schema = page.schema || {}
-addHead(page)
+const schema = page.value.schema || {}
+const meta = addHead(page)
 </script>
 
 <template>
   <div>
     <SchemaOrgWebPage
       v-bind="schema"
-      :title="page.title"
+      :title="meta.title"
+      :description="meta.description"
+      :image="meta.image"
       :date-published="page.publishedAt"
       :data-modified="page.modifiedAt"
     />

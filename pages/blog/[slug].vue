@@ -8,13 +8,14 @@ const year = formatPublishedDate({ year: 'numeric' })
 const month = formatPublishedDate({ month: 'short' })
 const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
-addHead(post)
+const schema = post.value.schema || {}
+const meta = addHead(post)
 </script>
 
 <template>
   <div>
     <SchemaOrgArticle
-      type="TechArticle"
+      v-bind="{ ...meta, ...schema }"
       :date-published="post.publishedAt"
       :data-modified="post.modifiedAt"
     />

@@ -1,33 +1,24 @@
 <script lang="ts" setup>
 const breadcrumbs = await useBreadcrumbs()
-
-const visibleBreadcrumbs = computed(() => {
-  const crumbs = []
-  unref(breadcrumbs).forEach((c) => {
-    crumbs.push(c)
-  })
-  crumbs.pop()
-  return crumbs
-})
 </script>
 
 <template>
-<div>
-  <SchemaOrgBreadcrumb
-    v-slot="{ itemListElement }"
-    as="ul"
-    class="flex space-x-4 text-sm opacity-50 list-none"
-    :item-list-element="breadcrumbs"
-  >
-    <template v-for="(item, key) in itemListElement" :key="key">
-    <li v-if="item.item">
-      <NuxtLink :to="item.item" class="inline">
-        {{ item.name }}
-      </NuxtLink>
-    </li>
-    </template>
-  </SchemaOrgBreadcrumb>
-</div>
+  <div>
+    <SchemaOrgBreadcrumb
+      v-slot="{ itemListElement }"
+      as="ul"
+      class="flex space-x-4 text-sm opacity-50 list-none"
+      :item-list-element="breadcrumbs"
+    >
+      <template v-for="(item, key) in itemListElement" :key="key">
+        <li v-if="item.item">
+          <NuxtLink :to="item.item" class="inline">
+            {{ item.name }}
+          </NuxtLink>
+        </li>
+      </template>
+    </SchemaOrgBreadcrumb>
+  </div>
 </template>
 
 <style scoped lang="scss">
