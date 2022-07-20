@@ -100,7 +100,7 @@ Don't worry if the below terms don't make sense to you, we'll be exploring them 
 - Dev Server: Native-ES-Modules, served via Vite using a [Koa](https://github.com/koajs/koa) web server
 - Production build: [Rollup](https://github.com/rollup/rollup)
 
-::tip TIP
+::tip
 Check out Mozilla's <a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank">article</a> on ES Modules if their new to you.
 ::
 
@@ -182,25 +182,20 @@ You'll notice we have 2 script files there: `chunk-vendor.js` and `app.js`. On i
 
 These are third-party modules, usually coming from `node_modules`. The two main libraries in here are Vue itself and sockjs which is used for HMR.
 
-<figure>
-  <img src="../../resources/vendor-chunk.png">
-  <figcaption>The two top libraries are Vue.js and Sock.js (For HMR)</figcaption>
-</figure>
+![The two top libraries are Vue.js and Sock.js (For HMR)](/resources/vendor-chunk.png){height="450"}
+
 
 #### app.js
 
  This is all the code for my application. It contains components, assets, etc. You'll notice that for a SFC it splits
  it into multiple modules.
 
-<figure>
-  <img src="../../resources/app-chunk.png">
-  <figcaption>My app is two components, App.vue and HelloWorld.vue</figcaption>
-</figure>
+![My app is two components, App.vue and HelloWorld.vue](/resources/app-chunk.png){height="450"}
 
 Taking a quick look at the `app.js` file, we can find some of the `HelloWorld` component code. As you can see in the above image,
 all parts of the SFC are separate modules: the wrapper, CSS, template, js. 
 
-The wrapper module is defining and importing the other models, some really beautiful code.
+The wrapper module is defining and importing the other models, some beautiful code.
 
 ```js
 /***/ "./src/components/HelloWorld.vue":
@@ -253,11 +248,7 @@ lines into HTTP requests back to the server, where it will again read the `expor
 
 It will keep going through like this with your dependencies recursively, in a waterfall process, until everything has been resolved.
 
-
-<figure>
-  <img src="../../resources/network-requests.png">
-  <figcaption>Recursive network requests triggered from the entry - VitePress.</figcaption>
-</figure>
+![Recursive network requests triggered from the entry - VitePress.](/resources/network-requests.png){height="450"}
 
  
 ### Vite Component Example
@@ -412,13 +403,13 @@ Once you are sold, it's worth checking out [the ecosystem](https://github.com/vi
 
 ### Recommendations
 
-:::warning TIP
-You shouldn't be looking to replace Vue CLI or webpack with Vite for existing projects yet, but it may be worthwhile to check out for new smaller scoped projects.
+:::tip
+You shouldn't be looking to replace Vue CLI or webpack with Vite for existing projects yet, but it may be valuable to check out for new smaller scoped projects.
 :::
 
 The Vite ecosystem isn't that mature yet, the two main projects I'd recommend checking out are [VitePress](https://vitepress.vuejs.org/) and [Vitesse](https://github.com/antfu/vitesse). 
 
-If you are in need of a documentation site then VitePress is really awesome, you can follow the VuePress documentation to fill in any gaps. VitePress abstracts away
+If you are in need of a documentation site then VitePress is awesome, you can follow the VuePress documentation to fill in any gaps. VitePress abstracts away
 the Vite configuration, which will be limiting for non-documentation sites.
 
 Otherwise, I'd choose Vitesse as it's going to give you more flexible on customising your app. Vitesse offers a pre-configured `vite.config.js`, so you can easily
@@ -430,4 +421,4 @@ If you like my blog (VitePress + TailwindCSS), then you're more than welcome to 
 ## Thanks for reading
 
 If you like the technical side of Vue and Laravel, I'll be posting regular articles on this site. The best
-way to keep up to date is by following me [@harlan_zw](https://twitter.com/harlan_zw) or signing up for the newsletter below.
+way to keep up to date is by following me [@harlan_zw](https://twitter.com/harlan_zw).

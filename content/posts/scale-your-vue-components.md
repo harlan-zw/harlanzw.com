@@ -87,8 +87,7 @@ You should be familiar with the official [Vue.js Style Guide](https://v3.vuejs.o
 It gives you clear, concise instructions on what you should and shouldn't do.
 You should set up [eslint-plugin-vue](https://eslint.vuejs.org/) with the recommended rules.
 
-```js
-// .eslintrc.js
+```js [.eslintrc.js]
 module.exports = {
   extends: [
     // ...
@@ -106,7 +105,7 @@ The bane of developers lives: how to name something.
 You can address that by having an easy-to-follow convention on how to name a component. The convention also tells you where to put the component in your folder hierarchy.
 
 <div class="language- px-4 py-2 text-white">
-<span class="text-yellow-400">{prefix}</span>-<span class="text-blue-400">{namespace}</span><span class="text-pink-400">{?-class}</span>
+<span class="text-yellow-700">{prefix}</span>-<span class="text-blue-700">{namespace}</span><span class="text-pink-700">{?-class}</span>
 </div>
 
 #### Prefix
@@ -219,7 +218,7 @@ You could also pull out your "shared" components into their own npm package.
 
 When creating new components it's natural to couple application logic in. With this setup, you'll think about component scopes more and how code can be re-used.
 
-<img src="../../resources/component-folder-flow.svg" class="block mx-auto">
+![A decision graph for component folders](/resources/component-folder-flow.svg){height="450"}
 
 
 #### "Shared" Folder - Base Components
@@ -239,10 +238,7 @@ If you were to copy+paste an app component into a new project, it should not wor
 
 This exists as two "app" components, they contain logic for validation and posting to an API. They both contain "shared" components.
 
-<figure>
-<img src="../../resources/newsletter-example.png" class="block mx-auto" alt="Newsletter component example">
-<figcaption>HNewsletterCard.vue</figcaption>
-</figure>
+![Newsletter component example](/resources/newsletter-example.png){height="450"}
 
 ```shell 
 components/
@@ -265,9 +261,8 @@ components/
 |--- HFieldEmail.vue
 ```
 
-```vue
+```vue [HNewsletterForm.vue]
 <template>
-  <!-- HNewsletterForm.vue -->
   <h-form @submit="submit">
     <h-field-email
       v-model="email"
@@ -280,9 +275,8 @@ components/
 </template>
 ```
 
-```vue
+```vue [HNewsletterCard.vue]
 <template>
-  <!-- HNewsletterCard.vue -->
   <h-card>
     <div class="pl-3">
       <h2>Keep up to date</h2>
@@ -305,10 +299,7 @@ components/
 
 Now imagine you want to build a forum thread page. A user can see comments, upvote comments and post their own comment.
 
-<figure>
-<img src="../../resources/forum-example.png" class="block mx-auto" alt="Laravel.io Forum Example">
-<figcaption>Laravel.io Forum Thread</figcaption>
-</figure>
+![Laravel.io Forum Thread](/resources/forum-example.png)
 
 Using `F` as our component prefix, let's look at what you need.
 
@@ -336,9 +327,8 @@ components/
 |--- FButton.vue # Reply button for the post box
 ```
 
-```vue
+```vue [FThread.vue]
 <template>
-  <!-- FThread.vue -->
   <f-thread-post
     v-for="posts as post"
     :key="post.id"
@@ -348,9 +338,8 @@ components/
 </template>
 ```
 
-```vue
+```vue [FThreadPost.vue]
 <template>
-  <!-- FThreadPost.vue -->
   <f-card>
     <div class="p-3 border-b-2 border-gray-500 flex">
       <f-img-avatar :src="post.author.avatar" />
@@ -369,9 +358,8 @@ components/
 </template>
 ```
 
-```vue
+```vue [FThreadFormReply.vue]
 <template>
-  <!-- FThreadFormReply.vue -->
   <f-form @submit="submitComment">
     <f-field-comment
       label="Write a reply"
@@ -421,7 +409,7 @@ export default defineComponent({
 
 You should be thinking when you create a component what it's one core function is.
 
-You can limit yourself with this mindset but it's worth keeping in mind as you go.
+You can limit yourself with this mindset, but it's worth keeping in mind as you go.
 
 ### Create component demo pages
 
@@ -432,7 +420,7 @@ You want an easy way to find components and classes that are available.
 
 Here is a rough demo page as an example: [Massive Monster UI Demo](https://massivemonster.co/demo). Keep it as basic as you want.
 
-<img src="../../resources/brand-demo.png" class="block mx-auto" alt="Massive Monster Demo Page">
+![Massive Monster Demo Page](/resources/brand-demo.png)
 
 ### Mixins and composables
 
@@ -440,7 +428,7 @@ This one should be pretty obvious and there are enough articles elsewhere on usi
 
 You want to pull out common logic from components and put them in either mixins or composables.
 
-Check out [vueuse](https://github.com/antfu/vueuse) for some ideas on what that could look like.
+Check out [VueUse](https://github.com/antfu/vueuse) for some ideas on what that could look like.
 
 
 ## Thanks for reading

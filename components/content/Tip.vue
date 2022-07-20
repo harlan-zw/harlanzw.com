@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 rounded-md bg-gray-800">
+  <div class="p-4 rounded-md bg-blue-100">
     <div class="flex">
       <div>
         <i-line-md-lightbulb class="icon mt-1" />

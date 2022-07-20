@@ -6,7 +6,7 @@ title: "Sponsors"
 Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source.
 
 <p align="center">
-  <img src='https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg' alt="Harlan Wilton's Github Sponsors" height="450" />
+  <image src='https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg' alt="Harlan Wilton's Github Sponsors" height="450" />
 </p>
 
 

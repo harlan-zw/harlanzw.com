@@ -120,7 +120,7 @@ This allows you to completely cut out the build step when you're iterating and t
 
 It's as simple as `unbuild --stub`.
 
-```ts
+```ts [build.config.ts]
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
@@ -137,7 +137,7 @@ It's amazing that a simple pattern like composition has evaded Node packages for
 
 With the introduction of Vue 3, composition became cool. And with that, unctx is composition for your own package.
 
-unctx allows you define a scope where there's only a single instance of something that is globally accessible. This is incredibly useful for building packages, as you no longer need to be juggling core state. You can build your logic out as composables that interact with the core.
+unctx allows you to define a scope where there's only a single instance of something that is globally accessible. This is incredibly useful for building packages, as you no longer need to be juggling core state. You can build your logic out as composables that interact with the core.
 
 ```ts
 import { createContext } from 'unctx'
@@ -164,17 +164,7 @@ I ended up building unrouted as a way to solve that.
 group('/api', () => {
   group('/reports', () => {
     post('/rescan', () => {
-      const { worker } = useUnlighthouse()
-
-      const reports = [...worker.routeReports.values()]
-      logger.info(`Doing site rescan, clearing ${reports.length} reports.`)
-      worker.routeReports.clear()
-      reports.forEach((route) => {
-        const dir = route.artifactPath
-        if (fs.existsSync(dir))
-          fs.rmSync(dir, { recursive: true })
-      })
-      worker.queueRoutes(reports.map(report => report.route))
+      // ...
       return true
     })
 
@@ -260,9 +250,9 @@ if (configDefinition.sources?.[0]) {
 
 > URL utils for humans
 
-Dealing with URLs in Node isn't very nice. For Unlighthouse I needed to deal with many URLS, I needed to make sure they were standardised no matter how they were formed.
+Dealing with URLs in Node isn't nice. For Unlighthouse I needed to deal with many URLS, I needed to make sure they were standardised no matter how they were formed.
 
-This meant using the ufo package heavily. The slash trimming came in very handy and the origin detection.
+This meant using the ufo package heavily. The slash trimming came in handy and the origin detection.
 
 ```ts
 export const trimSlashes = (s: string) => withoutLeadingSlash(withoutTrailingSlash(s))
