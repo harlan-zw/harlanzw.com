@@ -1,33 +1,35 @@
-[![Content Wind](https://github.com/Atinux/content-wind/raw/main/public/cover.jpg)](https://content-wind.nuxt.dev)
+[![harlanzw.com](https://repository-images.githubusercontent.com/498703201/39a4dfce-bed2-48d9-9777-a076fb0f000f)](https://harlanzw.com)
 
-# Clone: Content Wind
+# harlanzw.com
 
-A lightweight Nuxt template to write a Markdown driven website, based on [Nuxt Content](https://content.nuxtjs.org), [TailwindCSS](https://tailwindcss.com) and [Iconify](https://iconify.design).
+My personal website built with Nuxt v3 and Nuxt Content v2.
 
-- [Demo & Docs](https://content-wind.nuxt.dev)
-- [Play online](https://stackblitz.com/github/Atinux/content-wind?file=content%2F1.index.md)
+## Content Features
 
-## Features
+- 🔎 Automated Schema.org
+- 📚 Markdown read time calculation
+- 👨‍💻 Code file name and language support
+- 🧩 Server Side Icons (no FOUC)
+- 🤖 Sitemap.xml and feed generation
+- 🍞 Automatic breadcrumbs (with Schema.org)
+- 🤝 Integrates with @nuxt/image
+
+## Technical Features
 
 - pnpm
 - WindiCSS
-- UnpluginIcons (no FOUC)
-- SchemaOrg (todo)
-
-## Usage
-
-Take a look at [content-wind.nuxt.dev](https://content-wind.nuxt.dev) for the complete documentation.
+- Eslint powered by @antfu/eslint-config-antfu
+- Easy content composables
+- Split pages/posts for easier content organisation
+- Fully typed content
+- SEO / i18n best practices
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
+pnpm i
 ```
 
 ## Development Server
@@ -35,36 +37,5 @@ npm install
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+pnpm dev
 ```
-
-## Deployment
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAtinux%2Fcontent-wind) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Atinux/content-wind)
-
-
-### Static Hosting
-
-Pre-render the website to be deployed on any static hosting:
-
-```bash
-npm run generate
-```
-
-The `dist/` directory is ready to be deployed (symlink to `.output/public`), [learn more on Nuxt docs](https://v3.nuxtjs.org/guide/deploy/static-hosting).
-
-### Node server
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Start the server in production:
-
-```bash
-node .output/server/index.mjs
-```
-
-Learn more on [Nuxt docs](https://v3.nuxtjs.org/guide/deploy/node-server) for more information.
