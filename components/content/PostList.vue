@@ -5,12 +5,12 @@ const yearKeys = Object.keys(unref(postGroups)).reverse()
 
 <template>
   <div>
-    <div class="space-y-10">
+    <div class="space-y-7">
       <div v-for="year in yearKeys" :key="year">
         <SubTitle>
           {{ year }}
         </SubTitle>
-        <div class="space-y-5">
+        <div class="space-y-10">
           <PostCard v-for="(post, key) in postGroups[year]" :key="key" :post="post" />
         </div>
       </div>

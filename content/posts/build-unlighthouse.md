@@ -1,11 +1,12 @@
 ---
 title: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
-description: "Going into detail of what goes into making a modern open-source package."
+description: "Unlighthouse is a package I made to scan your entire site using Google Lighthouse. Discover what went into making it, including some of the awesome packages I used."
 publishedAt: "2022-06-12"
 image: "https://next.unlighthouse.dev/og.png"
 tags:
-  - webpack
   - vue
+  - vite
+  - typescript
 ---
 
 ## Introduction
@@ -16,7 +17,7 @@ It's a package I worked for a number of months on, and I'm proud of it.
 
 I learnt a lot while building it, and I'm excited to share my findings in this article.
 
-## The Need For Unlighthouse
+## Understanding the problem
 
 As a freelancer I  keep on top of my clients organic growth with Google Search Console.
 

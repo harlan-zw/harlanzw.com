@@ -5,6 +5,7 @@ import { SiteLanguage, SiteUrl } from './logic'
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
+    '@vueuse/nuxt',
     '@nuxt/image-edge',
     'nuxt-schema-org',
     'nuxt-windicss',

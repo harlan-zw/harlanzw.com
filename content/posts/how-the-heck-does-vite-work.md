@@ -1,6 +1,6 @@
 ---
 title: "How Does Vite Work - A Comparison to webpack"
-description: "I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing."
+description: "A deep-dive into the comparisons between the earliest Vite version and webpack. Discover what I learnt digging into internals and how I, correctly, guessed Vite was the next big thing."
 publishedAt: '2020-12-01'
 excerpt: 'I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing.'
 status: published
@@ -9,6 +9,12 @@ tags:
   - webpack
   - vue
 ---
+
+::tip
+This article was written for the alpha of Vite, so it's quite old and there are better articles out there now.
+
+I'd recommend reading Patak's great article on [The Vite Ecosystem](https://patak.dev/vite/ecosystem.html).
+::
 
 In rebuilding my old Nuxt.js personal site, I wanted to challenge myself to learn the latest tech, the unknown.
 

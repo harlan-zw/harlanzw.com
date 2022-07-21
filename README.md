@@ -18,6 +18,7 @@ My personal website built with Nuxt v3 and Nuxt Content v2.
 
 - pnpm
 - WindiCSS
+- [line-md](https://github.com/cyberalien/line-md) icons by cyberalien 
 - Eslint powered by @antfu/eslint-config-antfu
 - Easy content composables
 - Split pages/posts for easier content organisation
