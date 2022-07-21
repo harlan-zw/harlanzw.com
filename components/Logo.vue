@@ -1,9 +1,24 @@
+<script lang="ts" setup>
+const siteMeta = useSiteMeta()
+const initials = siteMeta.name
+  .split(' ')
+  .map(word => word[0].toLowerCase())
+  .join('')
+</script>
+
 <template>
   <nuxt-link to="/" class="flex items-center group unstyled sm:py-4 py-1">
-    <NuxtImg src="/harlan-wilton.jpeg" width="44" height="44" alt="Harlan Wilton" class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all" />
+    <NuxtImg
+      :src="siteMeta.logo"
+      width="60"
+      height="60"
+      :alt="siteMeta.name"
+      provider="cloudinary"
+      class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
+    />
     <div class="text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
-      <span class="block text-green-700 font-bold text-3xl logo">hw</span>
-      <span class="block text-green-700 font-bold text-3xl logo">hw</span>
+      <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
+      <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
     </div>
   </nuxt-link>
 </template>

@@ -1,3 +1,13 @@
+body {
+  min-height: 100vh;
+  background-color: rgb(247,247,247);
+  background-image: linear-gradient(0deg, #33e47f10, #ffffff);
+  @apply dark:bg-gray-900;
+}
+html.dark body {
+  background-image: none;
+}
+
 a:not(.unstyled), .link {
   position: relative;
   display: inline-block;

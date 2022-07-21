@@ -1,14 +1,12 @@
 <script lang="ts" setup>
-import { SameAs, SiteDescription, SiteName } from '~/logic'
-
-const siteMeta = {
-  name: SiteName,
-  description: SiteDescription,
-  sameAs: SameAs,
-}
+const siteMeta = useSiteMeta()
 </script>
 
 <template>
+  <!--
+  Hey :) Thanks for inspecting my site.
+  If you're interested in the source code you can find it here: https://github.com/harlan-zw/harlanzw.com
+-->
   <div class="text-gray-800 dark:text-gray-100 antialiased ">
     <!-- App Meta -->
     <Html lang="en-AU" />
@@ -18,12 +16,13 @@ const siteMeta = {
     <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <SchemaOrgPerson
-      name="Harlan Wilton"
-      image="/harlan-wilton.jpeg"
+      :name="siteMeta.name"
+      :image="siteMeta.logo"
       :same-as="siteMeta.sameAs"
     />
     <SchemaOrgWebSite
       :name="siteMeta.name"
+      :image="siteMeta.image"
       :description="siteMeta.description"
     />
     <SchemaOrgWebPage />
@@ -37,20 +36,8 @@ const siteMeta = {
         <SocialIcons />
       </div>
       <p class="mb-3">
-        © 2022-PRESENT Harlan Wilton. All rights reserved.
+        © 2022-PRESENT {{ siteMeta.name }}. All rights reserved.
       </p>
     </footer>
   </div>
 </template>
-
-<style>
-body {
-  min-height: 100vh;
-  background-color: rgb(247,247,247);
-  background-image: linear-gradient(0deg, #33e47f10, #ffffff);
-  @apply dark:bg-gray-900;
-}
-html.dark body {
-  background-image: none;
-}
-</style>

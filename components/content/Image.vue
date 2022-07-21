@@ -5,14 +5,27 @@ export default {
 </script>
 
 <script lang="ts" setup>
-defineProps<{
+const props = defineProps<{
   alt: string
+  src: string
+  lazy?: boolean | 'false' | 'true'
 }>()
+
+const src = props.src
+  .replace('.png', '')
+  .replace('.jpeg', '')
+const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 </script>
 
 <template>
   <figure class="w-900px">
-    <nuxt-img v-bind="$attrs" :alt="alt" loading="lazy" />
+    <nuxt-img
+      v-bind="$attrs"
+      :alt="alt"
+      :src="src"
+      :loading="Boolean(lazy) ? 'lazy' : 'eager'"
+      :provider="provider"
+    />
     <figcaption v-if="alt" class="text-center">
       {{ alt }}
     </figcaption>

@@ -37,6 +37,19 @@ export default defineNuxtConfig({
     },
   },
 
+  image: {
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/dl6o1xpyq/image/upload/images',
+      modifiers: {
+        quality: 'auto:best',
+      },
+    },
+    domains: [
+      'avatars0.githubusercontent.com',
+      'dev-to-uploads.s3.amazonaws.com',
+    ],
+  },
+
   nitro: {
     prerender: {
       crawlLinks: true,
