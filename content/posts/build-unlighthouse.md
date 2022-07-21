@@ -2,43 +2,10 @@
 title: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
 description: "Going into detail of what goes into making a modern open-source package."
 publishedAt: "2022-06-12"
+image: "https://next.unlighthouse.dev/og.png"
 tags:
   - webpack
   - vue
-head:
-- - meta
-  - name: description
-    content: "Going into detail of what goes into making a modern open-source package."
-- - meta
-  - property: "og:type"
-    content: "website"
-- - meta
-  - property: "og:url"
-    content: "https://harlanzw.com/blog/building-unlighthouse/"
-- - meta
-  - property: "og:title"
-    content: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
-- - meta
-  - property: "og:description"
-    content: "Going into detail of what goes into making a modern open-source package."
-- - meta
-  - property: "og:image"
-    content: "https://next.unlighthouse.dev/og.png"
-- - meta
-  - property: "twitter:card"
-    content: "summary_large_image"
-- - meta
-  - property: "twitter:url"
-    content: "https://harlanzw.com/blog/building-unlighthouse/"
-- - meta
-  - property: "twitter:title"
-    content: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
-- - meta
-  - property: "twitter:description"
-    content: "Going into detail of what goes into making a modern open-source package."
-- - meta
-  - property: "twitter:image"
-    content: "https://next.unlighthouse.dev/og.png"
 ---
 
 ## Introduction

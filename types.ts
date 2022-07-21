@@ -13,6 +13,7 @@ export interface Post extends ParsedContent {
   publishedAt: Date
   modifiedAt: Date
 }
+export interface Page extends Post {}
 
 export interface JsonParsedContent<T> extends ParsedContent {
   body: T

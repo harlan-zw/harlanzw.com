@@ -2,42 +2,9 @@
 title: "Scaling Your Vue Components for Mid-Large Size Apps"
 description: "Working on a mid-large size app usually means hundreds of components. How do you make sure these components will scale?"
 publishedAt: "2021-01-12"
+image: "https://harlanzw.com/social/scale-your-vue-components.png"
 tags:
   - vue
-head:
-  - - meta
-    - name: description
-      content: "Working on a mid-large size app usually means hundreds of components. How do you make sure these components will scale?"
-  - - meta
-    - property: "og:type"
-      content: "website"
-  - - meta
-    - property: "og:url"
-      content: "https://harlanzw.com/blog/scale-your-vue-components/"
-  - - meta
-    - property: "og:title"
-      content: "Scaling Your Vue Components for Mid-Large Size Apps"
-  - - meta
-    - property: "og:description"
-      content: "Working on a mid-large size app usually means hundreds of components. How do you make sure these components will scale?"
-  - - meta
-    - property: "og:image"
-      content: "https://harlanzw.com/social/scale-your-vue-components.png"
-  - - meta
-    - property: "twitter:card"
-      content: "summary_large_image"
-  - - meta
-    - property: "twitter:url"
-      content: "https://harlanzw.com/blog/scale-your-vue-components/"
-  - - meta
-    - property: "twitter:title"
-      content: "Scaling Your Vue Components for Mid-Large Size Apps"
-  - - meta
-    - property: "twitter:description"
-      content: "Working on a mid-large size app usually means hundreds of components. How do you make sure these components will scale?"
-  - - meta
-    - property: "twitter:image"
-      content: "https://harlanzw.com/social/scale-your-vue-components.png"
 ---
 
 One of the key pieces in scaling your Vue app is having good component architecture.
@@ -218,7 +185,7 @@ You could also pull out your "shared" components into their own npm package.
 
 When creating new components it's natural to couple application logic in. With this setup, you'll think about component scopes more and how code can be re-used.
 
-![A decision graph for component folders](/resources/component-folder-flow.svg){height="450"}
+![A decision graph for component folders](/blog/component-folder-flow.svg){height="450"}
 
 
 #### "Shared" Folder - Base Components
@@ -238,7 +205,7 @@ If you were to copy+paste an app component into a new project, it should not wor
 
 This exists as two "app" components, they contain logic for validation and posting to an API. They both contain "shared" components.
 
-![Newsletter component example](/resources/newsletter-example.png){height="450"}
+![Newsletter component example](/blog/newsletter-example.png){height="450"}
 
 ```shell 
 components/
@@ -299,7 +266,7 @@ components/
 
 Now imagine you want to build a forum thread page. A user can see comments, upvote comments and post their own comment.
 
-![Laravel.io Forum Thread](/resources/forum-example.png)
+![Laravel.io Forum Thread](/blog/forum-example.png)
 
 Using `F` as our component prefix, let's look at what you need.
 
@@ -420,7 +387,7 @@ You want an easy way to find components and classes that are available.
 
 Here is a rough demo page as an example: [Massive Monster UI Demo](https://massivemonster.co/demo). Keep it as basic as you want.
 
-![Massive Monster Demo Page](/resources/brand-demo.png)
+![Massive Monster Demo Page](/blog/brand-demo.png)
 
 ### Mixins and composables
 

@@ -7,9 +7,9 @@ export default <ContentTransformer> {
   async transform(content: Post) {
     // fix paths
     if (content._path.startsWith('/pages/'))
-      content.slug = content._path.replace('/pages/', '')
+      content.path = content._path.replace('/pages/', '/')
     if (content._path.startsWith('/posts/'))
-      content.slug = content._path.replace('/posts/', '')
+      content.path = content._path.replace('/posts/', '/blog/')
     // if no published at / modified at is set we can infer from the storage meta
     if (!content.publishedAt)
       content.publishedAt = content.storageMeta.atime

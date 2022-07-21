@@ -1,5 +1,6 @@
 ---
 title: "Sponsors"
+description: "Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source."
 ---
 # Sponsors :i-line-md-heart
 

@@ -11,7 +11,7 @@ const yearKeys = Object.keys(unref(postGroups)).reverse()
           {{ year }}
         </SubTitle>
         <div class="space-y-5">
-          <PostCard v-for="post in postGroups[year]" :key="post._id" :post="post" />
+          <PostCard v-for="(post, key) in postGroups[year]" :key="key" :post="post" />
         </div>
       </div>
     </div>

@@ -138,8 +138,8 @@ a:not(.unstyled), .link {
 }
 
 
-@keyframes enter {
-  0% {
+@keyframes fadeInUp {
+  from {
     opacity: 0;
     transform: translateY(.5rem)
   }
@@ -150,8 +150,24 @@ a:not(.unstyled), .link {
   }
 }
 
-.animate-enter {
-  animation: enter .6s forwards
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(.5rem)
+  }
+}
+
+
+.page-enter-active {
+  animation: fadeInUp .6s forwards
+}
+
+.page-leave-active {
+  animation: fadeOutDown .6s backwards;
 }
 
 .icon {

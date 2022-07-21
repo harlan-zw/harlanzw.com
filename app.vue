@@ -11,6 +11,7 @@ const siteMeta = useSiteMeta()
     <!-- App Meta -->
     <Html lang="en-AU" />
     <Meta property="og:image" content="/cover.jpg" />
+    <Meta name="og:type" content="website" />
     <Meta name="twitter:card" content="summary_large_image" />
     <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -29,7 +30,8 @@ const siteMeta = useSiteMeta()
     <!-- App template -->
     <Navbar />
     <main class="md:max-w-700px mx-auto px-8 lg:px-0 py-7 pb-10 sm:pb-16 md:pb-20 max-w-full">
-      <NuxtPage class="animate-enter" />
+      <NuxtLoadingIndicator />
+      <NuxtPage class="page-enter-active" />
     </main>
     <footer class="px-5 sm:px-7 md:px-10 text-center text-gray-400 text-sm my-5">
       <div class="flex justify-center mb-3">

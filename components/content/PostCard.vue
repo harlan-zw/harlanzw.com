@@ -14,7 +14,7 @@ const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 </script>
 
 <template>
-  <nuxt-link :to="`/blog/${post._path.replace('/posts/', '')}`" class="block max-w-full transition-all group">
+  <nuxt-link :to="post.path" class="block max-w-full transition-all group">
     <div class="flex items-center">
       <div class="opacity-70 group-hover:(opacity-90) transition-all absolute top-3 -left-20">
         <div class="text-lg">

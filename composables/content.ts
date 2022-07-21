@@ -1,7 +1,7 @@
 import { useAsyncData } from '#app'
 import type { MaybeRef } from '@vueuse/schema-org'
 import { nextTick, queryContent, unref, useHead } from '#imports'
-import type { JsonParsedContent, ParsedContent, Post, ProjectCategory } from '~/types'
+import type { JsonParsedContent, Page, Post, ProjectCategory } from '~/types'
 import { SiteName, groupBy } from '~/logic'
 
 export const useProjects = () => {
@@ -10,20 +10,12 @@ export const useProjects = () => {
 
 export const usePostList = () => {
   return useAsyncData('posts', () => queryContent<Post>('posts')
-    .without(['head', 'body', 'excerpt'])
+    .without(['head', 'body', 'excerpt', '_'])
     .sort({
       publishedAt: -1,
     })
     .find(), {
-    transform: (posts) => {
-      posts = posts
-        .map((p) => {
-          p.publishedAt = new Date(p.publishedAt)
-          return p
-        })
-      // group the posts by the publish year
-      return groupBy(posts, p => p.publishedAt.getFullYear())
-    },
+    transform: posts => groupBy(posts, p => new Date(p.publishedAt).getFullYear()),
   })
 }
 
@@ -31,23 +23,19 @@ export const usePost = async (slug: string) => {
   return useAsyncData(`post-${slug}`, () => queryContent<Post>(slug)
     .without(['excerpt'])
     .sort({
-      published: -1,
+      publishedAt: -1,
     })
-    .findOne(), {
-    transform: (post) => {
-      post.publishedAt = new Date(post.publishedAt)
-      return post
-    },
-  })
-}
-
-export const usePage = async (slug: string) => {
-  return useAsyncData(`page-${slug}`, () => queryContent<ParsedContent>(slug)
-    .without(['excerpt'])
     .findOne())
 }
 
-export const addHead = (doc: MaybeRef<Partial<ParsedContent>>) => {
+export const usePage = async (slug: string) => {
+  return useAsyncData(`page-${slug}`, () => queryContent<Page>(slug)
+    .without(['excerpt'])
+    .findOne(),
+  )
+}
+
+export const addHead = (doc: MaybeRef<Partial<Page>>) => {
   doc = unref(doc)
   if (!doc)
     return

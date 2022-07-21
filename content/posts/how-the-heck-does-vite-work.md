@@ -4,43 +4,10 @@ description: "I used Vite to build a new blazing fast blog ⚡, find out what I 
 publishedAt: '2020-12-01'
 excerpt: 'I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing.'
 status: published
+image: "https://harlanzw.com/social/how-vite-works.png"
 tags: 
   - webpack
   - vue
-head:
-  - - meta
-    - name: description
-      content: "I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing."
-  - - meta
-    - property: "og:type"
-      content: "website"
-  - - meta
-    - property: "og:url"
-      content: "https://harlanzw.com/blog/how-the-heck-does-vite-work/"    
-  - - meta
-    - property: "og:title"
-      content: "How The Heck Does Vite Work - A Comparison to webpack"
-  - - meta
-    - property: "og:description"
-      content: "I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing."    
-  - - meta
-    - property: "og:image"
-      content: "https://harlanzw.com/social/how-vite-works.png"
-  - - meta
-    - property: "twitter:card"
-      content: "summary_large_image"
-  - - meta
-    - property: "twitter:url"
-      content: "https://harlanzw.com/blog/how-the-heck-does-vite-work/"
-  - - meta
-    - property: "twitter:title"
-      content: "How The Heck Does Vite Work - A comparison to Webpack"
-  - - meta
-    - property: "twitter:description"
-      content: "I used Vite to build a new blazing fast blog ⚡, find out what I learnt and why Vite is the next big thing."
-  - - meta
-    - property: "twitter:image"
-      content: "https://harlanzw.com/social/how-vite-works.png"    
 ---
 
 In rebuilding my old Nuxt.js personal site, I wanted to challenge myself to learn the latest tech, the unknown.
@@ -123,7 +90,7 @@ Assuming you're using one of the main Vue frameworks, when you start your app in
 
 As you may notice with your own apps, the bigger they grow, the longer you have to wait to start coding.
 
-![The Nuxt logo is almost burnt into my monitor at this point.](/resources/nuxt-start.png){height="600"}
+![The Nuxt logo is almost burnt into my monitor at this point.](/blog/nuxt-start.png){height="600"}
 
 Bundling in development is quicker because you don't need to do as much with the code, however, 
 as your app grows, it will become painfully slow, especially on older machines. 
@@ -182,7 +149,7 @@ You'll notice we have 2 script files there: `chunk-vendor.js` and `app.js`. On i
 
 These are third-party modules, usually coming from `node_modules`. The two main libraries in here are Vue itself and sockjs which is used for HMR.
 
-![The two top libraries are Vue.js and Sock.js (For HMR)](/resources/vendor-chunk.png){height="450"}
+![The two top libraries are Vue.js and Sock.js (For HMR)](/blog/vendor-chunk.png){height="450"}
 
 
 #### app.js
@@ -190,7 +157,7 @@ These are third-party modules, usually coming from `node_modules`. The two main 
  This is all the code for my application. It contains components, assets, etc. You'll notice that for a SFC it splits
  it into multiple modules.
 
-![My app is two components, App.vue and HelloWorld.vue](/resources/app-chunk.png){height="450"}
+![My app is two components, App.vue and HelloWorld.vue](/blog/app-chunk.png){height="450"}
 
 Taking a quick look at the `app.js` file, we can find some of the `HelloWorld` component code. As you can see in the above image,
 all parts of the SFC are separate modules: the wrapper, CSS, template, js. 
@@ -248,7 +215,7 @@ lines into HTTP requests back to the server, where it will again read the `expor
 
 It will keep going through like this with your dependencies recursively, in a waterfall process, until everything has been resolved.
 
-![Recursive network requests triggered from the entry - VitePress.](/resources/network-requests.png){height="450"}
+![Recursive network requests triggered from the entry - VitePress.](/blog/network-requests.png){height="450"}
 
  
 ### Vite Component Example

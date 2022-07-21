@@ -22,7 +22,7 @@ const meta = addHead(page)
       :data-modified="page.modifiedAt"
     />
     <component :is="contentComponent">
-      <ContentRenderer :value="page" class="animate-enter max-w-none" />
+      <ContentRenderer :value="page" />
     </component>
   </div>
 </template>
