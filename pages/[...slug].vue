@@ -7,7 +7,7 @@ const { data: page } = await usePage(path)
 
 const contentComponent = computed(() => page?.value?.prose !== false ? Prose : 'div')
 
-const schema = page.value.schema || {}
+const schema = computed(() => page.value?.schema || {})
 const meta = addHead(page)
 </script>
 

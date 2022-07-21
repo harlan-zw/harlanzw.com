@@ -18,9 +18,9 @@ const card = ref()
 const cardHovered = useElementHover(card)
 
 const marqueeEl = ref()
+
 const marqueePosition = ref(0)
-const marqueeDelay = ref(250)
-// will change
+const marqueeDelay = ref(0)
 const marqueeDuration = ref(0)
 
 const marqueTransition = useTransition(marqueePosition, {
@@ -35,9 +35,10 @@ const startMarquee = () => {
   const offset = $child.offsetWidth - marqueeEl.value.offsetWidth
   if (offset === 0)
     return
-  // 20ms seconds for each pixel
+  // set the duration based on the width we need to traverse
   const initialDuration = offset * 20
-  const initialDelay = 250
+  // wait a little bit before starting to give the user a chance to realise what's happening
+  const initialDelay = 350
   // reset variables
   marqueeDuration.value = initialDuration
   marqueeDelay.value = initialDelay

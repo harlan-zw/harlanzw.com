@@ -8,7 +8,7 @@ const year = formatPublishedDate({ year: 'numeric' })
 const month = formatPublishedDate({ month: 'short' })
 const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
-const schema = post.value.schema || {}
+const schema = computed(() => post.value?.schema || {})
 const meta = addHead(post)
 </script>
 
