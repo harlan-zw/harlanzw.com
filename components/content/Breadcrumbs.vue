@@ -3,22 +3,20 @@ const breadcrumbs = await useBreadcrumbs()
 </script>
 
 <template>
-  <div>
-    <SchemaOrgBreadcrumb
-      v-slot="{ itemListElement }"
-      as="ul"
-      class="flex space-x-4 text-sm opacity-50 list-none"
-      :item-list-element="breadcrumbs"
-    >
-      <template v-for="(item, key) in itemListElement" :key="key">
-        <li v-if="item.item">
-          <NuxtLink :to="item.item" class="inline">
-            {{ item.name }}
-          </NuxtLink>
-        </li>
-      </template>
-    </SchemaOrgBreadcrumb>
-  </div>
+<SchemaOrgBreadcrumb
+  v-slot="{ itemListElement }"
+  :item-list-element="breadcrumbs"
+>
+  <ul v-if="itemListElement.length > 1" class="flex space-x-4 text-sm opacity-50 list-none !mt-0 !mb-0">
+    <template v-for="(item, key) in itemListElement" :key="key">
+    <li v-if="item.item" class="!mt-0">
+      <NuxtLink :to="item.item" class="inline">
+        {{ item.name }}
+      </NuxtLink>
+    </li>
+    </template>
+  </ul>
+</SchemaOrgBreadcrumb>
 </template>
 
 <style scoped lang="scss">

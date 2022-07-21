@@ -5,7 +5,7 @@ description: "This is a directory of the open-source packages and tools I've rel
 schema.type: CollectionPage
 ---
 
-::prose{class="mb-15"}
+::prose
 # Projects :i-line-md-lightbulb
 
 This is a directory of the open-source packages and tools I've released that are actively maintained. You can find all of my projects on [GitHub](https://github.com/harlan-zw).

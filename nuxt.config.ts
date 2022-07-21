@@ -26,6 +26,36 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
+  hooks: {
+    'app:templates': function (app) {
+      app.templates = app.templates.map((t) => {
+        if (t.filename !== 'views/document.template.mjs')
+          return t
+
+        t.getContents = () => {
+          return `export default (params) => \`
+<!DOCTYPE html>
+<!--
+  Hey :) Thanks for inspecting my site.
+  Are you interested in the source code? You can find it here: https://github.com/harlan-zw/harlanzw.com
+-->
+<html \${params.HTML_ATTRS}>
+
+<head \${params.HEAD_ATTRS}>
+  \${params.HEAD}
+</head>
+
+<body \${params.BODY_ATTRS}>\${params.BODY_PREPEND}
+  \${params.APP}
+</body>
+
+</html>\`
+`
+        }
+        return t
+      })
+    },
+  },
   // https://content.nuxtjs.org
   content: {
     navigation: {

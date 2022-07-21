@@ -4,7 +4,7 @@ prose: false
 schema.type: CollectionPage
 ---
 
-::prose{class="mb-15"}
+::prose
 # Blog :i-line-md-text-box-multiple
 ::
 

@@ -95,9 +95,8 @@ a:not(.unstyled), .link {
 /* Customize headers to remove default underline */
 .prose h1 {
   /* Fix icons in headers */
-  @apply flex items-center;
   svg {
-    @apply ml-3 md:(w-8 h-8) w-6 h-6 mt-2 text-gray-500 !hidden !sm:inline-block;
+    @apply ml-1 md:(w-8 h-8) w-6 h-6 mb-1 text-gray-500 inline-block;
   }
 }
 

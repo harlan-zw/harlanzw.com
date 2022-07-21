@@ -20,23 +20,20 @@ const meta = addHead(post)
       :data-modified="post.modifiedAt"
     />
     <Breadcrumbs class="mb-2" />
-    <h1 class="!text-3xl font-header font-bold !leading-11 !md:(text-5xl leading-16) mb-10">
+    <h1 class="!text-3xl font-header font-bold !leading-11 !md:(text-5xl leading-16) mb-7">
       {{ post.title }}
     </h1>
-    <div class="sm:(flex space-x-7 mb-10 text-lg) mb-5 items-center">
-      <div class="space-x-1 opacity-80">
-        <span>Published</span>
-        <span>{{ month }}</span>
-        <span>{{ day }}</span>
-        <span>{{ year }}</span>
+    <div class="sm:(flex space-x-7 mb-10 text-lg) space-y-3 items-center">
+      <div class="opacity-80">
+        Published {{ month }} {{ day }} {{ year }}
       </div>
-      <div class="opacity-50 text-xs">
+      <div class="opacity-50 text-xs hidden sm:block">
         ●
       </div>
       <div class="opacity-80 mb-5 sm:mb-0">
         {{ post.readingMins }} minute read
       </div>
-      <div class="opacity-50 text-xs">
+      <div class="opacity-50 text-xs hidden sm:block">
         ●
       </div>
       <TagList :tags="post.tags" />

@@ -6,9 +6,8 @@ description: "Through the support of my amazing sponsors I'm able to dedicate a 
 
 Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source.
 
-<p align="center">
-  <image src='https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg' alt="Harlan Wilton's Github Sponsors" height="450" />
-</p>
+
+![Harlan Wilton's Github Sponsors](https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg){height="450"}
 
 
 Thank you to all of them!
