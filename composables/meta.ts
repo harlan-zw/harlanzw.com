@@ -1,4 +1,4 @@
-import { SameAs, SiteDescription, SiteImage, SiteLogo, SiteName } from '~/logic'
+import { SameAs, SiteDescription, SiteImage, SiteLanguage, SiteLogo, SiteName, SiteUrl } from '~/logic'
 
 export function useSiteMeta() {
   return {
@@ -7,5 +7,7 @@ export function useSiteMeta() {
     sameAs: SameAs,
     image: SiteImage,
     logo: SiteLogo,
+    lang: SiteLanguage,
+    host: SiteUrl,
   }
 }

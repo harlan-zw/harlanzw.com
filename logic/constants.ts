@@ -9,3 +9,17 @@ export const SameAs = [
   'https://twitter.com/harlan_zw',
   'https://github.com/harlan-zw',
 ]
+export const SiteNav = [
+  {
+    name: 'Blog',
+    url: '/blog',
+  },
+  {
+    name: 'Projects',
+    url: '/projects',
+  },
+  {
+    name: 'Sponsors',
+    url: '/sponsors',
+  },
+]

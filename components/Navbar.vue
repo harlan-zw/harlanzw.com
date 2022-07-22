@@ -1,18 +1,7 @@
 <script lang="ts" setup>
-const nav = [
-  {
-    name: 'Blog',
-    url: '/blog',
-  },
-  {
-    name: 'Projects',
-    url: '/projects',
-  },
-  {
-    name: 'Sponsors',
-    url: '/sponsors',
-  },
-]
+import { SiteNav } from '~/logic'
+
+const nav = SiteNav
 </script>
 
 <template>

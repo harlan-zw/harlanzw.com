@@ -6,7 +6,7 @@ const routesContentQuery = await useRoutesContent()
 
 const { data: pageContent, error } = routesContentQuery
 
-// presume any error is a 404
+// presume any error is a 404, this should pickup any rendering issues
 if (error.value) {
   const nuxtApp = useNuxtApp()
   callWithNuxt(nuxtApp, throwError, [createError({
@@ -23,11 +23,10 @@ else {
 </script>
 
 <template>
-  <div>
-    <template v-if="pageContent">
-      <LazyPageRenderer v-if="pageContent.renderer === 'page'" :page="pageContent" />
-      <LazyPostRenderer v-else-if="pageContent.renderer === 'post'" :post="pageContent" />
-    </template>
-    <!--    Handle Error -->
-  </div>
+<div>
+  <template v-if="pageContent">
+  <LazyPageRenderer v-if="pageContent.renderer === 'page'" :page="pageContent" />
+  <LazyPostRenderer v-else-if="pageContent.renderer === 'post'" :post="pageContent" />
+  </template>
+</div>
 </template>
