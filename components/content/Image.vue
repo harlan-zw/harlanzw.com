@@ -18,7 +18,7 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 </script>
 
 <template>
-  <figure class="w-900px">
+  <figure>
     <nuxt-img
       v-bind="$attrs"
       :alt="alt"
@@ -34,7 +34,7 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 
 <style scoped>
 figure {
-  @apply transform lg:(-translate-x-100px !my-10);
+  @apply w-900px transform lg:(-translate-x-100px !my-10);
 }
 figure :deep(img:not([src$=".svg"])) {
   @apply rounded-lg shadow-lg;

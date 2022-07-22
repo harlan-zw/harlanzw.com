@@ -21,23 +21,20 @@ const schema = computed(() => props.post.schema || {})
       v-bind="{ schema }"
     />
     <Breadcrumbs class="mb-2" />
-    <h1 class="!text-3xl font-header font-bold !leading-11 !md:(text-5xl leading-16) mb-7">
+    <h1 class="!text-3xl font-header font-bold !leading-11 !md:(text-4xl leading-14) mb-7">
       {{ post.title }}
     </h1>
-    <div class="sm:(flex space-x-7 mb-10 text-lg) space-y-3 items-center">
-      <div class="opacity-80">
+    <TagList :tags="post.tags" class="mb-5" />
+    <div class="sm:(flex space-x-7 mb-10 text-lg space-y-0) opacity-80 space-y-3 items-center">
+      <div>
         Published {{ month }} {{ day }} {{ year }}
       </div>
       <div class="opacity-50 text-xs hidden sm:block">
         ●
       </div>
-      <div class="opacity-80 mb-5 sm:mb-0">
+      <div>
         {{ post.readingMins }} minute read
       </div>
-      <div class="opacity-50 text-xs hidden sm:block">
-        ●
-      </div>
-      <TagList :tags="post.tags" />
     </div>
     <Prose>
       <ContentRenderer :value="post" class="max-w-none">

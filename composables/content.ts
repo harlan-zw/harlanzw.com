@@ -23,7 +23,7 @@ export const usePostList = () => {
   })
 }
 
-export const useRoutesContent = <T>(path?: string) => {
+export const useRoutesContent = <T extends Post>(path?: string) => {
   if (!path)
     path = useRoute().path
   return useAsyncData(`content:${path}`, () => queryContent<T>()

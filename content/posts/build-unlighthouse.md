@@ -1,5 +1,5 @@
 ---
-title: "Exploring Modern Package Development: Building Unlighthouse"
+title: "Exploring The Modern Package Development Ecosystem: Building Unlighthouse"
 description: "Unlighthouse is a package I made to scan your entire site using Google Lighthouse. Discover what went into making it, including some of the awesome packages I used."
 publishedAt: "2022-06-12"
 image: "https://next.unlighthouse.dev/og.png"
@@ -11,19 +11,21 @@ tags:
 
 ## Introduction
 
-[Unlighthouse](https://github.com/harlan-zw/unlighthouse) is an open-source package to scan your entire site using Google Lighthouse. Featuring a modern UI, minimal config and smart sampling.
+[Unlighthouse](https://github.com/harlan-zw/unlighthouse) is an open-source package I built to scan your entire site using Google Lighthouse.
 
-It's a package I worked for a number of months on, and I'm proud of it.
+Building it was chaotic, with day-long bugs, constant refactoring and endless documentation reading. 
 
-I learnt a lot while building it, and I'm excited to share my findings in this article.
+But I got it done. People like it.
 
-## Understanding the problem
+In this article I'll discuss what I learnt building it and the package ecosystem around building Unlighthouse: a modern package. 
+
+## Background: Why build Unlighthouse?
 
 As a freelancer I  keep on top of my clients organic growth with Google Search Console.
 
 Was a day like any other, looking at one of my clients' dashboard. Seemingly out of nowhere, I saw the trend of page position, clicks and page views in free fall. My clients' income was based on organic traffic, not good.
 
-![Trending down Google Search Console](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n4ajn7qv5iir7kmido0p.png)
+![Trending down Google Search Console](/numbers-go-down)
 
 Isolating the reason for the falling page rank wasn't easy. The site had issues, but what was causing the free fall? There was no easy way to know.
 
@@ -32,7 +34,7 @@ fixing them all up and improving the general performance of the site.
 
 What happened next? Things started turning around. I was able to invert the graph. Organic growth doubled in the next few months. Happy client.
 
-![Trending up Google Search Console](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wh6s6kjiy5y8ilv8pzeq.png)
+![Trending up Google Search Console](/numbers-go-up)
 
 Now that was out of the way, how could I make it easier to stay on top of the health of the sites I manage?
 
