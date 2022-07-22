@@ -30,6 +30,7 @@ export async function generateBlogFeed(event) {
     let $ = cheerio.load(content)
     const prose = $('.prose').html()
     $ = cheerio.load(prose)
+    // remove all attributes from all elements
     $('*').each(function () {
       this.attribs = {}
     })

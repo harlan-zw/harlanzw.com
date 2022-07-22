@@ -1,28 +1,32 @@
 <script setup lang="ts">
-import { Prose } from '#components'
+import { callWithNuxt, throwError, useNuxtApp } from '#app'
+import { createError } from 'h3'
 
-const slug = useRoute().path
-const path = slug !== '/' ? `pages${slug}` : 'pages/home'
-const { data: page } = await usePage(path)
+const routesContentQuery = await useRoutesContent()
 
-const contentComponent = computed(() => page?.value?.prose !== false ? Prose : 'div')
+const { data: pageContent, error } = routesContentQuery
 
-const schema = computed(() => page.value?.schema || {})
-const meta = addHead(page)
+if (process.server && error.value && (error.value as unknown as Error).message.includes('404')) {
+  const nuxtApp = useNuxtApp()
+  callWithNuxt(nuxtApp, throwError, [createError({
+    statusCode: 404,
+    statusMessage: `Page not found: ${useRoute().path}`,
+  })])
+
+  if (process.server && nuxtApp.ssrContext)
+    nuxtApp.ssrContext.res.statusCode = 404
+}
+else {
+  addHead(pageContent)
+}
 </script>
 
 <template>
   <div>
-    <SchemaOrgWebPage
-      v-bind="schema"
-      :title="meta.title"
-      :description="meta.description"
-      :image="meta.image"
-      :date-published="page.publishedAt"
-      :data-modified="page.modifiedAt"
-    />
-    <component :is="contentComponent">
-      <ContentRenderer :value="page" />
-    </component>
+    <template v-if="pageContent">
+      <LazyPageRenderer v-if="pageContent.renderer === 'page'" :page="pageContent" />
+      <LazyPostRenderer v-else-if="pageContent.renderer === 'post'" :post="pageContent" />
+    </template>
+    <!--    Handle Error -->
   </div>
 </template>

@@ -1,22 +1,16 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
-import { serverQueryContent } from '#content/server'
+import { contentPaths } from '../util/content'
 import { SiteUrl } from '~/logic'
 
 export default defineEventHandler(async (event) => {
-  // Fetch all documents
-  const posts = await serverQueryContent(event, 'posts').find()
-  const pages = await serverQueryContent(event, 'pages').find()
-  const routes = [...pages, { _path: '/projects' }, { _path: '/blog' }, ...posts]
+  const routes = await contentPaths(event)
 
   const sitemap = new SitemapStream({
     hostname: SiteUrl,
   })
   for (const doc of routes) {
     sitemap.write({
-      url: doc._path
-        .replace('/pages/home', '/')
-        .replace('/pages', '')
-        .replace('/posts', '/blog'),
+      url: doc.path,
     })
   }
   sitemap.end()

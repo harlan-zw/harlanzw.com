@@ -4,7 +4,7 @@ import type { StorageMeta } from 'unstorage'
 export interface ParsedContent extends DefaultParsedContent {
   storageMeta: StorageMeta
   prose?: boolean
-  schema: [string: any]
+  schemaOrg: Record<string, any>
 }
 
 export interface Post extends ParsedContent {
@@ -12,8 +12,11 @@ export interface Post extends ParsedContent {
   description: string
   publishedAt: Date
   modifiedAt: Date
+  path: string
+  renderer: 'post' | 'page'
 }
-export interface Page extends Post {}
+export interface Page extends Post {
+}
 
 export interface JsonParsedContent<T> extends ParsedContent {
   body: T
@@ -26,7 +29,7 @@ export interface Project {
   icon?: string
 }
 
-export interface ProjectCategory extends ParsedContent {
+export interface ProjectList extends ParsedContent {
   name: string
   projects: Project[]
 }

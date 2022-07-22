@@ -1,39 +1,40 @@
 import { useAsyncData } from '#app'
 import type { MaybeRef } from '@vueuse/schema-org'
 import { nextTick, queryContent, unref, useHead } from '#imports'
-import type { JsonParsedContent, Page, Post, ProjectCategory } from '~/types'
+import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { SiteName, groupBy } from '~/logic'
 
 export const useProjects = () => {
-  return useAsyncData('projects', () => queryContent<JsonParsedContent<ProjectCategory>>('projects').findOne())
+  return useAsyncData('content:projects', () =>
+    queryContent<JsonParsedContent<ProjectList>>('projects').findOne(),
+  )
 }
 
 export const usePostList = () => {
-  return useAsyncData('posts', () => queryContent<Post>('posts')
+  return useAsyncData('content:post-partials', () => queryContent<Post>()
+    .where({ _path: /posts\/*/ })
     .without(['head', 'body', 'excerpt', '_'])
     .sort({
       publishedAt: -1,
     })
     .find(), {
+    // group posts by the publish year
     transform: posts => groupBy(posts, p => new Date(p.publishedAt).getFullYear()),
   })
 }
 
-export const usePost = async (slug: string) => {
-  return useAsyncData(`post-${slug}`, () => queryContent<Post>(slug)
-    .without(['excerpt'])
-    .sort({
-      publishedAt: -1,
-    })
-    .findOne())
-}
-
-export const usePage = async (slug: string) => {
-  return useAsyncData(`page-${slug}`, () => queryContent<Page>(slug)
+export const useRoutesContent = <T>(path?: string) => {
+  if (!path)
+    path = useRoute().path
+  return useAsyncData(`content:${path}`, () => queryContent<T>()
+    .where({ path: new RegExp(path) })
     .without(['excerpt'])
     .findOne(),
   )
 }
+
+export const usePost = async (path?: string) => useRoutesContent<Post>(path)
+export const usePage = async (path?: string) => useRoutesContent<Page>(path)
 
 export const addHead = (doc: MaybeRef<Partial<Page>>) => {
   doc = unref(doc)

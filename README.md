@@ -6,6 +6,7 @@ My personal website built with Nuxt v3 and Nuxt Content v2.
 
 ## Content Features
 
+- Automatic routes based on content /w 404 handling
 - 🔎 Automated Schema.org
 - 📚 Markdown read time calculation
 - 👨‍💻 Code file name and language support

@@ -1,23 +1,24 @@
 <script lang="ts" setup>
+import type { PropType } from 'vue'
 import { dayNth } from '~/logic'
+import type { Post } from '~/types'
 
-const { data: post } = await usePost(`posts/${useRoute().params.slug}`)
+const props = defineProps({
+  post: Object as PropType<Post>,
+})
 
-const formatPublishedDate = (options: any) => new Intl.DateTimeFormat('en', options).format(new Date(post.value.publishedAt))
+const formatPublishedDate = (options: any) => new Intl.DateTimeFormat('en', options).format(new Date(props.post.publishedAt))
 const year = formatPublishedDate({ year: 'numeric' })
 const month = formatPublishedDate({ month: 'short' })
 const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
-const schema = computed(() => post.value?.schema || {})
-const meta = addHead(post)
+const schema = computed(() => props.post.schema || {})
 </script>
 
 <template>
   <div>
     <SchemaOrgArticle
-      v-bind="{ ...meta, ...schema }"
-      :date-published="post.publishedAt"
-      :data-modified="post.modifiedAt"
+      v-bind="{ schema }"
     />
     <Breadcrumbs class="mb-2" />
     <h1 class="!text-3xl font-header font-bold !leading-11 !md:(text-5xl leading-16) mb-7">
