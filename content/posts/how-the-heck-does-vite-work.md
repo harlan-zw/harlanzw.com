@@ -11,7 +11,7 @@ tags:
 ---
 
 ::tip
-Note:  article was written for the alpha of Vite. I'd recommend reading Patak's great article on [The Vite Ecosystem](https://patak.dev/vite/ecosystem.html).
+Note: This article was written for the alpha of Vite. I'd recommend reading Patak's great article on [The Vite Ecosystem](https://patak.dev/vite/ecosystem.html).
 ::
 
 In rebuilding my old Nuxt.js personal site, I wanted to challenge myself to learn the latest tech, the unknown.

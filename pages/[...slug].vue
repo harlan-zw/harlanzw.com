@@ -6,7 +6,8 @@ const routesContentQuery = await useRoutesContent()
 
 const { data: pageContent, error } = routesContentQuery
 
-if (process.server && error.value && (error.value as unknown as Error).message.includes('404')) {
+// presume any error is a 404
+if (error.value) {
   const nuxtApp = useNuxtApp()
   callWithNuxt(nuxtApp, throwError, [createError({
     statusCode: 404,
