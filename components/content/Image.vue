@@ -34,7 +34,7 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 
 <style scoped>
 figure {
-  @apply w-900px transform lg:(-translate-x-100px !my-10);
+  @apply transform lg:(w-900px -translate-x-100px !my-10);
 }
 figure :deep(img:not([src$=".svg"])) {
   @apply rounded-lg shadow-lg;
