@@ -347,7 +347,7 @@ components/
 
 Being tied to import paths once you have a few hundred components is going to slow you down.
 
-Using an  [automatic component imports](/blog/vue-automatic-component-imports/) will clean up your code. You'll be free to tinker with the directory structure of your components in any way you want.
+Using an  [automatic component imports](/blog/vue-automatic-component-imports) will clean up your code. You'll be free to tinker with the directory structure of your components in any way you want.
 
 ### Typescript Components
 

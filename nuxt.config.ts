@@ -86,6 +86,10 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/',
+        '/sitemap.xml',
+        '/feed.xml',
+        '/feed.json',
+        '/feed.atom',
       ],
     },
   },
