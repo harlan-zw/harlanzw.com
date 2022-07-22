@@ -2,10 +2,8 @@ body {
   min-height: 100vh;
   background-color: rgb(247,247,247);
   background-image: linear-gradient(0deg, #33e47f10, #ffffff);
-  @apply dark:bg-gray-900;
-}
-html.dark body {
-  background-image: none;
+  overflow: overlay;
+  @apply dark:bg-gray-900 dark:bg-none;
 }
 
 a:not(.unstyled), .link {
@@ -76,11 +74,7 @@ a:not(.unstyled), .link {
 }
 
 .prose h3 a {
-  opacity: 0.9;
-
-  &:after, &:before {
-    opacity: 0 !important;
-  }
+  @apply opacity-90 after:opacity-0 before:opacity-0
 }
 
 @keyframes text-glow {
@@ -105,7 +99,6 @@ a:not(.unstyled), .link {
 }
 
 // inline code block `this is an example`
-
 .prose code {
   @apply bg-gray-200 py-1 px-2 rounded font-normal text-gray-700;
 
@@ -116,16 +109,6 @@ a:not(.unstyled), .link {
 
 .dark .prose code {
   @apply bg-gray-800 py-1 px-2 rounded font-normal text-gray-300;
-}
-
-
-.prose .code-block {
-  @apply transform -translate-x-100px my-12 !py-0 w-900px max-h-700px overflow-y-auto;
-}
-
-.prose pre {
-  padding-top: 2em;
-  margin: 0 !important;
 }
 
 .prose h2 a,
@@ -180,40 +163,3 @@ a:not(.unstyled), .link {
   @apply hidden group-hover:inline-block;
 }
 
-body {
-  overflow: overlay;
-}
-
-pre {
-  --scrollbar-thumb: #3b5178;
-}
-
-.dark pre {
-  --scrollbar-thumb: #acbad2;
-}
-
-* {
-  --scrollbar-track: initial;
-  --scrollbar-thumb: initial;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-  scrollbar-width: thin;
-  --scrollbar-thumb: #acbad2;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-track)
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border-radius: .25rem
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px
-}
-
-.dark * {
-  --scrollbar-thumb: #3b5178;
-}

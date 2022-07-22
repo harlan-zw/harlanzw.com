@@ -26,7 +26,7 @@ export default <ContentTransformer> {
         parent.children.splice(index, 1, ...[
           {
             type: 'element',
-            tag: 'div',
+            tag: 'CodeBlock',
             props: {
               'data-language': node.props.language,
               'class': [

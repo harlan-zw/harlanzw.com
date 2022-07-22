@@ -4,6 +4,8 @@
 
 My personal website built with Nuxt v3 and Nuxt Content v2.
 
+Built as reference for optimal Nuxt code practices, SEO, performance and accessibility.
+
 ## Content Features
 
 - Automatic routes based on content /w 404 handling

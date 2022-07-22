@@ -1,5 +1,5 @@
 ---
-title: "Building Unlighthouse: Open-Source Package For Site-wide Google Lighthouse scans"
+title: "Exploring Modern Package Development: Building Unlighthouse"
 description: "Unlighthouse is a package I made to scan your entire site using Google Lighthouse. Discover what went into making it, including some of the awesome packages I used."
 publishedAt: "2022-06-12"
 image: "https://next.unlighthouse.dev/og.png"
@@ -70,13 +70,15 @@ There are many benefits to using a monorepo for a package. My personal favourite
 
 ![Unlighthouse monorepo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3hfzz5ik3fa9qtzmmmz9.png)
 
-### Vitest Testing
+### Vitest 
 
 [Vitest](https://vitest.dev/) is also the new kid on the block of testing. It's original aim was to be a testing framework specifically for Vite, but it has ended up being a possible replacement for Jest entirely.
 
 Vitest makes writing your logic and tests a breeze and I'd recommend checking it out for any project.
 
-### [unbuild](https://github.com/unjs/unbuild)
+### Unbuild - An unified javascript build system
+
+![](https://opengraph.githubassets.com/a12c58f21ffef9686653c51d0203ab07a995d7450d3d690a1c8bd51e975df35c/unjs/unbuild){alt="unbuild" height="200"}
 
 This package is described as a "A unified javascript build system".
 
@@ -99,7 +101,11 @@ export default defineBuildConfig({
 })
 ```
 
-### [unctx](https://github.com/unjs/unctx)
+[GitHub Repo Link](https://github.com/unjs/unbuild)
+
+### Unctx - Composition-api in vanilla js
+
+![](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){alt="unctx" height="200"}
 
 It's amazing that a simple pattern like composition has evaded Node packages for so long.
 
@@ -120,7 +126,11 @@ export const createUnlighthouse = async (userConfig: UserConfig, provider?: Prov
 }
 ```
 
-### [unrouted](https://github.com/harlan-zw/unrouted)
+- [unctx GitHub Repo](https://github.com/unjs/unctx)
+
+### Unrouted
+
+[GitHub](https://github.com/harlan-zw/unrouted)
 
 I needed an API for the client to communicate with the Node server to fetch the status of the scan and submit re-scans.
 
@@ -169,7 +179,9 @@ group('/api', () => {
 })
 ```
 
-### [hookable](https://github.com/unjs/hookable)
+### Hookable
+
+[GitHub](https://github.com/unjs/hookable)
 
 For Nuxt.js users, you might be familiar with the concept of frameworks hooks. A way for you to modify or do something with the internal logic of Nuxt.
 
@@ -187,7 +199,9 @@ hooks.hookOnce('visited-client', () => {
 })
 ```
 
-### [unconfig](https://github.com/antfu/unconfig)
+### Unconfig
+
+[GitHub](https://github.com/antfu/unconfig)
 
 Unconfig is a universal solution for loading configurations. This let me allow the package to load in a configuration from `unlighthouse.config.ts` or a custom path, with barely any code.
 
@@ -214,7 +228,9 @@ if (configDefinition.sources?.[0]) {
 }
 ```
 
-### [ufo](https://github.com/unjs/ufo)
+### UFO
+
+[GitHub](https://github.com/unjs/ufo)
 
 > URL utils for humans
 
