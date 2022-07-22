@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { callWithNuxt, throwError, useNuxtApp } from '#app'
 import { createError } from 'h3'
+import { useContentHead } from '~/composables/content'
 
 const routesContentQuery = await useRoutesContent()
 
@@ -18,15 +19,14 @@ if (error.value) {
     nuxtApp.ssrContext.res.statusCode = 404
 }
 else {
-  addHead(pageContent)
+  useContentHead(pageContent)
 }
 </script>
 
 <template>
 <div>
-  <template v-if="pageContent">
-  <LazyPageRenderer v-if="pageContent.renderer === 'page'" :page="pageContent" />
-  <LazyPostRenderer v-else-if="pageContent.renderer === 'post'" :post="pageContent" />
-  </template>
+  <LazyPageRenderer v-if="pageContent?.renderer === 'page'" :page="pageContent" />
+  <LazyPostRenderer v-else-if="pageContent?.renderer === 'post'" :post="pageContent" />
+  <!-- @todo handle error -->
 </div>
 </template>

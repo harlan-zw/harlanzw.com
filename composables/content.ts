@@ -1,6 +1,6 @@
 import { useAsyncData } from '#app'
 import type { MaybeRef } from '@vueuse/schema-org'
-import { nextTick, queryContent, unref, useHead } from '#imports'
+import {nextTick, queryContent, unref, useHead, watch} from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { SiteName, groupBy } from '~/logic'
 
@@ -36,33 +36,30 @@ export const useRoutesContent = <T extends Post>(path?: string) => {
 export const usePost = async (path?: string) => useRoutesContent<Post>(path)
 export const usePage = async (path?: string) => useRoutesContent<Page>(path)
 
-export const addHead = (doc: MaybeRef<Partial<Page>>) => {
-  doc = unref(doc)
-  if (!doc)
-    return
-  const head = Object.assign({}, doc?.head || {})
-  head.title = `${head.title || doc.title} - ${SiteName}`
-  head.meta = head.meta || []
-  const description = head.description || doc.description
-  if (description && head.meta.filter(m => m.name === 'description').length === 0) {
-    head.meta.push({
-      name: 'description',
-      content: description,
-    })
-  }
-  if (head.image && head.meta.filter(m => m.property === 'og:image').length === 0) {
-    head.meta.push({
-      property: 'og:image',
-      content: head.image,
-    })
-  }
-  if (process.client)
-    nextTick(() => useHead(head))
-  else
-    useHead(head)
-  return {
-    title: head.title,
-    description: head.description,
-    image: head.image,
-  }
+export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
+  watch(() => doc, (doc) => {
+    doc = unref(doc)
+    if (!doc)
+      return
+    const head = Object.assign({}, doc?.head || {})
+    head.title = `${head.title || doc.title} - ${SiteName}`
+    head.meta = head.meta || []
+    const description = head.description || doc.description
+    if (description && head.meta.filter(m => m.name === 'description').length === 0) {
+      head.meta.push({
+        name: 'description',
+        content: description,
+      })
+    }
+    if (head.image && head.meta.filter(m => m.property === 'og:image').length === 0) {
+      head.meta.push({
+        property: 'og:image',
+        content: head.image,
+      })
+    }
+    if (process.client)
+      nextTick(() => useHead(head))
+    else
+      useHead(head)
+  })
 }
