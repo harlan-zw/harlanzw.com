@@ -10,27 +10,31 @@ const nav = SiteNav
       <Logo />
       <div class="flex items-center">
         <!-- Navigation -->
-        <nav class="flex md:(space-x-7 mr-15) space-x-4 sm:mr-7 items-center opacity-75">
-          <NuxtLink v-for="(link, key) in nav" v-slot="{ isActive }" :key="key" :to="link.url" class="!inline-flex items-center group" :title="link.name">
-            <div :class="isActive ? ['bg-green-200', 'text-green-800'] : []" class="px-3 py-2 rounded">
-              <i-line-md-text-box-multiple
-                v-if="link.name === 'Blog'"
-                class="hidden sm:inline-block text mr-2 transition opacity-75 group-hover:opacity-100"
-                :class="isActive ? 'opacity-100' : 'opacity-75'"
-              />
-              <i-line-md-lightbulb
-                v-else-if="link.name === 'Projects'"
-                class="hidden sm:inline-block text mr-2 transition opacity-75 group-hover:opacity-100"
-                :class="isActive ? 'opacity-100' : 'opacity-75'"
-              />
-              <i-line-md-heart
-                v-else-if="link.name === 'Sponsors'"
-                class="hidden sm:inline-block text mr-2 transition opacity-75 group-hover:opacity-100"
-                :class="isActive ? 'opacity-100' : 'opacity-75'"
-              />
-              {{ link.name }}
-            </div>
-          </NuxtLink>
+        <nav aria-label="Menu" class="opacity-75">
+          <ul class="flex md:(space-x-7 mr-15) space-x-4 sm:mr-7 items-center">
+            <li v-for="(link, key) in nav" :key="key">
+              <NuxtLink v-slot="{ isActive }" :to="link.url" class="!inline-flex items-center group" :title="`Visit ${link.name} Page`">
+                <div :class="isActive ? ['bg-green-50', 'text-green-800'] : []" class="px-3 py-2 rounded">
+                  <i-line-md-text-box-multiple
+                    v-if="link.name === 'Blog'"
+                    class="hidden sm:inline-block text mr-2 transition opacity-75 group-hover:opacity-100"
+                    :class="isActive ? 'opacity-100' : 'opacity-75'"
+                  />
+                  <i-line-md-lightbulb
+                    v-else-if="link.name === 'Projects'"
+                    class="hidden sm:inline-block text mr-2 transition opacity-75 group-hover:opacity-100"
+                    :class="isActive ? 'opacity-100' : 'opacity-75'"
+                  />
+                  <i-line-md-heart
+                    v-else-if="link.name === 'Sponsors'"
+                    class="hidden sm:inline-block text mr-2 transition opacity-75 group-hover:opacity-100"
+                    :class="isActive ? 'opacity-100' : 'opacity-75'"
+                  />
+                  {{ link.name }}
+                </div>
+              </NuxtLink>
+            </li>
+          </ul>
         </nav>
         <!-- Social icons & Color Mode -->
         <SocialIcons class="hidden sm:flex" />

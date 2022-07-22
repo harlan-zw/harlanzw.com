@@ -7,7 +7,7 @@ const initials = siteMeta.name
 </script>
 
 <template>
-  <nuxt-link to="/" class="flex items-center group unstyled sm:py-4 py-1">
+  <nuxt-link to="/" class="flex items-center group unstyled sm:py-4 py-1" title="Go Home">
     <NuxtImg
       :src="siteMeta.logo"
       width="44"
@@ -17,7 +17,7 @@ const initials = siteMeta.name
       provider="cloudinary"
       class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
     />
-    <div class="text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
+    <div aria-label="Harlan Wilton Initials" class="text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
       <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
       <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
     </div>
