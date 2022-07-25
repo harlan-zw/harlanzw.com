@@ -1,5 +1,5 @@
 <template>
-  <div class="md:(space-x-5) space-x-3 text-gray-500 flex items-center">
+  <div class="md:(space-x-2) space-x-1 text-gray-500 flex items-center">
     <NuxtLink target="_blank" href="https://twitter.com/harlan_zw" title="Visit my Twitter" class="group">
       <i-line-md-twitter class="icon icon--off" alt="Twitter Logo" />
       <i-line-md-twitter-twotone class="icon icon--on" alt="Twitter Logo" />
@@ -18,6 +18,6 @@
 
 <style scoped>
 a {
-  @apply hover:text-gray-700 dark:hover:text-gray-300;
+  @apply hover:text-gray-700 dark:hover:text-gray-300 p-2;
 }
 </style>

@@ -1,21 +1,11 @@
 <script setup lang="ts">
-defineProps({
-  size: {
-    type: String,
-    default: 'w-8 h-8',
-  },
-  spacing: {
-    type: String,
-    default: 'p-0',
-  },
-})
-
 const colorMode = useColorMode()
-const onClick = () => (colorMode.value === 'light' ? (colorMode.preference = 'dark') : (colorMode.preference = 'light'))
+const toggleMode = () => (colorMode.value === 'light' ? (colorMode.preference = 'dark') : (colorMode.preference = 'light'))
 </script>
 
 <template>
-  <button aria-label="Color Mode" :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`" class="link inline-block group icon hover:text-gray-700 dark:hover:text-gray-300 group" @click.prevent="onClick">
+  <button aria-label="Color Mode" :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`" class="p-2 link inline-block hover:text-gray-700 dark:hover:text-gray-300 group" @click.prevent="toggleMode">
+    <div class="icon">
     <ColorScheme placeholder="">
       <template v-if="colorMode.value === 'dark'">
         <i-line-md-moon class="icon icon--off" />
@@ -26,5 +16,6 @@ const onClick = () => (colorMode.value === 'light' ? (colorMode.preference = 'da
         <i-line-md-sunny-outline-loop class="icon icon--on" />
       </template>
     </ColorScheme>
+    </div>
   </button>
 </template>

@@ -6,6 +6,16 @@ body {
   @apply dark:bg-gray-900 dark:bg-none;
 }
 
+.prose *:not(h1, h2, h3, h4, h5, h6) > a {
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-image: radial-gradient(rgba(#11998e, 0.75), rgba(#23e75e, 0.75)) 15;
+
+  &:hover {
+    transform: skewX(-5deg);
+  }
+}
+
 a:not(.unstyled), .link {
   position: relative;
   display: inline-block;
@@ -14,7 +24,7 @@ a:not(.unstyled), .link {
   &:before, &:after {
     position: absolute;
     height: 3px;
-    bottom: -5px;
+    bottom: -2px;
     content: ' ';
     display: block;
     width: 12px;

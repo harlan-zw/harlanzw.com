@@ -36,6 +36,8 @@ export default defineConfig({
             maxWidth: '100%',
             lineHeight: 1.3,
             a: {
+              color: 'inherit',
+              fontWeight: 400,
               textDecoration: 'none',
             },
             h1: {
