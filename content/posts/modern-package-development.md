@@ -1,5 +1,5 @@
 ---
-title: "Learning Modern Package Development: Building Unlighthouse"
+title: "Learning Modern Package Development: Monorepos and Backends - Part 1"
 description: "Discover how you can build a modern package development through how I created the Unlighthouse project."
 publishedAt: "2022-07-31"
 image: "https://next.unlighthouse.dev/og.png"
