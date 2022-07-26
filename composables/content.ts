@@ -52,11 +52,11 @@ export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
     head.title = `${head.title || doc.title}`
     if (!head.title.endsWith(SiteName) && !head.title.startsWith(SiteName))
       head.title = `${head.title} - ${SiteName}`
+    head.meta = head.meta || []
     head.meta.push({
       name: 'og:title',
       content: head.title,
     })
-    head.meta = head.meta || []
     const description = head.description || doc.description
     if (description && head.meta.filter(m => m.name === 'description').length === 0) {
       head.meta.push({
