@@ -85,7 +85,7 @@ watch(cardHovered, (v) => {
         <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">
           <span v-if="post.readingMins" class="opacity-70">{{ post.readingMins }} min</span>
           <span class="px-2 opacity-50 hidden sm:inline-block">·</span>
-          <div ref="marqueeEl" class="hidden sm:inline-block overflow-hidden inline-flex items-center">
+          <div ref="marqueeEl" class="hidden sm:inline-flex overflow-hidden items-center">
             <div class="opacity-60">
               {{ post.description }}
             </div>
