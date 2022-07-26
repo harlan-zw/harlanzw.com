@@ -179,7 +179,7 @@ vue create auto-component-importer -p __default_vue_3__
 
 To begin, let's remove the manual import from the entry SFC, like so:
 
-#### New App.vue
+### New App.vue
 
 ```vue [App.vue]
 <script>

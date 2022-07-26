@@ -9,7 +9,7 @@ nav: true
 Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source.
 
 
-![Harlan Wilton's Github Sponsors](https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg){width="800" height="545" max-height="500"}
+![Harlan Wilton's Github Sponsors](https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg){lazy="false" width="800" height="545" max-height="500"}
 
 
 Thank you to all of them!

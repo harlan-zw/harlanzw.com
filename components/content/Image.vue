@@ -29,6 +29,10 @@ const shiftLargeImgStyles = computed(() => {
   }
 })
 
+const loadingType = computed(() => {
+  return (props.lazy === true || props.lazy === 'true') ? 'lazy' : 'eager'
+})
+
 const src = props.src
   .replace('.png', '')
   .replace('.jpeg', '')
@@ -42,7 +46,7 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
       :alt="alt"
       :width="width"
       :src="src"
-      :loading="Boolean(lazy) ? 'lazy' : 'eager'"
+      :loading="loadingType"
       :provider="provider"
     />
     <figcaption v-if="alt" class="text-center">
