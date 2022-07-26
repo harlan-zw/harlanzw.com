@@ -11,7 +11,7 @@ const production = process.env.NODE_ENV === 'production'
 <Head>
   <Meta name="og:type" content="website" />
   <Meta name="twitter:card" content="summary_large_image" />
-  <Meta property="og:image" :content="`${siteMeta.host}/cover.jpg`" />
+  <Meta property="og:image" :content="`${siteMeta.host}/cover.png`" />
   <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
