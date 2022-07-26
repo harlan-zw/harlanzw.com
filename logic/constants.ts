@@ -4,22 +4,8 @@ export const SiteImage = '/cover.png'
 export const SiteLogo = '/harlan-wilton'
 export const SiteLanguage = 'en-AU'
 export const SiteTagLine = 'Open Source Developer'
-export const SiteDescription = 'Hey! I\'m Harlan, a full-stack web developer living in Sydney, Australia. I\'m passionate about building open-source packages that delight.'
+export const SiteDescription = 'Hey, I\'m Harlan, a full-stack web developer living in Sydney, Australia. I\'m passionate about building open-source packages in the Vue, Nuxt and Vite ecosystems.'
 export const SameAs = [
   'https://twitter.com/harlan_zw',
   'https://github.com/harlan-zw',
-]
-export const SiteNav = [
-  {
-    name: 'Blog',
-    url: '/blog',
-  },
-  {
-    name: 'Projects',
-    url: '/projects',
-  },
-  {
-    name: 'Sponsors',
-    url: '/sponsors',
-  },
 ]

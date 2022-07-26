@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { SiteNav } from '~/logic'
-
 const siteMeta = useSiteMeta()
-const nav = SiteNav
-const production = process.env.NODE_ENV === 'production'
 </script>
 
 <template>
@@ -18,9 +14,6 @@ const production = process.env.NODE_ENV === 'production'
   <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <Link rel="preconnect" href="https://res.cloudinary.com" />
-  <!-- Render Prefetch hints for all navigation pages -->
-  <template v-if="production">
-  <Link v-for="(link, key) in nav" :key="key" rel="prefetch" :href="link.url" />
   <SchemaOrgPerson
     :name="siteMeta.name"
     :image="siteMeta.logo"
@@ -32,7 +25,6 @@ const production = process.env.NODE_ENV === 'production'
     :description="siteMeta.description"
   />
   <SchemaOrgWebPage />
-  </template>
 </Head>
 <Body class="text-gray-800 dark:text-gray-100 antialiased">
 <NuxtLoadingIndicator />

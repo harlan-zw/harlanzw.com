@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import { SiteNav } from '~/logic'
-// const nav = SiteNav
-
 const { data: nav } = await useHeaderNav()
 </script>
 
@@ -24,6 +21,8 @@ const { data: nav } = await useHeaderNav()
                 />
                 {{ link.title }}
               </div>
+              <!-- Render Prefetch hints for all navigation pages -->
+              <Link :key="key" rel="prefetch" :href="link.path" />
             </NuxtLink>
           </li>
         </ul>
