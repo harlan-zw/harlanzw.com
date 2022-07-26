@@ -10,8 +10,8 @@ const initials = siteMeta.name
   <nuxt-link to="/" class="flex items-center group unstyled sm:py-4 py-1" title="Go Home">
     <NuxtImg
       :src="siteMeta.logo"
-      width="44"
-      height="44"
+      width="80"
+      height="80"
       format="jpeg"
       :alt="siteMeta.name"
       provider="cloudinary"
