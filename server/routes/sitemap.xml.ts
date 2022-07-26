@@ -8,9 +8,9 @@ export default defineEventHandler(async (event) => {
   const sitemap = new SitemapStream({
     hostname: SiteUrl,
   })
-  for (const doc of routes) {
+  for (const url of routes) {
     sitemap.write({
-      url: doc.path,
+      url,
     })
   }
   sitemap.end()
