@@ -1,12 +1,33 @@
 import { defineNuxtConfig } from 'nuxt'
-import { SiteLanguage, SiteUrl } from './logic'
+// Local import of the theme.config file.
+// Values used from it will have to be rewritten manually in the user projects nuxt.config file.
+import config from './theme.config'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  app: {
+    /**
+     * https://nuxt-theme-kit.netlify.app
+     */
+    // TODO: Remove this ignore
+    // https://github.com/nuxt-themes/config/issues/5
+    // @ts-ignore
+    theme: {
+      meta: {
+        name: 'HarnlanZw.com',
+        author: '@harlan_zw',
+        description: 'My personal website built with Nuxt v3 and Nuxt Content v2. ✨'
+      }
+    }
+  },
   modules: [
+    // Themify
+    '@nuxt-themes/config/module',
+    '@nuxtjs/design-tokens/module',
+    // Website
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
-    '@nuxt/image-edge',
+    // '@nuxt/image',
     'nuxt-schema-org',
     'nuxt-windicss',
     // custom content modules, need to come before the content module
@@ -16,8 +37,10 @@ export default defineNuxtConfig({
   ],
   schemaOrg: {
     disableRuntimeScriptsWhenSSR: true,
-    canonicalHost: SiteUrl,
-    defaultLanguage: SiteLanguage,
+    // To be rewritten manually by the theme user
+    canonicalHost: config.site.url,
+    // To be rewritten manually by the theme user
+    defaultLanguage: config.site.language,
   },
   css: [
     '@/resources/scrollbars.css',
@@ -62,6 +85,7 @@ ${process.env.NODE_ENV === 'production' ? analyticsScript : '<!-- Ommited -->'}
       })
     },
   },
+
   // https://content.nuxtjs.org
   content: {
     highlight: {

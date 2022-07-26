@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-const siteMeta = useSiteMeta()
-const initials = siteMeta.name
+const config = useTheme()
+
+const initials = 'Harlan Wilton'
   .split(' ')
   .map(word => word[0].toLowerCase())
   .join('')
@@ -8,12 +9,12 @@ const initials = siteMeta.name
 
 <template>
   <nuxt-link to="/" class="flex items-center group unstyled py-4" title="Go Home">
-    <NuxtImg
-      :src="siteMeta.logo"
+    <img
+      :src="config.site.logo"
       width="80"
       height="80"
       format="jpeg"
-      :alt="siteMeta.name"
+      :alt="config.site.name"
       provider="cloudinary"
       style="width: 40px; height: 40px;"
       class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"

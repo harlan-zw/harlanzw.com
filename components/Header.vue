@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useHeaderNav } from '#imports'
 const { data: nav } = await useHeaderNav()
 </script>
 

@@ -41,7 +41,17 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 
 <template>
   <figure :style="shiftLargeImgStyles">
+    <!--
     <nuxt-img
+      v-bind="$attrs"
+      :alt="alt"
+      :width="width"
+      :src="src"
+      :loading="loadingType"
+      :provider="provider"
+    />
+    -->
+    <img
       v-bind="$attrs"
       :alt="alt"
       :width="width"

@@ -1,28 +1,28 @@
 <script lang="ts" setup>
-const siteMeta = useSiteMeta()
+const config = useTheme()
 </script>
 
 <template>
-  <Html :lang="siteMeta.lang" dir="ltr">
+  <Html :lang="config.site.language" dir="ltr">
     <Head>
       <Meta name="og:type" content="website" />
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta property="og:locale" content="en_AU" />
-      <Meta property="og:image" :content="`${siteMeta.host}/cover.png`" />
+      <Meta property="og:image" :content="`${config.site.url}/cover.png`" />
       <Meta http-equiv="Accept-CH" content="DPR" />
       <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       <Link rel="preconnect" href="https://res.cloudinary.com" />
       <SchemaOrgPerson
-        :name="siteMeta.name"
-        :image="siteMeta.logo"
-        :same-as="siteMeta.sameAs"
+        :name="config.site.name"
+        :image="config.site.logo"
+        :same-as="config.site.sameAs"
       />
       <SchemaOrgWebSite
-        :name="siteMeta.name"
-        :image="siteMeta.image"
-        :description="siteMeta.description"
+        :name="config.site.name"
+        :image="config.site.image"
+        :description="config.site.description"
       />
       <SchemaOrgWebPage />
     </Head>
@@ -37,7 +37,7 @@ const siteMeta = useSiteMeta()
           <SocialIcons />
         </div>
         <p class="mb-3">
-          © 2022-PRESENT {{ siteMeta.name }}. All rights reserved.
+          © 2022-PRESENT {{ config.site.name }}. All rights reserved.
         </p>
       </footer>
     </Body>
