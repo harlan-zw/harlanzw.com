@@ -15,6 +15,7 @@ const initials = siteMeta.name
       format="jpeg"
       :alt="siteMeta.name"
       provider="cloudinary"
+      style="width: 40px; height: 40px;"
       class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
     />
     <div aria-label="Harlan Wilton Initials" class="hidden sm:block text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
