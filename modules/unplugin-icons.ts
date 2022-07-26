@@ -10,7 +10,8 @@ export default defineNuxtModule({
 
     // register unplugin icons
     nuxt.hooks.hook('content:context', (ctx) => {
-      ctx.transformers.push(resolver.resolve('runtime/content/icon-transformer'))
+      ctx.transformers.push(resolver.resolve('runtime/content/md-icons'))
+      ctx.transformers.push(resolver.resolve('runtime/content/project-icons'))
     })
 
     addVitePlugin(unpluginIcons.vite({
