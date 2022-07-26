@@ -6,9 +6,8 @@ My personal website built with Nuxt v3 and Nuxt Content v2.
 
 Built as reference for optimal Nuxt code practices, SEO, performance and accessibility.
 
-## Content Features
+## Features
 
-- Automatic routes based on content /w 404 handling
 - 🔎 Automated Schema.org
 - 📚 Markdown read time calculation
 - 👨‍💻 Code file name and language support
@@ -17,17 +16,23 @@ Built as reference for optimal Nuxt code practices, SEO, performance and accessi
 - 🍞 Automatic breadcrumbs (with Schema.org)
 - 🤝 Integrated with @nuxt/image, images served with [cloudinary](https://cloudinary.com)
 
-## Technical Features
+## More Features
+
+- Automatic routes based on content /w 404 handling
+- Automatic navigation generation
+- Easy content composables
+- Fully typed content
+- Split pages/posts for easier content organisation
+- [line-md](https://github.com/cyberalien/line-md) icons by cyberalien
+
+## Plus
 
 - pnpm
 - WindiCSS
-- [line-md](https://github.com/cyberalien/line-md) icons by cyberalien 
 - Eslint with @antfu/eslint-config
-- Easy content composables
-- Split pages/posts for easier content organisation
-- Fully typed content
 - SEO / i18n best practices
-- Automatic navigation generation
+- Fathom analytics
+- Vercel hosted
 
 ## Setup
 
