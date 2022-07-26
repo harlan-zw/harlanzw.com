@@ -1,7 +1,7 @@
 ---
 title: "Learning Modern Package Development: Building Unlighthouse"
 description: "Discover how you can build a modern package development through how I created the Unlighthouse project."
-publishedAt: "2022-06-12"
+publishedAt: "2022-07-31"
 image: "https://next.unlighthouse.dev/og.png"
 tags:
   - vue
