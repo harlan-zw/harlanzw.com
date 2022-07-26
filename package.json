@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "name": "harlanzw.com",
   "packageManager": "pnpm@7.0.0",
   "scripts": {
     "dev": "nuxi dev",
@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "upload:images": "cld upload_dir images"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.25.0",
+  "dependencies": {
     "@iconify-json/bi": "^1.1.6",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/emojione": "^1.1.2",
@@ -31,7 +30,6 @@
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@vueuse/core": "^9.0.0",
     "@vueuse/nuxt": "^9.0.0",
-    "eslint": "^8.20.0",
     "feed": "^4.2.2",
     "nuxt": "^3.0.0-rc.6",
     "nuxt-schema-org": "0.7.0-beta.3",
@@ -39,9 +37,13 @@
     "parse5": "6.0.1",
     "sass": "^1.54.0",
     "sitemap": "^7.1.1",
-    "typescript": "^4.7.4",
     "unplugin-icons": "^0.14.7",
     "unplugin-vue-components": "^0.21.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.0",
+    "eslint": "^8.20.0",
+    "typescript": "^4.7.4"
   },
   "pnpm": {
     "overrides": {
