@@ -33,6 +33,8 @@ export default defineNuxtConfig({
         if (t.filename !== 'views/document.template.mjs')
           return t
 
+        const analyticsScript = '<script src="https://cdn.usefathom.com/script.js" data-site="VDJUVDNA" data-spa="auto" async defer></script>'
+
         t.getContents = () => {
           return `export default (params) => \`
 <!DOCTYPE html>
@@ -49,7 +51,9 @@ export default defineNuxtConfig({
 <body \${params.BODY_ATTRS}>\${params.BODY_PREPEND}
   \${params.APP}
 </body>
-
+<!-- Start Analytics -->
+${process.env.NODE_ENV === 'production' ? analyticsScript : '<!-- Ommited -->'}
+<!-- End Analytics -->
 </html>\`
 `
         }
