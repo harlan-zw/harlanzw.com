@@ -12,10 +12,10 @@ const { data: nav } = await useHeaderNav()
     <div class="flex items-center">
       <!-- Navigation -->
       <nav aria-label="Main Menu" class="opacity-75">
-        <ul class="flex lg:(space-x-7 mr-15) space-x-2 md:mr-7 items-center">
+        <ul class="flex lg:(space-x-7 mr-15) sm:space-x-2 space-x-1 md:mr-7 items-center">
           <li v-for="(link, key) in nav" :key="key">
             <NuxtLink v-slot="{ isActive }" :to="link.path" class="!inline-flex items-center group" :title="`Visit ${link.title} Page`">
-              <div :class="isActive ? ['sm:bg-green-50', 'text-green-800', 'dark:(sm:bg-green-800/10 text-green-50)'] : []" class="md:px-3 px-2 py-2 rounded">
+              <div :class="isActive ? ['sm:bg-green-50', 'text-green-800', 'dark:(sm:bg-green-800/10 text-green-50)'] : []" class="md:(px-3 py-2) px-1 py-1 rounded">
                 <svg
                   v-if="link.icon"
                   v-bind="link.icon"
