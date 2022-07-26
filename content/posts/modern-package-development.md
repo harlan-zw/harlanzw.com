@@ -10,7 +10,7 @@ tags:
 ---
 
 ::tip
-This package is a work in progress. Feel free to read it, but some sections may be incomplete.
+This article is a work in progress. Feel free to read it, but some sections are incomplete.
 ::
 
 
