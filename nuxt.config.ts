@@ -70,11 +70,16 @@ ${process.env.NODE_ENV === 'production' ? analyticsScript : '<!-- Ommited -->'}
     },
   },
 
+  router: {
+    trailingSlash: false,
+  },
+
   image: {
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/dl6o1xpyq/image/upload/images',
       modifiers: {
         quality: 'auto:best',
+        dpr: 'auto',
       },
     },
     domains: [
