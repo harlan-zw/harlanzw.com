@@ -1,6 +1,6 @@
 ---
-title: "Exploring The Modern Package Development Ecosystem: Building Unlighthouse"
-description: "Unlighthouse is a package I made to scan your entire site using Google Lighthouse. Discover what went into making it, including some of the awesome packages I used."
+title: "Learning Modern Package Development: Building Unlighthouse"
+description: "Discover how you can build a modern package development through how I created the Unlighthouse project."
 publishedAt: "2022-06-12"
 image: "https://next.unlighthouse.dev/og.png"
 tags:
@@ -9,15 +9,18 @@ tags:
   - typescript
 ---
 
+::tip
+This package is a work in progress. Feel free to read it, but some sections may be incomplete.
+::
+
+
 ## Introduction
 
 [Unlighthouse](https://github.com/harlan-zw/unlighthouse) is an open-source package I built to scan your entire site using Google Lighthouse.
 
 Building it was chaotic, with day-long bugs, constant refactoring and endless documentation reading. 
 
-But I got it done. People like it.
-
-In this article I'll discuss what I learnt building it and the package ecosystem around building Unlighthouse: a modern package. 
+Through building it, I learnt modern development practices, making use of the vast ecosystem of packages and tools.
 
 ## Background: Why build Unlighthouse?
 
@@ -38,47 +41,49 @@ What happened next? Things started turning around. I was able to invert the grap
 
 Now that was out of the way, how could I make it easier to stay on top of the health of the sites I manage?
 
-## Starting The Build
+## Deciding on the stack
 
-So I know I wanted to build something that would run Google Lighthouse on an entire site with just the home page URL.
+I needed to build a tool that would run Google Lighthouse on an entire site with just the home page URL.
 
-When it came time to put something together, I had a rough idea of the stack. Typescript, Vue, Vite, etc.
+I had a plan of attack for the build.
 
-There were also a myriad of nifty packages that were coming out of the [UnJS](https://github.com/unjs) ecosystem that I wanted to play with.
+The backend would be build using Typescript and Node. 
+
+The frontend client would be built using Vue and Vite.
+
+But how would I be able to design this in a way that was easy to build and maintain?
+
+I had seen the amazing work coming out of the [UnJS](https://github.com/unjs) ecosystem and knew that they could solve some of my problems.
 
 With that, the package would be known as **Un** (inspired by Unjs) **Lighthouse**.
 
-## Unlighthouse Architecture
+Keeping a keen eye on other modern packages coming out, I took some of the best practices and tools I saw implemented.
 
-The code that what went into building the package.
+The stack was split into three core parts: 
+- Monorepo: containing the dependencies to build, test and deploy the code
+- Frontend: displaying searchable, filtering and sortable results
+- Backend: generating the frontend, running the scans and providing an API for the frontend
 
-### Vue 3 / Vite client
+## Monorepo
 
-The beloved [Vite](https://github.com/vitejs/vite) was to be used to make the development of the client as easy and fast as possible.
+Implementing a monorepo is a keystone for a large project which will ship multiple packages. It allows you to
+group up logic, dependencies and documentation into a single repository.
 
-Vue v3 used to make use of the vast collection of utilities available at [VueUse](https://vueuse.org/).
-
-### Lighthouse Binary
-
-Unlighthouse wouldn't be possible if Google hadn't published Lighthouse as its own [NPM binary](https://github.com/GoogleChrome/lighthouse).
-
-To make Unlighthouse fast, I combined the binary with the package [puppeteer-cluster](https://github.com/thomasdondorf/puppeteer-cluster), which allows for multi-threaded lighthouse scans.
-
-### PNPM Monorepo
+### PNPM
 
 [PNPM](https://pnpm.io/) is the new kid on the block of node package managers and has gained a large following quickly, for good reason. It is the most performant package manager and has first class support for monorepos.
 
 There are many benefits to using a monorepo for a package. My personal favourite is it allows me to easily isolate logic and dependencies for your package, letting you write simpler code. Allowing end users to pull any specific part of your package that they want to use.
 
-![Unlighthouse monorepo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3hfzz5ik3fa9qtzmmmz9.png)
+![Unlighthouse monorepo](/pnpm-monorepo)
 
-### Vitest 
+### Vitest
 
 [Vitest](https://vitest.dev/) is also the new kid on the block of testing. It's original aim was to be a testing framework specifically for Vite, but it has ended up being a possible replacement for Jest entirely.
 
 Vitest makes writing your logic and tests a breeze and I'd recommend checking it out for any project.
 
-### Unbuild - An unified javascript build system
+### Unbuild
 
 ![](https://opengraph.githubassets.com/a12c58f21ffef9686653c51d0203ab07a995d7450d3d690a1c8bd51e975df35c/unjs/unbuild){alt="unbuild" height="200"}
 
@@ -105,7 +110,16 @@ export default defineBuildConfig({
 
 [GitHub Repo Link](https://github.com/unjs/unbuild)
 
-### Unctx - Composition-api in vanilla js
+## Server
+
+### Lighthouse Binary
+
+Unlighthouse wouldn't be possible if Google hadn't published Lighthouse as its own [NPM binary](https://github.com/GoogleChrome/lighthouse).
+
+To make Unlighthouse fast, I combined the binary with the package [puppeteer-cluster](https://github.com/thomasdondorf/puppeteer-cluster), which allows for multi-threaded lighthouse scans.
+
+
+### Unctx
 
 ![](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){alt="unctx" height="200"}
 
@@ -129,57 +143,6 @@ export const createUnlighthouse = async (userConfig: UserConfig, provider?: Prov
 ```
 
 - [unctx GitHub Repo](https://github.com/unjs/unctx)
-
-### Unrouted
-
-[GitHub](https://github.com/harlan-zw/unrouted)
-
-I needed an API for the client to communicate with the Node server to fetch the status of the scan and submit re-scans.
-
-The current JS offerings were a bit lackluster. I wanted something that just worked and had a nice way to use it.
-
-I ended up building unrouted as a way to solve that.
-
-```ts
-group('/api', () => {
-  group('/reports', () => {
-    post('/rescan', () => {
-      // ...
-      return true
-    })
-
-    post('/:id/rescan', () => {
-      const report = useReport()
-      const { worker } = useUnlighthouse()
-
-      if (report)
-        worker.requeueReport(report)
-    })
-  })
-
-  get('__launch', () => {
-    const { file } = useQuery<{ file: string }>()
-    if (!file) {
-      setStatusCode(400)
-      return false
-    }
-    const path = file.replace(resolvedConfig.root, '')
-    const resolved = join(resolvedConfig.root, path)
-    logger.info(`Launching file in editor: \`${path}\``)
-    launch(resolved)
-  })
-
-  get('ws', req => ws.serve(req))
-
-  get('reports', () => {
-    const { worker } = useUnlighthouse()
-
-    return worker.reports().filter(r => r.tasks.inspectHtmlTask === 'completed')
-  })
-
-  get('scan-meta', () => createScanMeta())
-})
-```
 
 ### Hookable
 
@@ -247,6 +210,68 @@ export const trimSlashes = (s: string) => withoutLeadingSlash(withoutTrailingSla
 ```ts
 const site = new $URL(url).origin
 ```
+
+### Unrouted
+
+[GitHub](https://github.com/harlan-zw/unrouted)
+
+I needed an API for the client to communicate with the Node server to fetch the status of the scan and submit re-scans.
+
+The current JS offerings were a bit lackluster. I wanted something that just worked and had a nice way to use it.
+
+I ended up building unrouted as a way to solve that.
+
+```ts
+group('/api', () => {
+  group('/reports', () => {
+    post('/rescan', () => {
+      // ...
+      return true
+    })
+
+    post('/:id/rescan', () => {
+      const report = useReport()
+      const { worker } = useUnlighthouse()
+
+      if (report)
+        worker.requeueReport(report)
+    })
+  })
+
+  get('__launch', () => {
+    const { file } = useQuery<{ file: string }>()
+    if (!file) {
+      setStatusCode(400)
+      return false
+    }
+    const path = file.replace(resolvedConfig.root, '')
+    const resolved = join(resolvedConfig.root, path)
+    logger.info(`Launching file in editor: \`${path}\``)
+    launch(resolved)
+  })
+
+  get('ws', req => ws.serve(req))
+
+  get('reports', () => {
+    const { worker } = useUnlighthouse()
+
+    return worker.reports().filter(r => r.tasks.inspectHtmlTask === 'completed')
+  })
+
+  get('scan-meta', () => createScanMeta())
+})
+```
+
+## Client
+
+The code that what went into building the package.
+
+### Vue 3 / Vite client
+
+The beloved [Vite](https://github.com/vitejs/vite) was to be used to make the development of the client as easy and fast as possible.
+
+Vue v3 used to make use of the vast collection of utilities available at [VueUse](https://vueuse.org/).
+
 
 ## Putting It Together - Part 2
 

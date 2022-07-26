@@ -6,7 +6,8 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "upload:images": "cld upload_dir images"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.0",
