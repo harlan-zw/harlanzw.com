@@ -1,5 +1,5 @@
-import { useAsyncData } from '#app'
 import type { MaybeRef } from '@vueuse/schema-org'
+import { useAsyncData } from '#app'
 import { nextTick, queryContent, unref, useHead, watch } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { SiteName, groupBy } from '~/logic'

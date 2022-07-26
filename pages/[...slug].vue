@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { callWithNuxt, throwError, useNuxtApp } from '#app'
 import { createError } from 'h3'
+import { callWithNuxt, throwError, useNuxtApp } from '#app'
 import { useContentHead } from '~/composables/content'
 
 const routesContentQuery = await useRoutesContent()
@@ -24,9 +24,9 @@ else {
 </script>
 
 <template>
-<div>
-  <LazyPageRenderer v-if="pageContent?.renderer === 'page'" :page="pageContent" />
-  <LazyPostRenderer v-else-if="pageContent?.renderer === 'post'" :post="pageContent" />
+  <div>
+    <LazyPageRenderer v-if="pageContent?.renderer === 'page'" :page="pageContent" />
+    <LazyPostRenderer v-else-if="pageContent?.renderer === 'post'" :post="pageContent" />
   <!-- @todo handle error -->
-</div>
+  </div>
 </template>
