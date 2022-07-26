@@ -185,7 +185,7 @@ You could also pull out your "shared" components into their own npm package.
 
 When creating new components it's natural to couple application logic in. With this setup, you'll think about component scopes more and how code can be re-used.
 
-![A decision graph for component folders](/blog/component-folder-flow.svg){height="450"}
+![A decision graph for component folders](/blog/component-folder-flow.svg){width="750" height="1200" max-height="600"}
 
 
 #### "Shared" Folder - Base Components
@@ -205,7 +205,7 @@ If you were to copy+paste an app component into a new project, it should not wor
 
 This exists as two "app" components, they contain logic for validation and posting to an API. They both contain "shared" components.
 
-![Newsletter component example](/blog/newsletter-example.png){height="450"}
+![Newsletter component example](/blog/newsletter-example.png){width="841" height="296"}
 
 ```shell 
 components/
@@ -266,7 +266,7 @@ components/
 
 Now imagine you want to build a forum thread page. A user can see comments, upvote comments and post their own comment.
 
-![Laravel.io Forum Thread](/blog/forum-example.png)
+![Laravel.io Forum Thread](/blog/forum-example.png){width="950" height="847" max-height="600"}
 
 Using `F` as our component prefix, let's look at what you need.
 
@@ -387,7 +387,7 @@ You want an easy way to find components and classes that are available.
 
 Here is a rough demo page as an example: [Massive Monster UI Demo](https://massivemonster.co/demo). Keep it as basic as you want.
 
-![Massive Monster Demo Page](/blog/brand-demo.png)
+![Massive Monster Demo Page](/blog/brand-demo.png){width="939" height="464"}
 
 ### Mixins and composables
 

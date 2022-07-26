@@ -28,7 +28,7 @@ As a freelancer I  keep on top of my clients organic growth with Google Search C
 
 Was a day like any other, looking at one of my clients' dashboard. Seemingly out of nowhere, I saw the trend of page position, clicks and page views in free fall. My clients' income was based on organic traffic, not good.
 
-![Trending down Google Search Console](/numbers-go-down)
+![Trending down Google Search Console](/numbers-go-down){height="416" width="1552" max-height="242"}
 
 Isolating the reason for the falling page rank wasn't easy. The site had issues, but what was causing the free fall? There was no easy way to know.
 
@@ -37,7 +37,7 @@ fixing them all up and improving the general performance of the site.
 
 What happened next? Things started turning around. I was able to invert the graph. Organic growth doubled in the next few months. Happy client.
 
-![Trending up Google Search Console](/numbers-go-up)
+![Trending up Google Search Console](/numbers-go-up){height="399" width="1554" max-height="242"}
 
 Now that was out of the way, how could I make it easier to stay on top of the health of the sites I manage?
 
@@ -75,7 +75,7 @@ group up logic, dependencies and documentation into a single repository.
 
 There are many benefits to using a monorepo for a package. My personal favourite is it allows me to easily isolate logic and dependencies for your package, letting you write simpler code. Allowing end users to pull any specific part of your package that they want to use.
 
-![Unlighthouse monorepo](/pnpm-monorepo)
+![Unlighthouse monorepo](/pnpm-monorepo){height="507" width="942" max-height="400"}
 
 ### Vitest
 
@@ -85,7 +85,7 @@ Vitest makes writing your logic and tests a breeze and I'd recommend checking it
 
 ### Unbuild
 
-![](https://opengraph.githubassets.com/a12c58f21ffef9686653c51d0203ab07a995d7450d3d690a1c8bd51e975df35c/unjs/unbuild){alt="unbuild" height="200"}
+![](https://opengraph.githubassets.com/a12c58f21ffef9686653c51d0203ab07a995d7450d3d690a1c8bd51e975df35c/unjs/unbuild){alt="unbuild" height="350"}
 
 This package is described as a "A unified javascript build system".
 
@@ -121,7 +121,7 @@ To make Unlighthouse fast, I combined the binary with the package [puppeteer-clu
 
 ### Unctx
 
-![](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){alt="unctx" height="200"}
+![](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){alt="unctx" height="350"}
 
 It's amazing that a simple pattern like composition has evaded Node packages for so long.
 
@@ -146,7 +146,7 @@ export const createUnlighthouse = async (userConfig: UserConfig, provider?: Prov
 
 ### Hookable
 
-[GitHub](https://github.com/unjs/hookable)
+![](https://opengraph.githubassets.com/6fd14beca1b9a811c7b46e4e61ec4ef8870a3f1407e21d47724b38cb6128e0b3/unjs/hookable){alt="hookable" height="350"}
 
 For Nuxt.js users, you might be familiar with the concept of frameworks hooks. A way for you to modify or do something with the internal logic of Nuxt.
 
@@ -164,9 +164,12 @@ hooks.hookOnce('visited-client', () => {
 })
 ```
 
+- [Hookable GitHub Repo](https://github.com/unjs/hookable)
+
+
 ### Unconfig
 
-[GitHub](https://github.com/antfu/unconfig)
+![](https://opengraph.githubassets.com/f8bdfdebc7f32dd928adc557ea624fe7e4e4003400e90b3c41b414d818432b21/antfu/unconfig){alt="Unconfig" height="350"}
 
 Unconfig is a universal solution for loading configurations. This let me allow the package to load in a configuration from `unlighthouse.config.ts` or a custom path, with barely any code.
 
@@ -193,11 +196,12 @@ if (configDefinition.sources?.[0]) {
 }
 ```
 
-### UFO
+- [Unconfig GitHub Repo](https://github.com/antfu/unconfig)
 
-[GitHub](https://github.com/unjs/ufo)
 
-> URL utils for humans
+### ufo
+
+![](https://repository-images.githubusercontent.com/318601574/674ca800-3a4a-11eb-901f-31ab7e452816){alt="UFO" height="350"}
 
 Dealing with URLs in Node isn't nice. For Unlighthouse I needed to deal with many URLS, I needed to make sure they were standardised no matter how they were formed.
 
@@ -211,9 +215,13 @@ export const trimSlashes = (s: string) => withoutLeadingSlash(withoutTrailingSla
 const site = new $URL(url).origin
 ```
 
+- [ufo GitHub Repo](https://github.com/unjs/ufo)
+
+
 ### Unrouted
 
-[GitHub](https://github.com/harlan-zw/unrouted)
+![](https://repository-images.githubusercontent.com/432034546/262d14fd-f00c-46b9-8b72-423a07dca06f){alt="unrouted" height="350"}
+
 
 I needed an API for the client to communicate with the Node server to fetch the status of the scan and submit re-scans.
 
@@ -261,6 +269,8 @@ group('/api', () => {
   get('scan-meta', () => createScanMeta())
 })
 ```
+
+- [Unrouted GitHub Repo](https://github.com/harlan-zw/unrouted)
 
 ## Client
 

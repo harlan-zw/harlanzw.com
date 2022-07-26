@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   ],
   // https://color-mode.nuxtjs.org
   colorMode: {
+    fallback: 'dark',
     classSuffix: '',
   },
   hooks: {
@@ -63,9 +64,6 @@ ${process.env.NODE_ENV === 'production' ? analyticsScript : '<!-- Ommited -->'}
   },
   // https://content.nuxtjs.org
   content: {
-    navigation: {
-      fields: [''],
-    },
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: 'dracula',
@@ -81,7 +79,6 @@ ${process.env.NODE_ENV === 'production' ? analyticsScript : '<!-- Ommited -->'}
     },
     domains: [
       'avatars0.githubusercontent.com',
-      'dev-to-uploads.s3.amazonaws.com',
     ],
   },
 

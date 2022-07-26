@@ -35,6 +35,9 @@ export default defineConfig({
           css: {
             maxWidth: '100%',
             lineHeight: 1.3,
+            img: {
+              height: null,
+            },
             a: {
               color: 'inherit',
               fontWeight: 400,

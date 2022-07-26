@@ -78,12 +78,12 @@ As is the way, webpack is here to magically solve our problems with [tree shakin
 If tree shaking is new to you, you can think of it as an optimisation to remove code that isn't explicitly used. Banishing
 'dead' code to the shadow realm.
 
-The tree shaking optimisation requires ES2015 module syntax, (i.e `import` and `export`) and a production build. The code can't be compiled
-to CommonJS modules (i.e `require`) for it to work.
+The tree shaking optimisation requires ES2015 module syntax, (i.e. `import` and `export`) and a production build. The code can't be compiled
+to CommonJS modules (i.e. `require`) for it to work.
 
 So how does all this relate to automatic component imports?
 
-With Vuetify handling the imports of your components (_[a la carte](https://vuetifyjs.com/en/features/treeshaking/)_ as they call it), they
+With Vuetify handling the imports of your components (_[à la carte](https://vuetifyjs.com/en/features/treeshaking/)_ as they call it), they
 can ensure webpack optimisations are running out of the box for your app with their component library.
 
 > The A la carte system enables you to pick and choose which components to import, drastically lowering your build size.

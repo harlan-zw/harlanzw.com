@@ -5,11 +5,29 @@ export default {
 </script>
 
 <script lang="ts" setup>
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   alt: string
   src: string
   lazy?: boolean | 'false' | 'true'
-}>()
+  width?: number
+}>(), {
+  lazy: true,
+})
+
+const shiftLargeImgStyles = computed(() => {
+  if (!props.width)
+    return {}
+  if (props.width <= 700) {
+    return {
+      width: `${props.width}px`,
+    }
+  }
+  const transformX = `-${Math.round((props.width - 700) / 2)}px`
+  return {
+    'width': `${props.width}px`,
+    '--tw-translate-x': transformX,
+  }
+})
 
 const src = props.src
   .replace('.png', '')
@@ -18,10 +36,11 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 </script>
 
 <template>
-  <figure>
+  <figure :style="shiftLargeImgStyles">
     <nuxt-img
       v-bind="$attrs"
       :alt="alt"
+      :width="width"
       :src="src"
       :loading="Boolean(lazy) ? 'lazy' : 'eager'"
       :provider="provider"
@@ -34,9 +53,16 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 
 <style scoped>
 figure {
-  @apply transform lg:(w-900px -translate-x-100px !my-10);
+  @apply transform lg:(!my-10 max-w-900px) mx-auto max-w-full;
 }
+
+@media(max-width: 1024px) {
+  figure {
+    @apply !translate-x-0;
+  }
+}
+
 figure :deep(img:not([src$=".svg"])) {
-  @apply rounded-lg shadow-lg;
+  @apply w-auto rounded-lg shadow-lg;
 }
 </style>
