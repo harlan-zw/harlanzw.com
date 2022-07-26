@@ -27,15 +27,16 @@ const initials = siteMeta.name
 
 <style lang="scss">
 .group:hover {
+  filter: drop-shadow(0 0 35px #11998e);
   .logo {
     background: linear-gradient(90deg, #11998e, #38ef7d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: translateX(0px) translateY(0px) skewX(-10deg);
-    letter-spacing: 5px;
+    transform: translateX(0px) translateY(18px) skewX(-10deg);
   }
   .logo:nth-of-type(2) {
-    transform: translateX(0px) translateY(0px) skewX(-10deg);
+    filter: drop-shadow(0 0 10px #38ef7d);
+    transform: translateX(0) translateY(-18px) skewX(-10deg);
   }
 }
 .logo {
