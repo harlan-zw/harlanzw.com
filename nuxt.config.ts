@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         if (t.filename !== 'views/document.template.mjs')
           return t
 
-        const analyticsScript = '<script src="https://cdn.usefathom.com/script.js" data-site="VDJUVDNA" data-spa="auto" async defer></script>'
+        const analyticsScript = '<script src="https://idea-lets-dance.harlanzw.com/script.js" data-spa="auto" data-site="VDJUVDNA" defer></script>'
 
         t.getContents = () => {
           return `export default (params) => \`
