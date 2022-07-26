@@ -32,7 +32,7 @@ const production = process.env.NODE_ENV === 'production'
   </template>
 </Head>
 <Body class="text-gray-800 dark:text-gray-100 antialiased">
-<Navbar />
+<Header />
 <main class="md:max-w-700px mx-auto px-8 lg:px-0 py-7 pb-10 sm:pb-16 md:pb-20 max-w-full">
   <NuxtLoadingIndicator />
   <NuxtPage class="page-enter-active" />

@@ -12,21 +12,22 @@ Built as reference for optimal Nuxt code practices, SEO, performance and accessi
 - 🔎 Automated Schema.org
 - 📚 Markdown read time calculation
 - 👨‍💻 Code file name and language support
-- 🧩 Server Side Icons (no FOUC)
+- 🧩 Automatic Server Side Icon Resolving (no FOUC), powered by iconify & unplugin-icons 
 - 🤖 Sitemap.xml and feed generation
 - 🍞 Automatic breadcrumbs (with Schema.org)
-- 🤝 Integrates with @nuxt/image
+- 🤝 Integrated with @nuxt/image, images served with [cloudinary](https://cloudinary.com)
 
 ## Technical Features
 
 - pnpm
 - WindiCSS
 - [line-md](https://github.com/cyberalien/line-md) icons by cyberalien 
-- Eslint powered by @antfu/eslint-config-antfu
+- Eslint with @antfu/eslint-config
 - Easy content composables
 - Split pages/posts for easier content organisation
 - Fully typed content
 - SEO / i18n best practices
+- Automatic navigation generation
 
 ## Setup
 

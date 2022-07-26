@@ -1,13 +1,18 @@
 import { visit } from 'unist-util-visit'
 import type { ContentTransformer, MarkdownNode } from '@nuxt/content/dist/runtime/types'
 import { loadIconForTag, tagIsIcon } from '../util/icons'
+import type { Page, Post } from '~/types'
 
 const map: Record<string, any> = {}
 
 export default <ContentTransformer> {
   name: 'md-icons',
   extentions: ['.md'],
-  async transform(content) {
+  async transform(content: Post | Page) {
+    // transform icon in frontmatter
+    if (content.icon && tagIsIcon(content.icon))
+      content.icon = (await loadIconForTag(content.icon)).svg
+
     const tags = new Set<string>()
 
     visit(

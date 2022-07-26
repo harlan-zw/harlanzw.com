@@ -10,6 +10,13 @@ export const useProjects = () => {
   )
 }
 
+export const useHeaderNav = () => {
+  return useAsyncData('content:navigation', () => queryContent('pages')
+    .where({ nav: true })
+    .only(['title', 'icon', 'path'])
+    .find())
+}
+
 export const usePostList = () => {
   return useAsyncData('content:post-partials', () => queryContent<Post>()
     .where({ _path: /posts\/*/ })
