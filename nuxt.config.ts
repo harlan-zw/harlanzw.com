@@ -29,6 +29,14 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   hooks: {
+    'components:extend': function (components) {
+      for (const component of components) {
+        if (component.chunkName.startsWith('components/prose')) {
+          component.chunkName = 'prose-components'
+          component.prefetch = false
+        }
+      }
+    },
     'app:templates': function (app) {
       app.templates = app.templates.map((t) => {
         if (t.filename !== 'views/document.template.mjs')
