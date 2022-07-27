@@ -19,7 +19,7 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        primary: $tokens('colors.primary')
+        primary: $tokens('colors.primary'),
       },
       animation: {
         fadeIn: 'fadeIn 200ms ease-in forwards',

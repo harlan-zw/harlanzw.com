@@ -11,7 +11,7 @@ export default defineTheme({
     description: 'Hey, I\'m Harlan, a full-stack web developer living in Sydney, Australia. I\'m passionate about building open-source packages in the Vue, Nuxt and Vite ecosystems.',
     sameAs: [
       'https://twitter.com/harlan_zw',
-      'https://github.com/harlan-zw'
-    ]
-  }
+      'https://github.com/harlan-zw',
+    ],
+  },
 })

@@ -11,14 +11,14 @@ export default defineNuxtConfig({
      */
     // TODO: Remove this ignore
     // https://github.com/nuxt-themes/config/issues/5
-    // @ts-ignore
+    // @ts-expect-error untyped
     theme: {
       meta: {
-        name: 'HarnlanZw.com',
+        name: 'harlanzw.com',
         author: '@harlan_zw',
-        description: 'My personal website built with Nuxt v3 and Nuxt Content v2. ✨'
-      }
-    }
+        description: 'My personal website built with Nuxt v3 and Nuxt Content v2. ✨',
+      },
+    },
   },
   modules: [
     // Themify
