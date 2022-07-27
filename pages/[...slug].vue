@@ -24,9 +24,9 @@ else {
 </script>
 
 <template>
-<div>
-  <LazyPageRenderer v-if="pageContent?.renderer === 'page'" :page="pageContent" />
-  <LazyPostRenderer v-else-if="pageContent?.renderer === 'post'" :post="pageContent" />
+  <div>
+    <LazyPageRenderer v-if="pageContent?.renderer === 'page'" :page="pageContent" />
+    <LazyPostRenderer v-else-if="pageContent?.renderer === 'post'" :post="pageContent" />
   <!-- @todo handle error -->
-</div>
+  </div>
 </template>

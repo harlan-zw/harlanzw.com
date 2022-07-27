@@ -1,6 +1,6 @@
 import type { ParsedURL } from 'ufo'
 import { hasTrailingSlash, joinURL, parseURL, stringifyParsedURL, withTrailingSlash } from 'ufo'
-import {useRoute, useRoutesContent} from '#imports'
+import { useRoute, useRoutesContent } from '#imports'
 
 const getBreadcrumbs = (input: string) => {
   const startNode = parseURL(input)
