@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   hooks: {
+    // @todo fix via nuxt, does not work
     'components:extend': function (components) {
       for (const component of components) {
         if (component.chunkName.startsWith('components/prose')) {

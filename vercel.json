@@ -26,6 +26,24 @@
           "value": "public, max-age=79344"
         }
       ]
+    },
+    {
+      "source": "/blog/:path",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=79344"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=79344"
+        }
+      ]
     }
   ]
 }
