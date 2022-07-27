@@ -16,7 +16,7 @@ const config = useTheme()
       <Link rel="preconnect" href="https://res.cloudinary.com" />
       <SchemaOrgPerson
         :name="config.site.name"
-        :image="config.site.logo"
+        :image="config.site.cover"
         :same-as="config.site.sameAs"
       />
       <SchemaOrgWebSite

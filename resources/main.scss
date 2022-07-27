@@ -1,7 +1,9 @@
+@import '../.nuxt/tokens/tokens.scss';
+
 body {
   min-height: 100vh;
   background-color: rgb(247,247,247);
-  background-image: linear-gradient(0deg, #33e47f10, #ffffff);
+  background-image: linear-gradient(0deg, $colors-primary-lightest, #ffffff);
   overflow: overlay;
   @apply dark:bg-gray-900 dark:bg-none;
 }
@@ -9,7 +11,7 @@ body {
 .prose *:not(h1, h2, h3, h4, h5, h6) > a:not(.unstyled) {
   border-style: solid;
   border-bottom-width: 1px;
-  border-image: radial-gradient(rgba(#11998e, 0.75), rgba(#23e75e, 0.75)) 15;
+  border-image: radial-gradient(rgba($colors-primary-dark, 0.75), rgba($colors-primary-lightest, 0.75)) 15;
 
   &:hover {
     transform: skewX(-5deg);
@@ -32,15 +34,16 @@ a:not(.unstyled), .link {
     transition: 0.4s;
     z-index: -1;
   }
+
   &:before {
-    background-image: linear-gradient(90deg, #11998e, #38ef7d);
+    background-image: linear-gradient(90deg, $colors-primary-dark, $colors-primary-light);
     left: 0;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
   }
 
   &:after {
-    background-image: linear-gradient(270deg, #11998e, #38ef7d);
+    background-image: linear-gradient(270deg, $colors-primary-dark, $colors-primary-light);
     right: 0;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -54,16 +57,16 @@ a:not(.unstyled), .link {
       width: 50%;
     }
   }
+
   &.router-link-active {
     font-weight: bold;
-    background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#23e75e, 1));
+    background: linear-gradient(45deg, rgba($colors-primary-dark, 1), rgba($colors-primary-lightest, 1));
     -webkit-background-clip: text;
     &:after, &:before {
       opacity: 0;
     }
   }
 }
-
 
 @keyframes fadeInUp {
   from {
@@ -87,7 +90,6 @@ a:not(.unstyled), .link {
     transform: translateY(.5rem)
   }
 }
-
 
 .page-enter-active {
   animation: fadeInUp .6s forwards

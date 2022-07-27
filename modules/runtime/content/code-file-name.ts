@@ -1,18 +1,15 @@
 import { visit } from 'unist-util-visit'
-import type { MarkdownNode } from '@nuxt/content/dist/runtime/types'
-import { defineTransformer } from '@nuxt/content/transformers'
+import type { ContentTransformer, MarkdownNode } from '@nuxt/content/dist/runtime/types'
 
-export default defineTransformer({
+export default <ContentTransformer> {
   name: 'code-file-name',
-  extensions: ['.md'],
+  extentions: ['.md'],
   async transform(content) {
-    /*
     visit(
       content.body,
       (node: MarkdownNode) => node?.tag === 'code' && (node?.props?.filename || node?.props?.language),
       (node: MarkdownNode, index, parent: MarkdownNode) => {
         const children: MarkdownNode[] = []
-
         if (node.props.filename) {
           children.push({
             type: 'element',
@@ -25,9 +22,7 @@ export default defineTransformer({
             ],
           })
         }
-
         children.push(node)
-
         parent.children.splice(index, 1, ...[
           {
             type: 'element',
@@ -44,7 +39,6 @@ export default defineTransformer({
         ])
       },
     )
-    */
     return content
   },
-})
+}

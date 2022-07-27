@@ -7,6 +7,7 @@ const props = defineProps({
 })
 
 const contentComponent = computed(() => props.page.prose !== false ? resolveComponent('Prose') : 'div')
+
 const schema = computed(() => props.page.schema || {})
 </script>
 

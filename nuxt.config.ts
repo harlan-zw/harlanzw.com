@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     // Website
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
-    // '@nuxt/image',
+    '@nuxt/image',
     'nuxt-schema-org',
     'nuxt-windicss',
     // custom content modules, need to come before the content module

@@ -1,8 +1,8 @@
 import type { MaybeRef } from '@vueuse/schema-org'
 import { useAsyncData } from '#app'
-import { nextTick, queryContent, unref, useHead, watch, useRoute } from '#imports'
+import { nextTick, queryContent, unref, useHead, watch, useRoute, useTheme } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
-import { SiteName, groupBy } from '~/logic'
+import { groupBy } from '~/logic'
 
 export const useProjects = () => {
   return useAsyncData('content:projects', () =>
@@ -44,6 +44,8 @@ export const usePost = async (path?: string) => useRoutesContent<Post>(path)
 export const usePage = async (path?: string) => useRoutesContent<Page>(path)
 
 export const useCustomContentHead = (doc: MaybeRef<Partial<Page>>) => {
+  const theme = useTheme()
+
   watch(
     () => doc,
     (doc) => {
@@ -54,7 +56,7 @@ export const useCustomContentHead = (doc: MaybeRef<Partial<Page>>) => {
       const head = Object.assign({}, doc?.head || {})
       head.title = `${head.title || doc.title}`
 
-      if (!head.title.endsWith(SiteName) && !head.title.startsWith(SiteName)) head.title = `${head.title} - ${SiteName}`
+      if (!head.title.endsWith(theme.value.site.name) && !head.title.startsWith(theme.value.site.name)) head.title = `${head.title} - ${theme.value.site.name}`
 
       head.meta = head.meta || []
       head.meta.push({

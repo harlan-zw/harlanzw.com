@@ -9,14 +9,14 @@ const { data: pageContent, error } = routesContentQuery
 
 // presume any error is a 404, this should pickup any rendering issues
 if (error.value) {
+
   const nuxtApp = useNuxtApp()
   callWithNuxt(nuxtApp, throwError, [createError({
     statusCode: 404,
     statusMessage: `Page not found: ${useRoute().path}`,
   })])
 
-  if (process.server && nuxtApp.ssrContext)
-    nuxtApp.ssrContext.res.statusCode = 404
+  if (process.server && nuxtApp.ssrContext) nuxtApp.ssrContext.res.statusCode = 404
 }
 else {
   useCustomContentHead(pageContent)

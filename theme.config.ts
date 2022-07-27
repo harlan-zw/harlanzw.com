@@ -4,6 +4,7 @@ export default defineTheme({
   site: {
     name: 'Harlan Wilton',
     url: 'https://harlanzw.com',
+    logo: '/harlan-wilton',
     cover: '/cover.png',
     language: 'en-AU',
     tagLine: 'Open Source Developer',

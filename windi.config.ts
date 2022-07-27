@@ -1,4 +1,5 @@
 import { defineConfig } from 'windicss/helpers'
+import { $tokens } from '@nuxtjs/design-tokens'
 import typography from 'windicss/plugin/typography'
 
 export default defineConfig({
@@ -17,6 +18,9 @@ export default defineConfig({
   },
   theme: {
     extend: {
+      colors: {
+        primary: $tokens('colors.primary')
+      },
       animation: {
         fadeIn: 'fadeIn 200ms ease-in forwards',
       },
