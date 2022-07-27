@@ -20,14 +20,14 @@ const initials = config.value.site.name
       class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
     />
     <div aria-label="Harlan Wilton Initials" class="hidden sm:block text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
-      <span
+      <div
         v-for="(val, key) in [{ class: ['from-primary-light/30 to-primary-darker/30 group-hover:translate-y-19px'] }, { class: ['from-primary-darker to-primary-light -translate-y-17px -translate-x-3px'] }]"
         :key="key"
         :class="val.class"
-        class="font-normal transition-all transform -skew-x-10 block font-bold text-3xl logo text-hidden-fill bg-clip-text bg-gradient-to-l"
+        class="font-normal transition-all transform -skew-x-10 text-3xl logo text-hidden-fill bg-clip-text bg-gradient-to-l"
       >
         {{ initials }}
-      </span>
+      </div>
     </div>
   </nuxt-link>
 </template>

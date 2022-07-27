@@ -10,7 +10,6 @@ const defaultPalette = {
   dark: {
     value: '#10b981',
   },
-  // #10b981
   light: {
     value: '#38ef7d',
   },
@@ -22,6 +21,9 @@ const defaultPalette = {
 const melonPalette = {
   darkest: {
     value: '#5D2A42',
+  },
+  darker: {
+    value: '#FB6376',
   },
   dark: {
     value: '#FB6376',
@@ -37,6 +39,9 @@ const melonPalette = {
 const bluePalette = {
   darkest: {
     value: '#161925',
+  },
+  darker: {
+    value: '#23395B',
   },
   dark: {
     value: '#23395B',
