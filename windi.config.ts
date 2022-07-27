@@ -1,6 +1,6 @@
 import { defineConfig } from 'windicss/helpers'
-import { $tokens } from '@nuxtjs/design-tokens'
 import typography from 'windicss/plugin/typography'
+import { $tokens } from '@nuxtjs/design-tokens'
 
 export default defineConfig({
   plugins: [
@@ -15,11 +15,15 @@ export default defineConfig({
       '-webkit-background-clip': 'text',
       'background-clip': 'text',
     },
+    'text-hidden-fill': {
+      '-webkit-text-fill-color': 'transparent',
+    },
   },
   theme: {
     extend: {
       colors: {
-        primary: $tokens('colors.primary'),
+        // windi requires values over css vars
+        primary: $tokens('colors.primary', 'value'),
       },
       animation: {
         fadeIn: 'fadeIn 200ms ease-in forwards',

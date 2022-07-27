@@ -1,9 +1,7 @@
-@import '../.nuxt/tokens/tokens.scss';
-
 body {
   min-height: 100vh;
   background-color: rgb(247,247,247);
-  background-image: linear-gradient(0deg, $colors-primary-lightest, #ffffff);
+  background-image: linear-gradient(0deg, rgba($colors-primary-lightest, .063), #ffffff);
   overflow: overlay;
   @apply dark:bg-gray-900 dark:bg-none;
 }
@@ -36,14 +34,14 @@ a:not(.unstyled), .link {
   }
 
   &:before {
-    background-image: linear-gradient(90deg, $colors-primary-dark, $colors-primary-light);
+    background-image: linear-gradient(90deg, $colors-primary-darker, $colors-primary-light);
     left: 0;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
   }
 
   &:after {
-    background-image: linear-gradient(270deg, $colors-primary-dark, $colors-primary-light);
+    background-image: linear-gradient(270deg, $colors-primary-darker, $colors-primary-light);
     right: 0;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -60,7 +58,7 @@ a:not(.unstyled), .link {
 
   &.router-link-active {
     font-weight: bold;
-    background: linear-gradient(45deg, rgba($colors-primary-dark, 1), rgba($colors-primary-lightest, 1));
+    background: linear-gradient(45deg, rgba($colors-primary-darker, 1), rgba($colors-primary-lightest, 1));
     -webkit-background-clip: text;
     &:after, &:before {
       opacity: 0;

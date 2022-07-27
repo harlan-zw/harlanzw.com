@@ -20,6 +20,16 @@ export default defineNuxtConfig({
       },
     },
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // automatically import tokens into scss
+          additionalData: '@import "./.nuxt/tokens/tokens.scss";',
+        },
+      },
+    },
+  },
   modules: [
     // Themify
     '@nuxt-themes/config/module',

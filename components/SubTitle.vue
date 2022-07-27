@@ -1,12 +1,11 @@
 <template>
-  <h2 class="mb-5 bg-gradient-to-b from-primary-lightest to-primary-darkest inline-block font-semibold text-lg">
+  <h2 class="mb-5 bg-clip-text bg-gradient-to-b from-primary-dark to-primary-darkest inline-block font-semibold text-lg">
     <slot />
   </h2>
 </template>
 
 <style scoped lang="scss">
 h2 {
-  -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
 }
 </style>

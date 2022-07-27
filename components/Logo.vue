@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const config = useTheme()
 
-const initials = 'Harlan Wilton'
+const initials = config.value.site.name
   .split(' ')
   .map(word => word[0].toLowerCase())
   .join('')
@@ -20,8 +20,14 @@ const initials = 'Harlan Wilton'
       class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
     />
     <div aria-label="Harlan Wilton Initials" class="hidden sm:block text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
-      <span class="block text-primary-darkest font-bold text-3xl logo">{{ initials }}</span>
-      <span class="block text-primary-darkest font-bold text-3xl logo">{{ initials }}</span>
+      <span
+        v-for="(val, key) in [{ class: ['from-primary-light/30 to-primary-darker/30 group-hover:translate-y-19px'] }, { class: ['from-primary-darker to-primary-light -translate-y-17px -translate-x-3px'] }]"
+        :key="key"
+        :class="val.class"
+        class="font-normal transition-all transform -skew-x-10 block font-bold text-3xl logo text-hidden-fill bg-clip-text bg-gradient-to-l"
+      >
+        {{ initials }}
+      </span>
     </div>
   </nuxt-link>
 </template>
@@ -29,29 +35,8 @@ const initials = 'Harlan Wilton'
 <style lang="scss">
 .group:hover {
   filter: drop-shadow(0 0 35px var(--colors-primary-dark));
-  .logo {
-    background: linear-gradient(90deg, var(--colors-primary-dark), var(--colors-primary-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: translateX(0px) translateY(18px) skewX(-10deg);
-  }
   .logo:nth-of-type(2) {
     filter: drop-shadow(0 0 10px var(--colors-primary-light));
-    transform: translateX(0) translateY(-18px) skewX(-10deg);
   }
-}
-.logo {
-  transform: skewX(-10deg);
-  font-weight: 400;
-  transition: 0.2s;
-  background: linear-gradient(90deg, rgba(var(--colors-primary-dark), 0.3), rgba(var(--colors-primary-light), 0.3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.logo:nth-of-type(2) {
-  background: linear-gradient(90deg, var(--colors-primary-light), var(--colors-primary-dark));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: translateX(-3px) translateY(-17px) skewX(-10deg);
 }
 </style>

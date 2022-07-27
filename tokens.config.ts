@@ -2,11 +2,15 @@ import { defineTokens } from '@nuxtjs/design-tokens'
 
 const defaultPalette = {
   darkest: {
-    value: '#33e47f10',
+    value: '#0d9488',
   },
-  dark: {
+  darker: {
     value: '#11998e',
   },
+  dark: {
+    value: '#10b981',
+  },
+  // #10b981
   light: {
     value: '#38ef7d',
   },
