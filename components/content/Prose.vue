@@ -33,9 +33,9 @@
   @apply ml-1 md:(w-8 h-8) w-6 h-6 mb-1 text-gray-500 inline-block;
 }
 
-.prose code {
+.prose p code {
   overflow-wrap: break-word;
-  @apply inline bg-gray-200 text-gray-700 dark:(bg-gray-800 text-gray-300) py-1 px-2 rounded font-normal after:hidden before:hidden inline-block;
+  @apply inline bg-gray-200 text-gray-700 dark:(bg-gray-800 text-gray-300) py-1 px-2 rounded font-normal after:hidden before:hidden;
 }
 
 .prose h2 a,
