@@ -1,15 +1,6 @@
 {
-  "name": "harlanzw-theme",
-  "files": [
-    "app",
-    "components",
-    "composables",
-    "logic",
-    "modules",
-    "pages",
-    "resources",
-    "server"
-  ],
+  "name": "harlanzw.com",
+  "private": "true",
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
@@ -19,6 +10,7 @@
     "upload:images": "cld upload_dir images"
   },
   "dependencies": {
+    "nuxt-theme-mycelium": "link:../../packages/mycelium",
     "@iconify-json/bi": "^1.1.6",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/emojione": "^1.1.2",
