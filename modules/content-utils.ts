@@ -12,6 +12,7 @@ export default defineNuxtModule({
       ctx.transformers.unshift(...[
         resolveTransformer('code-file-name'),
       ])
+
       // after nuxt content transformers
       ctx.transformers.push(...[
         resolveTransformer('breadcrumbs'),

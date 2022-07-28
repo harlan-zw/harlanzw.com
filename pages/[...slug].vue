@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { callWithNuxt, throwError, useNuxtApp } from '#app'
 import { createError } from 'h3'
-import { useContentHead } from '~/composables/content'
+import { callWithNuxt, throwError, useNuxtApp } from '#app'
+import { useCustomContentHead } from '~/composables/content'
 
 const routesContentQuery = await useRoutesContent()
 
@@ -19,7 +19,7 @@ if (error.value) {
     nuxtApp.ssrContext.res.statusCode = 404
 }
 else {
-  useContentHead(pageContent)
+  useCustomContentHead(pageContent)
 }
 </script>
 

@@ -1,12 +1,14 @@
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { contentPaths } from '../util/content'
-import { SiteUrl } from '~/logic'
 
 export default defineEventHandler(async (event) => {
+  // Grab theme configuration
+  const theme = await $fetch('/api/_theme/options')
+
   const routes = await contentPaths(event)
 
   const sitemap = new SitemapStream({
-    hostname: SiteUrl,
+    hostname: theme.site.url,
   })
   for (const url of routes) {
     sitemap.write({

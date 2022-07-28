@@ -1,23 +1,25 @@
 import { Feed } from 'feed'
 import * as cheerio from 'cheerio'
 import { serverQueryContent } from '#content/server'
-import { SameAs, SiteDescription, SiteLanguage, SiteName, SiteTagLine, SiteUrl } from '~/logic'
 
 export async function generateBlogFeed(event) {
+  // Grab theme configuration
+  const theme = await $fetch('/api/_theme/options')
+
   // Fetch all documents
   const feed = new Feed({
-    title: `${SiteTagLine} | ${SiteName}`,
-    description: SiteDescription,
-    id: SiteUrl,
-    link: SiteUrl,
-    language: SiteLanguage,
-    image: `${SiteUrl}/cover.png`,
-    favicon: `${SiteUrl}/favicon.ico`,
-    copyright: `Copyright (c) 2022-present, ${SiteName}`,
+    title: `${theme.site.tagLine} | ${theme.site.name}`,
+    description: theme.site.description,
+    id: theme.site.url,
+    link: theme.site.url,
+    language: theme.site.language,
+    image: `${theme.site.url}/cover.png`,
+    favicon: `${theme.site.url}/favicon.ico`,
+    copyright: `Copyright (c) 2022-present, ${theme.site.name}`,
     feedLinks: {
-      json: `${SiteUrl}/feed.json`,
-      atom: `${SiteUrl}/feed.atom`,
-      rss: `${SiteUrl}/feed.xml`,
+      json: `${theme.site.url}/feed.json`,
+      atom: `${theme.site.url}/feed.atom`,
+      rss: `${theme.site.url}/feed.xml`,
     },
   })
 
@@ -36,15 +38,15 @@ export async function generateBlogFeed(event) {
     })
     const item = {
       title: post.title,
-      id: `${SiteUrl}${path}`,
-      link: `${SiteUrl}${path}`,
+      id: `${theme.site.url}${path}`,
+      link: `${theme.site.url}${path}`,
       description: post.description,
       content: $('body').html(),
       image: post.image,
       author: [
         {
-          name: SiteName,
-          link: SameAs[0],
+          name: theme.site.name,
+          link: theme.site.sameAs[0],
         },
       ],
       date: new Date(post.publishedAt),

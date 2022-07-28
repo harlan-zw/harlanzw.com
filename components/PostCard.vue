@@ -82,7 +82,7 @@ watch(cardHovered, (v) => {
         </div>
       </div>
       <div class="max-w-full">
-        <h3 class="opacity-90 text-2xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
+        <h3 class="opacity-90 text-2xl mb-3 group-hover:(sm:-mx-3 tracking-wide font-bold bg-clip-text bg-gradient-to-r from-primary-darker to-primary-light) transition-all">
           <span>{{ post.title }}</span>
         </h3>
         <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">
@@ -105,8 +105,6 @@ watch(cardHovered, (v) => {
 <style lang="scss" scoped>
 .group:hover {
   h3 {
-    background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#38ef7d, 1));
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
