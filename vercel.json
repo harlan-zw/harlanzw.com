@@ -17,33 +17,6 @@
           "value": "1; mode=block"
         }
       ]
-    },
-    {
-      "source": "/:path",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=1800"
-        }
-      ]
-    },
-    {
-      "source": "/blog/:path",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=1800"
-        }
-      ]
-    },
-    {
-      "source": "/",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=1800"
-        }
-      ]
     }
   ]
 }
