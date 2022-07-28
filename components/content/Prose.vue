@@ -34,7 +34,8 @@
 }
 
 .prose code {
-  @apply bg-gray-200 text-gray-700 dark:(bg-gray-800 text-gray-300) py-1 px-2 rounded font-normal after:hidden before:hidden;
+  overflow-wrap: break-word;
+  @apply inline bg-gray-200 text-gray-700 dark:(bg-gray-800 text-gray-300) py-1 px-2 rounded font-normal after:hidden before:hidden inline-block;
 }
 
 .prose h2 a,

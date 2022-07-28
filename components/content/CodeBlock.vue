@@ -30,7 +30,7 @@
     display: inline-block;
     text-align: center;
     opacity: 0.1;
-    transform: translateX(-16px) translateY(1px);
+    padding-right: 15px;
     content: counter(number);
   }
 }
@@ -40,8 +40,5 @@
   &:before {
     opacity: 0.3;
   }
-}
-:deep(.line:before) {
-
 }
 </style>
