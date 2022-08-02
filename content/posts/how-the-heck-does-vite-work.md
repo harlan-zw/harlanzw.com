@@ -72,7 +72,7 @@ Don't worry if the below terms don't make sense to you, we'll be exploring them 
 - Production build: [Rollup](https://github.com/rollup/rollup)
 
 ::tip
-Check out Mozilla's <a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank">article</a> on ES Modules if their new to you.
+Check out Mozilla's <a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank">article</a> on ES Modules if they're new to you.
 ::
 
 ## Understanding webpack
