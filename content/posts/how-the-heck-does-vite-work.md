@@ -79,7 +79,7 @@ Check out Mozilla's <a href="https://hacks.mozilla.org/2018/03/es-modules-a-cart
 
 To understand how Vite works, it's best to look at how webpack works first. Even with its popularly, understanding webpack can be intimidating, so I'll try to keep it simple.
 
-webpack is versatile in what you can do with it, but at it's core, it will:
+webpack is versatile in what you can do with it, but at its core, it will:
 - Starting with an entry file, build a tree of your dependencies: all the imports, exports, requires from your code/files
 - Transform / compile modules: think transpiling js for older browsers, turning SCSS into CSS
 - Use algorithms to sort, rewrite and concatenate code
