@@ -10,7 +10,6 @@
     "upload:images": "cld upload_dir images"
   },
   "dependencies": {
-    "nuxt-theme-mycelium": "link:../../packages/mycelium",
     "@iconify-json/bi": "^1.1.6",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/emojione": "^1.1.2",
@@ -36,6 +35,7 @@
     "feed": "^4.2.2",
     "nuxt": "npm:nuxt3@latest",
     "nuxt-schema-org": "0.7.0-beta.3",
+    "nuxt-theme-mycelium": "link:../../packages/mycelium",
     "nuxt-windicss": "^2.4.3",
     "parse5": "6.0.1",
     "sass": "^1.54.0",
@@ -46,6 +46,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.0",
     "eslint": "^8.20.0",
+    "nuxt-mycelium": "^0.0.6",
     "typescript": "^4.7.4"
   },
   "pnpm": {

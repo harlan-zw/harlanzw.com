@@ -5,38 +5,32 @@ import config from './theme.config'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  extends: ['nuxt-theme-mycelium'],
+  extends: ['nuxt-mycelium'],
 
   components: [
     {
-      path: './node_modules/nuxt-theme-mycelium/components/content',
+      path: './node_modules/nuxt-mycelium/components/content',
       global: true,
       prefix: '',
     },
   ],
 
-  autoImports: {
-    dirs: [
-      './node_modules/nuxt-theme-mycelium/composables',
-    ],
+  build: {
+    transpile: [
+
+    ]
   },
 
-  hooks: {
-    'nuxt:composables': function () {
-
-    },
-  },
-
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // automatically import tokens into scss
-          additionalData: '@import "./.nuxt/tokens/tokens.scss";',
-        },
-      },
-    },
-  },
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         // automatically import tokens into scss
+  //         additionalData: '@import "./.nuxt/tokens/tokens.scss";',
+  //       },
+  //     },
+  //   },
+  // },
   // modules: [
   //   // Themify
   //   '@nuxt-themes/config/module',
@@ -70,18 +64,5 @@ export default defineNuxtConfig({
     domains: [
       'avatars0.githubusercontent.com',
     ],
-  },
-
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: [
-        '/',
-        '/sitemap.xml',
-        '/feed.xml',
-        '/feed.json',
-        '/feed.atom',
-      ],
-    },
   },
 })
