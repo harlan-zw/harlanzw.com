@@ -16,7 +16,7 @@ const siteMeta = useSiteMeta()
       <Link rel="preconnect" href="https://res.cloudinary.com" />
       <SchemaOrgPerson
         :name="siteMeta.name"
-        :image="siteMeta.logo"
+        image="https://res.cloudinary.com/dl6o1xpyq/image/upload/f_jpg,q_auto:best,dpr_auto,w_240,h_240/images/harlan-wilton"
         :same-as="siteMeta.sameAs"
       />
       <SchemaOrgWebSite
