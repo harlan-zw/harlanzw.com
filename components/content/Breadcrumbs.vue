@@ -4,12 +4,12 @@ const breadcrumbs = await useBreadcrumbs()
 
 <template>
   <SchemaOrgBreadcrumb
-    v-slot="{ itemListElement }"
+    v-if="breadcrumbs.length > 1"
     :item-list-element="breadcrumbs"
   >
     <nav aria-label="Breadcrumb">
-      <ul v-if="itemListElement.length > 1" class="flex space-x-4 text-sm opacity-50 list-none !mt-0 !mb-0">
-        <template v-for="(item, key) in itemListElement">
+      <ul class="flex space-x-4 text-sm opacity-50 list-none !mt-0 !mb-0">
+        <template v-for="(item, key) in breadcrumbs">
           <li v-if="item.item" :key="key" class="!mt-0">
             <NuxtLink :to="item.item" class="inline !border-none">
               {{ item.name }}
