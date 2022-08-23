@@ -30,7 +30,7 @@ specifiers:
   eslint: ^8.22.0
   feed: ^4.2.2
   nuxt: 3.0.0-rc.8
-  nuxt-schema-org: 1.0.0-beta.18
+  nuxt-schema-org: 1.0.0-beta.19
   nuxt-windicss: ^2.5.1
   parse5: 6.0.1
   sass: ^1.54.5
@@ -64,7 +64,7 @@ devDependencies:
   eslint: 8.22.0
   feed: 4.2.2
   nuxt: 3.0.0-rc.8_sass@1.54.5
-  nuxt-schema-org: 1.0.0-beta.18_guyxljvasz6bla6xtzifvwssfq
+  nuxt-schema-org: 1.0.0-beta.19_guyxljvasz6bla6xtzifvwssfq
   nuxt-windicss: 2.5.1
   parse5: 6.0.1
   sass: 1.54.5
@@ -1595,8 +1595,8 @@ packages:
       - webpack
     dev: true
 
-  /@vueuse/schema-org-vite/1.0.0-beta.18_guyxljvasz6bla6xtzifvwssfq:
-    resolution: {integrity: sha512-h/zIhB0A4gffQ4JQE268s69f8hAcEt6sGXLDQMJW172/fA1CmyMqIl5N0L4r8zb5fOqHq2l0afwOeg4d3dOIOA==}
+  /@vueuse/schema-org-vite/1.0.0-beta.19_guyxljvasz6bla6xtzifvwssfq:
+    resolution: {integrity: sha512-AILvGF6oi7wawnwi4PA9zEY7+XvmoqMWq4G1IGg3VArALuhDXi2/1jy/WD5PLqdfCeEOYRysMHL9SFtIgndF7w==}
     peerDependencies:
       '@vueuse/head': '>=0.7'
       unplugin-vue-components: '>=0.19'
@@ -1611,7 +1611,7 @@ packages:
       vitepress:
         optional: true
     dependencies:
-      '@vueuse/schema-org': 1.0.0-beta.18_typescript@4.7.4
+      '@vueuse/schema-org': 1.0.0-beta.19_typescript@4.7.4
       magic-string: 0.26.2
       mlly: 0.5.14
       pathe: 0.3.5
@@ -1626,8 +1626,8 @@ packages:
       - webpack
     dev: true
 
-  /@vueuse/schema-org/1.0.0-beta.18_typescript@4.7.4:
-    resolution: {integrity: sha512-CVEXsGJZuycArnrOZfyfE93mQ7fJHu3cF4xNv7OlRhaYE1rtS9zAahjn+alEyUBLuit2/dHSx2gSChrru+2S/Q==}
+  /@vueuse/schema-org/1.0.0-beta.19_typescript@4.7.4:
+    resolution: {integrity: sha512-qbDkDphwIsnQKt38ekbzCh0hRM0/6RsQ529WQGrZhHjheqrHkWFh5Z2JL4gPYfJIPnf2yJsfLJ/YSBzxWnFWBA==}
     peerDependencies:
       vue: '>=3.2.0'
     dependencies:
@@ -5904,12 +5904,12 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-schema-org/1.0.0-beta.18_guyxljvasz6bla6xtzifvwssfq:
-    resolution: {integrity: sha512-JF62SyC7vqBWI4TLQx5MZa3aiBFdan/EEO7CQbVGhcSWuthJOGx/KX1amXCilPXkX4jFD4hI0wIHfXfPrZ8BjA==}
+  /nuxt-schema-org/1.0.0-beta.19_guyxljvasz6bla6xtzifvwssfq:
+    resolution: {integrity: sha512-UchmShuYpxPan1zVGgJ4x9Y+KDIlPaatfyohL3ilp2XFQOiPylFYTN0MboFVMXbKzGbmsiDA3kxhOjnDoD/W0w==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.8
-      '@vueuse/schema-org': 1.0.0-beta.18_typescript@4.7.4
-      '@vueuse/schema-org-vite': 1.0.0-beta.18_guyxljvasz6bla6xtzifvwssfq
+      '@vueuse/schema-org': 1.0.0-beta.19_typescript@4.7.4
+      '@vueuse/schema-org-vite': 1.0.0-beta.19_guyxljvasz6bla6xtzifvwssfq
       pathe: 0.3.5
       schema-org-graph-js: 0.4.4_typescript@4.7.4
     transitivePeerDependencies:
