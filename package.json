@@ -10,7 +10,7 @@
     "upload:images": "cld upload_dir images"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.1",
+    "@antfu/eslint-config": "^0.26.2",
     "@iconify-json/bi": "^1.1.6",
     "@iconify-json/carbon": "^1.1.7",
     "@iconify-json/emojione": "^1.1.2",
@@ -31,15 +31,16 @@
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@vueuse/core": "^9.1.1",
     "@vueuse/nuxt": "^9.1.1",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "feed": "^4.2.2",
     "nuxt": "^3.0.0-rc.8",
-    "nuxt-schema-org": "1.0.3-beta.1",
+    "nuxt-full-static": "^0.2.1",
+    "nuxt-schema-org": "1.1.0-beta.0",
     "nuxt-windicss": "^2.5.1",
     "parse5": "6.0.1",
     "sass": "^1.54.5",
     "sitemap": "^7.1.1",
-    "typescript": "^4.7.4",
+    "typescript": "^4.8.2",
     "unplugin-icons": "^0.14.8",
     "unplugin-vue-components": "^0.22.4"
   },

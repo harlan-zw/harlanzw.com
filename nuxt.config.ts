@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     'nuxt-schema-org',
     'nuxt-windicss',
+    'nuxt-full-static',
     // custom content modules, need to come before the content module
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
@@ -27,48 +28,15 @@ export default defineNuxtConfig({
     fallback: 'dark',
     classSuffix: '',
   },
-  hooks: {
-    // @todo fix via nuxt, does not work
-    'components:extend': function (components) {
-      for (const component of components) {
-        if (component.chunkName.startsWith('components/prose')) {
-          component.chunkName = 'prose-components'
-          component.prefetch = false
-        }
+  head: {
+    script: [
+      {
+        src: 'https://idea-lets-dance.harlanzw.com/script.js',
+        ['data-spa']: 'auto',
+        'data-site': 'VDJUVDNA',
+        defer: true,
       }
-    },
-    'app:templates': function (app) {
-      app.templates = app.templates.map((t) => {
-        if (t.filename !== 'views/document.template.mjs')
-          return t
-
-        const analyticsScript = '<script src="https://idea-lets-dance.harlanzw.com/script.js" data-spa="auto" data-site="VDJUVDNA" defer></script>'
-
-        t.getContents = () => {
-          return `export default (params) => \`
-<!DOCTYPE html>
-<!--
-  Hey :) Thanks for inspecting my site.
-  Are you interested in the source code? You can find it here: https://github.com/harlan-zw/harlanzw.com
--->
-<html \${params.HTML_ATTRS}>
-
-<head \${params.HEAD_ATTRS}>
-  \${params.HEAD}
-</head>
-
-<body \${params.BODY_ATTRS}>\${params.BODY_PREPEND}
-  \${params.APP}
-</body>
-<!-- Start Analytics -->
-${process.env.NODE_ENV === 'production' ? analyticsScript : '<!-- Ommited -->'}
-<!-- End Analytics -->
-</html>\`
-`
-        }
-        return t
-      })
-    },
+    ]
   },
   // https://content.nuxtjs.org
   content: {
