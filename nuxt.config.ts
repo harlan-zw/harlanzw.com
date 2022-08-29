@@ -28,15 +28,18 @@ export default defineNuxtConfig({
     fallback: 'dark',
     classSuffix: '',
   },
-  head: {
-    script: [
-      {
-        src: 'https://idea-lets-dance.harlanzw.com/script.js',
-        ['data-spa']: 'auto',
-        'data-site': 'VDJUVDNA',
-        defer: true,
-      }
-    ]
+  app: {
+    head: {
+      // fathom analytics
+      script: [
+        {
+          src: 'https://idea-lets-dance.harlanzw.com/script.js',
+          ['data-spa']: 'auto',
+          'data-site': 'VDJUVDNA',
+          defer: true,
+        }
+      ]
+    },
   },
   // https://content.nuxtjs.org
   content: {
