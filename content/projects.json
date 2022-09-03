@@ -49,6 +49,12 @@
       "name": "Utilities",
       "projects": [
         {
+          "name": "zhead",
+          "description": "Fully-typed utilities for defining, validating and building your document <head>.",
+          "link": "https://github.com/harlan-zw/zhead",
+          "icon": "i-emojione-v1-gem-stone"
+        },
+        {
           "name": "unrouted",
           "description": "Unrouted is a minimal, composable router built for speed, portability and DX",
           "link": "https://github.com/harlan-zw/unrouted",
