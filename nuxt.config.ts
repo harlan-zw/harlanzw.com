@@ -12,18 +12,12 @@ export default defineNuxtConfig({
     // custom content modules, need to come before the content module
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
-    '@nuxtjs/critters',
     'nuxt-zero-js',
     '@nuxt/content',
   ],
   schemaOrg: {
     canonicalHost: SiteUrl,
     defaultLanguage: SiteLanguage,
-  },
-  config: {
-    // Default: 'media'
-    preload: 'body',
-    external: true,
   },
   css: [
     '@/resources/scrollbars.css',

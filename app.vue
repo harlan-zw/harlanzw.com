@@ -27,7 +27,6 @@ const siteMeta = useSiteMeta()
       <SchemaOrgWebPage />
     </Head>
     <Body class="text-gray-800 dark:text-gray-100 antialiased">
-      <NuxtLoadingIndicator />
       <Header />
       <main class=" lg:(px-0) md:(max-w-700px pb-20 px-8) sm:(pb-16 px-6) mx-auto max-w-full px-4 py-7 pb-10 l">
         <NuxtPage class="page-enter-active" />
