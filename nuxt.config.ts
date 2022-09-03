@@ -9,10 +9,11 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     'nuxt-schema-org',
     'nuxt-windicss',
-    'nuxt-full-static',
     // custom content modules, need to come before the content module
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
+    '@nuxtjs/critters',
+    'nuxt-zero-js',
     '@nuxt/content',
   ],
   schemaOrg: {
@@ -33,13 +34,16 @@ export default defineNuxtConfig({
       // fathom analytics
       script: [
         {
-          src: 'https://idea-lets-dance.harlanzw.com/script.js',
-          ['data-spa']: 'auto',
+          'src': 'https://idea-lets-dance.harlanzw.com/script.js',
+          'data-spa': 'auto',
           'data-site': 'VDJUVDNA',
-          defer: true,
-        }
-      ]
+          'defer': true,
+        },
+      ],
     },
+  },
+  zeroJs: {
+    disabled: false,
   },
   // https://content.nuxtjs.org
   content: {
