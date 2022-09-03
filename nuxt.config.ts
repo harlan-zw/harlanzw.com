@@ -20,6 +20,11 @@ export default defineNuxtConfig({
     canonicalHost: SiteUrl,
     defaultLanguage: SiteLanguage,
   },
+  config: {
+    // Default: 'media'
+    preload: 'body',
+    external: true,
+  },
   css: [
     '@/resources/scrollbars.css',
     '@/resources/main.scss',
