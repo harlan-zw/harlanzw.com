@@ -55,7 +55,7 @@ export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
       head.title = `${head.title} - ${SiteName}`
 
     head.meta = head.meta || []
-    const flatMeta = packMeta(head.meta)
+    const { value: flatMeta } = packMeta(head.meta)
 
     if (!flatMeta.ogTitle)
       flatMeta.ogTitle = head.title

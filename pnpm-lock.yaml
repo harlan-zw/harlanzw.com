@@ -28,7 +28,7 @@ specifiers:
   '@nuxtjs/eslint-config-typescript': ^11.0.0
   '@vueuse/core': ^9.1.1
   '@vueuse/nuxt': ^9.1.1
-  '@zhead/vue': ^0.3.2
+  '@zhead/vue': ^0.4.0
   eslint: ^8.23.0
   feed: ^4.2.2
   nuxt: 3.0.0-rc.8
@@ -66,7 +66,7 @@ devDependencies:
   '@nuxtjs/eslint-config-typescript': 11.0.0_itqs5654cmlnjraw6gjzqacppi
   '@vueuse/core': 9.1.1
   '@vueuse/nuxt': 9.1.1
-  '@zhead/vue': 0.3.2
+  '@zhead/vue': 0.4.0
   eslint: 8.23.0
   feed: 4.2.2
   nuxt: 3.0.0-rc.8_sass@1.54.8
@@ -852,7 +852,7 @@ packages:
       pathe: 0.3.5
       ufo: 0.8.5
     optionalDependencies:
-      ipx: 0.9.10
+      ipx: 0.9.11
     transitivePeerDependencies:
       - esbuild
       - rollup
@@ -1727,23 +1727,23 @@ packages:
       - supports-color
     dev: true
 
-  /@zhead/schema/0.3.2:
-    resolution: {integrity: sha512-z6OUQ3+Sn2pDy7wI94TMNQgrGcVEbHniGeyhasbgOh3xkp44jF6Cg2GeZLJoQhYSB4DBFaADF0do2qvhRzCs2w==}
+  /@zhead/schema/0.4.0:
+    resolution: {integrity: sha512-2GQXEOk35g1KyPcd+knf9eGQsmtj7cXs7bO6gSuEvhjMl1Zmjwc4YN2lGmRfIvXLPv/SKo6rkU9vnbWDtanevA==}
     dependencies:
       zod: 3.19.0
     dev: true
 
-  /@zhead/vue/0.3.2:
-    resolution: {integrity: sha512-h7iUKVGms0hBR7le9TC+9gewRjIL3lJuUWE5u6C6J/JfQjXjY7YL2o6QsBInFLMlPyJ0jNNfkv4fiYtj2zw9mQ==}
+  /@zhead/vue/0.4.0:
+    resolution: {integrity: sha512-8eyb0m/mtFIqTC7TXEZyLvIy6lpLdnxfpeTx37PI52qLiRjM0cumlepgjzR5ld+b1T4TIVdNF/RKd1nuL0il4Q==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
-      '@zhead/schema': 0.3.2
-      zhead: 0.3.2
+      '@zhead/schema': 0.4.0
+      zhead: 0.4.0
     dev: true
 
-  /@zhead/zod/0.3.2:
-    resolution: {integrity: sha512-ae9xlhPfxE06L6hsd3NckKRHF8mQdhNINwJMFqI6JL59s8ZO+49C9P8IpXofKvc5hqILwQT4lyk6nvCR0HJ9Bw==}
+  /@zhead/zod/0.4.0:
+    resolution: {integrity: sha512-344nJbwxrOoYmlavqkzcy2JhstDFUEh1LNgxbE6fz9xop6kxH/qmAqYeEK3o0IhOXeamgGM+WAFOAoTTcW34kA==}
     dependencies:
       zod: 3.19.0
     dev: true
@@ -4745,8 +4745,8 @@ packages:
       - supports-color
     dev: true
 
-  /ipx/0.9.10:
-    resolution: {integrity: sha512-HymTmXe2QBiPMgsJg1EQtUYgTXfIB9ha7j8tHCQqYGDS7bTYMNWyq/fBdI3S+wc9ic+hbPlTim+uf8QgZcEykQ==}
+  /ipx/0.9.11:
+    resolution: {integrity: sha512-/wsBt7hV8rvNR6O4kwgOUAhtm0F/M/mXaolXot/Bz7fdOD+W7i9OtWuoASWv1PFwwtOunhZGaoCx8BOpSdG2VQ==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -9123,11 +9123,11 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zhead/0.3.2:
-    resolution: {integrity: sha512-KzndpXq14z309+sP3LpTgqOenG8zpSmSPMpGE3SCwbcxSXEnBbo0tBanJAHVHJ8lp0+zWMj7BVjoQQBCJVEOfw==}
+  /zhead/0.4.0:
+    resolution: {integrity: sha512-8/VYTkHquJu1QUp05CqEyVAGQjKh1aEGXyULSce1Iwx7h98BUkDejgSc3Mlm41dA0B2fux1zZr0ZhHzfS8fgvA==}
     dependencies:
-      '@zhead/schema': 0.3.2
-      '@zhead/zod': 0.3.2
+      '@zhead/schema': 0.4.0
+      '@zhead/zod': 0.4.0
       packrup: 0.1.0
     dev: true
 
