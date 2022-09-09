@@ -1,5 +1,6 @@
-import { useAsyncData } from '#app'
 import type { MaybeRef } from '@vueuse/schema-org'
+import { packMeta, unpackMeta } from '@zhead/vue'
+import { useAsyncData } from '#app'
 import { nextTick, queryContent, unref, useHead, watch } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { SiteName, groupBy } from '~/logic'
@@ -52,28 +53,24 @@ export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
     head.title = `${head.title || doc.title}`
     if (!head.title.endsWith(SiteName) && !head.title.startsWith(SiteName))
       head.title = `${head.title} - ${SiteName}`
+
     head.meta = head.meta || []
-    head.meta.push({
-      name: 'og:title',
-      content: head.title,
-    })
-    const description = head.description || doc.description
-    if (description && head.meta.filter(m => m.name === 'description').length === 0) {
-      head.meta.push({
-        name: 'description',
-        content: description,
-      })
-      head.meta.push({
-        name: 'og:description',
-        content: description,
-      })
-    }
-    if (head.image && head.meta.filter(m => m.property === 'og:image').length === 0) {
-      head.meta.push({
-        property: 'og:image',
-        content: head.image,
-      })
-    }
+    const flatMeta = packMeta(head.meta)
+
+    if (!flatMeta.ogTitle)
+      flatMeta.ogTitle = head.title
+
+    if (doc.description && !flatMeta.description)
+      flatMeta.description = doc.description
+
+    if (flatMeta.description)
+      flatMeta.ogDescription = flatMeta.description
+
+    if (head.image && !flatMeta.ogImage)
+      flatMeta.ogImage = head.image
+
+    head.meta = unpackMeta(flatMeta)
+
     if (process.client)
       nextTick(() => useHead(head))
     else

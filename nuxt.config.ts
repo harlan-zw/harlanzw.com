@@ -1,4 +1,6 @@
 import { defineNuxtConfig } from 'nuxt'
+import type { Head } from '@zhead/schema'
+import { defineHead, unpackMeta } from 'zhead'
 import { SiteLanguage, SiteUrl } from './logic'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
@@ -12,7 +14,6 @@ export default defineNuxtConfig({
     // custom content modules, need to come before the content module
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
-    'nuxt-zero-js',
     '@nuxt/content',
   ],
   schemaOrg: {
@@ -29,7 +30,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   app: {
-    head: {
+    head: defineHead<Head>({
       // fathom analytics
       script: [
         {
@@ -39,10 +40,21 @@ export default defineNuxtConfig({
           'defer': true,
         },
       ],
-    },
-  },
-  zeroJs: {
-    disabled: false,
+      link: [
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'preconnect', href: 'https://res.cloudinary.com' },
+      ],
+      meta: [
+        ...unpackMeta({
+          twitterCard: 'summary_large_image',
+          twitterSite: '@harlan_zw',
+          twitterCreator: '@harlan_zw',
+        }),
+        { 'http-equiv': 'accept-ch', 'content': 'DPR' },
+      ],
+    }),
   },
   // https://content.nuxtjs.org
   content: {
