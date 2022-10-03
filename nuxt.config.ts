@@ -1,6 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-import type { Head } from '@zhead/schema'
-import { defineHead, unpackMeta } from 'zhead'
 import { SiteLanguage, SiteUrl } from './logic'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
@@ -16,6 +13,15 @@ export default defineNuxtConfig({
     '~/modules/content-utils',
     '@nuxt/content',
   ],
+  hooks: {
+    'modules:before': async ({ nuxt }) => {
+      // swap out the nuxt internal module for nuxt-hedge
+      for (const k in nuxt.options._modules) {
+        if (typeof nuxt.options._modules[k] === 'function' && (await nuxt.options._modules[k].getMeta()).name === 'meta')
+          nuxt.options._modules[k] = 'nuxt-hedge'
+      }
+    },
+  },
   schemaOrg: {
     canonicalHost: SiteUrl,
     defaultLanguage: SiteLanguage,
@@ -30,7 +36,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   app: {
-    head: defineHead<Head>({
+    head: {
       // fathom analytics
       script: [
         {
@@ -47,14 +53,9 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://res.cloudinary.com' },
       ],
       meta: [
-        ...unpackMeta({
-          twitterCard: 'summary_large_image',
-          twitterSite: '@harlan_zw',
-          twitterCreator: '@harlan_zw',
-        }),
         { 'http-equiv': 'accept-ch', 'content': 'DPR' },
       ],
-    }),
+    },
   },
   // https://content.nuxtjs.org
   content: {

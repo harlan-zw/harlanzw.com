@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { unpackMeta } from '@zhead/vue'
+import { useMetaTags } from '#head'
 import { dayNth } from '~/logic'
 import type { Post } from '~/types'
 
@@ -15,13 +15,11 @@ const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
 const schema = computed(() => props.post.schema || {})
 
-useHead({
-  meta: unpackMeta({
-    twitterLabel1: 'Written on',
-    twitterData1: `${month} ${day}, ${year}`,
-    twitterLabel2: 'Reading time',
-    twitterData2: `${props.post.readingMins} mins`,
-  }),
+useMetaTags({
+  twitterLabel1: 'Written on',
+  twitterData1: `${month} ${day}, ${year}`,
+  twitterLabel2: 'Reading time',
+  twitterData2: `${props.post.readingMins} mins`,
 })
 </script>
 

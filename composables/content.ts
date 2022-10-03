@@ -1,5 +1,4 @@
 import type { MaybeRef } from '@vueuse/schema-org'
-import { packMeta, unpackMeta } from '@zhead/vue'
 import { useAsyncData } from '#app'
 import { nextTick, queryContent, unref, useHead, watch } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
@@ -53,23 +52,6 @@ export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
     head.title = `${head.title || doc.title}`
     if (!head.title.endsWith(SiteName) && !head.title.startsWith(SiteName))
       head.title = `${head.title} - ${SiteName}`
-
-    head.meta = head.meta || []
-    const { value: flatMeta } = packMeta(head.meta)
-
-    if (!flatMeta.ogTitle)
-      flatMeta.ogTitle = head.title
-
-    if (doc.description && !flatMeta.description)
-      flatMeta.description = doc.description
-
-    if (flatMeta.description)
-      flatMeta.ogDescription = flatMeta.description
-
-    if (head.image && !flatMeta.ogImage)
-      flatMeta.ogImage = head.image
-
-    head.meta = unpackMeta(flatMeta)
 
     if (process.client)
       nextTick(() => useHead(head))
