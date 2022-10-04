@@ -52,7 +52,13 @@ export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
     head.title = `${head.title || doc.title}`
     if (!head.title.endsWith(SiteName) && !head.title.startsWith(SiteName))
       head.title = `${head.title} - ${SiteName}`
-
+    const description = head.description || doc.description
+    if (description) {
+      head.meta = [{
+        name: 'description',
+        content: description,
+      }]
+    }
     if (process.client)
       nextTick(() => useHead(head))
     else

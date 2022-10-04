@@ -39,7 +39,7 @@
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@vueuse/core": "^9.3.0",
     "@vueuse/nuxt": "^9.3.0",
-    "@zhead/vue": "^0.8.2",
+    "@zhead/vue": "^0.8.4",
     "eslint": "^8.24.0",
     "feed": "^4.2.2",
     "nuxt": "3.0.0-rc.11",
@@ -60,6 +60,6 @@
     }
   },
   "dependencies": {
-    "nuxt-hedge": "^0.2.0"
+    "nuxt-hedge": "^0.2.2"
   }
 }
