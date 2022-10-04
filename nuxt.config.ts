@@ -5,11 +5,11 @@ import config from './theme.config'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  extends: ['nuxt-mycelium'],
+  extends: ['@nuxt-mycelium/theme'],
 
   components: [
     {
-      path: './node_modules/nuxt-mycelium/components/content',
+      path: './node_modules/@nuxt-mycelium/theme/components/content',
       global: true,
       prefix: '',
     },
