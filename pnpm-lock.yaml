@@ -32,7 +32,7 @@ specifiers:
   eslint: ^8.24.0
   feed: ^4.2.2
   nuxt: 3.0.0-rc.11
-  nuxt-hedge: ^0.3.1
+  nuxt-hedge: ^0.5.0
   nuxt-schema-org: 1.1.0-beta.4
   nuxt-windicss: ^2.5.2
   parse5: 6.0.1
@@ -43,7 +43,7 @@ specifiers:
   unplugin-vue-components: ^0.22.7
 
 dependencies:
-  nuxt-hedge: 0.3.1
+  nuxt-hedge: 0.5.0
 
 devDependencies:
   '@antfu/eslint-config': 0.27.0_ypn2ylkkyfa5i233caldtndbqa
@@ -937,7 +937,7 @@ packages:
       knitwork: 0.1.2
       lodash.template: 4.5.0
       mlly: 0.5.16
-      pathe: 0.3.8
+      pathe: 0.3.9
       pkg-types: 0.3.5
       scule: 0.3.2
       semver: 7.3.8
@@ -966,7 +966,7 @@ packages:
       knitwork: 0.1.2
       lodash.template: 4.5.0
       mlly: 0.5.16
-      pathe: 0.3.8
+      pathe: 0.3.9
       pkg-types: 0.3.5
       scule: 0.3.2
       semver: 7.3.8
@@ -1781,8 +1781,8 @@ packages:
       - '@vue/composition-api'
     dev: true
 
-  /@vueuse/head/0.9.7:
-    resolution: {integrity: sha512-zuU4qpDEVoDg/XY5phQWZY7/W4M6IoenaJMu5ZGY4plzOzBkkTwmq7jA6z9nxMYo2n1z5RaU5WL9ypZrZkQOjQ==}
+  /@vueuse/head/1.0.0-rc.4:
+    resolution: {integrity: sha512-s+kVEa1V79JzlzoAcynISZktc7475Vxq0l1vs+L0q7NM0bBXWRI3/DEMJAShSs6+oLbt8x6M5yMUJ6SUSM0phg==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
@@ -2250,7 +2250,7 @@ packages:
       gittar: 0.1.1
       jiti: 1.16.0
       mlly: 0.5.16
-      pathe: 0.3.8
+      pathe: 0.3.9
       pkg-types: 0.3.5
       rc9: 1.2.2
 
@@ -5616,6 +5616,10 @@ packages:
 
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+    dev: true
+
+  /minimist/1.2.7:
+    resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
 
   /minipass/2.9.0:
     resolution: {integrity: sha512-wxfUjg9WebH+CUDX/CdbRlh5SmfZiy/hpkxaRI16Y9W56Pa75sWgd/rvFilSgrauD9NyFymP/+JFV3KwzIsJeg==}
@@ -5652,7 +5656,7 @@ packages:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
     hasBin: true
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.7
 
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
@@ -5914,15 +5918,15 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-hedge/0.3.1:
-    resolution: {integrity: sha512-1y8e/Z+LVkzHG9nQ612WW5ObH/KT9MOZQM2Tf1ceHhMb7CgDv2p3FjpiRdjhMK9euz77FvdpBoSQYteVCeiRXQ==}
+  /nuxt-hedge/0.5.0:
+    resolution: {integrity: sha512-PNcdn1utIPFQUCchr3KnqYqN1lQk4T/X3Ms/+9vWm726n+XzT4mpqPP9rRi3NW3uADVCh382PXqsXT84xPB7ng==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.11
-      '@vueuse/head': 0.9.7
+      '@vueuse/head': 1.0.0-rc.4
       '@zhead/schema-vue': 0.8.5
       '@zhead/vue': 0.8.5
       fast-glob: 3.2.12
-      pathe: 0.3.8
+      pathe: 0.3.9
       zhead: 0.8.5
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -6305,6 +6309,9 @@ packages:
   /pathe/0.3.8:
     resolution: {integrity: sha512-c71n61F1skhj/jzZe+fWE9XDoTYjWbUwIKVwFftZ5IOgiX44BVkTkD+/803YDgR50tqeO4eXWxLyVHBLWQAD1g==}
 
+  /pathe/0.3.9:
+    resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
+
   /perfect-debounce/0.1.3:
     resolution: {integrity: sha512-NOT9AcKiDGpnV/HBhI22Str++XWcErO/bALvHCuhv33owZW/CjH8KAFLZDCmu3727sihe0wTxpDhyGc6M8qacQ==}
     dev: true
@@ -6326,7 +6333,7 @@ packages:
     dependencies:
       jsonc-parser: 3.2.0
       mlly: 0.5.16
-      pathe: 0.3.8
+      pathe: 0.3.9
 
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
