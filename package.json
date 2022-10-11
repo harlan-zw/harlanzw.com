@@ -60,6 +60,6 @@
     }
   },
   "dependencies": {
-    "nuxt-hedge": "^0.5.0"
+    "nuxt-hedge": "^0.5.1"
   }
 }

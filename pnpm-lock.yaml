@@ -32,7 +32,7 @@ specifiers:
   eslint: ^8.24.0
   feed: ^4.2.2
   nuxt: 3.0.0-rc.11
-  nuxt-hedge: ^0.5.0
+  nuxt-hedge: ^0.5.1
   nuxt-schema-org: 1.1.0-beta.4
   nuxt-windicss: ^2.5.2
   parse5: 6.0.1
@@ -43,7 +43,7 @@ specifiers:
   unplugin-vue-components: ^0.22.7
 
 dependencies:
-  nuxt-hedge: 0.5.0
+  nuxt-hedge: 0.5.1
 
 devDependencies:
   '@antfu/eslint-config': 0.27.0_ypn2ylkkyfa5i233caldtndbqa
@@ -1781,8 +1781,8 @@ packages:
       - '@vue/composition-api'
     dev: true
 
-  /@vueuse/head/1.0.0-rc.4:
-    resolution: {integrity: sha512-s+kVEa1V79JzlzoAcynISZktc7475Vxq0l1vs+L0q7NM0bBXWRI3/DEMJAShSs6+oLbt8x6M5yMUJ6SUSM0phg==}
+  /@vueuse/head/1.0.0-rc.5:
+    resolution: {integrity: sha512-3T+cx/ldBv5t9szG+eM1bMTr2TeECHHDC5lRW1dOfwqqvoDgJRvnGvvg2cfQUN/6w+fORBYFr56es2WKsYjMhw==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
@@ -5918,11 +5918,11 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-hedge/0.5.0:
-    resolution: {integrity: sha512-PNcdn1utIPFQUCchr3KnqYqN1lQk4T/X3Ms/+9vWm726n+XzT4mpqPP9rRi3NW3uADVCh382PXqsXT84xPB7ng==}
+  /nuxt-hedge/0.5.1:
+    resolution: {integrity: sha512-EELqdaDJ0oScFjJee1BtYzsvoLfjvanMfN9WEhTEspdaSr5l7vv30QIQNwWL0THgZV8P16jSj+AJ8G4/MISPWQ==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.11
-      '@vueuse/head': 1.0.0-rc.4
+      '@vueuse/head': 1.0.0-rc.5
       '@zhead/schema-vue': 0.8.5
       '@zhead/vue': 0.8.5
       fast-glob: 3.2.12
