@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
     '@nuxt/content',
-    // 'nuxt-hedge'
+    'nuxt-hedge'
   ],
   schemaOrg: {
     canonicalHost: SiteUrl,
