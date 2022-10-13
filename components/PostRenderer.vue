@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { useMetaTags } from '#head'
+import { useMetaTags } from '#imports'
 import { dayNth } from '~/logic'
 import type { Post } from '~/types'
 
