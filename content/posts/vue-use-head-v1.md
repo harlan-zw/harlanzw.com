@@ -30,9 +30,9 @@ Notable changes:
 ## Why a major bump - v1?
 
 While most issues were closed and easy to solve, there was a major outstanding issue that I wanted to address, *Server Only Tags* (see [discussion](https://github.com/nuxt/framework/discussions/7785)). 
-There were also issues were around tags disappearing unexpectedly when hydrating.
+There was also a nasty issue with tags disappearing unexpectedly when hydrating.
 
-Both of these were blocked by how the DOM patching was designed. The strategy was to add state to the DOM and use this
+Both of these were blocked by how the DOM patching was designed. The old strategy was to add state to the DOM and use this
 to determine what tags to remove.
 
 ```html
@@ -48,10 +48,26 @@ to determine what tags to remove.
 You can see in the above, we're tracking the attributes being added and the number of tags. The `head:count` element
 is used as an anchor to start rendering tags from.
 
-To make the issues clear:
-- DOM updates are aggressive, they override whatever value is in the spot regardless if it's a valid tag from `@vueuse/head`
-- They remove any tags which end up in the `head:count` anchors scope
-- State in DOM isn't so nice
+It would take all tags to be rendered, check the dom elements upwards from the `head:count` meta tag if any needed to be inserted
+or if they already existed, otherwise delete them.
+
+This had a issues when you look closely:
+
+### Deleting DOM elements it doesn't own
+
+It would modify whatever element is in the position regardless if it's an element created from `@vueuse/head`. 
+
+This led to issues with a third-party script inserting something in between these DOM elements, and it getting deleted.
+
+Any type of hydration where you wanted to have the server tags differ, would be impossible without introducing more DOM state.
+
+### State in DOM isn't so nice
+
+Purely from a DX perspective, it's not nice to have state in the DOM that isn't needed. It's not a big deal, but it's not ideal.
+
+### Performance
+
+Previous DOM patching would delete and re-render tags which shared dedupe keys. Not noticable functionally but a performance consideration.
 
 To solve these issues, a new DOM patching algorithm was needed that tracked side effects gracefully.
 
@@ -83,6 +99,7 @@ Featuring a new DOM patching algorithm that tracks side effects gracefully, less
 - Options API Support
 - New docs [unhead.harlanzw.com](https://unhead.harlanzw.com/) (WIP)
 - Tag deduping is now vastly improved. It's likely you won't need `key` anymore. See [tag deduping](https://unhead.harlanzw.com/guide/guides/handling-duplicates)
+- DOM patching logic is now loaded async, reducing initial main thread work
 
 ### 🚀 New Features
 
