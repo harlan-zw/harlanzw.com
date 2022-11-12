@@ -317,7 +317,8 @@ useHead({
 
 ## Next Steps
 
-I am aiming to have this in Nuxt v3 stable soon. If you have any ideas on the future of unhead and @vueuse/head 
-please get in touch with me through an issue, Discord or Twitter.
+If you have any issues and/or questions related to v1, please comment in the [discussion](https://github.com/vueuse/head/discussions/161).
+
+If you have any ideas on the future of unhead and @vueuse/head please get in touch with me through an issue, Discord or Twitter.
 
 Thanks for reading!
