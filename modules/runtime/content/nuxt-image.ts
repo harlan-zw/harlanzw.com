@@ -4,7 +4,7 @@ import { computeSizes } from '../util/image'
 
 export default <ContentTransformer> {
   name: 'nuxt-image',
-  extentions: ['.md'],
+  extensions: ['.md'],
   async transform(content) {
     // Unwrap images inside Paragraphs
     visit(

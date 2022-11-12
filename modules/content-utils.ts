@@ -18,7 +18,7 @@ export default defineNuxtModule({
         resolveTransformer('nuxt-image'),
         resolveTransformer('storage-meta'),
         resolveTransformer('read-time'),
-        resolveTransformer('meta-normaliser'),
+        // resolveTransformer('meta-normaliser'),
       ])
     })
   },

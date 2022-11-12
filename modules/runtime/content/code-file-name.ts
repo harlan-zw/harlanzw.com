@@ -3,7 +3,7 @@ import type { ContentTransformer, MarkdownNode } from '@nuxt/content/dist/runtim
 
 export default <ContentTransformer> {
   name: 'code-file-name',
-  extentions: ['.md'],
+  extensions: ['.md'],
   async transform(content) {
     visit(
       content.body,

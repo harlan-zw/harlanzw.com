@@ -3,7 +3,7 @@ import { loadIconForTag, tagIsIcon } from '~/modules/runtime/util/icons'
 
 export default <ContentTransformer> {
   name: 'project-icons',
-  extentions: ['.json'],
+  extensions: ['.json'],
   async transform(content) {
     if (content._file !== 'projects.json')
       return content

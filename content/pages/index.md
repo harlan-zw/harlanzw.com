@@ -1,0 +1,59 @@
+---
+title: "Home"
+head.title: "Harlan Wilton - Open Source Developer"
+description: "Hey, I'm Harlan, a full-stack web developer living in Sydney, Australia. I'm passionate about building open-source packages in the Vue, Nuxt and Vite ecosystems."
+---
+
+# Harlan Wilton :i-line-md-coffee-loop
+
+Hey, I'm Harlan, a full-stack web developer living in :i-emojione-v1-flag-for-australia{class="ml-2 mr-1" alt="Australian Flag"} _Sydney, Australia_. 
+
+I'm passionate about building [open-source](https://github.com/harlan-zw){title="Visit my Github"} packages in the Vue, Nuxt and Vite ecosystems.
+
+I'm part of the [:windi-icon{alt="WindiCSS icon"} WindiCSS](https://windicss.com){title="Open windicss.com"} and [:i-logos-vueuse{class="mx-1" alt="VueUse icon"} VueUse](https://vueuse.org){title="Open VueUse.org"} teams and proudly [sponsored](/sponsors){title="Visit sponsors page"} for the work I do. 
+
+Sometimes I [write articles](/blog){title="Visit Blog Page"}.
+
+When not coding, you can find me:
+::list
+- 🏃🏋️ Working out 
+- ☕🍺 At a café or brewery
+- 📚 Adding books to my [bookshelf](https://www.goodreads.com/user/show/122898515-harlan-wilton){title="See the books I've read on goodreads.com"}
+- 🥐 Eating almond croissants 
+- 🏞️ Or maybe in front of a waterfall... 
+::
+
+![Me in front of a waterfall](/harlan-wilton.jpeg){width="240" height="240" class="rounded-lg h-60 w-60 mx-auto" format="jpeg" lazy="false"}
+
+If you like this site please feel free to [clone it](https://github.com/harlan-zw/harlanzw.com){title="See the GitHub Repo for this site"} or use Nuxt template 🍄 Mycelium (coming soon).
+
+## Open Source Journey
+
+At the end of 2020, I finished up my full-time job at a [startup](https://kintell.com/){title="Visit kintell.com" }. I wanted to explore other ways of working,
+with the idea of building a SaaS product.
+
+Though, without an idea I was passionate about and no audience, it felt like a waste of time.
+
+Instead, I decided to focus on learning as much as I could within the Vue ecosystem. 
+
+I started building my [old blog](https://old.harlanzw.com){title="Visit my old blog site"}
+in the earliest version of VitePress and did an article comparing [Vite to webpack](/blog/how-the-heck-does-vite-work){title="Visit the article I wrote about Vite"}.
+
+In setting up Twitter and sharing that article, I was hooked.
+
+I started writing more, contributing issues and building my own [Vue plugin](/blog/vue-automatic-component-imports){title="See the article I wrote on Vue Automatic Component Imports"}.
+
+Through these I grew my audience and started focusing on [Nuxt modules](/projects) and joined the [WindiCSS](htttp://windicss.com) team.
+
+Since then, I've been working on all sorts of projects. While the progress has been slow while I've been learning, I'm proud of what I've accomplished, 
+and I'm excited to share more with the community.
+
+## Freelance Laravel and Nuxt Developer
+
+When not creating open-source, I work for myself as a freelancer. 
+
+Working with my clients, I create scalable, profit driven web apps and SEO, performant marketing sites built with :i-logos-nuxt-icon{alt="Nuxt Icon"} Nuxt and :i-logos-laravel{class="h-1.2em w-1.2em ml-2 mr-1" alt="Laravel Icon"} Laravel.
+
+While I have limited capacity for new work, I'd love to hear from you if you think I could help your business grow.
+
+If you're interested please [get in touch](mailto:harlan@harlanzw.com){title="Send an email to me at harlan@harlanzw.com"}.

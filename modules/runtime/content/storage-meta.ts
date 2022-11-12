@@ -7,7 +7,7 @@ const contentStorage = prefixStorage(useStorage(), 'content:source')
 
 export default <ContentTransformer> {
   name: 'storage-meta',
-  extentions: ['.*'],
+  extensions: ['.*'],
   async transform(content: ParsedContent) {
     content.storageMeta = { ...(await contentStorage.getMeta(content._id)) }
     return content

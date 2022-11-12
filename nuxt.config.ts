@@ -51,6 +51,10 @@ export default defineNuxtConfig({
   },
   // https://content.nuxtjs.org
   content: {
+    documentDriven: {
+      page: '/pages',
+      injectPage: true,
+    },
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: 'dracula',
@@ -73,7 +77,7 @@ export default defineNuxtConfig({
       'avatars0.githubusercontent.com',
     ],
   },
-
+  ssr: false,
   nitro: {
     prerender: {
       crawlLinks: true,
