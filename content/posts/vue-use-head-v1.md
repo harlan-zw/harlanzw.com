@@ -93,13 +93,78 @@ Now powered by [Unhead](https://github.com/harlan-zw/unhead).
 
 Featuring a new DOM patching algorithm that tracks side effects gracefully, less aggressive removal of tags and attributes
 
+Includes :zap:  DOM rendering optimisations, 120% (~10ms for an avg site) faster, async for quicker initial main thread load.
+
 ### ✨ Enhancements
 
-- Vue 2.7 Support
-- Options API Support
-- New docs [unhead.harlanzw.com](https://unhead.harlanzw.com/) (WIP)
-- Tag deduping is now vastly improved. It's likely you won't need `key` anymore. See [tag deduping](https://unhead.harlanzw.com/guide/guides/handling-duplicates)
-- DOM patching logic is now loaded async, reducing initial main thread work
+- Vue 2.7 Support  ([docs](https://unhead.harlanzw.com/integrations/vue/setup))
+- Options API Support ([docs](https://unhead.harlanzw.com/integrations/vue/options-api))
+
+
+#### htmlAttrs / bodyAttrs merging
+
+[Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy)
+
+Now merged by default instead of replace.
+
+```ts
+useHead({
+  htmlAttrs: {
+    class: 'my-class',
+  },
+})
+// we don't want that class to be on a specific page, instead we want a new class
+useHead({
+  htmlAttrs: {
+    class: 'another-class',
+  },
+})
+// <html class="my-class another-class">
+```
+
+
+#### Array / Object Classes
+
+[Documentation](https://unhead.harlanzw.com/guide/guides/class-attr)
+
+When using the htmlAttrs or bodyAttrs options, you can use the class attribute to add classes to the html or body elements.
+
+```ts
+const darkMode = false
+useHead({
+  htmlAttrs: {
+    class: {
+      // will be rendered
+      'dark': darkMode,
+      // will not be rendered
+      'light': !darkMode,
+    }
+  },
+  bodyAttrs: { class: ['layout-id', 'page-id' ] }
+})
+```
+
+#### Better deduping
+
+[Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#using-arrays-with-meta)
+
+Tag deduping is now vastly improved. It's likely you won't need `key` anymore.
+
+Includes support for meta content array support, reduces boilerplate by using arrays for meta tags.
+
+```ts
+useHead({
+  meta: [
+    {
+      name: 'og:image',
+      content: [
+        'https://example.com/image.png',
+        'https://example.com/image2.png',
+      ],
+    },
+  ],
+})
+```
 
 ### 🚀 New Features
 
@@ -120,12 +185,14 @@ useServerHead({
 })
 ```
 
-#### useTagMetaFlat
+#### useSeoMeta
+
+[Documentation](https://unhead.harlanzw.com/guide/guides/useseometa)
 
 Define meta tags in a flat object, fully typed.
 
 ```ts
-useTagMetaFlat({
+useSeoMeta({
   description: 'My about page',
   ogDescription: 'Still about my about page',
   ogTitle: 'About',
@@ -176,28 +243,6 @@ useHead({
 #### tagDuplicateStrategy
 
 [Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy)
-
-
-
-#### Meta content array support
-
-[Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#using-arrays-with-meta)
-
-Reduce boilerplate by using arrays for meta tags.
-
-```ts
-useHead({
-  meta: [
-    {
-      name: 'og:image',
-      content: [
-        'https://example.com/image.png',
-        'https://example.com/image2.png',
-      ],
-    },
-  ],
-})
-```
 
 
 #### DOM Event Handlers
@@ -256,7 +301,7 @@ You may consider using [@unhead/vue](https://unhead.harlanzw.com/integrations/vu
 
 ### Verify your tags
 
-The new DOM patching algorithm has not been tested in all possible scenarios, it's possible that there are unforeseen edge cases.  
+The new DOM patching algorithm has not been tested in all possible scenarios, it's possible that there are unforeseen edge cases.
 
 ### `htmlAttrs` and `bodyAttrs` merge strategy
 
