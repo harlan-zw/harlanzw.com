@@ -390,38 +390,40 @@ useHead({
 Check the [documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy) to learn more.
 
 
-### Duplicate tags in the same entry allowed
+### Duplicate tags in `useHead`
 
-To make duplicate tag handling more intuitive, duplicate tags are now allowed in the same entry.
+To make duplicate tag handling more intuitive, duplicate tags are now allowed in the same `useHead` call.
 
-Having these metas across `useHead`'s will still dedupe as before.
+Previously you would have to use `key` to differentiate them.
 
 ```ts
-// old
+// old - key is required
 useHead({
   meta: [
-    { name: 'description', content: 'foo' },
-    { name: 'description', content: 'bar' },
+    { name: 'og:locale:alternate', content: 'es_ES', key: 'locale_es' },
+    { name: 'og:locale:alternate', content: 'fr_FR', key: 'locale_fr' },
   ],
 })
 
-// only the last tag is rendered
-// <meta name="description" content="bar">
+// <meta name="og:locale:alternate" content="es_ES">
+// <meta name="og:locale:alternate" content="fr_FR">
 ```
+
+You can safely remove `key` now.
 
 ```ts
-// old
+// new - key is no longer required
 useHead({
   meta: [
-    { name: 'description', content: 'foo' },
-    { name: 'description', content: 'bar' },
+    { name: 'og:locale:alternate', content: 'es_ES' },
+    { name: 'og:locale:alternate', content: 'fr_FR' },
   ],
 })
-
-// both are rendered
-// <meta name="description" content="foo">
-// <meta name="description" content="bar">
+// <meta name="og:locale:alternate" content="es_ES">
+// <meta name="og:locale:alternate" content="fr_FR">
 ```
+
+It's worth checking that if you did have duplicate tags in the same entry, you will now be rendering both of them potentially.
 
 ## Next Steps
 
