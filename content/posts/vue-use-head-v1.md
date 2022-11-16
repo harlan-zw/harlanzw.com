@@ -42,7 +42,7 @@ I started with some low-hanging fruit: `useHead` TypeScript support ([6f919c7](h
 This one was pretty tedious, but well worth it for developer experience. In creating the types, I made the [zhead](https://github.com/harlan-zw/zhead)
 package to share the types with the ecosystem and some other small utils.
 
-Next up was computer getter support ([b6d74dbeb](https://github.com/vueuse/head/commit/b6d74dbebd32f772923f722c399091c73e21b6ed)).
+Next up was computed getter support ([b6d74dbeb](https://github.com/vueuse/head/commit/b6d74dbebd32f772923f722c399091c73e21b6ed)).
 
 With VueUse 9, the recommended way to deal with computed data was with a computed getter, which is simply a function. However,
 `useHead` only let you use `computed` or `ref`. This was a pretty easy fix, however it illuminated a major performance bottleneck.
@@ -118,7 +118,7 @@ I'm excited about this new package, and I hope you are too! I'll be writing a de
 
 ### 🤖 Core
 
-Now powered by [Unhead](https://github.com/harlan-zw/unhead).
+Now powered by [unhead](https://github.com/harlan-zw/unhead).
 
 Featuring:
 - a new DOM patching algorithm that tracks side effects gracefully, less aggressive removal of tags and attributes
