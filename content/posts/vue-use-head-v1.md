@@ -122,7 +122,7 @@ Now powered by [Unhead](https://github.com/harlan-zw/unhead).
 
 Featuring:
 - a new DOM patching algorithm that tracks side effects gracefully, less aggressive removal of tags and attributes
-- ⚡ DOM rendering optimisations, 120% (~10ms for an avg site) faster, async for quicker initial main thread load.
+- ⚡ DOM rendering optimisations, 5x faster (~10ms for an avg site), async for quicker initial main thread load.
 - 🧹 No more state in DOM
 
 ### ✨ Enhancements
