@@ -1,5 +1,5 @@
 ---
-title: "Release: @vueuse/head v1 🎉"
+title: "VueUse Head v1 release 🎉"
 description: "Learn about the new @vueuse/head v1 release including new features and breaking changes"
 publishedAt: '2022-11-12'
 excerpt: 'Learn about the new @vueuse/head v1 release including new features and breaking changes.'
@@ -9,25 +9,49 @@ tags:
   - vue
 ---
 
-Hey there, firstly welcome to my blog. My name is Harlan and I took over the maintenance of [@vueuse/head](https://github.com/vueuse/head) from [EGOIST](https://github.com/sponsors/egoist)
-in October.
+This post aims to provide some insight into the v1 release, what's new and what's changed.
 
-EGOIST did an amazing job with the package, and I'm grateful to continue the work he started.
+If you prefer, feel free to jump straight to the [release notes](#v100-release).
 
-I'll be providing some background information for this release, and then go over the new features and breaking changes. 
-Feel free to jump straight to the [release notes](#v100-release).
+## Taking over as maintainer
 
-## Changes leading to up to v1
+A few months ago I was decided to fix a quick bug on [@vueuse/head](https://github.com/vueuse/head). I fixed that bug and decided to fix
+another.
 
-My goals for taking of maintenance was closing all open issues for the package, improve performance, documentation and DX.
+At the time there was no one actively maintaining the package, besides [antfu](https://twitter.com/antfu7), kindly reviewing any PRs which
+got sent. [EGOIST](https://github.com/sponsors/egoist) did an awesome job on it initially, but he was now busy with other projects.
 
-Notable changes:
-- Full `useHead` TypeScript support powered by [zhead](https://github.com/harlan-zw/zhead) - [6f919c7](https://github.com/vueuse/head/pull/85)
-- Computer getter support - [b6d74dbeb](https://github.com/vueuse/head/commit/b6d74dbebd32f772923f722c399091c73e21b6ed)
-- Significant performance improvements - [e1bc8d2](https://github.com/vueuse/head/commit/e1bc8d2e35a9104adbd3a62c29bdadb89181b3fc), [691bcc8](https://github.com/vueuse/head/commit/691bcc88ae3526879238995866daeec39e8bc4c6)
-- Vue 2.7 support - [d6ece59c3d843a5fa82d7c2bb29e76b1c73ac05d](https://github.com/vueuse/head/pull/147) (thanks to vetruvet)
+I decided that taking over as maintainer would be a good way to contribute more directly to the Vue ecosystem. A quick
+discussion with Anthony later and I was given the role.
 
-## Why a major bump - v1?
+Taking over maintenance my goal was to close all open issues, improve performance, documentation and overall developer experience. All
+I hope have now been achieved with this release.
+
+::tip{type="info"}
+The v1 release is now shipped in [Nuxt](https://nuxtjs.org).<br>
+<br>
+I'll be doing a talk on this release at the upcoming [NuxtNation](https://nuxtnation.com/), make sure you catch it!
+::
+
+## Pre v1 Achievements
+
+Taking over maintenance was pretty daunting. There were a number of tricky problems to solve.
+
+I started with some low-hanging fruit: `useHead` TypeScript support ([6f919c7](https://github.com/vueuse/head/pull/85)).
+
+This one was pretty tedious, but well worth it for developer experience. In creating the types, I made the [zhead](https://github.com/harlan-zw/zhead)
+package to share the types with the ecosystem and some other small utils.
+
+Next up was computer getter support ([b6d74dbeb](https://github.com/vueuse/head/commit/b6d74dbebd32f772923f722c399091c73e21b6ed)).
+
+With VueUse 9, the recommended way to deal with computed data was with a computed getter, which is simply a function. However,
+`useHead` only let you use `computed` or `ref`. This was a pretty easy fix, however it illuminated a major performance bottleneck.
+
+So my full attention went into performance ([e1bc8d2](https://github.com/vueuse/head/commit/e1bc8d2e35a9104adbd3a62c29bdadb89181b3fc), [691bcc8](https://github.com/vueuse/head/commit/691bcc88ae3526879238995866daeec39e8bc4c6)).
+
+🏎️ And with that the package was now ~5x faster in patching the DOM.
+
+## Why a major bump?
 
 While most issues were closed and easy to solve, there was a major outstanding issue that I wanted to address, *Server Only Tags* (see [discussion](https://github.com/nuxt/framework/discussions/7785)). 
 There was also a nasty issue with tags disappearing unexpectedly when hydrating.
@@ -59,31 +83,36 @@ It would modify whatever element is in the position regardless if it's an elemen
 
 This led to issues with a third-party script inserting something in between these DOM elements, and it getting deleted.
 
-Any type of hydration where you wanted to have the server tags differ, would be impossible without introducing more DOM state.
+It also blocked server only tags, as the client would overwrite them when hydrating.
+
+### Performance
+
+Previous DOM patching would delete and re-render tags which shared dedupe keys. Not noticeable functionally but a performance consideration.
+
+To solve these issues, a new DOM patching algorithm was needed that tracked side effects gracefully.
 
 ### State in DOM isn't so nice
 
 Purely from a DX perspective, it's not nice to have state in the DOM that isn't needed. It's not a big deal, but it's not ideal.
 
-### Performance
-
-Previous DOM patching would delete and re-render tags which shared dedupe keys. Not noticable functionally but a performance consideration.
-
-To solve these issues, a new DOM patching algorithm was needed that tracked side effects gracefully.
 
 ## Unhead
 
 This was a major piece of work, and I figured if I'm going to have to refactor the entire package, I should aim to also solve
 another outstanding issue, _Universal Head Management_.
 
-So I started on [Unhead](https://github.com/harlan-zw/unhead), a Universal document <head> tag manager, that's tiny, adaptable, and full-featured.
+So I started on [Unhead](https://github.com/harlan-zw/unhead), a Universal document <head> tag manager.
 
-And I'm happy to say that it's now being used in @vueuse/head v1.
+My initial concern was just feature parity with `@vueuse/head` while supporting server tags, but I quickly realised that I could do better.
 
-Unhead has first-party support for Vue, but there is planned work to support many other frameworks (React, Svelte, etc).
+So Unhead was born. It has first-party support for Vue, but there is planned work to support any and all other frameworks (eventually).
 
-With this in mind @vueuse/head is a thin wrapper for unhead, but provides legacy head functions (i.e `addHeadObjs`) and
-provides the `<Head>` component.
+@vueuse/head v1 is now a thin wrapper for unhead, while being fully backwards compatible.
+
+There are too many enhancements and feature improvements to mention here, check the below release notes or jump straight
+to the [docs](https://unhead.harlanzw.com).
+
+I'm excited about this new package, and I hope you are too! I'll be writing a dedicated blog post about it soon.
 
 ## v1.0.0 Release
 
@@ -166,6 +195,22 @@ useHead({
 })
 ```
 
+
+#### Prop promises
+
+You can provide a promise to props and it will be resolved when rendering the tags.
+
+```ts
+useHead({
+  script: [
+    {
+      children: new Promise(resolve => resolve('console.log("hello world")'))
+    },
+  ],
+})
+```
+
+
 ### 🚀 New Features
 
 #### useServerHead
@@ -179,7 +224,7 @@ useServerHead({
   scripts: [
     {
       // this wouldn't work on the client, so we use useServerHead
-      src: () => import('~/assets/my-script.js?url'),
+      src: import('~/assets/my-script.js?url'),
     }
   ]
 })

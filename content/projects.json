@@ -1,36 +1,37 @@
 {
   "body": [
     {
-      "name": "Nuxt Ecosystem",
+      "name": "Vue Ecosystem",
       "projects": [
         {
-          "name": "nuxt-webpack-optimisations",
-          "description": "Make your Nuxt.js webpack builds faster",
-          "link": "https://github.com/harlan-zw/nuxt-webpack-optimisations",
-          "icon": "i-logos-webpack"
+          "name": "@vueuse/head",
+          "repo": "vueuse/head",
+          "icon": "i-logos-vueuse"
         },
         {
-          "name": "nuxt-delay-hydration",
-          "description": "Improve your Nuxt.js v2 Google Lighthouse score by delaying hydration",
-          "link": "https://github.com/harlan-zw/nuxt-delay-hydration",
-          "icon": "i-bi-stopwatch"
-        },
-        {
-          "name": "nuxt-windicss",
-          "description": "Windi CSS for Nuxt.js",
-          "link": "https://github.com/windicss/nuxt-windicss",
-          "icon": "i-simple-icons-windicss"
+          "name": "@vueuse/schema-org",
+          "repo": "vueuse/schema-org",
+          "icon": "i-logos-vueuse"
         }
       ]
     },
     {
-      "name": "Vue Ecosystem",
+      "name": "Nuxt Ecosystem",
       "projects": [
         {
-          "name": "@vueuse/schema-org",
-          "description": "Schema.org for Vue. Supports typed and automated Google Rich Results",
-          "link": "https://github.com/vueuse/schema-org",
-          "icon": "i-noto-right-pointing-magnifying-glass"
+          "name": "nuxt-webpack-optimisations",
+          "repo": "harlan-zw/nuxt-webpack-optimisations",
+          "icon": "i-logos-webpack"
+        },
+        {
+          "name": "nuxt-delay-hydration",
+          "repo": "harlan-zw/nuxt-delay-hydration",
+          "icon": "i-bi-stopwatch"
+        },
+        {
+          "name": "nuxt-windicss",
+          "repo": "windicss/nuxt-windicss",
+          "icon": "i-simple-icons-windicss"
         }
       ]
     },
@@ -39,8 +40,7 @@
       "projects": [
         {
           "name": "Unlighthouse",
-          "description": "Scan your entire site using Google Lighthouse.",
-          "link": "https://github.com/harlan-zw/unlighthouse",
+          "repo": "harlan-zw/unlighthouse",
           "icon": "i-logos-lighthouse"
         }
       ]
@@ -49,27 +49,28 @@
       "name": "Utilities",
       "projects": [
         {
+          "name": "unhead",
+          "repo": "harlan-zw/unhead",
+          "icon": "i-fluent-triangle-16-regular"
+        },
+        {
           "name": "zhead",
-          "description": "Fully-typed utilities for defining, validating and building your document <head>.",
-          "link": "https://github.com/harlan-zw/zhead",
+          "repo": "harlan-zw/zhead",
           "icon": "i-emojione-v1-gem-stone"
         },
         {
           "name": "unrouted",
-          "description": "Unrouted is a minimal, composable router built for speed, portability and DX",
-          "link": "https://github.com/harlan-zw/unrouted",
+          "repo": "harlan-zw/unrouted",
           "icon": "i-ic-twotone-route"
         },
         {
           "name": "changelogd",
-          "description": "Aggressively find a packages changelog (or releases) between versions.",
-          "link": "https://github.com/harlan-zw/changelogd",
+          "repo": "harlan-zw/changelogd",
           "icon": "i-noto-wood"
         },
         {
           "name": "chonky-pkg",
-          "description": "Flexible package template for chonky monorepos, based on starter-ts.",
-          "link": "https://github.com/harlan-zw/chonky-pkg",
+          "repo": "harlan-zw/chonky-pkg",
           "icon": "i-noto-seal"
         }
       ]

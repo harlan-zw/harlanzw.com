@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import { useMetaTags } from '#imports'
+import { useSeoMeta } from '@vueuse/head'
 import { dayNth } from '~/logic'
 import type { Post } from '~/types'
 
@@ -15,7 +15,7 @@ const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
 const schema = computed(() => props.post.schema || {})
 
-useMetaTags({
+useSeoMeta({
   twitterLabel1: 'Written on',
   twitterData1: `${month} ${day}, ${year}`,
   twitterLabel2: 'Reading time',
@@ -24,7 +24,7 @@ useMetaTags({
 </script>
 
 <template>
-  <div>
+  <div class="max-w-2xl mx-auto">
     <SchemaOrgArticle
       v-bind="{ ...schema }"
     />

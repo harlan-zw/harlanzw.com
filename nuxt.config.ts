@@ -1,7 +1,7 @@
 import { SiteLanguage, SiteUrl } from './logic'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
-export default defineNuxtConfig({
+export default ({
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     '~/modules/unplugin-icons',
     '~/modules/content-utils',
     '@nuxt/content',
-    'nuxt-hedge'
   ],
   schemaOrg: {
     canonicalHost: SiteUrl,

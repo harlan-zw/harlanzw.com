@@ -74,7 +74,7 @@ watch(cardHovered, (v) => {
   <nuxt-link ref="card" :to="post.path" class="block max-w-full transition-all group">
     <div class="flex items-center">
       <div class="opacity-70 group-hover:(opacity-90) transition-all absolute top-3 -left-20">
-        <div class="text-lg">
+        <div class="">
           {{ month }}
         </div>
         <div class="text-sm">
@@ -82,7 +82,7 @@ watch(cardHovered, (v) => {
         </div>
       </div>
       <div class="max-w-full">
-        <h3 class="opacity-90 text-2xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
+        <h3 class="opacity-90 text-xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
           <span>{{ post.title }}</span>
         </h3>
         <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">

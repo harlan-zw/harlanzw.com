@@ -23,6 +23,7 @@
     "@iconify-json/emojione": "^1.1.2",
     "@iconify-json/emojione-v1": "^1.1.2",
     "@iconify-json/fa-brands": "^1.1.1",
+    "@iconify-json/fluent": "^1.1.16",
     "@iconify-json/heroicons-outline": "^1.1.4",
     "@iconify-json/ic": "^1.1.9",
     "@iconify-json/line-md": "^1.1.16",
@@ -42,10 +43,10 @@
     "@zhead/vue": "^0.9.5",
     "eslint": "^8.25.0",
     "feed": "^4.2.2",
-    "nuxt": "npm:nuxt3@latest",
+    "nuxt": "3.0.0-rc.13",
     "nuxt-hedge": "^0.6.1",
-    "nuxt-schema-org": "1.1.0-beta.5",
-    "nuxt-windicss": "^2.5.2",
+    "nuxt-schema-org": "1.1.0-beta.6",
+    "nuxt-windicss": "^2.5.4",
     "parse5": "6.0.1",
     "sass": "^1.55.0",
     "sitemap": "^7.1.1",
@@ -56,8 +57,8 @@
   "pnpm": {
     "overrides": {
       "cheerio": "1.0.0-rc.10",
-      "nuxt": "npm:nuxt3@latest",
-      "@nuxt/kit": "npm:@nuxt/kit-edge@latest"
+      "nuxt": "3.0.0-rc.13",
+      "@nuxt/kit": "3.0.0-rc.13"
     }
   }
 }

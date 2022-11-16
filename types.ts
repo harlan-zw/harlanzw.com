@@ -28,6 +28,8 @@ export interface Project {
   name: string
   description: string
   link: string
+  updatedAt: string
+  stars: number
   icon?: string
 }
 

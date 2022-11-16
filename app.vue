@@ -20,7 +20,7 @@ const siteMeta = useSiteMeta()
     </Head>
     <Body class="text-gray-800 dark:text-gray-100 antialiased">
       <Header />
-      <main class=" lg:(px-0) md:(max-w-700px pb-20 px-8) sm:(pb-16 px-6) mx-auto max-w-full px-4 py-7 pb-10 l">
+      <main class="md:(max-w-8xl pb-20 px-8) sm:(pb-16) mx-auto max-w-full px-4 py-7 pb-10 l">
         <NuxtPage class="page-enter-active" />
       </main>
       <footer class="px-5 sm:px-7 md:px-10 text-center text-gray-400 text-sm my-5">
