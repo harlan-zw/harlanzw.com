@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <a :href="`https://github.com/${project.link}`" target="_blank" class="!flex items-center space-x-3 p-4 group rounded border-gray-200/50 border-2 hover:bg-white dark:(border-gray-800/30) dark:hover:bg-gray-800 transition-all">
+  <a :href="`https://github.com/${project.repo}`" target="_blank" class="!flex items-center space-x-3 p-4 group rounded border-gray-200/50 border-2 hover:bg-white dark:(border-gray-800/30) dark:hover:bg-gray-800 transition-all">
     <div v-if="project.icon" class="opacity-50 mr-2 group-hover:opacity-75 transition-all svg-container" v-html="project.icon" />
     <div>
       <h2 class="mb-2 text-lg">{{ project.name }}</h2>

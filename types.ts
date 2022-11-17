@@ -27,7 +27,7 @@ export interface JsonParsedContent<T> extends ParsedContent {
 export interface Project {
   name: string
   description: string
-  link: string
+  repo: string
   updatedAt: string
   stars: number
   icon?: string
