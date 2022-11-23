@@ -13,7 +13,7 @@ export default <ContentTransformer> {
       for (const project of ecosystem.projects) {
         if (tagIsIcon(project.icon))
           project.icon = (await loadIconForTag(project.icon)).svgRaw
-        const { repo } = await $fetch(`https://ungh.unjs.io/repo/${project.repo}`)
+        const { repo } = await $fetch(`https://ungh.cc/repos/${project.repo}`)
         console.log(repo)
         project.stars = repo.stars
         project.description = repo.description
