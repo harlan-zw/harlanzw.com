@@ -1,0 +1,48 @@
+{
+  "name": "nuxt-theme-scribe",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./nuxt.config.ts",
+  "files": [
+    "app",
+    "assets",
+    "components",
+    "composables",
+    "layouts",
+    "plugins",
+    "app.config.ts",
+    "app.vue",
+    "nuxt.config.ts",
+    "tokens.config.ts"
+  ],
+  "scripts": {
+    "prepare": "nuxi prepare"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^4.5.14",
+    "@iconify/vue": "^4.0.0",
+    "@nuxt-themes/elements": "^0.2.2",
+    "@nuxt-themes/tokens": "latest",
+    "@nuxt-themes/typography": "latest",
+    "@nuxt/content": "^2.2.2",
+    "@nuxthq/studio": "^0.3.4",
+    "@nuxtjs/color-mode": "^3.1.8",
+    "@vueuse/core": "^9.5.0",
+    "@vueuse/nuxt": "^9.5.0",
+    "nuxt-schema-org": "2.0.0-beta.0",
+    "pinceau": "latest"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "axios": "0.25.0"
+      },
+      "ignoreMissing": [
+        "postcss",
+        "postcss-*",
+        "webpack",
+        "axios"
+      ]
+    }
+  }
+}

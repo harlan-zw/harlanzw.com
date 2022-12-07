@@ -1,0 +1,110 @@
+body {
+  min-height: 100vh;
+  background-color: rgb(247,247,247);
+  background-image: linear-gradient(0deg, #33e47f10, #ffffff);
+  overflow: overlay;
+  @apply dark:bg-gray-900 dark:bg-none;
+}
+
+.prose *:not(h1, h2, h3, h4, h5, h6) > a:not(.unstyled) {
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-image: radial-gradient(rgba(#11998e, 0.75), rgba(#23e75e, 0.75)) 15;
+
+  &:hover {
+    transform: skewX(-5deg);
+  }
+}
+
+a:not(.unstyled), .link {
+  position: relative;
+  display: inline-block;
+  transition: 0.2s;
+
+  &:before, &:after {
+    position: absolute;
+    height: 3px;
+    bottom: -2px;
+    content: ' ';
+    display: block;
+    width: 12px;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: -1;
+  }
+  &:before {
+    background-image: linear-gradient(90deg, #11998e, #38ef7d);
+    left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  &:after {
+    background-image: linear-gradient(270deg, #11998e, #38ef7d);
+    right: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &:hover, &.active {
+    transform: translateY(-1px);
+    animation: text-glow 1.5s alternate infinite ease-in-out;
+    &:after, &:before {
+      opacity: 1;
+      width: 50%;
+    }
+  }
+  &.router-link-active {
+    font-weight: bold;
+    background: linear-gradient(45deg, rgba(#11998e, 1), rgba(#23e75e, 1));
+    -webkit-background-clip: text;
+    &:after, &:before {
+      opacity: 0;
+    }
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(.5rem)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(.5rem)
+  }
+}
+
+
+.page-enter-active {
+  animation: fadeInUp .6s forwards
+}
+
+.page-leave-active {
+  animation: fadeOutDown .6s backwards;
+}
+
+.icon {
+  @apply md:(w-8 h-8) w-6 h-6;
+}
+
+.icon--off {
+  @apply group-hover:hidden inline-block;
+}
+.icon--on {
+  @apply hidden group-hover:inline-block;
+}
+

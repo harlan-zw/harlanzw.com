@@ -13,7 +13,7 @@ const totalStars = computed(() => {
 
 <template>
 <div class="space-y-10">
-  <div class="font-bold opacity-90"><i-carbon-star-filled class="inline text-yellow-400 mr-1 mb-2px" /> {{ totalStars }} stars and counting</div>
+  <div class="font-bold opacity-90"><icon name="carbon:star-filled" class="inline text-yellow-400 mr-1 mb-2px" /> {{ totalStars }} stars and counting</div>
   <div v-for="(category, cKey) in categories.body" :key="cKey">
     <SubTitle>{{ category.name }}</SubTitle>
     <div class="grid md:grid-cols-3 gap-5">
