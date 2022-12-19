@@ -6,12 +6,12 @@
         {
           "name": "@vueuse/head",
           "repo": "vueuse/head",
-          "icon": "i-logos-vueuse"
+          "icon": "logos:vueuse"
         },
         {
           "name": "@vueuse/schema-org",
           "repo": "vueuse/schema-org",
-          "icon": "i-logos-vueuse"
+          "icon": "logos:vueuse"
         }
       ]
     },
@@ -21,17 +21,17 @@
         {
           "name": "nuxt-webpack-optimisations",
           "repo": "harlan-zw/nuxt-webpack-optimisations",
-          "icon": "i-logos-webpack"
+          "icon": "logos:webpack"
         },
         {
           "name": "nuxt-delay-hydration",
           "repo": "harlan-zw/nuxt-delay-hydration",
-          "icon": "i-bi-stopwatch"
+          "icon": "bi:stopwatch"
         },
         {
           "name": "nuxt-windicss",
           "repo": "windicss/nuxt-windicss",
-          "icon": "i-simple-icons-windicss"
+          "icon": "simple-icons:windicss"
         }
       ]
     },
@@ -41,7 +41,7 @@
         {
           "name": "Unlighthouse",
           "repo": "harlan-zw/unlighthouse",
-          "icon": "i-logos-lighthouse"
+          "icon": "logos:lighthouse"
         }
       ]
     },
@@ -51,27 +51,27 @@
         {
           "name": "unhead",
           "repo": "harlan-zw/unhead",
-          "icon": "i-fluent-triangle-16-regular"
+          "icon": "fluent:triangle-16-regular"
         },
         {
           "name": "zhead",
           "repo": "harlan-zw/zhead",
-          "icon": "i-emojione-v1-gem-stone"
+          "icon": "emojione-v1:gem-stone"
         },
         {
           "name": "unrouted",
           "repo": "harlan-zw/unrouted",
-          "icon": "i-ic-twotone-route"
+          "icon": "ic:twotone-route"
         },
         {
           "name": "changelogd",
           "repo": "harlan-zw/changelogd",
-          "icon": "i-noto-wood"
+          "icon": "noto:wood"
         },
         {
           "name": "chonky-pkg",
           "repo": "harlan-zw/chonky-pkg",
-          "icon": "i-noto-seal"
+          "icon": "noto:seal"
         }
       ]
     }

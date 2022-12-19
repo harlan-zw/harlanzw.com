@@ -3,20 +3,14 @@ const siteMeta = useSiteMeta()
 </script>
 
 <template>
-  <Html :lang="siteMeta.lang" dir="ltr">
+  <Html dir="ltr">
     <Head>
-      <Meta property="og:image" :content="`${siteMeta.host}/cover.png`" />
+      <SeoKit />
       <SchemaOrgPerson
         :name="siteMeta.name"
         image="https://res.cloudinary.com/dl6o1xpyq/image/upload/f_jpg,q_auto:best,dpr_auto,w_240,h_240/images/harlan-wilton"
         :same-as="siteMeta.sameAs"
       />
-      <SchemaOrgWebSite
-        :name="siteMeta.name"
-        :image="siteMeta.image"
-        :description="siteMeta.description"
-      />
-      <SchemaOrgWebPage />
     </Head>
     <Body class="text-gray-800 dark:text-gray-100 antialiased">
       <Header />

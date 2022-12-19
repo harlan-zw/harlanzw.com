@@ -42,28 +42,3 @@ export const useRoutesContent = <T extends Post>(path?: string) => {
 
 export const usePost = async (path?: string) => useRoutesContent<Post>(path)
 export const usePage = async (path?: string) => useRoutesContent<Page>(path)
-
-export const useContentHead = (doc: MaybeRef<Partial<Page>>) => {
-  watch(() => doc, (doc) => {
-    doc = unref(doc)
-    if (!doc)
-      return
-    const head = Object.assign({}, doc?.head || {})
-    head.title = `${head.title || doc.title}`
-    if (!head.title.endsWith(SiteName) && !head.title.startsWith(SiteName))
-      head.title = `${head.title} - ${SiteName}`
-    const description = head.description || doc.description
-    if (description) {
-      head.meta = [{
-        name: 'description',
-        content: description,
-      }]
-    }
-    if (process.client)
-      nextTick(() => useHead(head))
-    else
-      useHead(head)
-  }, {
-    immediate: true,
-  })
-}

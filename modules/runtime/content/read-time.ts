@@ -36,7 +36,7 @@ const TEXT_NODES = [
 
 export default <ContentTransformer> {
   name: 'read-time',
-  extentions: ['.md'],
+  extensions: ['.md'],
   async transform(content: Post) {
     const textNodes: string[] = []
     visit(

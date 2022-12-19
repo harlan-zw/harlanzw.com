@@ -7,7 +7,7 @@ const map: Record<string, any> = {}
 
 export default <ContentTransformer> {
   name: 'md-icons',
-  extentions: ['.md'],
+  extensions: ['.md'],
   async transform(content: Post | Page) {
     // transform icon in frontmatter
     if (content.icon && tagIsIcon(content.icon))

@@ -2,11 +2,13 @@ import { SiteLanguage, SiteUrl } from './logic'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default ({
+  extends: [
+    'nuxt-seo-kit',
+  ],
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@nuxt/image-edge',
-    'nuxt-schema-org',
     'nuxt-windicss',
     // custom content modules, need to come before the content module
     '~/modules/unplugin-icons',
@@ -50,6 +52,7 @@ export default ({
   },
   // https://content.nuxtjs.org
   content: {
+    documentDriven: true,
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: 'dracula',

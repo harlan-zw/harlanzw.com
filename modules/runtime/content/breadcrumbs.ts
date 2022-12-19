@@ -3,7 +3,7 @@ import type { ContentTransformer, MarkdownNode } from '@nuxt/content/dist/runtim
 
 export default <ContentTransformer> {
   name: 'breadcrumbs',
-  extentions: ['.md'],
+  extensions: ['.md'],
   async transform(content) {
     let insertedBreadcrumbs = false
     // insert breadcrumbs after the h1 tag

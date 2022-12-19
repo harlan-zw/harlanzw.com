@@ -3,10 +3,10 @@ import type { Page, Post } from '~/types'
 
 export default <ContentTransformer> {
   name: 'meta-normaliser',
-  extentions: ['.md'],
+  extensions: ['.md'],
   async transform(content: Post | Page) {
     // turn the content _path to a real path
-    if (content._path.startsWith('/pages/')) {
+    if (content.path.startsWith('/pages/')) {
       content.path = content._path.replace('/pages/', '/')
       if (content.path === '/home')
         content.path = '/'
