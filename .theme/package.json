@@ -21,6 +21,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.14",
     "@iconify/vue": "^4.0.0",
+    "@nuxt-themes/docus": "^1.1.5",
     "@nuxt-themes/elements": "^0.2.2",
     "@nuxt-themes/tokens": "latest",
     "@nuxt-themes/typography": "latest",
@@ -29,7 +30,8 @@
     "@nuxtjs/color-mode": "^3.1.8",
     "@vueuse/core": "^9.5.0",
     "@vueuse/nuxt": "^9.5.0",
-    "nuxt-schema-org": "2.0.0-beta.0",
+    "nuxt-schema-org": "^2.0.2",
+    "nuxt-seo-kit": "^0.0.1",
     "pinceau": "latest"
   },
   "pnpm": {

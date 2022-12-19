@@ -1,5 +1,4 @@
-import {createResolver, defineNuxtModule} from '@nuxt/kit'
-import { defu } from 'defu'
+import {addServerPlugin, createResolver, defineNuxtModule} from '@nuxt/kit'
 
 export default defineNuxtModule({
   meta: {
@@ -11,21 +10,8 @@ export default defineNuxtModule({
     },
     configKey: 'harlanzw'
   },
-  setup(_, nuxt) {
+  setup(_) {
     const { resolve } = createResolver(import.meta.url)
-
-    // nothing yet
-    nuxt.hooks.hook('nitro:config', (nitroConfig) => {
-      nitroConfig.externals = defu(typeof nitroConfig.externals === 'object' ? nitroConfig.externals : {}, {
-        inline: [
-          // Inline module runtime in Nitro bundle
-          resolve('./runtime/nitro'),
-        ],
-      })
-
-      nitroConfig.alias['#harlanzw/transformer'] = resolve('./nitro/content-post-process')
-      nitroConfig.plugins = nitroConfig.plugins || []
-      nitroConfig.plugins.push('#harlanzw/transformer')
-    })
+    addServerPlugin(resolve('./nitro/content-post-process'))
   }
 })

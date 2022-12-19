@@ -1,4 +1,7 @@
 export default defineAppConfig({
+  docus: {
+
+  },
   title: 'Harlan Wilton',
   name: 'Harlan Wilton',
   url: 'https://harlanzw.com',
