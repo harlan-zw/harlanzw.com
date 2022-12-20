@@ -17,12 +17,12 @@ const props = withDefaults(defineProps<{
 const shiftLargeImgStyles = computed(() => {
   if (!props.width)
     return {}
-  if (props.width <= 700) {
+  if (props.width <= 812) {
     return {
       width: `${props.width}px`,
     }
   }
-  const transformX = `-${Math.round((props.width - 700) / 2)}px`
+  const transformX = `-${Math.round((props.width - 812) / 2)}px`
   return {
     'width': `${props.width}px`,
     '--tw-translate-x': transformX,

@@ -5,6 +5,11 @@
 </template>
 
 <style>
+.prose .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .prose h2 a {
   @apply bg-gradient-to-b from-emerald-500 to-teal-600 bg-clip-text before:opacity-0 after:opacity-0;
   -webkit-text-fill-color: transparent !important;

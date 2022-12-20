@@ -5,15 +5,6 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtModule({
   setup() {
-    const nuxt = useNuxt()
-    const resolver = createResolver(import.meta.url)
-
-    // register unplugin icons
-    nuxt.hooks.hook('content:context', (ctx) => {
-      ctx.transformers.push(resolver.resolve('runtime/content/md-icons'))
-      ctx.transformers.push(resolver.resolve('runtime/content/project-icons'))
-    })
-
     addVitePlugin(unpluginIcons.vite({
       autoInstall: true,
     }))
