@@ -5,6 +5,7 @@ defineOgImageScreenshot()
 <template>
   <div class="page-layout layout-page max-w-90ch mx-auto">
     <main>
+      <SeoKit />
       <TopBreadcrumbs v-if="page.breadcrumbs !== false" class="mb-2" />
       <PageTitle :post="page" />
       <article>

@@ -5,6 +5,7 @@ defineOgImageScreenshot()
 
 <template>
   <DocsPageContent>
+    <SeoKit />
     <SchemaOrgArticle
     />
     <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-2" />
