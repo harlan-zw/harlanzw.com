@@ -7,8 +7,6 @@ const { post } = defineProps<{
   post: Post
 }>()
 
-console.log(post)
-
 const formatPublishedDate = (options: any) => new Intl.DateTimeFormat('en', options).format(new Date(post.publishedAt))
 const year = formatPublishedDate({ year: 'numeric' })
 const month = formatPublishedDate({ month: 'short' })

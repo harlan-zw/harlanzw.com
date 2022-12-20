@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { page } = useContent()
+defineOgImageScreenshot()
 </script>
 <template>
   <div class="page-layout layout-page max-w-90ch mx-auto">

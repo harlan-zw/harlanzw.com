@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { page: post } = useContent()
+defineOgImageScreenshot()
 </script>
 
 <template>

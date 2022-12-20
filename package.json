@@ -10,7 +10,7 @@
   "module": ".output/server/index.mjs",
   "scripts": {
     "dev": "nuxi dev",
-    "build": "nuxi build",
+    "build": "npx playwright install && nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "lint": "eslint .",
@@ -44,14 +44,14 @@
     "eslint": "^8.30.0",
     "feed": "^4.2.2",
     "nuxt": "3.0.0",
-    "nuxt-seo-kit": "^0.3.1",
+    "nuxt-icon": "^0.1.8",
+    "nuxt-seo-kit": "^0.3.2",
     "nuxt-windicss": "^2.6.0",
     "parse5": "7.1.2",
     "sass": "^1.57.1",
     "typescript": "^4.9.4",
     "unplugin-icons": "^0.14.15",
-    "unplugin-vue-components": "^0.22.12",
-    "nuxt-icon": "^0.1.8"
+    "unplugin-vue-components": "^0.22.12"
   },
   "pnpm": {
     "overrides": {
