@@ -2,6 +2,7 @@
 title: "Scaling Your Vue Components for Mid-Large Size Apps"
 description: "Working on a mid-large size app usually means hundreds of components. How do you make sure these components will scale?"
 publishedAt: "2021-01-12"
+aside: false
 image: "https://harlanzw.com/social/scale-your-vue-components.png"
 tags:
   - vue

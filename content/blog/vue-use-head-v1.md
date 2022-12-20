@@ -5,6 +5,7 @@ description: "Learn about the new @vueuse/head v1 release including new features
 publishedAt: '2022-11-12'
 excerpt: 'Learn about the new @vueuse/head v1 release including new features and breaking changes.'
 status: published
+aside: false
 image: "https://harlanzw.com/social/how-vite-works.png"
 tags: 
   - vue

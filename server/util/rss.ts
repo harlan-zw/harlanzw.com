@@ -21,12 +21,13 @@ export async function generateBlogFeed(event) {
     },
   })
 
-  const posts = await serverQueryContent(event, 'posts').find()
+  const posts = await serverQueryContent(event, 'blog').find()
 
   for (const post of posts) {
-    const path = post._path.replace('posts', 'blog')
+    if (post._path === '/blog' || post._path === '/blog/_dir')
+      continue
     // this will return the SSR content of the post
-    const content = await $fetch<string>(path)
+    const content = await $fetch<string>(post._path)
     let $ = cheerio.load(content)
     const prose = $('.prose').html()
     $ = cheerio.load(prose)
@@ -36,8 +37,8 @@ export async function generateBlogFeed(event) {
     })
     const item = {
       title: post.title,
-      id: `${SiteUrl}${path}`,
-      link: `${SiteUrl}${path}`,
+      id: `${SiteUrl}${post._path}`,
+      link: `${SiteUrl}${post._path}`,
       description: post.description,
       content: $('body').html(),
       image: post.image,

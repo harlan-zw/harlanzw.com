@@ -3,6 +3,7 @@ import { SiteLanguage, SiteUrl } from './logic'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default ({
   extends: [
+    '@nuxt-themes/docus',
     'nuxt-seo-kit',
   ],
   modules: [
@@ -11,14 +12,21 @@ export default ({
     '@nuxt/image-edge',
     'nuxt-windicss',
     // custom content modules, need to come before the content module
+    '~/app/module',
     '~/modules/unplugin-icons',
-    '~/modules/content-utils',
     '@nuxt/content',
   ],
-  schemaOrg: {
-    canonicalHost: SiteUrl,
-    defaultLanguage: SiteLanguage,
+
+  runtimeConfig: {
+    public: {
+      titleSeparator: '·',
+      siteUrl: 'https://harlanzw.com/',
+      siteName: 'Harlan Wilton',
+      siteDescription: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
+      language: 'en-AU',
+    }
   },
+
   css: [
     '@/resources/scrollbars.css',
     '@/resources/main.scss',
@@ -28,6 +36,12 @@ export default ({
     fallback: 'dark',
     classSuffix: '',
   },
+
+  pinceau: {
+    configFileName: 'tokens.config',
+    debug: false,
+  },
+
   app: {
     head: {
       // fathom analytics
@@ -81,7 +95,6 @@ export default ({
       crawlLinks: true,
       routes: [
         '/',
-        '/sitemap.xml',
         '/feed.xml',
         '/feed.json',
         '/feed.atom',

@@ -1,35 +1,72 @@
 {
   "body": [
     {
-      "name": "Vue Ecosystem",
+      "name": "VueUse",
+      "icon": "logos:vueuse",
       "projects": [
         {
-          "name": "@vueuse/head",
+          "name": "Head",
           "repo": "vueuse/head",
-          "icon": "logos:vueuse"
+          "icon": "lucide:triangle"
         },
         {
-          "name": "@vueuse/schema-org",
+          "name": "Schema.org",
           "repo": "vueuse/schema-org",
-          "icon": "logos:vueuse"
+          "icon": "lucide:triangle"
         }
       ]
     },
     {
-      "name": "Nuxt Ecosystem",
+      "name": "Nuxt",
+      "icon": "logos:nuxt-icon",
       "projects": [
         {
-          "name": "nuxt-webpack-optimisations",
+          "name": "SEO Kit",
+          "repo": "harlan-zw/nuxt-seo-kit",
+          "icon": "noto:bento-box"
+        },
+        {
+          "name": "Link Checker",
+          "repo": "harlan-zw/nuxt-link-checker",
+          "icon": "noto:check-mark"
+        },
+        {
+          "name": "Og Image",
+          "repo": "harlan-zw/nuxt-og-image",
+          "icon": "noto:framed-picture"
+        },
+        {
+          "name": "Simple Robots",
+          "repo": "harlan-zw/nuxt-simple-robots",
+          "icon": "noto:robot"
+        },
+        {
+          "name": "Simple Sitemap",
+          "repo": "harlan-zw/nuxt-simple-sitemap",
+          "icon": "noto:world-map"
+        },
+        {
+          "name": "Unhead",
+          "repo": "harlan-zw/nuxt-unhead",
+          "icon": "lucide:triangle"
+        },
+        {
+          "name": "Schema.org",
+          "repo": "harlan-zw/unhead-schema-org",
+          "icon": "lucide:triangle"
+        },
+        {
+          "name": "Webpack Optimisations",
           "repo": "harlan-zw/nuxt-webpack-optimisations",
           "icon": "logos:webpack"
         },
         {
-          "name": "nuxt-delay-hydration",
+          "name": "Delay Hydration",
           "repo": "harlan-zw/nuxt-delay-hydration",
-          "icon": "bi:stopwatch"
+          "icon": "noto:stopwatch"
         },
         {
-          "name": "nuxt-windicss",
+          "name": "WindiCSS",
           "repo": "windicss/nuxt-windicss",
           "icon": "simple-icons:windicss"
         }
@@ -49,27 +86,32 @@
       "name": "Utilities",
       "projects": [
         {
-          "name": "unhead",
-          "repo": "harlan-zw/unhead",
-          "icon": "fluent:triangle-16-regular"
+          "name": "Unhead",
+          "repo": "unjs/unhead",
+          "icon": "lucide:triangle"
         },
         {
-          "name": "zhead",
+          "name": "Unhead Schema.org",
+          "repo": "harlan-zw/unhead-schema-org",
+          "icon": "lucide:triangle"
+        },
+        {
+          "name": "zHead",
           "repo": "harlan-zw/zhead",
           "icon": "emojione-v1:gem-stone"
         },
         {
-          "name": "unrouted",
+          "name": "Unrouted",
           "repo": "harlan-zw/unrouted",
           "icon": "ic:twotone-route"
         },
         {
-          "name": "changelogd",
+          "name": "Changelogd",
           "repo": "harlan-zw/changelogd",
           "icon": "noto:wood"
         },
         {
-          "name": "chonky-pkg",
+          "name": "Chonky Pkg",
           "repo": "harlan-zw/chonky-pkg",
           "icon": "noto:seal"
         }

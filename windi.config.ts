@@ -17,6 +17,11 @@ export default defineConfig({
   },
   theme: {
     extend: {
+      colors: {
+        gray: {
+          800: '#374151',
+        }
+      },
       animation: {
         fadeIn: 'fadeIn 200ms ease-in forwards',
       },

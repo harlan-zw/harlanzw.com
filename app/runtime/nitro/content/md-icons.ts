@@ -6,8 +6,7 @@ import type { Page, Post } from '~/types'
 const map: Record<string, any> = {}
 
 export default <ContentTransformer> {
-  name: 'md-icons',
-  extensions: ['.md'],
+  extentions: ['.md'],
   async transform(content: Post | Page) {
     // transform icon in frontmatter
     if (content.icon && tagIsIcon(content.icon))

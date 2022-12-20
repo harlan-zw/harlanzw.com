@@ -1,25 +1,21 @@
-import type { MaybeRef } from '@vueuse/schema-org'
 import { useAsyncData } from '#app'
-import { nextTick, queryContent, unref, useHead, watch } from '#imports'
+import { queryContent,  } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { SiteName, groupBy } from '~/logic'
 
 export const useProjects = () => {
   return useAsyncData('content:projects', () =>
-    queryContent<JsonParsedContent<ProjectList>>('projects').findOne(),
+    queryContent<JsonParsedContent<ProjectList>>('_projects').findOne(),
   )
 }
 
 export const useHeaderNav = () => {
-  return useAsyncData('content:navigation', () => queryContent('pages')
-    .where({ nav: true })
-    .only(['title', 'icon', 'path'])
-    .find())
+  return useAsyncData('content:navigation', () => fetchContentNavigation())
 }
 
 export const usePostList = () => {
   return useAsyncData('content:post-partials', () => queryContent<Post>()
-    .where({ _path: /posts\/*/ })
+    .where({ _path: /blog\/*/ })
     .without(['head', 'body', 'excerpt', '_'])
     .sort({
       publishedAt: -1,
