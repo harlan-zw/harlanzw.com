@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 const siteMeta = useSiteMeta()
 
+defineOgImageScreenshot()
 const year = computed(() => new Date().getFullYear())
 </script>
 
