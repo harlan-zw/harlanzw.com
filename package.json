@@ -10,7 +10,7 @@
   "module": ".output/server/index.mjs",
   "scripts": {
     "dev": "nuxi dev",
-    "build": "nuxi build",
+    "build": "npx playwright install && nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "lint": "eslint .",
