@@ -1,5 +1,3 @@
-import { SiteLanguage, SiteUrl } from './logic'
-
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default ({
   extends: [
@@ -24,7 +22,7 @@ export default ({
       siteName: 'Harlan Wilton',
       siteDescription: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
       language: 'en-AU',
-    }
+    },
   },
 
   css: [
