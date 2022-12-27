@@ -527,13 +527,17 @@ export default defineNuxtConfig({
 })
 ```
 
-```vue [pages/index.vue]
-
 #### bootstrap-vue
+
+Work in progress.
 
 #### @nuxtjs/google-analytics
 
+Work in progress.
+
 #### nuxt-facebook-pixel-module
+Work in progress.
+
 ::
 
 ::checkbox
