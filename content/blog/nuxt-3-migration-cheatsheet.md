@@ -604,13 +604,13 @@ I'd recommend doing this one at a time and skipping any non-essential plugins.
 ::checkbox
 Convert mixins to CAPI (optional)
 #tip
-It's recommended to convert your plugins and middleware to TypeScript.
+Work in progress.
 ::
 
 ::checkbox
 Convert components to CAPI (optional)
 #tip
-It's recommended to convert your plugins and middleware to TypeScript.
+Work in progress.
 ::
 
 ### 5. Pages
@@ -626,6 +626,8 @@ Nuxt 3 uses a new file system routing system, which means that all our pages nee
 - plugins
 - layouts
 - middleware
+
+Work in progress.
 ::
 
 ::checkbox
@@ -656,7 +658,7 @@ Again, not required but highly recommended.
 ::checkbox
 Migrate Mixins
 #tip
-Search for "require" in any components. If you find any, you'll need to convert them to ESM.
+Work in progress.
 ::
 
 
@@ -669,7 +671,7 @@ Search for "require" in any components. If you find any, you'll need to convert 
 ::checkbox
 Remove imports
 #tip
-Search for "require" in any components. If you find any, you'll need to convert them to ESM.
+Work in progress.
 ::
 
 [//]: # (- asyncData ->useFetch / useAsyncData)
