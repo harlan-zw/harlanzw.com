@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import { useSeoMeta } from '@vueuse/head'
 import type { Post } from '../../types'
-import {dayNth} from "../../logic";
-import {useSeoMeta} from "@vueuse/head";
+import { dayNth } from '../../logic'
 
 const { post } = defineProps<{
   post: Post
@@ -12,7 +12,6 @@ const year = formatPublishedDate({ year: 'numeric' })
 const month = formatPublishedDate({ month: 'short' })
 const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
-
 useSeoMeta({
   twitterLabel1: 'Written on',
   twitterData1: `${month} ${day}, ${year}`,
@@ -20,8 +19,9 @@ useSeoMeta({
   twitterData2: `${post.readingMins} mins`,
 })
 </script>
+
 <template>
-  <div class="post-meta">
+  <div class="post-meta sm:(flex space-x-7 mb-10 text-lg space-y-0) opacity-80 space-y-3 items-center">
     <div>
       Published {{ month }} {{ day }} {{ year }}
     </div>
@@ -33,17 +33,3 @@ useSeoMeta({
     </div>
   </div>
 </template>
-<style scoped lang="ts">
-/* sm:(flex space-x-7 mb-10 text-lg space-y-0) opacity-80 space-y-3 items-center*/
-css({
- '.post-meta': {
-  display: 'block',
-  'opacity': '0.8',
-  '@sm': {
-    display: 'flex',
-    fontSize: '{fontSize.lg}',
-    marginBottom: '{space.3}',
-  },
-}
-})
-</style>
