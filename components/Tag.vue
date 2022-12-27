@@ -6,7 +6,11 @@ defineProps({
 
 <template>
   <div>
-    <template v-if="tag === 'github'">
+    <template v-if="tag === 'nuxt'">
+      <IconNuxt class="inline-block mr-1 mt-1px" height="20" />
+      <span class="opacity-75">Nuxt</span>
+    </template>
+    <template v-else-if="tag === 'github'">
       <i-logos-github-icon class="inline-block mr-1" height="15" />
       <span class="opacity-75">GitHub</span>
     </template>

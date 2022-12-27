@@ -54,8 +54,16 @@ export default defineTheme({
       marginBottom: '1em',
       marginTop: '2em',
     },
+    h3: {
+      fontSize: '1.3em',
+      fontWeight: 700,
+      lineHeight: 1.5,
+      marginBottom: '0.8em',
+      marginTop: '1.5em',
+    },
     p: {
       margin: '1rem 0',
+      lineHeight: 1.75,
     }
   },
   // typography: {
