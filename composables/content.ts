@@ -1,7 +1,7 @@
 import { useAsyncData } from '#app'
-import { queryContent,  } from '#imports'
+import { queryContent } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
-import { SiteName, groupBy } from '~/logic'
+import { groupBy } from '~/logic'
 
 export const useProjects = () => {
   return useAsyncData('content:projects', () =>

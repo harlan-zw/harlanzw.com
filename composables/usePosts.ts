@@ -1,6 +1,6 @@
-import {useAsyncData} from "#app";
-import {queryContent} from "#imports";
-import {Post} from "~/types";
+import { useAsyncData } from '#app'
+import { queryContent } from '#imports'
+import type { Post } from '~/types'
 
 export function groupBy<T extends {}>(values: T[], fn: (v: T) => any) {
   return values.reduce((rv, x) => {
@@ -18,8 +18,8 @@ export interface UsePostsOptions {
 export const usePosts = (options?: UsePostsOptions) => {
   return useAsyncData('content:post-partials', () => queryContent<Post>()
     .where({ _path: { $contains: '/blog/' } })
-    .where({ _path: { $ne: '/blog/_dir' }  })
-    .where({ _path: { $ne: '/blog' }  })
+    .where({ _path: { $ne: '/blog/_dir' } })
+    .where({ _path: { $ne: '/blog' } })
     .only(['_path', 'description', 'title', 'publishedAt', 'readingMins'])
     .sort({
       publishedAt: -1,

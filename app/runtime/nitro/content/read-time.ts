@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
 import type { MarkdownNode } from '@nuxt/content/dist/runtime/types'
-import {ParsedContent} from "~/types";
+import type { ParsedContent } from '~/types'
 
 function calculateReadingMins(text: string) {
   const wordsPerMinute = 220

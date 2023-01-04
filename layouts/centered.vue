@@ -5,6 +5,7 @@
     </div>
   </div>
 </template>
+
 <style scoped>
 .layout-single-page {
   height: calc(100vh - 150px);

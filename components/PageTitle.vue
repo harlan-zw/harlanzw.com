@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import {Post} from "~/types";
+import type { Post } from '~/types'
 
 const props = defineProps({
   post: Object as PropType<Post>,
 })
 </script>
+
 <template>
   <div v-if="post.h1 !== false" class="flex items-center mb-8">
     <h1 class="text-4xl font-bold leading-25">

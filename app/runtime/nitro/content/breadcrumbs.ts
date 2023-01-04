@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit'
-import {ParsedContent} from "~/types";
-import {MarkdownNode} from "@nuxt/content/dist/runtime/types";
+import type { MarkdownNode } from '@nuxt/content/dist/runtime/types'
+import type { ParsedContent } from '~/types'
 
 export function Breadcrumbs(content: ParsedContent) {
   let insertedBreadcrumbs = false

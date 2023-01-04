@@ -10,7 +10,7 @@ const { data: nav } = await useHeaderNav()
         <!-- Navigation -->
         <nav aria-label="Main Menu" class="opacity-75">
           <ul class="flex lg:(space-x-7 mr-15) sm:space-x-2 space-x-1 md:mr-7 items-center">
-            <template v-for="(link, key) in nav" >
+            <template v-for="(link, key) in nav">
               <li v-if="link._path !== '/'" :key="key">
                 <NuxtLink v-slot="slot" :to="link._path" class="!inline-flex items-center group" :title="`Visit ${link.title} Page`">
                   <div :class="slot?.isActive ? ['sm:bg-green-50', 'text-green-800', 'dark:(sm:bg-green-800/10 text-green-50)'] : []" class="md:(px-3 py-2) px-1 py-1 rounded">

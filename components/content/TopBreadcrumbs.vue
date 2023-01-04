@@ -2,7 +2,7 @@
   <Breadcrumbs class="unprose no-prose flex space-x-4 text-sm opacity-50 list-none !mt-0 mb-2">
     <template #breadcrumb="{ to, title, last }">
       <span><!-- empty --></span>
-      <NuxtLink  v-if="!last" :to="to" class="inline !border-none">
+      <NuxtLink v-if="!last" :to="to" class="inline !border-none">
         {{ title }}
       </NuxtLink>
     </template>

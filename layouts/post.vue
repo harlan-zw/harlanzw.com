@@ -5,8 +5,7 @@ defineOgImageScreenshot()
 
 <template>
   <DocsPageContent>
-    <SchemaOrgArticle
-    />
+    <SchemaOrgArticle />
     <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-2" />
     <PageTitle :post="post" />
     <TagList :tags="post.tags" class="mb-5" />
@@ -21,6 +20,7 @@ defineOgImageScreenshot()
     </article>
   </DocsPageContent>
 </template>
+
 <style scoped>
 @media(max-width: 1024px) {
   ::v-deep(.toc) {

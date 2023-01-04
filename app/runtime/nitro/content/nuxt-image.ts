@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
 import type { MarkdownNode } from '@nuxt/content/dist/runtime/types'
 import { computeSizes } from '../util/image'
-import {ParsedContent} from "~/types";
+import type { ParsedContent } from '~/types'
 
 export function NuxtImage(content: ParsedContent) {
   // Unwrap images inside Paragraphs

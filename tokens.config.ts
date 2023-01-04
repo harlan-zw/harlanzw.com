@@ -26,7 +26,7 @@ export default defineTheme({
   },
   docus: {
     page: {
-      maxWidth: '90rem'
+      maxWidth: '90rem',
     },
     header: { height: '104px' },
     footer: { height: '80px' },
@@ -34,7 +34,7 @@ export default defineTheme({
   prose: {
     ul: {
       listStyleType: 'none',
-      padding: 0
+      padding: 0,
     },
     a: {
       fontWeight: '400',
@@ -45,7 +45,7 @@ export default defineTheme({
       fontWeight: '600',
       marginBottom: '0.88em',
       marginTop: '0',
-      lineHeight: '1.5'
+      lineHeight: '1.5',
     },
     h2: {
       fontSize: '1.5em',
@@ -64,7 +64,7 @@ export default defineTheme({
     p: {
       margin: '1rem 0',
       lineHeight: 1.75,
-    }
+    },
   },
   // typography: {
   //   colors: {
@@ -96,5 +96,5 @@ export default defineTheme({
   // },
   backdrop: {
     filter: 'blur(2px)',
-  }
+  },
 })
