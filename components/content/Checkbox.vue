@@ -13,11 +13,11 @@ const changed = () => {
         <icon name="line-md:confirm-circle-twotone-to-circle-transition" />
         <icon v-if="value" name="line-md:confirm" class="absolute check" />
       </div>
-      <div class="ml-3">
+      <div class="ml-3 capitalize">
         <Markdown :use="$slots.default" unwrap="p" />
       </div>
     </label>
-    <div class="ml-12 opacity-80 max-h-full overflow-hidden transition-all" :class="value ? ['max-h-5'] : []">
+    <div class="ml-12 opacity-85 max-h-full overflow-hidden transition-all" :class="value ? ['max-h-5'] : []">
       <Markdown :use="$slots.tip" />
     </div>
   </div>
