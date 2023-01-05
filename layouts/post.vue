@@ -4,7 +4,7 @@ defineOgImageScreenshot()
 </script>
 
 <template>
-  <DocsPageContent>
+  <DocsPageLayout>
     <SchemaOrgArticle />
     <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-2" />
     <PageTitle :post="post" />
@@ -18,7 +18,7 @@ defineOgImageScreenshot()
         </Prose>
       </div>
     </article>
-  </DocsPageContent>
+  </DocsPageLayout>
 </template>
 
 <style scoped>
@@ -28,7 +28,18 @@ defineOgImageScreenshot()
   }
 }
 ::v-deep(.toc) {
-  top: 72px !important;
+  top: 104px !important;
+  grid-column: span 2 / span 2 !important;
+  padding: 0 !important;
+  margin: var(--space-8) 0 0 0 !important;
+}
+.docs-page-content {
+  grid-template-columns: repeat(12,minmax(0,1fr)) !important;
+  padding: 0 !important;
+}
+::v-deep(.page-body) {
+  max-width: 100%;
+  grid-column: span 10 /span 10;
 }
 ::v-deep(.toc-wrapper) {
   border-radius: 4px;
