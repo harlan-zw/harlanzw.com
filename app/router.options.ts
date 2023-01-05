@@ -17,8 +17,7 @@ export default <RouterConfig>{
     // Scroll to heading on click
     if (to.hash) {
       setTimeout(() => {
-        const heading = document.querySelector(to.hash) as any
-
+        const heading = document.querySelector(`[href$="${to.hash}"]`) as any
         return window.scrollTo({
           top: heading.offsetTop,
           behavior: 'smooth',
