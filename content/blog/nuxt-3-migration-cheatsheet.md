@@ -817,6 +817,8 @@ you'll save yourself a lot of time.
 
 ### 2. Testing
 
+Testing in Nuxt 3 is still under development. There is some documentation around it, but it is fairly minimal.
+
 ::checkbox
 Migrate to Vitest
 #tip
