@@ -454,7 +454,7 @@ Official support is in beta, check the [docs](https://v8.i18n.nuxtjs.org/).
 
 #### @nuxtjs/proxy
 
-This feature is coming to nitro route rules, you can track it here: https://github.com/unjs/nitro/issues/113.
+This feature is coming to nitro route rules. You can track it here: https://github.com/unjs/nitro/issues/113.
 
 In the meantime, you can use the [nuxt-alt/proxy](https://github.com/nuxt-alt/proxy) module.
 
