@@ -11,9 +11,10 @@ tags:
 
 Upgrading to from Nuxt 2 to Nuxt 3 is intimidating. There are a lot of changes, and it's easy to get lost in the process.
 
-I've started this cheat sheet to simplify the upgrade process for my own use and to help others. It's a work in progress and not exhaustive, I'll be updating it as I migrate more sites.
+I've started this cheat sheet to simplify the upgrade process for my own use and to help others. It's a work in progress and not intended to be exhaustive.
+I'll be updating it as I migrate more sites.
 
-Upgrading will take some time, depending on the size of your project and your prior experience. It will take patience and persistence.
+The migration will take you some time, patience and persistence, depending on the size of your project and your prior experience.
 
 If you are only trying to upgrade modules, I've documented the upgrade path for [23 modules](#2-modules).
 
@@ -24,11 +25,24 @@ Let's do this!
 
 ### Links
 
+**Docs**
+
 - [Nuxt 3 - Docs](https://nuxt.com/docs/getting-started/introduction)
 - [Nuxt 3 - Official Migration Guide](https://nuxt.com/docs/migration/overview)
 - [Nuxt 3 - Migration guide discussion](https://github.com/nuxt/framework/discussions/3989)
 - [Vue 3 - Migration Guide](https://v3-migration.vuejs.org/)
-- [nuxt.new](https://nuxt.new)
+
+**Tech**
+
+- [UnJS](https://unjs.io/) – A collection of packages which make up the Nuxt core.
+- [VueUse](https://vueuse.org/) – Essential Vue Composition API utilities.
+- [Vite.js](https://vitejs.dev) and [Rollup](https://rollupjs.org/) – Backbone of Nuxt 3 bundling.
+
+**Nuxt 3 Examples**
+
+- [NuxtBnB](https://github.com/MasteringNuxt/NuxtBnB) - Complex app
+- [Nuxt Movies](https://github.com/nuxt/movies) - Complex app
+- [harlanzw.com](https://github.com/harlan-zw/harlanzw.com) - @nuxt/content app
 
 ### Education
 
@@ -48,13 +62,6 @@ Need quicker help? Try providing a [reproduction repo](https://nuxt.com/docs/com
 <br>
 At a minimal, provide the output of `npx nuxi info`. 
 ::
-
-### Tech
-
-- [UnJS](https://unjs.io/) – A collection of packages which make up the Nuxt core.
-- [VueUse](https://vueuse.org/) – Essential Vue Composition API utilities.
-- [Vite.js](https://vitejs.dev) and [Rollup](https://rollupjs.org/) – Backbone of Nuxt 3 bundling.
-- [Nuxt Movies](https://github.com/nuxt/movies) – A complex Nuxt 3 example app.
 
 ## Pre-migration 
 
@@ -786,6 +793,7 @@ It's still a work-in-progress with minimal documentation, but you may consider u
 
 You likely still have some migration pain ahead of you, but you're well on your way, congratulations.
 
-Feel free to reach out to me directly on Twitter or Discord with any feedback or questions you may have.
+Feel free to reach out to me directly on Twitter or Discord with any feedback or questions you may have. Keep in mind
+that this migration guide does not intend to be exhaustive and is being actively updated.
 
 This post took me many hours to put together. Please consider [sponsoring me](https://github.com/sponsors/harlan-zw) if this has helped you.

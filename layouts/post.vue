@@ -21,13 +21,13 @@ defineOgImageScreenshot()
   </DocsPageLayout>
 </template>
 
-<style scoped>
+<style>
 @media(max-width: 1024px) {
-  ::v-deep(.toc) {
+  .toc {
     position: initial !important;
   }
 }
-::v-deep(.toc) {
+.toc {
   top: 104px !important;
   grid-column: span 2 / span 2 !important;
   padding: 0 !important;
@@ -37,11 +37,11 @@ defineOgImageScreenshot()
   grid-template-columns: repeat(12,minmax(0,1fr)) !important;
   padding: 0 !important;
 }
-::v-deep(.page-body) {
+.page-body {
   max-width: 100%;
   grid-column: span 10 /span 10;
 }
-::v-deep(.toc-wrapper) {
+.toc-wrapper {
   border-radius: 4px;
 }
 </style>
