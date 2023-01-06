@@ -124,12 +124,12 @@ Node modules can be a challenging subject, if you need further guidance see [thi
 ::
 
 
-### 2. Prepare your Nuxt v2 app
+### 2. Prepare your Nuxt 2 app
 
-Before you start migrating, you should prepare your Nuxt v2 app to make the upgrade process easier.
+Before you start migrating, you should prepare your Nuxt 2 app to make the upgrade process easier.
 
 ::checkbox
-Upgrade Nuxt v2
+Upgrade Nuxt 2
 #tip
 If you are on an earlier version, the first step is upgrading. 
 
@@ -141,6 +141,12 @@ which ships with the composition API.
 npm i nuxt@^2.15.4
 # yarn add nuxt@^2.15.4
 ```
+::
+
+::checkbox
+Upgrade Modules
+#tip
+Upgrade your modules to the latest version that supports Nuxt 2. This will make the upgrade process easier.
 ::
 
 ::checkbox

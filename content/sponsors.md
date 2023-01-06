@@ -3,22 +3,23 @@ title: "Sponsors"
 description: "Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source."
 icon: line-md:heart
 navigation: true
+prose: true
 ---
 
-Through the support of my amazing sponsors I'm able to dedicate a lot of my professional time to working on open-source.
+## My Sponsors
 
+Through my amazing sponsors, I'm able to dedicate a lot of my time to working on open-source.
+
+Thank you to all of them!
 
 ![Harlan Wilton's Github Sponsors](https://raw.githubusercontent.com/harlan-zw/static/main/sponsors.svg){lazy="false" width="800" height="545" max-height="500"}
 
 
-Thank you to all of them!
+## Send some love
 
-## Support Me
+Enjoy my work? Heck yeah!
 
-If you like my work and would like to support me, consider any of the following:
+Why not show your support by following my [Twitter](https://twitter.com/harlan_zw),
+joining my [Discord](https://discord.com/invite/5jDAMswWwX)
+or [sponsor me financially](https://github.com/sponsors/harlan-zw).
 
-::list
-- Add me on twitter [@harlan_zw](https://twitter.com/harlan_zw)
-- Join the [discord](https://discord.com/invite/5jDAMswWwX)
-- Sponsor me financially through GitHub Sponsors [here](https://github.com/sponsors/harlan-zw)
-::
