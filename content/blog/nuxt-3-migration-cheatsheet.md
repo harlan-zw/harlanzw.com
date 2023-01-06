@@ -18,7 +18,7 @@ But don't worry, I'm here to help!
 I've started this cheat sheet 
 to simplify the upgrade process for myself and for others who are brave enough to tackle it. 
 
-It's a work in progress, so I'll be updating it as I migrate more sites. 
+It's a work in progress, and not intended to be exhaustive. I'll be updating it as I migrate more sites. 
 
 Just remember that the migration process will take some time, patience, and persistence, depending on the size of your project and your prior experience. 
 
