@@ -47,6 +47,7 @@ Let's do this!
 
 **Nuxt 3 Examples**
 
+- [Nuxt Examples](https://nuxt.com/docs/examples/essentials/hello-world) - Minimal scoped examples
 - [NuxtBnB](https://github.com/MasteringNuxt/NuxtBnB) - Complex app
 - [Nuxt Movies](https://github.com/nuxt/movies) - Complex app
 - [harlanzw.com](https://github.com/harlan-zw/harlanzw.com) - @nuxt/content app
