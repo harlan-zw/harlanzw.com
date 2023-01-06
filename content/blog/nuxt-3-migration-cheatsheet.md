@@ -24,7 +24,7 @@ Just remember that the migration process will take some time, patience, and pers
 
 But hey, at least you'll learn a bunch.
 
-And if you're just looking to upgrade some modules, I've documented the [upgrade path](#2-modules) for 23 of them.
+And if you're just looking to upgrade some modules, I've written an [upgrade guide](#2-modules) for 23 of them.
 
 Let's do this!
 
