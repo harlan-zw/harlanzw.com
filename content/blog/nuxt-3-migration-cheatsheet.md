@@ -444,11 +444,9 @@ In the meantime, you can use:
 
 #### @nuxtjs/pwa
 
-Official nuxt/auth support is a work-in-progress. 
+The community [nuxt-pwa-module](https://github.com/kevinmarrec/nuxt-pwa-module) module seems to be the best option.
 
-In the meantime, you can use:
-
-[nuxt-pwa-module](https://github.com/kevinmarrec/nuxt-pwa-module)
+A core module for PWA seems to be undecided, if it goes ahead there's no ETA.
 
 #### @nuxtjs/i18n
 
