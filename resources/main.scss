@@ -20,10 +20,37 @@ html:not(.dark) body {
   }
 }
 
+.prose code {
+  word-break: break-word !important;
+  white-space: pre-wrap !important;
+}
+
+
+.link-favicon {
+  z-index: 2;
+  display: none;
+  opacity: 0;
+  transition: 0.2s opacity;
+  padding-left: 0.25rem;
+  padding-right: 0.1rem;
+  img {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 !important;
+  }
+}
+
 a:not(.unstyled), .link {
   position: relative;
   display: inline-block;
   transition: 0.2s;
+
+  &[target="_blank"]:hover + .link-favicon {
+    display: inline-block;
+    opacity: 1;
+    animation: fadeInUp 0.2s ease-in-out;
+  }
 
   &:before, &:after {
     position: absolute;

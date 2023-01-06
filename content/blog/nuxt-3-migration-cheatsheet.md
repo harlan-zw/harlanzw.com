@@ -73,7 +73,7 @@ project for the upgrade.
 Learn the key differences between Nuxt 2 and Nuxt 3 and the new technologies that power it.
 
 ::checkbox
-[Nuxt 3 Architecture](https://nuxt.com/docs/getting-started/introduction)
+Nuxt 3 Architecture
 #tip
 While there are many similarities to Nuxt 2, the underlying architecture is completely new, more complex and more powerful.
 
@@ -89,17 +89,20 @@ Daniel Roe's talk [What happens when you start Nuxt 3](https://www.youtube.com/w
 ::
 
 ::checkbox
-Read the [official migration guide](https://nuxt.com/docs/migration/overview) 
+Read the official migration guide
 #tip
-Read the official migration guide to get a high-level overview of the changes.
+Having a rough understanding of the [migration process](https://nuxt.com/docs/migration/overview) will allow you
+avoid common pitfalls.
 
 Keep this open as you'll reference this as you continue on with the migration process.
 ::
 
 ::checkbox
-Play with Nuxt 3: [nuxt.new](https://nuxt.new)
+Play with Nuxt 3
 #tip
-Create a new fresh Nuxt 3 project and play around with it. This will help you get a feel for the new features and how they work.
+Create a new fresh Nuxt 3 project using [nuxt.new](https://nuxt.new), play around with it. 
+
+This will help you get a feel for the new features and how they work.
 ::
 
 ::checkbox
@@ -174,7 +177,7 @@ export default {
 ::
 
 ::checkbox
-Audit your dependencies'
+Audit your dependencies
 #tip
 Having hard dependencies in your project that aren't compatible with Nuxt 3 / Vue 3 is going to massively slow you down.
 
@@ -281,7 +284,7 @@ Migrate head
 #tip
 If you previously had head configuration in your `nuxt.config.ts`, you should migrate it to `app.head` config.
 
-If you're using `hid` in your head config, unless you have a good reason, you should remove it. Read [@vueuse/head v1 release notes](https://harlanzw.com/blog/vue-use-head-v1)
+If you're using `hid` in your head config, unless you have a good reason, you should remove it. Read [@vueuse/head v1 release notes](/blog/vue-use-head-v1)
 to learn more.
 
 Note: Tags with `href` and `src` will not resolve relative links / aliases.
@@ -605,6 +608,8 @@ breaking changes.
 
 ### 3. State management
 
+If you're using Vuex 3, you will need to upgrade your state management, as Vue 3 does not support it.
+
 ::checkbox
 Consider if you need a state management library
 #tip
@@ -636,11 +641,9 @@ export function useCounter() {
 ::
 
 ::checkbox
-If you need state management, migrate to [Pinia](https://pinia.vuejs.org/ssr/nuxt.html#nuxt-2-without-bridge) or Vuex 4
+Otherwise, migrate to Pinia or Vuex 4
 #tip
-If you're using Vuex 3, you will need to upgrade your state management, as Vue 3 does not support it.
-
-Pinia is the recommended state management solution for Nuxt 3, but you can use [Vuex 4](https://vuex.vuejs.org/guide/migrating-to-4-0-from-3-x.html) if you prefer.
+[Pinia](https://pinia.vuejs.org/ssr/nuxt.html#nuxt-2-without-bridge) is the recommended state management solution for Nuxt 3, but you can use [Vuex 4](https://vuex.vuejs.org/guide/migrating-to-4-0-from-3-x.html) if you prefer.
 ::
 
 ### 4. Components

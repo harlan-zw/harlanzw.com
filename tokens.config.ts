@@ -38,7 +38,10 @@ export default defineTheme({
     },
     a: {
       fontWeight: '400',
-      borderStyle: 'none',
+      borderStyle: {
+        default: 'none',
+        hover: 'none',
+      },
     },
     h1: {
       fontSize: '2.25rem',

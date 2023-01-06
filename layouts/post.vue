@@ -6,11 +6,12 @@ defineOgImageScreenshot()
 <template>
   <DocsPageLayout>
     <SchemaOrgArticle />
-    <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-2" />
+    <div class="flex items-center mb-3">
+      <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-0" />
+      <TagList :tags="post.tags" />
+    </div>
     <PageTitle :post="post" />
-    <TagList :tags="post.tags" class="mb-5" />
     <PostMeta :post="post" />
-
     <article>
       <div class="prose-wrap max-w-85ch">
         <Prose>

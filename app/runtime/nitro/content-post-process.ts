@@ -6,6 +6,7 @@ import { ReadTime } from './content/read-time'
 import { StorageMeta } from './content/storage-meta'
 import { MetaNormaliser } from './content/meta-normaliser'
 import { Projects } from './content/projects'
+import { Links } from './content/links'
 
 const mdPlugins = [
   // Breadcrumbs,
@@ -14,6 +15,7 @@ const mdPlugins = [
   ReadTime,
   StorageMeta,
   MetaNormaliser,
+  Links,
 ]
 
 const miscPlugins = [

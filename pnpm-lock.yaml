@@ -21,7 +21,7 @@ specifiers:
   '@iconify-json/ri': ^1.1.4
   '@iconify-json/simple-icons': ^1.1.40
   '@iconify-json/vscode-icons': ^1.1.18
-  '@nuxt-themes/docus': ^1.4.2
+  '@nuxt-themes/docus': ^1.4.3
   '@nuxt/content': 2.3.0
   '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/color-mode': ^3.2.0
@@ -60,7 +60,7 @@ devDependencies:
   '@iconify-json/ri': 1.1.4
   '@iconify-json/simple-icons': 1.1.40
   '@iconify-json/vscode-icons': 1.1.18
-  '@nuxt-themes/docus': 1.4.2_nuxt@3.0.0+sass@1.57.1
+  '@nuxt-themes/docus': 1.4.3_nuxt@3.0.0+sass@1.57.1
   '@nuxt/content': 2.3.0
   '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/color-mode': 3.2.0
@@ -769,8 +769,8 @@ packages:
       fastq: 1.14.0
     dev: true
 
-  /@nuxt-themes/docus/1.4.2_nuxt@3.0.0+sass@1.57.1:
-    resolution: {integrity: sha512-vHDJCJ5UCVyMODFV7gRWJQs91tCe0s2tc0o3AtU/LRYk9f0ctLk8Jnhuv5hPxAZZYQ3dTW4gWKJyGlFCjYQNwQ==}
+  /@nuxt-themes/docus/1.4.3_nuxt@3.0.0+sass@1.57.1:
+    resolution: {integrity: sha512-B/krN08EDTQcWNm1SNAs/lRxYfZLG3EVLkRyhW5mVHY0gzC/C/XDp/AiuJL3drPfhYmoAGyF+9Wvb5GfLFWaiQ==}
     dependencies:
       '@nuxt-themes/elements': 0.4.4_sass@1.57.1
       '@nuxt-themes/tokens': 1.5.3_sass@1.57.1
@@ -809,7 +809,7 @@ packages:
     dependencies:
       '@nuxtjs/color-mode': 3.2.0
       '@vueuse/core': 9.10.0
-      pinceau: 0.10.7_sass@1.57.1
+      pinceau: 0.10.8_sass@1.57.1
     transitivePeerDependencies:
       - '@vue/composition-api'
       - postcss
@@ -6813,8 +6813,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /pinceau/0.10.7_sass@1.57.1:
-    resolution: {integrity: sha512-tjre1PwQru5pq8j1/tadujmg6pmzYADuzRqq5XSO5i9lfj6eNTSVbjNKg2+NF0P6mPMr8iEM/F6+VeXgkMo7YQ==}
+  /pinceau/0.10.8_sass@1.57.1:
+    resolution: {integrity: sha512-B9pdXzlbvoUvN4Khbyykh7XvdBPH77gqzvqKFBu3EcMNCdmJyhIsYiClD+Ek1Ao6Lq9Ck9WwK8/UPQTIpdoNfw==}
     dependencies:
       '@unocss/reset': 0.48.0
       '@volar/vue-language-core': 1.0.22
