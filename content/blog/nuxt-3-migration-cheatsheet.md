@@ -1,6 +1,6 @@
 ---
 title: "Nuxt 3 Migration Simplified: A Cheat Sheet"
-description: "Effortlessly migrate to Nuxt 3 with our cheat sheet. It includes step-by-step instructions and helpful tips for a seamless transition."
+description: "A simplified cheat sheet for migrating from Nuxt 2 to Nuxt 3. Includes a list of all the changes you need to make to your Nuxt 2 project to get it working with Nuxt 3."
 publishedAt: "2022-12-27"
 aside: false
 tags:
@@ -27,6 +27,7 @@ Let's do this!
 - [Nuxt 3 - Docs](https://nuxt.com/docs/getting-started/introduction)
 - [Nuxt 3 - Official Migration Guide](https://nuxt.com/docs/migration/overview)
 - [Nuxt 3 - Migration guide discussion](https://github.com/nuxt/framework/discussions/3989)
+- [Vue 3 - Migration Guide](https://v3-migration.vuejs.org/)
 - [nuxt.new](https://nuxt.new)
 
 ### Education
@@ -42,10 +43,10 @@ Let's do this!
 - [Reddit Nuxt.js](https://www.reddit.com/r/nuxtjs/)
 
 ::tip
-Want someone to help quicker? Try providing a [reproduction repo](https://nuxt.com/docs/community/reporting-bugs#create-a-minimal-reproduction).
+Need quicker help? Try providing a [reproduction repo](https://nuxt.com/docs/community/reporting-bugs#create-a-minimal-reproduction).
 <br>
 <br>
-At a minimal, you should should provide your environment details from running `npx nuxi info`. 
+At a minimal, provide the output of `npx nuxi info`. 
 ::
 
 ### Tech
@@ -91,9 +92,7 @@ Keep this open as you'll reference this as you continue on with the migration pr
 ::checkbox
 Play with Nuxt 3: [nuxt.new](https://nuxt.new)
 #tip
-Create a new fresh Nuxt 3 project and have a play around with it. This will help you get a feel for the new features and how they work.
-
-
+Create a new fresh Nuxt 3 project and play around with it. This will help you get a feel for the new features and how they work.
 ::
 
 ::checkbox
@@ -116,7 +115,7 @@ You can learn the basics with [TypeScript in 5 minutes](https://www.typescriptla
 ::checkbox
 Learn about modules: CJS and ESM
 #tip
-Nuxt 3 requires EmcaScript modules, so you'll need to convert your CommonJS modules. See the Nuxt [ES modules](https://nuxt.com/docs/guide/concepts/esm) page.
+Nuxt 3 requires ECMAScript modules, so you'll need to convert your CommonJS modules. See the Nuxt [ES modules](https://nuxt.com/docs/guide/concepts/esm) page.
 
 Many of the issues you'll come across are due to using dependencies which are CJS.
 So understanding the difference between them can be critical.
@@ -218,7 +217,7 @@ Create an empty default layout file that will be updated later.
 </template>
 ```
 
-Create a basic index page so we can see our changes.
+Create a basic index page, so we can see our changes.
 
 ```vue [pages/index.vue]
 <template>
@@ -304,7 +303,7 @@ Make the `public` directory and copy all of these files over.
 Copy CSS / Assets
 #tip
 In Nuxt 3, the assets folder serves the same function.
-Simply copy over your assets folder. 
+Simply copy over your assets' folder. 
 
 Once done, update the `css` field.
 
@@ -314,9 +313,9 @@ css: [
 ]
 ```
 
-Most pre-processors will work with no extra config, you will just need to install the dependencies. 
+Most pre-processors will work with no extra config.
 
-For example, if you see an error like:
+You will just need to install the dependencies. For example, if you see an error like:
 
 ```bash
 Preprocessor dependency "sass" not found. Did you install it? 
@@ -378,7 +377,7 @@ export default defineNuxtConfig({
 ::checkbox
 Remove redundant modules
 #tip
-The following modules can be safely removed as functionality they provide is redundent.
+The following modules can be safely removed as functionality they provide is redundant.
 
 - [@nuxtjs/typescript](https://typescript.nuxtjs.org/)
 - [@nuxtjs/typescript-runtime](https://typescript.nuxtjs.org/)
@@ -631,31 +630,94 @@ Pinia is the recommended state management solution for Nuxt 3, but you can use [
 Components will only be parsed if they are imported. This means it's safe to copy over all our components and mixin files from Nuxt 2.
 
 ::checkbox
-Copy over components / mixins
+Copy components
 #tip
 The folders have the same name and will be auto-imported. You don't need to add anything to `nuxt.config.ts`.
 
-I'd recommend doing this one at a time and skipping any non-essential plugins.
+Note that component auto-imports are done with path-prefixing by default, see [Component Names](https://nuxt.com/docs/guide/directory-structure/components#component-names). 
 ::
 
 ::checkbox
 Follow Component Options Migration
 #tip
-See the [Component Options Migration](https://v3.vuejs.org/guide/migration/composition-api.html#component-options-migration) guide for more information.
+See the [Component Options Migration](https://nuxt.com/docs/migration/component-options) guide for more information.
+::
+
+### 5. Pages and dependencies
+
+You will be copying over your pages one by one and their dependencies.
+
+As you copy each page, you will run into errors. These errors may be related to breaking changes between Nuxt 2 and 3 or to missing dependencies.
+
+For example, you'll have missing layout, plugin and potentially component dependencies.
+
+It's important you reference the [Nuxt 3 Migration Guide](https://nuxt.com/docs/migration/overview) as you go
+and ask for help in the community channels if you get stuck.
+
+::checkbox
+Copy static route pages
+#tip
+You'll start with routes which aren't dynamic which tend to be less complex and easier.
+
+For example: `pages/about.vue`, `pages/index.vue`, etc.
 ::
 
 ::checkbox
-Migrate to Composition API or `defineNuxtComponent`
+Copy dynamic route pages
 #tip
-Using the composition API over the options API is the recommended way to write Nuxt code. However, it can be quite time-consuming for
-existing projects.
+Nuxt 3 uses a new file system routing system, which means that all our pages need to be converted to the new format.
 
-If you have a large app, you may want to keep using the options API for now and migrate to the composition API later.
+See [Dynamic Routes](https://nuxt.com/docs/migration/pages-and-layouts#dynamic-routes) for more information.
+::
 
-Doing so is possible with the `defineNuxtComponent` function.
+
+### 6. Server Routes / Middleware
+
+Nuxt 3 uses a completely new server engine and HTTP framework. 
+This means that all our server routes and middleware need to be converted to the new format. 
+
+::checkbox
+Migrate server routes
+#tip
+See [Migrate Server Routes](https://nuxt.com/docs/migration/server).
+
+You'll likely need to completely rewrite your server routes.
+::
+
+::checkbox
+Migrate server middleware
+#tip
+See [Migrate Server Routes](https://nuxt.com/docs/migration/server).
+
+You'll likely need to completely rewrite your server middleware.
+::
+
+
+
+## Post Migration
+
+### 1. Recommendations
+
+::checkbox
+Migrate to Composition API
+#tip
+While this is not required, it is highly recommended.
+The Composition API is a much better way to write Vue code and Nuxt provides
+better support for it.
+
+You may be able to make use of the [vue-composition-convertor](https://github.com/miyaoka/vue-composition-converter) tool to give you a head start.
+::
+
+::checkbox
+Migrate everything to TypeScript
+#tip
+Nuxt 3 is TypeScript first, it is the best practice to have all of your code in TypeScript.
+
+If you're using the Options API, you can simply add `lang="ts"` to your Vue SFCs. Otherwise, if you are using the options API, you
+can make use of the `defineNuxtComponent` function.
 
 ```vue [components/MyComponent.vue]
-<script setup lang="ts">
+<script lang="ts">
 export default defineNuxtComponent({
   props: {
     name: {
@@ -670,92 +732,6 @@ export default defineNuxtComponent({
 </script>
 ```
 ::
-
-::checkbox
-Migrate to TypeScript (optional)
-#tip
-Using TypeScript is the recommended way to write Nuxt code.
-
-If you have a large app, you may want to keep using plain JavaScript and migrate to TypeScript later.
-::
-
-### 5. Pages / Layouts / Plugins
-
-This is the starting point of where things are going to break big time. You should repeat this step for each page.
-
-::checkbox
-Copy pages over one by one
-#tip
-
-Nuxt 3 uses a new file system routing system, which means that all our pages need to be converted to the new format.
-
-- plugins
-- layouts
-- middleware
-
-Work in progress.
-::
-
-::checkbox
-Follow component options migration guide
-#tip
-See [Migrate Component Options](https://nuxt.com/docs/migration/component-options).
-::
-
-::checkbox
-Migrate to Composition API
-#tip
-While this is not required, it is highly recommended
-(options API is supported using [defineNuxtComponent](https://nuxt.com/docs/api/utils/define-nuxt-component)).
-The Composition API is a much better way to write Vue code and Nuxt provides
-better support for it.
-
-Use the [@nuxtjs/composition-api](https://composition-api.nuxtjs.org/getting-started/introduction) module. You can also
-use the tool [vue-composition-convertor](https://github.com/miyaoka/vue-composition-converter) to give you a head start.
-::
-
-::checkbox
-Migrate to TypeScript
-#tip
-Again, not required but highly recommended.
-::
-
-
-::checkbox
-Migrate Mixins
-#tip
-Work in progress.
-::
-
-
-::checkbox
-Find CJS issues
-#tip
-Search for "require" in any components. If you find any, you'll need to convert them to ESM.
-::
-
-::checkbox
-Remove imports
-#tip
-Work in progress.
-::
-
-[//]: # (- asyncData ->useFetch / useAsyncData)
-[//]: # (- nuxtServerInit___)
-
-### 7. Global Middleware / Server Routes
-
-### 6. Testing
-
-::checkbox
-Migrate to Vitest
-#tip
-Nuxt 3 uses Vitest for testing. If you're using Jest or Mocha, you'll need to migrate.
-::
-
-## Going Further
-
-### 1. Tips
 
 ::checkbox
 Load static assets from an absolute path
@@ -775,4 +751,35 @@ The VueUse and UnJS packages all support Nuxt 2 and Nuxt 3. If you can migrate t
 you'll save yourself a lot of time.
 ::
 
-### 2. Common Errors
+
+### 2. Testing
+
+::checkbox
+Migrate to Vitest
+#tip
+Nuxt 3 uses Vitest for testing. If you're using Jest or Mocha, you'll need to migrate.
+
+See the [Why Vitest](https://vitest.dev/guide/why.html) guide for more information.
+::
+
+::checkbox
+Use @nuxt/test-utils
+#tip
+Follow the documentation on the [Testing](https://nuxt.com/docs/getting-started/testing) page,  to get started.
+::
+
+::checkbox
+Add vitest-environment-nuxt (optional)
+#tip
+The [vitest-environment-nuxt](https://github.com/danielroe/vitest-environment-nuxt) package will likely take over as the official testing environment for Nuxt 3.
+
+It's still a work-in-progress with minimal documentation, but you may consider using it.
+::
+
+## Conclusion
+
+You likely still have some migration pain ahead of you, but you're well on your way, congratulations.
+
+Feel free to reach out to me directly on Twitter or Discord with any feedback or questions you may have.
+
+This post took me many hours to put together. Please consider [sponsoring me](https://github.com/sponsors/harlan-zw) if this has helped you.

@@ -17,7 +17,7 @@ const yearKeys = Object.keys(posts.value).reverse()
 </script>
 
 <template>
-  <div class="max-w-90ch mx-auto">
+  <div class="max-w-100ch mx-auto">
     <div class="space-y-7">
       <div v-for="year in yearKeys" :key="year">
         <SubTitle>

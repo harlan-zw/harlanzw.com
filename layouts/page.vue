@@ -4,12 +4,12 @@ defineOgImageScreenshot()
 </script>
 
 <template>
-  <div class="page-layout layout-page max-w-90ch mx-auto">
+  <div class="page-layout layout-page max-w-100ch mx-auto">
     <main>
       <TopBreadcrumbs v-if="page.breadcrumbs !== false" class="mb-2" />
       <PageTitle :post="page" />
       <article>
-        <div class="prose-wrap max-w-90ch">
+        <div class="prose-wrap max-w-100ch">
           <Prose v-if="page.prose">
             <ContentRenderer :value="page" />
           </Prose>

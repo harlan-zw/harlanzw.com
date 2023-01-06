@@ -12,7 +12,7 @@ defineOgImageScreenshot()
     <PostMeta :post="post" />
 
     <article>
-      <div class="prose-wrap max-w-90ch">
+      <div class="prose-wrap max-w-85ch">
         <Prose>
           <ContentRenderer :value="post" />
         </Prose>
