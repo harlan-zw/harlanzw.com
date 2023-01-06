@@ -9,17 +9,24 @@ tags:
 
 ## Introduction
 
-Upgrading to from Nuxt 2 to Nuxt 3 is intimidating. There are a lot of changes, and it's easy to get lost in the process.
+Upgrading to Nuxt 3 from Nuxt 2 can be a little intimidating.
 
-I've started this cheat sheet to simplify the upgrade process for my own use and to help others. It's a work in progress and not intended to be exhaustive.
-I'll be updating it as I migrate more sites.
+There are a ton of changes to keep track of, and it's easy to feel like you're lost in a maze of code.
 
-The migration will take you some time, patience and persistence, depending on the size of your project and your prior experience.
+But don't worry, I'm here to help! 
 
-If you are only trying to upgrade modules, I've documented the upgrade path for [23 modules](#2-modules).
+I've started this cheat sheet 
+to simplify the upgrade process for myself and for others who are brave enough to tackle it. 
+
+It's a work in progress, so I'll be updating it as I migrate more sites. 
+
+Just remember that the migration process will take some time, patience, and persistence, depending on the size of your project and your prior experience. 
+
+But hey, at least you'll learn a bunch.
+
+And if you're just looking to upgrade some modules, I've documented the [upgrade path](#2-modules) for 23 of them.
 
 Let's do this!
-
 
 ## Resources
 
@@ -117,7 +124,7 @@ Learn the basics of TypeScript
 #tip
 Whether you like TypeScript or not is irrelevant. Nuxt 3 is written in TypeScript, trying to avoid it will only make your life harder.
 
-You don't need to be an expert, but you should be able to read and understand the Nuxt 3 skeleton code. 
+You don't need to be an expert, but you should be able to read and understand the Nuxt 3 code. 
 
 You can learn the basics with [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html).
 ::
@@ -143,9 +150,7 @@ Upgrade Nuxt 2
 #tip
 If you are on an earlier version, the first step is upgrading. 
 
-This will identify any issues your app may have using the Vue composition API,
-as the latest version uses [Vue 2.7](https://blog.vuejs.org/posts/vue-2-7-naruto.html),
-which ships with the composition API.
+The latest Nuxt 2 uses [Vue 2.7](https://blog.vuejs.org/posts/vue-2-7-naruto.html), which supports the Composition API.
 
 ```bash
 npm i nuxt@^2.15.4
@@ -157,6 +162,8 @@ npm i nuxt@^2.15.4
 Upgrade Modules
 #tip
 Upgrade your modules to the latest version that supports Nuxt 2. This will make the upgrade process easier.
+
+Be careful not to upgrade modules which may only support Nuxt 3 in future versions.
 ::
 
 ::checkbox
@@ -183,7 +190,7 @@ Having hard dependencies in your project that aren't compatible with Nuxt 3 / Vu
 
 You should go through all your node dependencies, checking the following:
 - Vue plugin: Supports Vue 3
-- Nuxt module: Supports Nuxt 3 or has an upgrade path (see [modules](#2-modules))
+- Nuxt module: Supports Nuxt 3 or has an upgrade path. See [Migration - 2. modules](#2-modules) and the [Nuxt 3 modules](https://nuxt.com/modules).
 - Other: Scan with [bundlephobia](https://bundlephobia.com/) to find ESM support / alternatives. You can use CJS dependencies, but you'll need to [transpile](https://nuxt.com/docs/guide/concepts/esm#transpiling-libraries) them.
 
 This is a good opportunity
@@ -196,7 +203,7 @@ to drop any dependencies you don't need, migrate to dependencies which have bett
 This cheat sheet requires a fresh Nuxt 3 project and migrating things over one by one.
 
 In each step of migrating, you should test to see if everything is working. 
-If there are bugs, then you will be able to debug and get help for them easily.
+If there are bugs, then you will be able to debug them easily.
 
 ### 1. Create the new app
 
@@ -207,16 +214,15 @@ Create a Fresh Nuxt 3 App
 #tip
 You can do so with `npx nuxi init my-app`.
 
-This will create a new Nuxt 3 project with the latest version of Nuxt 3 and some boilerplate.
+This will create a new Nuxt 3 project.
 ::
 
 ::checkbox
 Create Boilerplate
 #tip
+By default, Nuxt 3 does not provide page routing and layouts. To make the migration easier, you'll be modifying the files to be Nuxt 2 compatible.
 
-We're creating Nuxt 2 compatible boilerplate files. This will allow us to migrate single pieces easily.
-
-By default, Nuxt 3 does not provide page routing and layouts. To enable them we update `app.vue` with `NuxtLayout` and `NuxtPage`.
+To enable them we update `app.vue` with `NuxtLayout` and `NuxtPage`.
 
 ```vue [app.vue]
 <template>
@@ -256,26 +262,35 @@ Follow the [Migrate Runtime Config](https://nuxt.com/docs/bridge/overview#update
 
 The `env` key in `nuxt.config.ts` is no longer supported, you should use runtime config exclusively.
 
-You can safely ignore TypeScript issues this causes for now.
-
-```diff
-- privateRuntimeConfig: {
--   apiKey: process.env.NUXT_API_KEY || 'super-secret-key'
-- },
-- publicRuntimeConfig: {
--   websiteURL: 'https://public-data.com'
-- }
-- env: {
--   NUXT_API_KEY: process.env.NUXT_API_KEY
-- }
-+ runtimeConfig: {
-+   apiKey: process.env.NUXT_API_KEY || 'super-secret-key',
-    // reminder: `public` is exposed on client and server (DON'T PUT ANYTHING SENSITIVE)
-+   public: {
-+     websiteURL: 'https://public-data.com'
-+   }
-+ }
+```ts
+// Nuxt 2
+export default {
+  privateRuntimeConfig: {
+    apiKey: process.env.NUXT_API_KEY || 'super-secret-key'
+  },
+  publicRuntimeConfig: {
+    websiteURL: 'https://public-data.com'
+  },
+  env: {
+    NUXT_API_KEY: process.env.NUXT_API_KEY
+  }
+}
 ```
+
+```ts
+// Nuxt 3
+export default defineNuxtConfig({
+    runtimeConfig: {
+        apiKey: process.env.NUXT_API_KEY || 'super-secret-key',
+        // Warning: `public` is exposed on client and server
+        public: {
+            websiteURL: 'https://public-data.com'
+        }
+    }
+})
+```
+
+You can safely ignore TypeScript issues this causes for now.
 ::
 
 
@@ -380,17 +395,9 @@ In Nuxt 3 all modules should belong under the `modules` key. You will need to co
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
     modules: [
-       // buildModules example
-      '@nuxt/typescript-build',
-      '@nuxtjs/moment',
-      'nuxt-build-optimisations',
-       // modules example
-      '@nuxtjs/axios',
-      '@nuxtjs/auth',
-      '@nuxt/content',
-      '@nuxtjs/sitemap',
+        // your modules
     ]
-}
+})
 ```
 ::
 
@@ -595,6 +602,10 @@ Work in progress.
 #### @nuxtjs/google-analytics
 
 See [Vue Plugins](https://nuxt.com/docs/guide/directory-structure/plugins/#vue-plugins) from the docs for an example of how to use Google Analytics with Nuxt 3.
+
+Alternatively,
+see [this comment](https://github.com/nuxt-community/gtm-module/issues/82#issuecomment-1373202592)
+on how you can implement it with cookie control.
 ::
 
 ::checkbox
@@ -655,7 +666,9 @@ Copy components
 #tip
 The folders have the same name and will be auto-imported. You don't need to add anything to `nuxt.config.ts`.
 
-Note that component auto-imports are done with path-prefixing by default, see [Component Names](https://nuxt.com/docs/guide/directory-structure/components#component-names). 
+If your components aren't being found, 
+it may be because component auto-imports are done with path-prefixing by default,
+see [Component Names](https://nuxt.com/docs/guide/directory-structure/components#component-names). 
 ::
 
 ::checkbox
@@ -672,15 +685,23 @@ As you copy each page, you will run into errors. These errors may be related to 
 
 For example, you'll have missing layout, plugin and potentially component dependencies.
 
-It's important you reference the [Nuxt 3 Migration Guide](https://nuxt.com/docs/migration/overview) as you go
-and ask for help in the community channels if you get stuck.
+It's important you reference the [Nuxt 3 Migration Guide](https://nuxt.com/docs/migration/overview) as you go.
+Remember to ask for help in the community channels if you get stuck.
+
+::checkbox
+Home Page
+#tip
+Start with the home page, `pages/index.vue`.
+This will give you some momentum and help you get started.
+::
+
 
 ::checkbox
 Copy static route pages
 #tip
 You'll start with routes which aren't dynamic which tend to be less complex and easier.
 
-For example: `pages/about.vue`, `pages/index.vue`, etc.
+For example: `pages/about.vue`, `pages/contact.vue`, etc.
 ::
 
 ::checkbox
@@ -728,7 +749,7 @@ better support for it.
 
 Tips:
 - [vue-composition-convertor](https://github.com/miyaoka/vue-composition-converter) may give you a head start
-- [ChatGPT](https://chat.openai.com/) is pretty good at converting Vue 2 to Vue 3
+- [ChatGPT](https://chat.openai.com/) is pretty good at converting Vue 2 options API to Vue 3 composition API
 ::
 
 ::checkbox
@@ -789,7 +810,7 @@ modelValue.value = 'newValue'
 ::checkbox
 Switch to UnJS / VueUse where appropriate
 #tip
-The VueUse and UnJS packages all support Nuxt 2 and Nuxt 3. If you can migrate to using them over other dependencies,
+The [VueUse](https://vueuse.org/) and [UnJS packages](https://unjs.io/) all support Nuxt 2 and Nuxt 3. If you can migrate to using them over other dependencies,
 you'll save yourself a lot of time.
 ::
 
