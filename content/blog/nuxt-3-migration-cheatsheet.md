@@ -174,12 +174,17 @@ export default {
 ::
 
 ::checkbox
-Audit your app
+Audit your dependencies'
 #tip
-Your goal with the audit should be to identify any code and / or dependencies you can remove. The less code you have, the
-less code you'll need to migrate.
+Having hard dependencies in your project that aren't compatible with Nuxt 3 / Vue 3 is going to massively slow you down.
 
-Additionally, check your asset folder for anything which can be removed.
+You should go through all your node dependencies, checking the following:
+- Vue plugin: Supports Vue 3
+- Nuxt module: Supports Nuxt 3 or has an upgrade path (see [modules](#2-modules))
+- Other: Scan with [bundlephobia](https://bundlephobia.com/) to find ESM support / alternatives. You can use CJS dependencies, but you'll need to [transpile](https://nuxt.com/docs/guide/concepts/esm#transpiling-libraries) them.
+
+This is a good opportunity
+to drop any dependencies you don't need, migrate to dependencies which have better maintenance and / or are smaller.
 ::
 
 
@@ -718,7 +723,9 @@ While this is not required, it is highly recommended.
 The Composition API is a much better way to write Vue code and Nuxt provides
 better support for it.
 
-You may be able to make use of the [vue-composition-convertor](https://github.com/miyaoka/vue-composition-converter) tool to give you a head start.
+Tips:
+- [vue-composition-convertor](https://github.com/miyaoka/vue-composition-converter) may give you a head start
+- [ChatGPT](https://chat.openai.com/) is pretty good at converting Vue 2 to Vue 3
 ::
 
 ::checkbox
@@ -756,6 +763,25 @@ This way the bundler does not need to parse them. This will save you time when m
 Simply move images which aren't going to change to `static` and load them from `/` instead of `~/assets`.
 ::
 
+::checkbox
+Use Vue Macros
+#tip
+To make the migration from Vue 2 as simple as possible, you can make use of [vue-macros](https://vue-macros.sxzz.moe/guide/getting-started.html).
+
+It provides a number of useful build-time macros, which speeds up the time to convert the code.
+
+```vue [components/MyComponent.vue]
+<script setup lang="ts">
+const { modelValue, count } = defineModel<{
+  modelValue: string
+  count: number
+}>()
+
+console.log(modelValue.value)
+modelValue.value = 'newValue'
+</script>
+```
+::
 
 ::checkbox
 Switch to UnJS / VueUse where appropriate
