@@ -77,7 +77,7 @@ export default ({
 
   image: {
     cloudinary: {
-      baseURL: 'https://res.cloudinary.com/dl6o1xpyq/image/upload/images',
+      baseURL: 'https://res.cloudinary.com/dl6o1xpyq/image/upload/v1673261265/images',
       modifiers: {
         quality: 'auto:best',
         dpr: 'auto',
