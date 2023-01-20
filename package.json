@@ -46,7 +46,7 @@
     "feed": "^4.2.2",
     "nuxt": "npm:nuxt3@latest",
     "nuxt-icon": "^0.1.8",
-    "nuxt-og-image": "1.0.0-beta.10",
+    "nuxt-og-image": "1.0.0-beta.11",
     "nuxt-seo-kit": "^0.4.14",
     "nuxt-windicss": "^2.6.0",
     "parse5": "7.1.2",
