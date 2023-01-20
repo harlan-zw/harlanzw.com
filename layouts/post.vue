@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 const { page: post } = useContent()
-defineOgImageScreenshot()
+defineOgImageScreenshot({
+  delay: 1000,
+})
 </script>
 
 <template>
