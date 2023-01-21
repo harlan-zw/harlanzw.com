@@ -1,4 +1,4 @@
-import { $fetch } from 'ohmyfetch'
+import { $fetch } from 'ofetch'
 import type { ParsedContent } from '~/types'
 
 export async function Projects(content: ParsedContent) {
