@@ -2,7 +2,7 @@
 
 # harlanzw.com
 
-My personal website built with Nuxt v3 and Nuxt Content v2.
+My personal website built with Nuxt 3, powered by [nuxt-seo-kit](https://github.com/harlan-zw/nuxt-seo-kit) and [Docus](https://docus.dev).
 
 Built as reference for optimal Nuxt code practices, SEO, performance and accessibility.
 

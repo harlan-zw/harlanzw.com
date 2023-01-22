@@ -1,5 +1,5 @@
 <template>
-  <div class="grid lg:grid-cols-12 gap-20 relative">
+  <div class="lg:(grid grid-cols-12 gap-20) relative">
     <div class="col-span-7">
       <slot name="left" />
     </div>

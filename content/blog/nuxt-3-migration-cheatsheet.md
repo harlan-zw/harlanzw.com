@@ -559,7 +559,10 @@ const { $moment } = useNuxtApp()
 
 #### @nuxtjs/fontawesome
 
-See the [Using FontAwesome in Nuxt 3](https://github.com/nuxt/framework/discussions/3823) discussion for plugin code sample.
+I'd recommend using [nuxt-icon](https://github.com/nuxt-modules/icon).
+
+Alternatively,
+see the [Using FontAwesome in Nuxt 3](https://github.com/nuxt/framework/discussions/3823) discussion for plugin code sample.
 
 
 #### @nuxtjs/dayjs

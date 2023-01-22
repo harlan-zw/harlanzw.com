@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 const { page } = useContent()
-defineOgImageScreenshot()
 </script>
 
 <template>
   <div class="page-layout layout-page max-w-100ch mx-auto">
+    <OgImageStatic :component="page.island || 'PageOgImage'" :title="page.title" />
     <main>
       <TopBreadcrumbs v-if="page.breadcrumbs !== false" class="mb-2" />
       <PageTitle :post="page" />

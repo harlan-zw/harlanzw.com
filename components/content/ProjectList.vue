@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import {defineOgImageDynamic} from "#imports";
+
 const { data: categories } = await useProjects()
 
 // compute the total amount of stars from projects
@@ -8,6 +10,12 @@ const totalStars = computed(() => {
     .map(c => c.projects).flat().map(p => p.stars || 0)
     // @ts-expect-error untyped
     .reduce((acc, stars) => acc + stars, 0)
+})
+
+defineOgImageDynamic({
+  component: 'ProjectsOgImage',
+  totalStars,
+  title: 'Projects',
 })
 </script>
 

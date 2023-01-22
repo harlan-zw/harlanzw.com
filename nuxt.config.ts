@@ -1,9 +1,8 @@
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
-export default ({
-  extends: [
-    '@nuxt-themes/docus',
-    'nuxt-seo-kit',
-  ],
+import { defineNuxtConfig } from 'nuxt/config'
+
+export default defineNuxtConfig({
+  extends: ['@nuxt-themes/docus', 'nuxt-seo-kit'],
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
@@ -69,10 +68,6 @@ export default ({
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: 'dracula',
     },
-  },
-
-  router: {
-    trailingSlash: false,
   },
 
   image: {
