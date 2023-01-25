@@ -4,7 +4,7 @@ const toggleMode = () => (colorMode.value === 'light' ? (colorMode.preference = 
 </script>
 
 <template>
-  <button aria-label="Color Mode" :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`" class="p-2 link inline-block hover:text-gray-700 dark:hover:text-gray-300 group" @click.prevent="toggleMode">
+  <button aria-label="Color Mode" :title="`Enable ${colorMode.value === 'dark' ? 'Light' : 'Dark'} Mode`" class="p-1 sm:p-2 link inline-block hover:text-gray-700 dark:hover:text-gray-300 group" @click.prevent="toggleMode">
     <div class="icon">
       <ColorScheme placeholder="">
         <template v-if="colorMode.value === 'dark'">
