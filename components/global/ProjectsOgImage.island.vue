@@ -20,15 +20,15 @@ const initialStyles = {
 </script>
 
 <template>
-<div :style="containerStyles" class="w-full h-full flex flex-col items-center justify-center text-white relative">
-  <div class="px-10 mb-10">
-    <div :style="{ fontSize: '70px' }" class="bold mb-10 flex flex-row justify-between items-center">
+<div :style="containerStyles" class="w-full h-full flex flex-col text-white relative">
+  <div class="py-10 px-10">
+    <div :style="{ fontSize: '70px' }" class="mt-10 font-bold mb-10 flex flex-row justify-between items-center">
       {{ title }}
     </div>
     <div :style="{ fontSize: '50px' }" class="flex flex-row mb-10">⭐ {{ totalStars }} Stars</div>
     <p :style="{ fontSize: '30px', lineHeight: '1.5em' }" class="text-gray-300" v-html="description"></p>
   </div>
-  <div class="flex items-center flex-row absolute left-20 bottom-10" :style="{ width: '1000px' }">
+  <div class="flex items-center flex-row absolute left-20 bottom-20" :style="{ width: '1000px', left: '100px'}">
     <img src="/harlan-wilton.jpeg" width="60" height="60" class="rounded-xl mr-5">
     <div class="flex text-gray-700 flex-col">
       <span class="text-green-700 font-bold" :style="initialStyles">Harlan Wilton</span>
