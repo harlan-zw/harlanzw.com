@@ -16,10 +16,7 @@ export interface UsePostsOptions {
   sort: string
 }
 export const usePosts = (options?: UsePostsOptions) => {
-  return useAsyncData('content:post-partials', () => queryContent<Post>()
-    .where({ _path: { $contains: '/blog/' } })
-    .where({ _path: { $ne: '/blog/_dir' } })
-    .where({ _path: { $ne: '/blog' } })
+  return useAsyncData('content:post-partials', () => queryContent<Post>('blog/')
     .only(['_path', 'description', 'title', 'publishedAt', 'readingMins'])
     .sort({
       publishedAt: -1,
@@ -27,6 +24,9 @@ export const usePosts = (options?: UsePostsOptions) => {
     .limit(options?.limit || 10)
     .find(), {
     // group posts by the publish year
-    transform: posts => groupBy(posts, p => new Date(p.publishedAt).getFullYear()),
+    transform: posts => {
+      posts = posts.filter(p => p.publishedAt)
+      return groupBy(posts, p => new Date(p.publishedAt).getFullYear())
+    },
   })
 }
