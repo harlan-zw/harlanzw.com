@@ -20,19 +20,17 @@ const initialStyles = {
 </script>
 
 <template>
-<div :style="containerStyles" class="w-full h-full flex flex-col text-white relative">
-  <div class="py-10 px-10">
-    <div :style="{ fontSize: '70px' }" class="mt-10 font-bold mb-10 flex flex-row justify-between items-center">
+<div :style="containerStyles" class="w-full h-full flex text-white items-center relative">
+  <div class="pr-10" style="width: 700px;">
+    <div :style="{ fontSize: '70px', fontWeight: '900' }" class="font-bolder mb-10 flex flex-row justify-between items-center">
       {{ title }}
     </div>
-    <div :style="{ fontSize: '50px' }" class="flex flex-row mb-10">⭐ {{ totalStars }} Stars</div>
-    <p :style="{ fontSize: '30px', lineHeight: '1.5em' }" class="text-gray-300" v-html="description"></p>
+    <p :style="{ fontSize: '30px', lineHeight: '1.5em' }" class="text-gray-300 mb-10" v-html="description"></p>
+    <div :style="{ fontSize: '50px' }" class="flex flex-row">⭐ {{ totalStars }} Stars</div>
   </div>
-  <div class="flex items-center flex-row absolute left-20 bottom-20" :style="{ width: '1000px', left: '100px'}">
-    <img src="/harlan-wilton.jpeg" width="60" height="60" class="rounded-xl mr-5">
-    <div class="flex text-gray-700 flex-col">
-      <span class="text-green-700 font-bold" :style="initialStyles">Harlan Wilton</span>
-    </div>
+  <div class="items-center justify-center" style="width: 350px;">
+    <img src="/harlan-wilton.jpeg" width="350" height="350" class="rounded-xl mb-10">
+    <div class="text-green-700 font-bold justify-center items-center flex" :style="initialStyles">Harlan Wilton</div>
   </div>
 </div>
 </template>
