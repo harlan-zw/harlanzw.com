@@ -31,20 +31,9 @@ defineOgImageScreenshot({
   }
 }
 .toc {
-  top: 104px !important;
-  grid-column: span 2 / span 2 !important;
-  padding: 0 !important;
-  margin: var(--space-8) 0 0 0 !important;
+  top: 160px !important;
 }
 .docs-page-content {
-  grid-template-columns: repeat(12,minmax(0,1fr)) !important;
-  padding: 0 !important;
-}
-.page-body {
-  max-width: 100%;
-  grid-column: span 10 /span 10;
-}
-.toc-wrapper {
-  border-radius: 4px;
+  grid-template-columns: minmax(50px, 200px) minmax(600px, 1fr) minmax(250px, 250px) !important;
 }
 </style>
