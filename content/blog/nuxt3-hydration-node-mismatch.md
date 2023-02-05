@@ -75,7 +75,6 @@ While not technically required in Vue 3, it's required in Nuxt 3 to have a root 
 </template>
 ```
 
-
 ### Check the HTML
 
 Because the trigger for the error is the HTML not matching, this can be a good starting point to debugging.
@@ -85,7 +84,7 @@ There are many ways to produce invalid HTML in Vue. It's not always intuitive to
 The easiest way to check the HTML is to use the [@nuxtjs/html-validator](https://html-validator.nuxtjs.org/) module. This module will validate the HTML and
 throw an error if it is invalid.
 
-### Use <client-only> Component
+### Use Client Only Components
 
 If you notice that the error is coming from a component that is only needed on the client-side, you can wrap it with `<client-only>` component, alternatively.
 you can prefix your component name with `.client.vue`. For example `MyWidget.client.vue`.
