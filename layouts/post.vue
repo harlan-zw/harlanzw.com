@@ -36,4 +36,12 @@ defineOgImageScreenshot({
 .docs-page-content {
   grid-template-columns: minmax(50px, 200px) minmax(600px, 1fr) minmax(250px, 250px) !important;
 }
+
+.docs-prev-next .wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  align-items: start !important;
+}
 </style>
