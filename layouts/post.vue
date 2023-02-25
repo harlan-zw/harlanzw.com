@@ -33,9 +33,6 @@ defineOgImageScreenshot({
 .toc {
   top: 160px !important;
 }
-.docs-page-content {
-  grid-template-columns: minmax(50px, 200px) minmax(600px, 1fr) minmax(250px, 250px) !important;
-}
 
 .docs-prev-next .wrapper {
   overflow: hidden;
