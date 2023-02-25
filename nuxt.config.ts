@@ -1,8 +1,7 @@
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
-import { defineNuxtConfig } from 'nuxt/config'
+process.env.THEME_DEV_STUDIO_PATH='@nuxt-themes/tokens'
 
 export default defineNuxtConfig({
-  extends: ['@nuxt-themes/docus', 'nuxt-seo-kit'],
+  extends: ['nuxt-seo-kit', '@nuxt-themes/docus'],
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
@@ -36,7 +35,9 @@ export default defineNuxtConfig({
 
   pinceau: {
     configFileName: 'tokens.config',
-    debug: false,
+    studio: false,
+    debug: true,
+    followSymbolicLinks: false,
   },
 
   app: {
@@ -81,6 +82,10 @@ export default defineNuxtConfig({
     domains: [
       'avatars0.githubusercontent.com',
     ],
+  },
+
+  studio: {
+    enabled: false,
   },
 
   nitro: {
