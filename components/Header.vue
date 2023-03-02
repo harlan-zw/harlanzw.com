@@ -18,7 +18,7 @@ const { data: nav } = await useHeaderNav()
                     {{ link.title }}
                   </div>
                   <!-- Render Prefetch hints for all navigation pages -->
-                  <Link :key="key" rel="prefetch" :href="link.path" />
+                  <Link :key="key" rel="prefetch" :href="link._path" />
                 </NuxtLink>
               </li>
             </template>
