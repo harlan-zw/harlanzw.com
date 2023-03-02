@@ -15,7 +15,6 @@ const month = formatPublishedDate({ month: 'short' })
 const day = dayNth(formatPublishedDate({ day: 'numeric' }))
 
 const card = ref()
-const cardHovered = useElementHover(card)
 
 const marqueeEl = ref()
 
@@ -23,50 +22,54 @@ const marqueePosition = ref(0)
 const marqueeDelay = ref(0)
 const marqueeDuration = ref(0)
 
-const marqueTransition = useTransition(marqueePosition, {
-  duration: marqueeDuration,
-  delay: marqueeDelay,
-  transition: TransitionPresets.easeInOut,
-})
+onMounted(() => {
+  const cardHovered = useElementHover(card)
 
-const startMarquee = () => {
-  const $marquee: HTMLElement = marqueeEl.value
-  const $child = $marquee.children[0] as HTMLElement
-  const offset = $child.offsetWidth - marqueeEl.value.offsetWidth
-  if (offset === 0 || marqueeDuration.value === 1000)
-    return
-  // set the duration based on the width we need to traverse
-  const initialDuration = offset * 20
-  // wait a bit before starting to give the user a chance to realise what's happening
-  const initialDelay = 350
-  // reset variables
-  marqueeDuration.value = initialDuration
-  marqueeDelay.value = initialDelay
-  marqueePosition.value = offset
-
-  watch(marqueTransition, (v) => {
-    $child.style.transform = `translateX(-${v}px)`
-    if (v === offset) {
-      // wait before going back, go back quickly
-      marqueeDelay.value = 2500
-      marqueeDuration.value = 1000
-      marqueePosition.value = 0
-    }
-    else if (cardHovered.value && v === 0) {
-      marqueeDuration.value = initialDuration
-      marqueePosition.value = offset
-      marqueeDelay.value = initialDelay
-    }
-    else {
-      marqueeDuration.value = initialDuration
-      marqueeDelay.value = initialDelay
-    }
+  const marqueTransition = useTransition(marqueePosition, {
+    duration: marqueeDuration,
+    delay: marqueeDelay,
+    transition: TransitionPresets.easeInOut,
   })
-}
 
-watch(cardHovered, (v) => {
-  if (v)
-    startMarquee()
+  const startMarquee = () => {
+    const $marquee: HTMLElement = marqueeEl.value
+    const $child = $marquee.children[0] as HTMLElement
+    const offset = $child.offsetWidth - marqueeEl.value.offsetWidth
+    if (offset === 0 || marqueeDuration.value === 1000)
+      return
+    // set the duration based on the width we need to traverse
+    const initialDuration = offset * 20
+    // wait a bit before starting to give the user a chance to realise what's happening
+    const initialDelay = 350
+    // reset variables
+    marqueeDuration.value = initialDuration
+    marqueeDelay.value = initialDelay
+    marqueePosition.value = offset
+
+    watch(marqueTransition, (v) => {
+      $child.style.transform = `translateX(-${v}px)`
+      if (v === offset) {
+        // wait before going back, go back quickly
+        marqueeDelay.value = 2500
+        marqueeDuration.value = 1000
+        marqueePosition.value = 0
+      }
+      else if (cardHovered.value && v === 0) {
+        marqueeDuration.value = initialDuration
+        marqueePosition.value = offset
+        marqueeDelay.value = initialDelay
+      }
+      else {
+        marqueeDuration.value = initialDuration
+        marqueeDelay.value = initialDelay
+      }
+    })
+  }
+
+  watch(cardHovered, (v) => {
+    if (v)
+      startMarquee()
+  })
 })
 </script>
 
