@@ -23,4 +23,7 @@
 ::v-deep(a) {
   margin-bottom: 0 !important;
 }
+::v-deep(ul) {
+  @apply flex space-x-4;
+}
 </style>
