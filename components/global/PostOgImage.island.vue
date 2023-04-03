@@ -19,7 +19,7 @@ const initialStyles = {
 </script>
 
 <template>
-<div :style="containerStyles" class="w-full h-full flex flex-col text-white relative">
+<div :style="containerStyles" class="w-full h-full flex flex-row text-white relative">
   <div class="py-10 px-10">
     <div :style="{ fontSize: '70px' }" class="mt-10 font-bold mb-10 flex flex-row justify-between items-center">
       {{ title }}
