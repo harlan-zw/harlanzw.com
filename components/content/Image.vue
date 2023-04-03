@@ -33,10 +33,15 @@ const loadingType = computed(() => {
   return (props.lazy === true || props.lazy === 'true') ? 'lazy' : 'eager'
 })
 
-const src = props.src
-  .replace('.png', '')
-  .replace('.jpeg', '')
 const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
+
+const $img = useImage()
+
+const src = $img(props.src
+  .replace('.png', '')
+  .replace('.jpeg', ''), {}, {
+  provider,
+})
 </script>
 
 <template>

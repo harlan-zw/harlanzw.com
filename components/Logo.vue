@@ -12,7 +12,6 @@ const initials = siteMeta.name
       :src="siteMeta.logo"
       width="80"
       height="80"
-      format="jpeg"
       :alt="siteMeta.name"
       provider="cloudinary"
       style="width: 40px; height: 40px;"
