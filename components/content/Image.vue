@@ -37,9 +37,7 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 
 const $img = useImage()
 
-const src = $img(props.src
-  .replace('.png', '')
-  .replace('.jpeg', ''), {}, {
+const src = $img(props.src, {}, {
   provider,
 })
 </script>
@@ -72,6 +70,6 @@ figure {
 }
 
 figure :deep(img:not([src$=".svg"])) {
-  @apply w-auto rounded-lg shadow-lg;
+  @apply w-auto rounded-lg shadow-lg max-h-70vh mx-auto;
 }
 </style>
