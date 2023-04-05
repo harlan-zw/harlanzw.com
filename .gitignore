@@ -10,3 +10,6 @@ dist
 images/*
 !images/README.md
 .vercel
+
+# Local Netlify folder
+.netlify
