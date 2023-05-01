@@ -1,10 +1,9 @@
 ---
 title: "March 2023: Planning a year of travel and moving out"
 description: "I share my updates for March covering my open-source development, financials and personal updates."
-publishedAt: '2023-03-01'
+publishedAt: '2023-04-01'
 aside: false
 excerpt: 'I share my updates for March covering my open-source development, financials and personal updates'
-status: unlisted
 tags:
 - newsletter
 ---
