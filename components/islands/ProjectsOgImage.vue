@@ -3,6 +3,7 @@ const props = defineProps({
   path: String,
   title: String,
   description: String,
+  totalStars: Number
 })
 const containerStyles = {
   padding: '0 60px',
@@ -19,12 +20,14 @@ const initialStyles = {
 </script>
 
 <template>
-<div :style="containerStyles" class="w-full h-full flex flex-row text-white items-center relative">
+<div :style="containerStyles" class="w-full h-full flex text-white flex-row items-center relative">
+  <Icon name="logos:nuxt-icon" style="height: 504px; width: 768px; left: 70px; top: 30px; position: absolute; opacity: 0.1;" />
   <div class="pr-10" style="width: 700px;">
     <div :style="{ fontSize: '70px', fontWeight: '900' }" class="font-bolder mb-10 flex flex-row justify-between items-center">
       {{ title }}
     </div>
     <p :style="{ fontSize: '30px', lineHeight: '1.5em' }" class="text-gray-300 mb-10" v-html="description"></p>
+    <div :style="{ fontSize: '50px' }" class="flex flex-row">⭐ {{ totalStars }} Stars</div>
   </div>
   <div class="items-center justify-center" style="width: 350px;">
     <img src="/harlan-wilton.jpeg" width="350" height="350" class="rounded-xl mb-10">

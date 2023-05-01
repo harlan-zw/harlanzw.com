@@ -20,6 +20,7 @@ const initialStyles = {
 
 <template>
 <div :style="containerStyles" class="w-full h-full flex flex-row text-white relative">
+  <Icon name="logos:nuxt-icon" style="height: 504px; width: 768px; left: 70px; top: 30px; position: absolute; opacity: 0.1;" />
   <div class="py-10 px-10">
     <div :style="{ fontSize: '70px' }" class="mt-10 font-bold mb-10 flex flex-row justify-between items-center">
       {{ title }}
