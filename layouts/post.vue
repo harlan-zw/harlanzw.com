@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { page: post } = useContent()
-defineOgImageScreenshot({
-  delay: 1000,
+defineOgImageStatic({
+  component: 'PostOgImage',
 })
 </script>
 
