@@ -33,6 +33,8 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
 
+  devtools: true,
+
   pinceau: {
     configFileName: 'tokens.config',
     studio: false,
