@@ -107,8 +107,8 @@ devDependencies:
     specifier: ^2.3.0
     version: 2.3.0(rollup@3.21.3)
   nuxt-simple-sitemap:
-    specifier: ^2.4.21
-    version: 2.4.21(rollup@3.21.3)
+    specifier: ^2.4.22
+    version: 2.4.22(rollup@3.21.3)
   nuxt-windicss:
     specifier: ^2.6.1
     version: 2.6.1(rollup@3.21.3)(vite@4.3.4)
@@ -1642,7 +1642,7 @@ packages:
       create-require: 1.1.1
       defu: 6.1.2
       jiti: 1.18.2
-      pathe: 1.1.0
+      pathe: 1.0.0
       pkg-types: 1.0.2
       postcss-import-resolver: 2.0.0
       scule: 1.0.0
@@ -7778,8 +7778,8 @@ packages:
       - supports-color
     dev: true
 
-  /nuxt-simple-sitemap@2.4.21(rollup@3.21.3):
-    resolution: {integrity: sha512-TMTVtj4yAdBDqNtNN60v6S1vtf93dOzY7+k52AchLodpD7RNH1r5pHQJnemJfrtgJ7b5ikeyDVLRohg9Cd+UNw==}
+  /nuxt-simple-sitemap@2.4.22(rollup@3.21.3):
+    resolution: {integrity: sha512-tf56ADZeZvUMMNahzRi4/bTD+pTsRIND2fhViGo21T9W05DZvebNBTaoeIOqdH3TwEsEht4XaEOXYqGuvKHKOg==}
     dependencies:
       '@nuxt/kit': 3.4.3(rollup@3.21.3)
       chalk: 5.2.0
@@ -10238,7 +10238,7 @@ packages:
       local-pkg: 0.4.3
       magic-string: 0.27.0
       mlly: 1.2.0
-      pathe: 1.1.0
+      pathe: 1.0.0
       pkg-types: 1.0.2
       scule: 1.0.0
       strip-literal: 1.0.1
