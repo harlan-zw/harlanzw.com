@@ -98,8 +98,8 @@ devDependencies:
     specifier: ^0.4.0
     version: 0.4.0(rollup@3.21.3)(vue@3.2.47)
   nuxt-og-image:
-    specifier: ^2.0.0-beta.28
-    version: 2.0.0-beta.28(rollup@3.21.3)
+    specifier: ^2.0.0-beta.31
+    version: 2.0.0-beta.31(rollup@3.21.3)(vue@3.2.47)
   nuxt-seo-kit:
     specifier: ^1.3.8
     version: 1.3.8(@unhead/vue@1.1.26)(rollup@3.21.3)(vue@3.2.47)
@@ -7664,8 +7664,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /nuxt-og-image@2.0.0-beta.28(rollup@3.21.3):
-    resolution: {integrity: sha512-x5GVA4TXdQmSSooG3G6Zpz6edx2rmW6Ytdg0w80Sp4e+7hFTXV5qmkOlzy13sYa5ROySzqBZ1oVSdoyrmTk1Nw==}
+  /nuxt-og-image@2.0.0-beta.31(rollup@3.21.3)(vue@3.2.47):
+    resolution: {integrity: sha512-KxllyR3bzeGGlEU8H+jidrxnkQi1HGlCrGhOgHdgybPSImdMLuETQ61PklK+k4VztCufnSXMnB4YqW0Um2GEDg==}
     dependencies:
       '@nuxt/kit': 3.4.3(rollup@3.21.3)
       '@resvg/resvg-wasm': 2.4.1
@@ -7680,6 +7680,7 @@ packages:
       fs-extra: 11.1.1
       globby: 13.1.4
       launch-editor: 2.6.0
+      nuxt-icon: 0.4.0(rollup@3.21.3)(vue@3.2.47)
       nypm: 0.2.0
       ofetch: 1.0.1
       ohash: 1.1.2
@@ -7701,6 +7702,7 @@ packages:
       - rollup
       - supports-color
       - utf-8-validate
+      - vue
     dev: true
 
   /nuxt-schema-org@2.1.3(@unhead/vue@1.1.26)(rollup@3.21.3):
