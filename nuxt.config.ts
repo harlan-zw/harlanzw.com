@@ -1,5 +1,3 @@
-process.env.THEME_DEV_STUDIO_PATH='@nuxt-themes/tokens'
-
 export default defineNuxtConfig({
   extends: ['nuxt-seo-kit', '@nuxt-themes/docus'],
   modules: [
