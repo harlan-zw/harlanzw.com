@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<{
   src: string
   lazy?: boolean | 'false' | 'true'
   width?: number
+  noMargin?: boolean
 }>(), {
   lazy: true,
 })
@@ -43,7 +44,7 @@ const src = $img(props.src, {}, {
 </script>
 
 <template>
-  <figure :style="shiftLargeImgStyles">
+  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:(!my-10)']">
     <nuxt-img
       v-bind="$attrs"
       :alt="alt"
@@ -60,7 +61,7 @@ const src = $img(props.src, {}, {
 
 <style scoped>
 figure {
-  @apply transform lg:(!my-10 max-w-900px) mx-auto max-w-full;
+  @apply transform lg:(max-w-900px) mx-auto max-w-full;
 }
 
 @media(max-width: 1024px) {
