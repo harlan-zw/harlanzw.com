@@ -10,10 +10,12 @@ tags:
 ---
 
 ::Alert
-This is a monthly newsletter I send to my GitHub sponsors. It was originally written at the end of February.
+Welcome to my monthly newsletter series.
+Each month I send an update of my journey working on open-source to my <a href="https://github.com/harlan-zw/" target="_blank'>GitHub sponsors</a> community.
 <br><br>
-Get monthly updates when I write them by joining my GitHub sponsors community as well as many other perks.
+After the month is over, I post it publicly here.
 ::
+
 
 Hello, my amazing sponsors! Welcome to first ever newsletter. I have some exciting things to share with you.
 

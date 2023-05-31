@@ -8,9 +8,14 @@ tags:
 - newsletter
 ---
 
+
 ::Alert
-This is an unlisted newsletter post for my GitHub sponsors. It will be posted publicly at the towards the end of April.
+Welcome to my monthly newsletter series.
+Each month I send an update of my journey working on open-source to my <a href="https://github.com/harlan-zw/" target="_blank'>GitHub sponsors</a> community.
+<br><br>
+After the month is over, I post it publicly here.
 ::
+
 
 ## Personal Updates
 
