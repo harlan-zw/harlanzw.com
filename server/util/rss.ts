@@ -27,12 +27,13 @@ export async function generateBlogFeed(event) {
     if (post._path === '/blog' || post._path === '/blog/_dir')
       continue
     // this will return the SSR content of the post
-    const content = await $fetch<string>(post._path)
+    const content = await $fetch<string>(post._path!)
     let $ = cheerio.load(content)
     const prose = $('.prose').html()
-    $ = cheerio.load(prose)
+    $ = cheerio.load(prose!)
     // remove all attributes from all elements
     $('*').each(function () {
+      // eslint-disable-next-line @typescript-eslint/no-invalid-this
       this.attribs = {}
     })
     const item = {

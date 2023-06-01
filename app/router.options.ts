@@ -1,7 +1,7 @@
 import type { RouterConfig } from '@nuxt/schema'
 
 // https://router.vuejs.org/api/#routeroptions
-export default <RouterConfig>{
+const RouteOptions: RouterConfig = {
   scrollBehavior(to, from, savedPosition) {
     const nuxtApp = useNuxtApp()
 
@@ -42,3 +42,5 @@ export default <RouterConfig>{
     return { top: 0 }
   },
 }
+
+export default RouteOptions

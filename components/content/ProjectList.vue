@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {defineOgImageDynamic} from "#imports";
+import { defineOgImageDynamic } from '#imports'
 
 const { data: categories } = await useProjects()
 

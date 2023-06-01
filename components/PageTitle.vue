@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { Post } from '~/types'
 
-const props = defineProps({
-  post: Object as PropType<Post>,
-})
+defineProps<{ post: Post }>()
 </script>
 
 <template>

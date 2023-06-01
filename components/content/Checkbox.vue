@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const value = ref(false)
-const changed = () => {
+function changed() {
   value.value = !value.value
 }
 </script>

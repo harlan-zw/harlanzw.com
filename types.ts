@@ -16,6 +16,7 @@ export interface Post extends ParsedContent {
   renderer: 'post' | 'page'
   icon?: string
   nav?: boolean
+  status?: 'sponsors-only' | 'unlisted' | 'published'
 }
 export interface Page extends Post {
 }

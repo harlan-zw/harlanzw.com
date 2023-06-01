@@ -44,7 +44,7 @@ const src = $img(props.src, {}, {
 </script>
 
 <template>
-  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:(!my-10)']">
+  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:(!my-10)']" @click.prevent="handleClick">
     <nuxt-img
       v-bind="$attrs"
       :alt="alt"

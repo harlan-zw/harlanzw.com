@@ -3,17 +3,17 @@ import { queryContent } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { groupBy } from '~/logic'
 
-export const useProjects = () => {
+export function useProjects() {
   return useAsyncData('content:projects', () =>
     queryContent<JsonParsedContent<ProjectList>>('_projects').findOne(),
   )
 }
 
-export const useHeaderNav = () => {
+export function useHeaderNav() {
   return useAsyncData('content:navigation', () => fetchContentNavigation())
 }
 
-export const usePostList = () => {
+export function usePostList() {
   return useAsyncData('content:post-partials', () => queryContent<Post>()
     .where({ _path: /blog\/*/ })
     .without(['head', 'body', 'excerpt', '_'])
@@ -26,7 +26,7 @@ export const usePostList = () => {
   })
 }
 
-export const useRoutesContent = <T extends Post>(path?: string) => {
+export function useRoutesContent<T extends Post>(path?: string) {
   if (!path)
     path = useRoute().path
   return useAsyncData(`content:${path}`, () => queryContent<T>()

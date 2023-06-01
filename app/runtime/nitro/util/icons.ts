@@ -17,28 +17,31 @@ interface LoadIconResponse {
 export const iconCollections = collections
   .sort((a, b) => b.length - a.length)
 
-export const tagIsIcon = (tag: string) => !!iconCollections.find((i) => {
-  if (!tag || !tag.startsWith('i-'))
-    return false
+export function tagIsIcon(tag: string) {
+  return !!iconCollections.find((i) => {
+    if (!tag || !tag.startsWith('i-'))
+      return false
 
-  return tag.substring(2).startsWith(`${i}-`)
-})
+    return tag.substring(2).startsWith(`${i}-`)
+  })
+}
 
-export const normaliseSvgAttrs = (svg: string, icon: string) => {
+export function normaliseSvgAttrs(svg: string, icon: string) {
   // svg is possibly empty for an invalid icon
   if (!svg)
     return false
   const $ = cheerio.load(svg)
-  return <Record<string, any>> {
+  const options: Record<string, any> = {
     ...$('svg').attr(),
     // presume all icons are decorative
     'aria-hidden': true,
     'title': icon,
     'innerHTML': $('svg').html(),
   }
+  return options
 }
 
-export const loadIconForTag = async (tag: string) => {
+export async function loadIconForTag(tag: string) {
   // fix up the tag name splitting v and 1
   if (tag.startsWith('i-emojione-v-1'))
     tag = tag.replace('i-emojione-v-1', 'i-emojione-v1')

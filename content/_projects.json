@@ -46,8 +46,8 @@
           "icon": "noto:world-map"
         },
         {
-          "name": "Unhead",
-          "repo": "harlan-zw/nuxt-unhead",
+          "name": "SEO Experiments",
+          "repo": "harlan-zw/nuxt-seo-experiments",
           "icon": "lucide:triangle"
         },
         {

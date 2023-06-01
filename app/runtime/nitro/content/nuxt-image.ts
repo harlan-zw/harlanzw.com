@@ -23,7 +23,7 @@ export function NuxtImage(content: ParsedContent) {
       const intKeys = ['height', 'width', 'max-height']
       intKeys.forEach((k) => {
         if (node.props[k])
-          node.props[k] = parseInt(node.props[k])
+          node.props[k] = Number.parseInt(node.props[k])
       })
       if (node.props.height && node.props.width) {
         node.props = {

@@ -10,7 +10,7 @@ defineOgImageStatic({
     <SchemaOrgArticle />
     <div class="flex items-center mb-3">
       <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-0" />
-      <TagList :tags="post.tags" />
+      <TagList :tags="post.tags" class="opacity-70 text-sm" />
     </div>
     <PageTitle :post="post" />
     <PostMeta :post="post" />

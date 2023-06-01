@@ -1,34 +1,55 @@
 <script lang="ts" setup>
-defineProps({
+const props = defineProps({
   tag: String,
+  small: Boolean,
+})
+
+const title = computed(() => {
+  switch (props.tag) {
+    case 'nuxt':
+      return 'Nuxt'
+    case 'github':
+      return 'GitHub'
+    case 'vue':
+      return 'Vue.js'
+    case 'vite':
+      return 'Vite'
+    case 'typescript':
+      return 'TypeScript'
+    case 'newsletter':
+      return 'Newsletter'
+    default:
+      return props.tag
+  }
+})
+
+const icon = computed(() => {
+  switch (props.tag) {
+    case 'nuxt':
+      return 'logos:nuxt-icon'
+    case 'github':
+      return 'logos:github'
+    case 'vue':
+      return 'logos:vue'
+    case 'vite':
+      return 'logos:vitejs'
+    case 'typescript':
+      return 'logos:typescript-icon'
+    case 'webpack':
+      return 'logos:webpack'
+    case 'newsletter':
+      return 'line-md:email-twotone'
+    default:
+      return ''
+  }
 })
 </script>
 
 <template>
-  <div>
-    <template v-if="tag === 'nuxt'">
-      <IconNuxt class="inline-block mr-2 mb-3px" height="22" />
-      <span class="opacity-75">Nuxt</span>
-    </template>
-    <template v-else-if="tag === 'github'">
-      <i-logos-github-icon class="inline-block mr-1" height="15" />
-      <span class="opacity-75">GitHub</span>
-    </template>
-    <template v-else-if="tag === 'vue'">
-      <i-vscode-icons-file-type-vue class="inline-block mr-1" height="15" />
-      <span class="opacity-75">Vue</span>
-    </template>
-    <template v-else-if="tag === 'vite'">
-      <i-logos-vitejs class="inline-block mr-1" height="15" />
-      <span class="opacity-75">Vite</span>
-    </template>
-    <template v-else-if="tag === 'typescript'">
-      <i-logos-typescript-icon class="inline-block mr-1" height="15" />
-      <span class="opacity-75">TypeScript</span>
-    </template>
-    <template v-else-if="tag === 'webpack'">
-      <i-logos-webpack class="inline-block mr-1" height="15" />
-      <span class="opacity-75">webpack</span>
-    </template>
+  <div :title="title" class="flex items-center">
+    <Icon :name="icon" :class="small ? '!h-4 !w-4' : '!h-6 !w-6'" />
+    <div v-if="!small" class="ml-1.5 text-sm">
+      {{ title }}
+    </div>
   </div>
 </template>
