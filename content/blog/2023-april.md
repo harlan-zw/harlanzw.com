@@ -13,18 +13,18 @@ tags:
 ### A Month In Thailand
 
 We spent all of April in Thailand, 38 days total.
-We got lucky to sneak into Thailand just before they removed the 45-day visa on entry.
+We got lucky to sneak into Thailand just before they removed the 45-day visa on arrival.
 
 As you'll know from the [last update](/blog/2023-march), we started the month in Ko Chang.
 
 For those interested in our route afterward:
-- Chanthaburi - A small town with charm, but not much to do.
-- Pattaya - Gross city but caught up with some friends here to celebrate Thai New Year.
-- Krabi - Amazing rock formations, would highly recommend the mangrove canoeing. Overall very touristy, wouldn't want to spend too long here.
-- Phi Phi - Tiny scenic island, but again very touristy. Think buckets of cocktails for $4 AUD.
-- Khao Sok - Jungle, caves, lakes, monkeys, waterfalls. One of my favourite places in Thailand.
+- Chanthaburi - A small and quite town with charm, known for its gemstones.
+- Pattaya - Caught up with some friends here to celebrate Thai New Year.
+- Krabi - Amazing rock formations would highly recommend the mangrove canoeing. Overall, touristy, wouldn't want to spend too long here.
+- Koh Phi Phi - Tiny scenic island, but again touristy. Think bucket cocktails for $4.
+- Khao Sok - Jungle, caves, lakes, monkeys and waterfalls. One of my favourite places in Thailand.
 - Chiang Mai - Super-chill and relaxed city. Great food, great people, great vibes.
-- Pai - Quite touristy with a hippy vibe. But the surrounding nature is amazing.
+- Pai - Quite touristy with a hippy vibe. The surrounding nature is amazing.
 
 <Expand>
 <div class="md:grid grid-cols-2 gap-8 my-15">
@@ -37,40 +37,37 @@ For those interested in our route afterward:
 
 ### Thai New Year 🇹🇭
 
-We were lucky enough to be in Thailand for Thai New Year, also known as Songkran. It's a 3 day festival where everyone throws water at each other.
+We were lucky enough to be in Thailand for Songkran. 
 
-Super wholesome activity, hanging out with the kids throwing ice-cold water on anyone passing by.
+Songkran is a festival to mark the start of the Buddhist New Year.
+Water is thrown to symbolize the washing away of sins and bad luck.
 
-We were in Pattaya for the first two days, main victims were old gross expats.
-
-The last day we spent in Krabi.
-We were able to find where the locals were celebrating it.
-Completely different vibe to the foreigners. 
-They have with decked-out cars blasting the "Songkran" anthems, everyone dancing and smothering everyone in spicy, dyed
-baby powder.
+We spent the holiday hanging out with our friends and the Thai locals, throwing icy-cold water at passers-by.
 
 ## Work Updates
 
 ### Nuxt SEO Kit v2 Module Progress
 
-Moving towards the Nuxt SEO Kit v2 module,
-I needed to solve some of the outstanding issues in the v2 of the modules I had published. 
+Getting v2 of Nuxt SEO Kit has been weighing on me for a while.
+
+Making progress towards it meant solving some particularly annoying bugs.
 
 Most of my time was spent on [nuxt-og-image](https://github.com/harlan-zw/nuxt-og-image).
-It's quite a complicated module, working with a lot of tech that I haven't had much experience with.
-Namely WASM and buffer encodings.
 
-I think I went through at least 30 beta release versions trying to solve all the issues...
-Definitely close to a stable release.
+It has been a challenging module.
 
-Other time went towards [nuxt-simple-sitemap](https://github.com/harlan-zw/nuxt-simple-sitemap).
+Debugging WASM code, sifting through nitro code and testing on a number of cloud providers.
 
-The month before I decided to add support for i18n.
-I18n complicates things quite a lot, but it wasn't an unreasonable feature request.
-I have an integration working for the most common configurations,
-but it does get quite complicated and there is more work to do.
+I went through 30 beta releases and things are looking better.
 
-The feedback has been positive to the fixes and the modules overall.
+The rest went into [nuxt-simple-sitemap](https://github.com/harlan-zw/nuxt-simple-sitemap).
+
+In March, I decided to add support for i18n.
+
+I18n is complicated.
+
+While there is still some more work to do it's a lot more stable and the improvements will be incremental.
+
 
 ## Numbers / Financials
 
@@ -98,20 +95,17 @@ The feedback has been positive to the fixes and the modules overall.
 - 💸 $225 AUD (-$420) 645
 - $100 AUD / hour (-$7 / hour)
 
-I tried to avoid freelance work this month.
-I did have some work come in, in fact, two organic leads.
-But I decided to push this work back to May as I wanted to focus on my open-source work
-and wasn't sure how my availability would be.
+April's focus was on open-source work. 
+
+I had two organic leads come in.
+I decided to push the meetings to May where I had more availability while traveling.
 
 ## May plans
 
-In April, I wanted to get Nuxt SEO Kit v2 out.
-The blocker I came across was some of the modules not being stable enough.
-These blockers are now mostly resolved.
+In April, I wanted to get Nuxt SEO Kit v2 out. This was optimistic and unrealistic, unfortunately.
 
-In starting to identify what changes are needed for v2 as well, I identified a bunch of scope that I hadn't considered.
-
-So likely v2 of Nuxt SEO Kit will be a couple of months away still, but I will keep chipping away at it.
+May's plan is to continue the work towards it.
+The estimate for a Nuxt SEO Kit v2 stable release is still a few months away.
 
 ## Final thoughts
 
@@ -121,6 +115,4 @@ It's never satisfying just working on bugs and issues, there's not much to show 
 But this is the way open-source works it seems.
 Periods of rapid development and then periods of slow but steady maintenance to get things stable.
 
-And that's a wrap. Thanks for reading and thanks to my amazing sponsors.
-
-Please get in touch if you feel like it, always happy to chat!
+Thanks for reading and thanks to my amazing sponsors.
