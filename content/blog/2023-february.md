@@ -9,14 +9,6 @@ tags:
 - newsletter
 ---
 
-::Alert
-Welcome to my monthly newsletter series.
-Each month I send an update of my journey working on open-source to my <a href="https://github.com/harlan-zw/" target="_blank">GitHub sponsors</a> community.
-<br><br>
-After the month is over, I post it publicly here.
-::
-
-
 Hello, my amazing sponsors! Welcome to first ever newsletter. I have some exciting things to share with you.
 
 ## Github Sponsors Perk Updates

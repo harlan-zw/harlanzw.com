@@ -1,5 +1,5 @@
 ---
-title: "April 2023: Thai New Year and Nuxt SEO Module Bugs"
+title: "April 2023: Thai New Year and Nuxt SEO Module Progress"
 description: "I spent all of April 2023 traveling within Thailand while working through a bunch of bugs in my Nuxt SEO modules."
 publishedAt: '2023-04-31'
 aside: false
@@ -8,17 +8,9 @@ tags:
   - newsletter
 ---
 
-::Alert
-Welcome to my monthly newsletter series.
-Each month I send an update of my journey working on open-source to my <a href="https://github.com/harlan-zw/" target="_blank">GitHub sponsors</a> community.
-<br><br>
-After the month is over, I post it publicly here.
-::
-
-
 ## Personal Updates
 
-### Travel
+### A Month In Thailand
 
 We spent all of April in Thailand, 38 days total.
 We got lucky to sneak into Thailand just before they removed the 45-day visa on entry.
@@ -43,7 +35,7 @@ For those interested in our route afterward:
 </div>
 </Expand>
 
-#### Thai New Year 🇹🇭
+### Thai New Year 🇹🇭
 
 We were lucky enough to be in Thailand for Thai New Year, also known as Songkran. It's a 3 day festival where everyone throws water at each other.
 
@@ -57,7 +49,29 @@ Completely different vibe to the foreigners.
 They have with decked-out cars blasting the "Songkran" anthems, everyone dancing and smothering everyone in spicy, dyed
 baby powder.
 
-## Numbers
+## Work Updates
+
+### Nuxt SEO Kit v2 Module Progress
+
+Moving towards the Nuxt SEO Kit v2 module,
+I needed to solve some of the outstanding issues in the v2 of the modules I had published. 
+
+Most of my time was spent on [nuxt-og-image](https://github.com/harlan-zw/nuxt-og-image).
+It's quite a complicated module, working with a lot of tech that I haven't had much experience with.
+Namely WASM and some of the more complicated Buffer usages around encoding.
+
+I think I went through at least 30 beta release versions trying to solve all the issues...
+Definitely close to a stable release.
+
+Other time went towards [nuxt-simple-sitemap](https://github.com/harlan-zw/nuxt-simple-sitemap).
+
+The month before I decided to add support for i18n.
+I18n complicates things quite a lot, but it wasn't an unreasonable feature request.
+I have an integration working for the most common i18n setups, but it does get quite complicated.
+
+The feedback has been positive to the fixes and the modules overall.
+
+## Numbers / Financials
 
 - ⭐ 3779 GitHub stars (+199)
 
@@ -65,13 +79,7 @@ baby powder.
 
 <Image src="/april-fathom.png" alt="My April Fathom Traffic" />
 
-## Work Updates / Financials
-
-Time spent in front of a screen took a small hit, but still managed to get many hours in.
-
 ### Open-Source
-
-My open-source time was mostly spent being reactive. Trying to solve many of the issues coming in to my Nuxt modules.
 
 - ⌛ 70.75 hrs  (-17.25 hrs)
 - 💸 $1,013 AUD (+$226) - Had a payout from the Windi CSS project as it was sunset.
@@ -80,23 +88,8 @@ My open-source time was mostly spent being reactive. Trying to solve many of the
 **Main projects**
 
 - **34 hours [nuxt-og-image](https://github.com/harlan-zw/nuxt-og-image)**
-
-More time spent wrestling WASM issues on different Nitro providers. I managed to get things
-much more stable, although Netlify still has issues with PNG images.
-
-
 - **16.5 hours [nuxt-simple-sitemap](https://github.com/harlan-zw/nuxt-simple-sitemap)**
-
-The Nuxt Simple Sitemap logic got quite a bit more complex than I initially anticipated. The issues mainly related
-to generated a sitemap at runtime while still honoring prerendered, discovered URLs.
-I also decided to support i18n which opened many issues.
-
-Much of this time was on stabilising these improvements.
-The feedback has been positive to the fixes and the module overall.
-
 - **6 hours [Nuxt](https://github.com/nuxt/nuxt)** 
-
-Not too much on Nuxt, mainly some triaging and minor fixes.
 
 ### Freelancing
 
@@ -111,7 +104,7 @@ and wasn't sure how my availability would be.
 
 ## May plans
 
-In April I wanted to get Nuxt SEO Kit v2 out.
+In April, I wanted to get Nuxt SEO Kit v2 out.
 The blocker I came across was some of the modules not being stable enough.
 These blockers are now mostly resolved.
 

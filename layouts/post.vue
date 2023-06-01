@@ -10,12 +10,13 @@ defineOgImageStatic({
     <SchemaOrgArticle />
     <div class="flex items-center mb-3">
       <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-0" />
-      <TagList :tags="post.tags" class="opacity-70 text-sm" />
+      <TagList :tags="post.tags" class="opacity-50 hover:opacity-100 transition text-sm" />
     </div>
     <PageTitle :post="post" />
     <PostMeta :post="post" />
     <article>
       <div class="prose-wrap max-w-85ch">
+        <NewsletterAlert v-if="post.tags.includes('newsletter')" class="my-10" />
         <Prose>
           <ContentRenderer :value="post" />
         </Prose>
