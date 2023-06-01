@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '~/app/module',
     '~/modules/unplugin-icons',
     '@nuxt/content',
+    'nuxt-seo-ui',
   ],
 
   runtimeConfig: {

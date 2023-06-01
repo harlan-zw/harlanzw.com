@@ -9,7 +9,7 @@ defineOgImageStatic({
   <DocsPageLayout>
     <SchemaOrgArticle />
     <div class="flex items-center mb-3">
-      <TopBreadcrumbs v-if="post.breadcrumbs !== false" class="mb-0" />
+      <SBreadcrumb v-if="post.breadcrumbs !== false" hide-separator hide-current class="mb-0" />
       <TagList :tags="post.tags" class="opacity-50 hover:opacity-100 transition text-sm" />
     </div>
     <PageTitle :post="post" />

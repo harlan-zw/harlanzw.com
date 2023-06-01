@@ -70,8 +70,8 @@ devDependencies:
     specifier: ^0.5.5
     version: 0.5.5(nuxt@3.5.2)(rollup@3.22.0)(vite@4.3.9)
   '@nuxt/image-edge':
-    specifier: 1.0.0-28092461.2ed711e
-    version: 1.0.0-28092461.2ed711e(rollup@3.22.0)
+    specifier: 1.0.0-28092818.5c21f4c
+    version: 1.0.0-28092818.5c21f4c(rollup@3.22.0)
   '@nuxtjs/color-mode':
     specifier: ^3.2.0
     version: 3.2.0(rollup@3.22.0)
@@ -108,6 +108,9 @@ devDependencies:
   nuxt-seo-kit:
     specifier: ^1.3.8
     version: 1.3.8(@unhead/vue@1.1.27)(rollup@3.22.0)(vue@3.3.4)
+  nuxt-seo-ui:
+    specifier: ^0.1.4
+    version: 0.1.4(rollup@3.22.0)
   nuxt-simple-robots:
     specifier: ^2.3.0
     version: 2.3.0(rollup@3.22.0)
@@ -1405,8 +1408,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nuxt/image-edge@1.0.0-28092461.2ed711e(rollup@3.22.0):
-    resolution: {integrity: sha512-O+KnOotFlA3E+dpb++b5KIC5fQBCv6WC+Tv/Zz4Kjn5fqeqYxJULEMOS2Y1SOT2EurMThOZ+86GVpDzBd9E9cA==}
+  /@nuxt/image-edge@1.0.0-28092818.5c21f4c(rollup@3.22.0):
+    resolution: {integrity: sha512-3bXhj6MsdP+e8Os4lvlCSiBOHNS/1uQ72CEIMB7MD2XRVPoOPdfPCV4SyJbB5e/ZvEHTcsIXA1JHc1O6/qhwoQ==}
     engines: {node: ^14.16.0 || >=16.11.0}
     dependencies:
       '@nuxt/kit': 3.5.2(rollup@3.22.0)
@@ -1800,7 +1803,7 @@ packages:
   /@nuxthq/studio@0.12.1(rollup@3.22.0):
     resolution: {integrity: sha512-g9GV8JkQqqYLtP+gsNtPr4fh49jc3eIdAB2ZfiudZKkFdW0BxtT/xPx8RjNYQwyInKssDDB26zzYrRYH9hhHCQ==}
     dependencies:
-      '@nuxt/kit': 3.5.0(rollup@3.22.0)
+      '@nuxt/kit': 3.5.2(rollup@3.22.0)
       defu: 6.1.2
       nuxt-component-meta: 0.5.1(rollup@3.22.0)
       nuxt-config-schema: 0.4.6(rollup@3.22.0)
@@ -4536,14 +4539,6 @@ packages:
       tapable: 1.1.3
     dev: true
 
-  /enhanced-resolve@5.13.0:
-    resolution: {integrity: sha512-eyV8f0y1+bzyfh8xAwW/WTSZpLbjhqc4ne9eGSH4Zo2ejdyiNG9pU6mf9DG8a7+Auk6MFTlNOT4Y2y/9k8GKVg==}
-    engines: {node: '>=10.13.0'}
-    dependencies:
-      graceful-fs: 4.2.11
-      tapable: 2.2.1
-    dev: true
-
   /enhanced-resolve@5.14.1:
     resolution: {integrity: sha512-Vklwq2vDKtl0y/vtwjSesgJ5MYS7Etuk5txS8VdKL4AOS1aUlD96zqIfsOSLQsdv3xgMRbtkWM8eG9XDfKUPow==}
     engines: {node: '>=10.13.0'}
@@ -4737,7 +4732,7 @@ packages:
       eslint-plugin-import: '*'
     dependencies:
       debug: 4.3.4
-      enhanced-resolve: 5.13.0
+      enhanced-resolve: 5.14.1
       eslint: 8.41.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.59.1)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0)
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.59.1)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0)
@@ -7866,8 +7861,8 @@ packages:
       tslib: 2.5.2
     dev: true
 
-  /node-abi@3.40.0:
-    resolution: {integrity: sha512-zNy02qivjjRosswoYmPi8hIKJRr8MpQyeKT6qlcq/OnOgA3Rhoae+IYOqsM9V5+JnHWmxKnWOT2GxvtqdtOCXA==}
+  /node-abi@3.43.0:
+    resolution: {integrity: sha512-QB0MMv+tn9Ur2DtJrc8y09n0n6sw88CyDniWSX2cHW10goQXYPK9ZpFJOktDS4ron501edPX6h9i7Pg+RnH5nQ==}
     engines: {node: '>=10'}
     dependencies:
       semver: 7.5.1
@@ -8273,6 +8268,19 @@ packages:
       - vue
     dev: true
 
+  /nuxt-seo-ui@0.1.4(rollup@3.22.0):
+    resolution: {integrity: sha512-xPCxN4ajMgRn49zO3yBWtxiq26LiW491utGM3+gbTFlEkgXgw67CDgrvyEtiLpUK0uzrdirBQFOPoz9JUedfvw==}
+    dependencies:
+      '@nuxt/kit': 3.5.2(rollup@3.22.0)
+      nuxt-site-config: 0.2.1(rollup@3.22.0)
+      pathe: 1.1.0
+      radix3: 1.0.1
+      ufo: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /nuxt-simple-robots@1.0.9(rollup@3.22.0):
     resolution: {integrity: sha512-KR4zbVnHG2lKV97LOZeLIb8KR90VNfzRX9wj1qXZSbt3wzTgS6YM10QMoXWXjDN5YAVlq99QwJ6OERgq1Fwj7g==}
     dependencies:
@@ -8324,6 +8332,18 @@ packages:
       knitwork: 1.0.0
       pathe: 1.1.0
       radix3: 1.0.1
+      ufo: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /nuxt-site-config@0.2.1(rollup@3.22.0):
+    resolution: {integrity: sha512-Fzlfy9gmlc17NA0TCJR+khL+QNS2i0T90xpmI2aLdtUMstzJzBao6m4T1v7NvaexnIL3IWrD0PrDd3qAt8z3nQ==}
+    dependencies:
+      '@nuxt/kit': 3.5.2(rollup@3.22.0)
+      defu: 6.1.2
+      pkg-types: 1.0.3
       ufo: 1.1.2
     transitivePeerDependencies:
       - rollup
@@ -9318,7 +9338,7 @@ packages:
       minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.40.0
+      node-abi: 3.43.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
