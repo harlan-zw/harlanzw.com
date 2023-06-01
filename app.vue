@@ -25,6 +25,9 @@ const year = computed(() => new Date().getFullYear())
           <SocialIcons />
         </div>
         <p class="mb-3">
+          Like this site? <NuxtLink to="https://github.com/harlan-zw/harlanzw.com">Clone away.</NuxtLink>
+        </p>
+        <p class="mb-3">
           © {{ year }}-PRESENT {{ siteMeta.name }}. All rights reserved.
         </p>
       </footer>

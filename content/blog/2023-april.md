@@ -58,7 +58,7 @@ I needed to solve some of the outstanding issues in the v2 of the modules I had 
 
 Most of my time was spent on [nuxt-og-image](https://github.com/harlan-zw/nuxt-og-image).
 It's quite a complicated module, working with a lot of tech that I haven't had much experience with.
-Namely WASM and some of the more complicated Buffer usages around encoding.
+Namely WASM and buffer encodings.
 
 I think I went through at least 30 beta release versions trying to solve all the issues...
 Definitely close to a stable release.
@@ -67,7 +67,8 @@ Other time went towards [nuxt-simple-sitemap](https://github.com/harlan-zw/nuxt-
 
 The month before I decided to add support for i18n.
 I18n complicates things quite a lot, but it wasn't an unreasonable feature request.
-I have an integration working for the most common i18n setups, but it does get quite complicated.
+I have an integration working for the most common configurations,
+but it does get quite complicated and there is more work to do.
 
 The feedback has been positive to the fixes and the modules overall.
 
