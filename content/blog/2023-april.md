@@ -1,9 +1,9 @@
 ---
-title: "April 2023: Thai New Year and Nuxt SEO Module Progress"
-description: "I spent all of April 2023 traveling within Thailand while working through a bunch of bugs in my Nuxt SEO modules."
+title: "April 2023: Thai New Year and Nuxt SEO Progress"
+description: "April was spent traveling within Thailand while working through a bunch of bugs in my Nuxt SEO modules."
 publishedAt: '2023-04-31'
 aside: false
-excerpt: 'I spent all of April 2023 traveling within Thailand while working through a bunch of bugs in my Nuxt SEO modules.'
+excerpt: 'April was spent traveling within Thailand while working through a bunch of bugs in my Nuxt SEO modules.'
 tags:
   - newsletter
 ---
@@ -18,10 +18,10 @@ We got lucky to sneak into Thailand just before they removed the 45-day visa on 
 As you'll know from the [last update](/blog/2023-march), we started the month in Ko Chang.
 
 For those interested in our route afterward:
-- Chanthaburi - A small and quite town with charm, known for its gemstones.
+- Chanthaburi - A small and quiet town with charm, known for its gemstones.
 - Pattaya - Caught up with some friends here to celebrate Thai New Year.
-- Krabi - Amazing rock formations would highly recommend the mangrove canoeing. Overall, touristy, wouldn't want to spend too long here.
-- Koh Phi Phi - Tiny scenic island, but again touristy. Think bucket cocktails for $4.
+- Krabi - Amazing rock formations. Would highly recommend mangrove canoeing.
+- Ko Phi Phi - Tiny scenic island but very touristy. Think bucket cocktails for $4.
 - Khao Sok - Jungle, caves, lakes, monkeys and waterfalls. One of my favourite places in Thailand.
 - Chiang Mai - Super-chill and relaxed city. Great food, great people, great vibes.
 - Pai - Quite touristy with a hippy vibe. The surrounding nature is amazing.
@@ -30,7 +30,7 @@ For those interested in our route afterward:
 <div class="md:grid grid-cols-2 gap-8 my-15">
 <Image src="/april-mangrove.png" alt="Saw a monkey in the mangroves while kayaking" no-margin />
 <Image src="/april-koa-sok.png" alt="The jungles of Khao Sok"  no-margin />
-<Image src="/april-phi-phi.png" alt="Phi Phi Islands"  no-margin />
+<Image src="/april-phi-phi.png" alt="Ko Phi Phi"  no-margin />
 <Image src="/april-pi.png" alt="In the Pai hole"  no-margin />
 </div>
 </Expand>
@@ -42,7 +42,8 @@ We were lucky enough to be in Thailand for Songkran.
 Songkran is a festival to mark the start of the Buddhist New Year.
 Water is thrown to symbolize the washing away of sins and bad luck.
 
-We spent the holiday hanging out with our friends and the Thai locals, throwing icy-cold water at passers-by.
+We spent the holiday hanging out with our friends and the Thai locals,
+throwing icy-cold water at passers-by on the street.
 
 ## Work Updates
 
