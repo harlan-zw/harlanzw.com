@@ -93,7 +93,7 @@ While there is still some more work to do it's a lot more stable and the improve
 ### Freelancing
 
 - ⌛ 2.25 hrs (-4.75 hrs)
-- 💸 $225 AUD (-$420) 645
+- 💸 $225 AUD (-$420)
 - $100 AUD / hour (-$7 / hour)
 
 April's focus was on open-source work. 
