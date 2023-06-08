@@ -59,8 +59,10 @@
   },
   "pnpm": {
     "overrides": {
-      "unstorage": "^1.6.0",
       "cheerio": "1.0.0-rc.10"
     }
+  },
+  "dependencies": {
+    "unstorage": "^1.6.1"
   }
 }
