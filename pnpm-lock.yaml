@@ -103,8 +103,8 @@ devDependencies:
     specifier: ^0.4.1
     version: 0.4.1(rollup@3.24.0)(vue@3.3.4)
   nuxt-og-image:
-    specifier: ^2.0.0-beta.51
-    version: 2.0.0-beta.51(rollup@3.24.0)(vue@3.3.4)
+    specifier: ^2.0.0-beta.52
+    version: 2.0.0-beta.52(rollup@3.24.0)(vue@3.3.4)
   nuxt-seo-kit:
     specifier: ^1.3.8
     version: 1.3.8(@unhead/vue@1.1.27)(rollup@3.24.0)(vue@3.3.4)
@@ -8390,8 +8390,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /nuxt-og-image@2.0.0-beta.51(rollup@3.24.0)(vue@3.3.4):
-    resolution: {integrity: sha512-hx77w6elXKEOaLLt20UsQQDK57tCFB8FAGl1K84bj/bCqkiPokPkCfqCNywsAYxzy+e3roVUU1aZEi43h8WbLw==}
+  /nuxt-og-image@2.0.0-beta.52(rollup@3.24.0)(vue@3.3.4):
+    resolution: {integrity: sha512-3Tr+xuB8BhNbtq9GRNcaHW8di1jfLqNcIdwgU4oJ0uSU+oVzAJIzipnevTO46GYn/u3ypzKshMKLJIA688uvqg==}
     dependencies:
       '@nuxt/kit': 3.5.3(rollup@3.24.0)
       '@resvg/resvg-js': 2.4.1
