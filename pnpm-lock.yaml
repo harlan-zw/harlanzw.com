@@ -107,8 +107,8 @@ devDependencies:
     specifier: ^0.4.1
     version: 0.4.1(rollup@3.24.0)(vue@3.3.4)
   nuxt-og-image:
-    specifier: ^2.0.0-beta.55
-    version: 2.0.0-beta.55(rollup@3.24.0)(vue@3.3.4)
+    specifier: ^2.0.0-beta.57
+    version: 2.0.0-beta.57(rollup@3.24.0)(vue@3.3.4)
   nuxt-seo-kit:
     specifier: ^1.3.8
     version: 1.3.8(@unhead/vue@1.1.27)(rollup@3.24.0)(vue@3.3.4)
@@ -1544,7 +1544,7 @@ packages:
       vite: '*'
     dependencies:
       '@nuxt/kit': 3.5.3(rollup@3.24.0)
-      '@nuxt/schema': 3.5.2(rollup@3.24.0)
+      '@nuxt/schema': 3.5.3(rollup@3.24.0)
       execa: 7.1.1
       nuxt: 3.5.3(@types/node@20.3.0)(eslint@8.42.0)(rollup@3.24.0)(sass@1.63.3)(typescript@5.1.3)
       vite: 4.3.9(@types/node@20.3.0)(sass@1.63.3)
@@ -1656,12 +1656,12 @@ packages:
       knitwork: 1.0.0
       lodash.template: 4.5.0
       mlly: 1.3.0
-      pathe: 1.1.0
+      pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
       semver: 7.5.1
       unctx: 2.3.1
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1715,7 +1715,7 @@ packages:
       scule: 1.0.0
       semver: 7.5.1
       unctx: 2.3.1
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1844,7 +1844,7 @@ packages:
       scule: 1.0.0
       std-env: 3.3.3
       ufo: 1.1.2
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1866,7 +1866,7 @@ packages:
       scule: 1.0.0
       std-env: 3.3.3
       ufo: 1.1.2
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1902,7 +1902,7 @@ packages:
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
       ufo: 1.1.2
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1920,7 +1920,7 @@ packages:
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
       ufo: 1.1.2
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -1956,7 +1956,7 @@ packages:
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
       ufo: 1.1.2
-      unimport: 3.0.7(rollup@3.24.0)
+      unimport: 3.0.8(rollup@3.24.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -8517,13 +8517,13 @@ packages:
       launch-editor: 2.6.0
       ohash: 1.1.2
       pathe: 1.1.1
-      playwright-core: 1.34.0
+      playwright-core: 1.35.0
       radix3: 1.0.1
       satori: 0.4.3
       satori-html: 0.3.2
       sirv: 2.0.3
       std-env: 3.3.3
-      svg2png-wasm: 1.3.4
+      svg2png-wasm: 1.4.0
       tinyws: 0.1.0(ws@8.13.0)
       twemoji: 14.0.2
       ufo: 1.1.2
@@ -8536,8 +8536,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /nuxt-og-image@2.0.0-beta.55(rollup@3.24.0)(vue@3.3.4):
-    resolution: {integrity: sha512-Ry1YK3V9ksmZaGG27AK8eucC1kVlbyNbmg34ECYxgmvmNRdvDxw6mC4CTvnsyEcX30+SHI1henvv964BWKhk8A==}
+  /nuxt-og-image@2.0.0-beta.57(rollup@3.24.0)(vue@3.3.4):
+    resolution: {integrity: sha512-Ezpe7hfsvGLisWUWp55XsB3OEz6lydW2BbnY2yxkEjjqH7Tyq0Sec/3vinjp9GNLZ2haFBCJmIETNt7uDrjbxQ==}
     dependencies:
       '@nuxt/kit': 3.5.3(rollup@3.24.0)
       '@resvg/resvg-js': 2.4.1
@@ -9323,11 +9323,6 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.3.0
       pathe: 1.1.1
-    dev: true
-
-  /playwright-core@1.34.0:
-    resolution: {integrity: sha512-fMUY1+iR6kYbJF/EsOOqzBA99ZHXbw9sYPNjwA4X/oV0hVF/1aGlWYBGPVUEqxBkGANDKMziYoOdKGU5DIP5Gg==}
-    engines: {node: '>=14'}
     dev: true
 
   /playwright-core@1.35.0:
@@ -11004,10 +10999,6 @@ packages:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
     dev: true
 
-  /svg2png-wasm@1.3.4:
-    resolution: {integrity: sha512-gnegOEiLojoUA8l1ZpyuevruqLTIeiMry6gFcLvXf20cBnaSKLCNl1n+sNrDbBQswsnxIAbI2kU2/P4mwArCgA==}
-    dev: true
-
   /svg2png-wasm@1.4.0:
     resolution: {integrity: sha512-UH6XzvHZvHzLrgjcjxX4BCOMalzF1Z8G6EJRsBo/+DLO2jhzdUBwhA8Hl8sn21Cn6N/jBbbdeqUhCzR/FL6xYw==}
     dev: true
@@ -12280,7 +12271,7 @@ packages:
       get-port: 6.1.2
       loader-utils: 2.0.4
       lodash: 4.17.21
-      pathe: 1.1.0
+      pathe: 1.1.1
       webpack-virtual-modules: 0.5.0
       windicss: 3.5.6
     transitivePeerDependencies:
