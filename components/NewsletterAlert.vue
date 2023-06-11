@@ -4,10 +4,9 @@
       Monthly newsletter
     </p>
     <p class="mb-2">
-      Each month I send an update of my journey working on open-source to my <NuxtLink to="https://github.com/harlan-zw/" target="_blank">
+      Each month I send an update of my journey working on open-source. My <NuxtLink to="https://github.com/harlan-zw/" target="_blank">
         GitHub sponsors
-      </NuxtLink> community.
+      </NuxtLink> community gets early access.
     </p>
-    <p>After 2 weeks it's made public.</p>
   </div>
 </template>
