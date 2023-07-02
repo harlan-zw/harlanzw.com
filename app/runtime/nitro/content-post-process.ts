@@ -8,9 +8,11 @@ import { StorageMeta } from './content/storage-meta'
 import { MetaNormaliser } from './content/meta-normaliser'
 import { Projects } from './content/projects'
 import { Links } from './content/links'
+import { OgImage } from './content/og-image'
 
 const mdPlugins = [
   // Breadcrumbs,
+  OgImage,
   CodeFilename,
   NuxtImage,
   ReadTime,

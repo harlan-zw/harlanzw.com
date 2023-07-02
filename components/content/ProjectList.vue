@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineOgImageDynamic } from '#imports'
+import { defineOgImage } from '#imports'
 
 const { data: categories } = await useProjects()
 
@@ -12,8 +12,9 @@ const totalStars = computed(() => {
     .reduce((acc, stars) => acc + stars, 0)
 })
 
-defineOgImageDynamic({
-  component: 'ProjectsOgImage',
+defineOgImage({
+  cache: false,
+  component: 'Projects',
   totalStars,
   title: 'Projects',
 })

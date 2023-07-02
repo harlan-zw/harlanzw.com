@@ -4,6 +4,8 @@ description: "April was spent traveling within Thailand while working through a 
 publishedAt: '2023-04-31'
 aside: false
 excerpt: 'April was spent traveling within Thailand while working through a bunch of bugs in my Nuxt SEO modules.'
+ogImage:
+  image: /april-pi.png
 tags:
   - newsletter
 ---

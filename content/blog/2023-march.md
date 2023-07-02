@@ -4,6 +4,8 @@ description: "I share my updates for March covering my open-source development, 
 publishedAt: '2023-04-01'
 aside: false
 excerpt: 'I share my updates for March covering my open-source development, financials and personal updates'
+ogImage:
+  image: /march-laptop-bus.png
 tags:
 - newsletter
 ---

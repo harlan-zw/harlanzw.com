@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 const { page: post } = useContent()
-defineOgImageStatic({
-  component: 'PostOgImage',
+defineOgImage({
+  component: 'Post',
+  ...post.value.ogImage || {},
+  readingMins: post.value.readingMins
 })
 </script>
 

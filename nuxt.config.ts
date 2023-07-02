@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     'nuxt-seo-ui',
   ],
 
+  site: {
+    name: 'Harlan Wilton',
+    logo: '/harlan-wilton.jpeg',
+  },
+
   runtimeConfig: {
     public: {
       titleSeparator: '·',

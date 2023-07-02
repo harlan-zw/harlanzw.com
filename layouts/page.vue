@@ -4,7 +4,7 @@ const { page } = useContent()
 
 <template>
   <div class="page-layout layout-page max-w-100ch mx-auto">
-    <OgImageStatic :component="page.island || 'PageOgImage'" :title="page.title" v-bind="page.ogImage || {}" />
+    <OgImage :component="page.island || 'Page'" :title="page.title" v-bind="page.ogImage || {}" />
     <main>
       <SBreadcrumb v-if="page.breadcrumbs !== false" hide-separator hide-current class="mb-2" />
       <PageTitle :post="page" />

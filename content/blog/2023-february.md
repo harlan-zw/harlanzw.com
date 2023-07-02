@@ -5,6 +5,8 @@ publishedAt: '2023-03-01'
 aside: false
 excerpt: 'I share my updates for February covering my open-source development, financials and personal updates'
 status: published
+ogImage:
+  image: /feb-fathom.png
 tags:
 - newsletter
 ---
@@ -65,6 +67,8 @@ The analytics of people who see your generous sponsorship on my doc / personal s
 
 👨 5.7k visitors (-22)
 👀 26.3k views (+4k)
+
+<Image src="/feb-fathom.png" alt="My February 2023 Fathom Traffic" />
 
 ### Financials
 
