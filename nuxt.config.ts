@@ -17,6 +17,10 @@ export default defineNuxtConfig({
     logo: '/harlan-wilton.jpeg',
   },
 
+  devtools: {
+    enabled: true
+  },
+
   runtimeConfig: {
     public: {
       titleSeparator: '·',
