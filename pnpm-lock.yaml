@@ -75,8 +75,8 @@ devDependencies:
     specifier: ^0.6.6
     version: 0.6.6(nuxt@3.6.1)(rollup@3.26.0)(vite@4.3.9)
   '@nuxt/image-edge':
-    specifier: 1.0.0-rc.1-28135297.08462d1
-    version: 1.0.0-rc.1-28135297.08462d1(rollup@3.26.0)
+    specifier: 1.0.0-rc.1-28139579.37395b7
+    version: 1.0.0-rc.1-28139579.37395b7(rollup@3.26.0)
   '@nuxtjs/color-mode':
     specifier: ^3.3.0
     version: 3.3.0(rollup@3.26.0)
@@ -108,8 +108,8 @@ devDependencies:
     specifier: ^0.4.2
     version: 0.4.2(rollup@3.26.0)(vue@3.3.4)
   nuxt-og-image:
-    specifier: ^2.0.0-beta.72
-    version: 2.0.0-beta.72(rollup@3.26.0)
+    specifier: ^2.0.0
+    version: 2.0.0(rollup@3.26.0)
   nuxt-seo-kit:
     specifier: ^1.3.9
     version: 1.3.9(@unhead/vue@1.1.29)(rollup@3.26.0)(vue@3.3.4)
@@ -1602,8 +1602,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nuxt/image-edge@1.0.0-rc.1-28135297.08462d1(rollup@3.26.0):
-    resolution: {integrity: sha512-1xJQazHrssj4n9IiaFoB6TeR/NyJ24kCrDZf3n4XIych8yspamOO2o0GS+jbC5FBS5Kgcfqr/XlwsCczEIGufA==}
+  /@nuxt/image-edge@1.0.0-rc.1-28139579.37395b7(rollup@3.26.0):
+    resolution: {integrity: sha512-VFPSQhFG6SEA7rzyHJV30E3PnfBjW9kyE/VE8hGMORJlMqb+AaeojEF/hGo0Zgg4R0WofUeW8cs52Ptp3OlfhA==}
     engines: {node: ^14.16.0 || >=16.11.0}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
@@ -1792,7 +1792,7 @@ packages:
       defu: 6.1.2
       hookable: 5.5.3
       jiti: 1.18.2
-      pathe: 1.1.1
+      pathe: 1.1.0
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       scule: 1.0.0
@@ -1851,7 +1851,7 @@ packages:
     dependencies:
       defu: 6.1.2
       hookable: 5.5.3
-      pathe: 1.1.1
+      pathe: 1.1.0
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
@@ -2530,7 +2530,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 17.0.45
     dev: true
 
   /@types/semver@7.3.13:
@@ -3735,7 +3735,7 @@ packages:
       jiti: 1.18.2
       mlly: 1.3.0
       ohash: 1.1.2
-      pathe: 1.1.1
+      pathe: 1.1.0
       perfect-debounce: 0.1.3
       pkg-types: 1.0.3
       rc9: 2.1.0
@@ -3972,7 +3972,7 @@ packages:
       '@types/node': 20.3.3
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
-      lighthouse-logger: 1.3.0
+      lighthouse-logger: 1.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6267,7 +6267,7 @@ packages:
       https-proxy-agent: 5.0.1
       mri: 1.2.0
       node-fetch-native: 1.2.0
-      pathe: 1.1.1
+      pathe: 1.1.0
       tar: 6.1.15
     transitivePeerDependencies:
       - supports-color
@@ -7459,8 +7459,8 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /lighthouse-logger@1.3.0:
-    resolution: {integrity: sha512-BbqAKApLb9ywUli+0a+PcV04SyJ/N1q/8qgCNe6U97KbPCS1BTksEuHFLYdvc8DltuhfxIUBqDZsC0bBGtl3lA==}
+  /lighthouse-logger@1.4.2:
+    resolution: {integrity: sha512-gPWxznF6TKmUHrOQjlVo2UbaL2EJ71mb2CCeRs/2qBpi4L/g4LUVc9+3lKQ6DTUZwJswfM7ainGrLO1+fOqa2g==}
     dependencies:
       debug: 2.6.9
       marky: 1.2.5
@@ -8363,7 +8363,7 @@ packages:
     resolution: {integrity: sha512-HT5mcgIQKkOrZecOjOX3DJorTikWXwsBfpcr/MGBkhfWcjiqvnaL/9ppxvIUXfjT6xt4DVIAsN9fMUz1ev4bIw==}
     dependencies:
       acorn: 8.9.0
-      pathe: 1.1.1
+      pathe: 1.1.0
       pkg-types: 1.0.3
       ufo: 1.1.2
     dev: true
@@ -8864,8 +8864,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /nuxt-og-image@2.0.0-beta.72(rollup@3.26.0):
-    resolution: {integrity: sha512-bSxJqoJujl9UVrIThhVYpoUM1kPRMOdOHBQuRVJHPGfd7CMGZRW1+YKFFUlLuTHSC4WHA0WTR+uLJPvmRwvjyw==}
+  /nuxt-og-image@2.0.0(rollup@3.26.0):
+    resolution: {integrity: sha512-92x4AbTxRte2L2ZnzOTbeE8+2DPpEIkddzgo0pfxu6fR8XxpSFL+klAl6SqV0ht5IGIwKDicTze5ZnHIopEoGQ==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
       '@resvg/resvg-js': 2.4.1
@@ -11836,7 +11836,7 @@ packages:
       local-pkg: 0.4.3
       magic-string: 0.30.0
       mlly: 1.3.0
-      pathe: 1.1.1
+      pathe: 1.1.0
       pkg-types: 1.0.3
       scule: 1.0.0
       strip-literal: 1.0.1
