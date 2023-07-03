@@ -134,7 +134,7 @@ const siteLogo = computed(() => {
 <div v-bind="backgroundAttrs" />
 <div v-bind="backgroundFlareAttrs" />
 <div v-bind="backgroundFlareTwoAttrs" />
-<div class="w-full flex flex-row">
+<div class="w-full flex flex-row z-10">
   <div class="w-1/2" style="padding: 50px;">
     <div class="flex flex-col h-full justify-between text-gray-100">
       <div class="flex flex-row justify-between items-center">

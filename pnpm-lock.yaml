@@ -6,6 +6,7 @@ settings:
 
 overrides:
   cheerio: 1.0.0-rc.10
+  nuxt-site-config: ^0.8.1
 
 dependencies:
   unstorage:
@@ -101,14 +102,14 @@ devDependencies:
     specifier: ^4.2.2
     version: 4.2.2
   nuxt:
-    specifier: 3.6.1
+    specifier: ^3.6.1
     version: 3.6.1(@types/node@20.3.3)(eslint@8.44.0)(rollup@3.26.0)(sass@1.63.6)(typescript@5.1.6)
   nuxt-icon:
     specifier: ^0.4.2
     version: 0.4.2(rollup@3.26.0)(vue@3.3.4)
   nuxt-og-image:
-    specifier: ^2.0.0-beta.63
-    version: 2.0.0-beta.63(rollup@3.26.0)(vue@3.3.4)
+    specifier: ^2.0.0-beta.72
+    version: 2.0.0-beta.72(rollup@3.26.0)
   nuxt-seo-kit:
     specifier: ^1.3.9
     version: 1.3.9(@unhead/vue@1.1.29)(rollup@3.26.0)(vue@3.3.4)
@@ -1791,7 +1792,7 @@ packages:
       defu: 6.1.2
       hookable: 5.5.3
       jiti: 1.18.2
-      pathe: 1.1.0
+      pathe: 1.1.1
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       scule: 1.0.0
@@ -1850,7 +1851,7 @@ packages:
     dependencies:
       defu: 6.1.2
       hookable: 5.5.3
-      pathe: 1.1.0
+      pathe: 1.1.1
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       std-env: 3.3.3
@@ -2086,7 +2087,7 @@ packages:
       open: 8.4.2
       picocolors: 1.0.0
       tiny-glob: 0.2.9
-      tslib: 2.5.3
+      tslib: 2.6.0
     dev: true
 
   /@polka/url@1.0.0-next.21:
@@ -3734,7 +3735,7 @@ packages:
       jiti: 1.18.2
       mlly: 1.3.0
       ohash: 1.1.2
-      pathe: 1.1.0
+      pathe: 1.1.1
       perfect-debounce: 0.1.3
       pkg-types: 1.0.3
       rc9: 2.1.0
@@ -6266,7 +6267,7 @@ packages:
       https-proxy-agent: 5.0.1
       mri: 1.2.0
       node-fetch-native: 1.2.0
-      pathe: 1.1.0
+      pathe: 1.1.1
       tar: 6.1.15
     transitivePeerDependencies:
       - supports-color
@@ -8362,7 +8363,7 @@ packages:
     resolution: {integrity: sha512-HT5mcgIQKkOrZecOjOX3DJorTikWXwsBfpcr/MGBkhfWcjiqvnaL/9ppxvIUXfjT6xt4DVIAsN9fMUz1ev4bIw==}
     dependencies:
       acorn: 8.9.0
-      pathe: 1.1.0
+      pathe: 1.1.1
       pkg-types: 1.0.3
       ufo: 1.1.2
     dev: true
@@ -8476,7 +8477,7 @@ packages:
       escape-string-regexp: 5.0.0
       etag: 1.8.1
       fs-extra: 11.1.1
-      globby: 13.2.0
+      globby: 13.2.1
       gzip-size: 7.0.0
       h3: 1.7.1
       hookable: 5.5.3
@@ -8863,8 +8864,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /nuxt-og-image@2.0.0-beta.63(rollup@3.26.0)(vue@3.3.4):
-    resolution: {integrity: sha512-J+tXrtXJrlhxX6QsNzWGG9KxrmTL3Fv9L1kdM6NVciw1MGpWa7bYnLjttFL1N21aD2o7mq/XdHyiCjEKd6w91g==}
+  /nuxt-og-image@2.0.0-beta.72(rollup@3.26.0):
+    resolution: {integrity: sha512-bSxJqoJujl9UVrIThhVYpoUM1kPRMOdOHBQuRVJHPGfd7CMGZRW1+YKFFUlLuTHSC4WHA0WTR+uLJPvmRwvjyw==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
       '@resvg/resvg-js': 2.4.1
@@ -8882,9 +8883,8 @@ packages:
       image-size: 1.0.2
       inline-css: 4.0.2
       launch-editor: 2.6.0
-      nuxt-icon: 0.4.2(rollup@3.26.0)(vue@3.3.4)
-      nuxt-site-config: 0.7.5(rollup@3.26.0)
-      nuxt-site-config-kit: 0.7.5(rollup@3.26.0)
+      nuxt-site-config: 0.8.1(rollup@3.26.0)
+      nuxt-site-config-kit: 0.8.1(rollup@3.26.0)
       nypm: 0.2.2
       ofetch: 1.1.1
       ohash: 1.1.2
@@ -8906,7 +8906,6 @@ packages:
       - rollup
       - supports-color
       - utf-8-validate
-      - vue
     dev: true
 
   /nuxt-schema-org@2.2.0(@unhead/vue@1.1.29)(rollup@3.26.0):
@@ -8946,7 +8945,7 @@ packages:
     resolution: {integrity: sha512-yHYYDqB8rzdr/xQzV3D7xIYphexZ6gZRyFSL8pL0VpUD2ox+UjERzVkISTLCpNgdHUynqIPmlft9vLr9Yb+W+w==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
-      nuxt-site-config: 0.7.5(rollup@3.26.0)
+      nuxt-site-config: 0.8.1(rollup@3.26.0)
       pathe: 1.1.1
       radix3: 1.0.1
       ufo: 1.1.2
@@ -8971,7 +8970,7 @@ packages:
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
       defu: 6.1.2
-      nuxt-site-config: 0.7.4(rollup@3.26.0)
+      nuxt-site-config: 0.8.1(rollup@3.26.0)
       nuxt-site-config-kit: 0.7.4(rollup@3.26.0)
       pathe: 1.1.1
       ufo: 1.1.2
@@ -9027,38 +9026,25 @@ packages:
       - supports-color
     dev: true
 
-  /nuxt-site-config-kit@0.7.5(rollup@3.26.0):
-    resolution: {integrity: sha512-9jXprSSU6Ohc0fJ/hrCrAMpRvSyK7B3T7a9hnSf4Mk86VoOnJs4RN0r+1JhfajJ08N+MU0ij6+nEuEdGquwVkQ==}
+  /nuxt-site-config-kit@0.8.1(rollup@3.26.0):
+    resolution: {integrity: sha512-4RPtDv4GZ0iZty3Rz1Xwmgr4LBVukrPtgazSw5uzYUrbQGFR59ymg1oknAEzBHE/TShPCm+ueBd4uWpeyiXTuQ==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
       defu: 6.1.2
       pkg-types: 1.0.3
-      site-config-stack: 0.7.5(rollup@3.26.0)
+      site-config-stack: 0.8.1(rollup@3.26.0)
       ufo: 1.1.2
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /nuxt-site-config@0.7.4(rollup@3.26.0):
-    resolution: {integrity: sha512-cr85UFgV6KjKRc3vxMgkiTseqgz7tjADqhAZoVJtiKb2OEbcLUp4n7GjTcLnnT9cbvsMTKzwOIRUcgElY8T/kQ==}
+  /nuxt-site-config@0.8.1(rollup@3.26.0):
+    resolution: {integrity: sha512-AMbopvBJvHs9DrIxFpd+4Mjsy/WIMCNZ0NYPkt5W+BOvp+Dc/MueomVZ23KCuJR6YBrFoJtyL/rdOR2mE3mWoA==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
-      defu: 6.1.2
-      nuxt-site-config-kit: 0.7.4(rollup@3.26.0)
-      site-config-stack: 0.7.4(rollup@3.26.0)
-      ufo: 1.1.2
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: true
-
-  /nuxt-site-config@0.7.5(rollup@3.26.0):
-    resolution: {integrity: sha512-fZSC6lb0l8E+ujsVQHvkxQqK1V7YTzGyLEjpjB3qPbyYsY3/pQTcOLd3oDWTiLfVrE4y8p3ARv/sDli65qIUDA==}
-    dependencies:
-      '@nuxt/kit': 3.6.1(rollup@3.26.0)
-      nuxt-site-config-kit: 0.7.5(rollup@3.26.0)
-      site-config-stack: 0.7.5(rollup@3.26.0)
+      nuxt-site-config-kit: 0.8.1(rollup@3.26.0)
+      site-config-stack: 0.8.1(rollup@3.26.0)
       ufo: 1.1.2
     transitivePeerDependencies:
       - rollup
@@ -9136,7 +9122,7 @@ packages:
       escape-string-regexp: 5.0.0
       estree-walker: 3.0.3
       fs-extra: 11.1.1
-      globby: 13.2.0
+      globby: 13.2.1
       h3: 1.7.1
       hookable: 5.5.3
       jiti: 1.18.2
@@ -10980,8 +10966,8 @@ packages:
       - supports-color
     dev: true
 
-  /site-config-stack@0.7.5(rollup@3.26.0):
-    resolution: {integrity: sha512-FPYKgR/CEa0J9sQkBi1ckFnCoqF30lvysnBckL6SswcFmkMIU93gWnSFhEPmRsDyLoXnJ83820CGQoIKbdIEJA==}
+  /site-config-stack@0.8.1(rollup@3.26.0):
+    resolution: {integrity: sha512-B+91/yN6D1ABnWL6LnNqINcWjDCMWxfNAmi40HC43agq6+Eu22gmuAtp1bDv0kvrjYdqfvp3cEQ6whdxAVbS3Q==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
       defu: 6.1.2
@@ -11419,7 +11405,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.3.1
-      tslib: 2.5.3
+      tslib: 2.6.0
     dev: true
 
   /tapable@1.1.3:
@@ -11590,10 +11576,6 @@ packages:
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: true
-
-  /tslib@2.5.3:
-    resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
     dev: true
 
   /tslib@2.6.0:
@@ -11854,7 +11836,7 @@ packages:
       local-pkg: 0.4.3
       magic-string: 0.30.0
       mlly: 1.3.0
-      pathe: 1.1.0
+      pathe: 1.1.1
       pkg-types: 1.0.3
       scule: 1.0.0
       strip-literal: 1.0.1

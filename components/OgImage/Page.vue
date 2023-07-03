@@ -49,7 +49,7 @@ const siteLogo = computed(() => {
 <div v-bind="backgroundAttrs" />
 <div v-bind="backgroundFlareAttrs" />
 <div v-bind="backgroundFlareTwoAttrs" />
-<div class="w-full flex items-center justify-center h-full flex-row">
+<div class="w-full flex items-center justify-center h-full flex-row z-10">
   <img v-if="siteLogo" :src="siteLogo" height="200" class="rounded mr-5">
 </div>
 </template>
