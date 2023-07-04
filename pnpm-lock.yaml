@@ -108,8 +108,8 @@ devDependencies:
     specifier: ^0.4.2
     version: 0.4.2(rollup@3.26.0)(vue@3.3.4)
   nuxt-og-image:
-    specifier: ^2.0.0
-    version: 2.0.0(rollup@3.26.0)
+    specifier: ^2.0.1
+    version: 2.0.1(rollup@3.26.0)
   nuxt-seo-kit:
     specifier: ^1.3.9
     version: 1.3.9(@unhead/vue@1.1.29)(rollup@3.26.0)(vue@3.3.4)
@@ -1776,7 +1776,7 @@ packages:
       scule: 1.0.0
       semver: 7.5.3
       unctx: 2.3.1
-      unimport: 3.0.11(rollup@3.26.0)
+      unimport: 3.0.12(rollup@3.26.0)
       untyped: 1.3.2
     transitivePeerDependencies:
       - rollup
@@ -5070,7 +5070,7 @@ packages:
     dependencies:
       debug: 3.2.7
       is-core-module: 2.12.1
-      resolve: 1.22.2
+      resolve: 1.22.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6267,7 +6267,7 @@ packages:
       https-proxy-agent: 5.0.1
       mri: 1.2.0
       node-fetch-native: 1.2.0
-      pathe: 1.1.0
+      pathe: 1.1.1
       tar: 6.1.15
     transitivePeerDependencies:
       - supports-color
@@ -8864,8 +8864,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /nuxt-og-image@2.0.0(rollup@3.26.0):
-    resolution: {integrity: sha512-92x4AbTxRte2L2ZnzOTbeE8+2DPpEIkddzgo0pfxu6fR8XxpSFL+klAl6SqV0ht5IGIwKDicTze5ZnHIopEoGQ==}
+  /nuxt-og-image@2.0.1(rollup@3.26.0):
+    resolution: {integrity: sha512-MTzr1D6nHLKWV/ZP8dxDkRxetDBY1R1fsfUZ7M0YUicjbIKLYq0OiCW7IkGFK0e2PibrruCobM+B5u0G+QDO2Q==}
     dependencies:
       '@nuxt/kit': 3.6.1(rollup@3.26.0)
       '@resvg/resvg-js': 2.4.1
@@ -11827,6 +11827,24 @@ packages:
       - rollup
     dev: true
 
+  /unimport@3.0.12(rollup@3.26.0):
+    resolution: {integrity: sha512-wETYjro+wK0lGlate7JNDu4OI89m6hNt2bfqL8ysAGgStXyIplISZrktAqr2psfY9/ft/jU5HWatk7wZeUUPdQ==}
+    dependencies:
+      '@rollup/pluginutils': 5.0.2(rollup@3.26.0)
+      escape-string-regexp: 5.0.0
+      fast-glob: 3.3.0
+      local-pkg: 0.4.3
+      magic-string: 0.30.0
+      mlly: 1.4.0
+      pathe: 1.1.1
+      pkg-types: 1.0.3
+      scule: 1.0.0
+      strip-literal: 1.0.1
+      unplugin: 1.3.2
+    transitivePeerDependencies:
+      - rollup
+    dev: true
+
   /unimport@3.0.7(rollup@3.26.0):
     resolution: {integrity: sha512-2dVQUxJEGcrSZ0U4qtwJVODrlfyGcwmIOoHVqbAFFUx7kPoEN5JWr1cZFhLwoAwTmZOvqAm3YIkzv1engIQocg==}
     dependencies:
@@ -12024,6 +12042,15 @@ packages:
 
   /unplugin@1.3.1:
     resolution: {integrity: sha512-h4uUTIvFBQRxUKS2Wjys6ivoeofGhxzTe2sRWlooyjHXVttcVfV/JiavNd3d4+jty0SVV0dxGw9AkY9MwiaCEw==}
+    dependencies:
+      acorn: 8.9.0
+      chokidar: 3.5.3
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.5.0
+    dev: true
+
+  /unplugin@1.3.2:
+    resolution: {integrity: sha512-Lh7/2SryjXe/IyWqx9K7IKwuKhuOFZEhotiBquOODsv2IVyDkI9lv/XhgfjdXf/xdbv32txmnBNnC/JVTDJlsA==}
     dependencies:
       acorn: 8.9.0
       chokidar: 3.5.3
