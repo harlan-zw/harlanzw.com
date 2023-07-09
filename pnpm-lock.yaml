@@ -119,8 +119,8 @@ devDependencies:
     specifier: ^0.3.1
     version: 0.3.1(rollup@3.26.2)
   nuxt-simple-robots:
-    specifier: ^3.0.1
-    version: 3.0.1(rollup@3.26.2)
+    specifier: ^3.0.2
+    version: 3.0.2(rollup@3.26.2)
   nuxt-simple-sitemap:
     specifier: 3.0.8
     version: 3.0.8(nuxt@3.6.2)(rollup@3.26.2)(vite@4.4.1)
@@ -8911,8 +8911,8 @@ packages:
       - supports-color
     dev: true
 
-  /nuxt-simple-robots@3.0.1(rollup@3.26.2):
-    resolution: {integrity: sha512-nvcKHngUwOB8gzxG7dKv9fjgBcQCNaEI1EDB7UTaoAWxyjshrKCq05o51GKNMz9Xi56Hiswfbl5KR9H1B+Ek2Q==}
+  /nuxt-simple-robots@3.0.2(rollup@3.26.2):
+    resolution: {integrity: sha512-5wCK6YFSR94J4INT5WXPZjrmdu3H3kQLHpeTp844BUpukz94LfIRnpeGGs4bF7LsagImHdWkItF/Ib4aqFASbw==}
     dependencies:
       '@nuxt/kit': 3.6.2(rollup@3.26.2)
       defu: 6.1.2

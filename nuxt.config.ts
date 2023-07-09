@@ -15,6 +15,11 @@ export default defineNuxtConfig({
   site: {
     name: 'Harlan Wilton',
     logo: '/harlan-wilton.jpeg',
+    titleSeparator: '·',
+    url: 'https://harlanzw.com/',
+    siteName: 'Harlan Wilton',
+    siteDescription: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
+    language: 'en-AU',
   },
 
   devtools: {
