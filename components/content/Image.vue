@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<{
   lazy?: boolean | 'false' | 'true'
   width?: number
   noMargin?: boolean
+  figureClass?: string
 }>(), {
   lazy: true,
 })
@@ -38,13 +39,16 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 
 const $img = useImage()
 
-const src = $img(props.src, {}, {
+const src = $img(props.src, {
+  height: 700,
+  format: 'auto',
+}, {
   provider,
 })
 </script>
 
 <template>
-  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:(!my-10)']" @click.prevent="handleClick">
+  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:(!my-10)', figureClass]" @click.prevent="handleClick">
     <nuxt-img
       v-bind="$attrs"
       :alt="alt"
@@ -62,6 +66,11 @@ const src = $img(props.src, {}, {
 <style scoped>
 figure {
   @apply transform lg:(max-w-900px) mx-auto max-w-full;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @media(max-width: 1024px) {
@@ -72,5 +81,7 @@ figure {
 
 figure :deep(img:not([src$=".svg"])) {
   @apply w-auto rounded-lg shadow-lg max-h-70vh mx-auto;
+
+  max-height: min(65vh, 700px);
 }
 </style>

@@ -7,21 +7,28 @@ const initials = siteMeta.name
 </script>
 
 <template>
-  <nuxt-link to="/" class="flex items-center group unstyled py-4" title="Go Home">
-    <NuxtImg
-      :src="siteMeta.logo"
-      width="80"
-      height="80"
-      :alt="siteMeta.name"
-      provider="cloudinary"
-      style="width: 40px; height: 40px;"
-      class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
-    />
-    <div aria-label="Harlan Wilton Initials" class="hidden sm:block text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
-      <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
-      <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
-    </div>
-  </nuxt-link>
+  <div class="flex items-center space-x-10">
+    <NuxtLink to="/" class="flex items-center group unstyled py-4" title="Go Home">
+      <NuxtImg
+        :src="siteMeta.logo"
+        width="80"
+        height="80"
+        :alt="siteMeta.name"
+        provider="cloudinary"
+        style="width: 40px; height: 40px;"
+        class="rounded-lg h-10 w-10 mr-3 group-hover:(h-11 w-11) transition-all"
+      />
+      <div aria-label="Harlan Wilton Initials" class="hidden sm:block text-gray-700 dark:text-gray-200 relative transform top-2 group-hover:top-0">
+        <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
+        <span class="block text-green-700 font-bold text-3xl logo">{{ initials }}</span>
+      </div>
+    </NuxtLink>
+    <NuxtLink class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 text-primary-500 dark:text-primary-400 hover:bg-primary-50 disabled:bg-transparent dark:hover:bg-primary-950 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 inline-flex items-center font-mono" to="/meet">
+      <Location class="text-gray-600 dark:text-gray-400">
+        @
+      </Location>
+    </NuxtLink>
+  </div>
 </template>
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: ['nuxt-seo-kit', '@nuxt-themes/docus'],
+  extends: ['nuxt-seo-kit', '@nuxt-themes/docus', 'nuxt-lego'],
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
