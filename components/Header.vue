@@ -14,7 +14,7 @@ const { data: nav } = await useHeaderNav()
               <li v-if="link._path !== '/'" :key="key">
                 <NuxtLink v-slot="slot" :to="link._path" class="!inline-flex items-center group" :title="`Visit ${link.title} Page`">
                   <div :class="slot?.isActive ? ['sm:bg-green-50', 'text-green-800', 'dark:(sm:bg-green-800/10 text-green-50)'] : []" class="md:(px-3 py-2) px-1 py-1 rounded">
-                    <icon v-if="link.icon" :name="link.icon" :class="slot?.isActive ? 'opacity-100' : 'opacity-75'" class="hidden text-sm w-3 h-3 sm:inline-block text mr-2 mb-1 transition opacity-75 group-hover:opacity-100" />
+                    <icon v-if="link.icon" :name="link.icon" :class="slot?.isActive ? 'opacity-100' : 'opacity-75'" class="hidden text-sm w-3 h-3 lg:inline-block text mr-2 mb-1 transition opacity-75 group-hover:opacity-100" />
                     {{ link.title }}
                   </div>
                   <!-- Render Prefetch hints for all navigation pages -->
@@ -42,6 +42,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 50;
+  background-color: #111827ed;
 }
 
 nav .icon {
@@ -49,7 +50,7 @@ nav .icon {
   height: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   nav .icon {
     display: none !important;
   }
