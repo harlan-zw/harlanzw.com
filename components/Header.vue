@@ -42,6 +42,10 @@ header {
   top: 0;
   width: 100%;
   z-index: 50;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark header {
   background-color: #111827ed;
 }
 
