@@ -16,8 +16,9 @@ const location = computed(() => {
     return 'Europe'
 })
 </script>
+
 <template>
   <p>
-    <slot></slot>{{ location }}
+    <slot />{{ location }}
   </p>
 </template>

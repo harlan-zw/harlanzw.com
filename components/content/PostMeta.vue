@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useSeoMeta } from '@vueuse/head'
 import type { Post } from '../../types'
 import { dayNth } from '../../logic'
+import { useSeoMeta } from '#imports'
 
 const { post } = defineProps<{
   post: Post

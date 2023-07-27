@@ -3,7 +3,7 @@ const { page: post } = useContent()
 defineOgImage({
   component: 'Post',
   ...post.value.ogImage || {},
-  readingMins: post.value.readingMins
+  readingMins: post.value.readingMins,
 })
 </script>
 

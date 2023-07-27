@@ -2,12 +2,13 @@
 const siteMeta = useSiteMeta()
 
 const year = computed(() => new Date().getFullYear())
+
+useSeoKit()
 </script>
 
 <template>
   <Html dir="ltr">
     <Head>
-      <SeoKit />
       <SchemaOrgPerson
         :name="siteMeta.name"
         image="https://res.cloudinary.com/dl6o1xpyq/image/upload/f_jpg,q_auto:best,dpr_auto,w_240,h_240/images/harlan-wilton"

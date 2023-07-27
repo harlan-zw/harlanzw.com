@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '~/app/module',
     '~/modules/unplugin-icons',
     '@nuxt/content',
-    'nuxt-seo-ui',
+    'nuxt-seo-kit-module',
   ],
 
   site: {
@@ -23,7 +23,11 @@ export default defineNuxtConfig({
   },
 
   devtools: {
-    enabled: false,
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
   },
 
   runtimeConfig: {
@@ -45,8 +49,6 @@ export default defineNuxtConfig({
     fallback: 'dark',
     classSuffix: '',
   },
-
-  devtools: true,
 
   pinceau: {
     configFileName: 'tokens.config',

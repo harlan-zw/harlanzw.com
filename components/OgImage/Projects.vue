@@ -131,35 +131,37 @@ const siteLogo = computed(() => {
 </script>
 
 <template>
-<div v-bind="backgroundAttrs" />
-<div v-bind="backgroundFlareAttrs" />
-<div v-bind="backgroundFlareTwoAttrs" />
-<div class="w-full flex flex-row z-10">
-  <div class="w-1/2" style="padding: 50px;">
-    <div class="flex flex-col h-full justify-between text-gray-100">
-      <div class="flex flex-row justify-between items-center">
-        <div class="flex flex-col">
-          <div v-bind="titleAttrs">
-            {{ title || 'Null Title' }}
+  <div v-bind="backgroundAttrs" />
+  <div v-bind="backgroundFlareAttrs" />
+  <div v-bind="backgroundFlareTwoAttrs" />
+  <div class="w-full flex flex-row z-10">
+    <div class="w-1/2" style="padding: 50px;">
+      <div class="flex flex-col h-full justify-between text-gray-100">
+        <div class="flex flex-row justify-between items-center">
+          <div class="flex flex-col">
+            <div v-bind="titleAttrs">
+              {{ title || 'Null Title' }}
+            </div>
+            <div v-bind="descriptionAttrs">
+              {{ description }}
+            </div>
           </div>
-          <div v-bind="descriptionAttrs">
-            {{ description }}
+        </div>
+        <div class="text-white w-full flex flex-row">
+          <img v-if="siteLogo" :src="siteLogo" height="50" class="rounded mr-5">
+          <div style="font-size: 30px;" class="font-bold mt-2">
+            {{ siteName }}
           </div>
         </div>
       </div>
-      <div class="text-white w-full flex flex-row">
-        <img v-if="siteLogo" :src="siteLogo" height="50" class="rounded mr-5">
-        <div style="font-size: 30px;" class="font-bold mt-2">
-          {{ siteName }}
+    </div>
+    <div class="w-1/2 items-center justify-center text-white">
+      <div :style="{ fontSize: '80px' }" class="flex flex-col justify-center items-center">
+        <div class="mb-10">
+          ⭐
         </div>
+        <div>{{ totalStars }} Stars</div>
       </div>
     </div>
   </div>
-  <div class="w-1/2 items-center justify-center text-white">
-    <div :style="{ fontSize: '80px' }" class="flex flex-col justify-center items-center">
-      <div class="mb-10">⭐</div>
-      <div>{{ totalStars }} Stars</div>
-    </div>
-  </div>
-</div>
 </template>
