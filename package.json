@@ -30,7 +30,7 @@
     "@iconify-json/ri": "^1.1.10",
     "@iconify-json/simple-icons": "^1.1.62",
     "@iconify-json/vscode-icons": "^1.1.25",
-    "@nuxt-themes/docus": "^1.14.3",
+    "@nuxt-themes/docus": "^1.14.4",
     "@nuxt/content": "2.7.2",
     "@nuxt/devtools": "^0.7.1",
     "@nuxt/image-edge": "1.0.0-rc.1-28164352.ad7c010",
@@ -40,12 +40,12 @@
     "@vue/repl": "^2.5.5",
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "feed": "^4.2.2",
     "nuxt": "^3.6.5",
     "nuxt-icon": "^0.4.2",
     "nuxt-lego": "^0.0.14",
-    "nuxt-seo-kit-module": "2.0.0-beta.5",
+    "nuxt-seo-kit-module": "2.0.0-beta.6",
     "nuxt-windicss": "^2.6.1",
     "parse5": "7.1.2",
     "sass": "^1.64.1",
@@ -59,5 +59,8 @@
     "overrides": {
       "cheerio": "1.0.0-rc.10"
     }
+  },
+  "dependencies": {
+    "nuxt-simple-sitemap": "^3.1.3"
   }
 }

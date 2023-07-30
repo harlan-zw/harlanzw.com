@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: ['nuxt-seo-kit', '@nuxt-themes/docus', 'nuxt-lego'],
+  extends: ['@nuxt-themes/docus', 'nuxt-lego'],
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
@@ -107,6 +107,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
+      failOnError: false,
       crawlLinks: true,
       routes: [
         '/',
