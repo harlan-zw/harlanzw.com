@@ -8,10 +8,12 @@ const location = computed(() => {
     return '🇬🇷 Greece'
   else if (month === 7 && day >= 26)
     return '🇹🇷 Turkey'
-  else if (month === 8 && day < 4)
+  else if (month === 8 && day < 8)
     return '🇹🇷 Turkey'
-  else if (month === 8 && day >= 4)
+  else if (month === 8 && day < 15)
     return '🇧🇬 Bulgaria'
+  else if (month === 8 && day >= 15)
+    return '🇲🇰 North Macedonia'
   else
     return 'Europe'
 })

@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     '~/modules/unplugin-icons',
     '@nuxt/content',
     'nuxt-seo-kit-module',
+    'nuxt-link-checker',
+    'nuxt-simple-sitemap',
   ],
 
   site: {
@@ -17,9 +19,12 @@ export default defineNuxtConfig({
     logo: '/harlan-wilton.jpeg',
     titleSeparator: '·',
     url: 'https://harlanzw.com/',
-    siteName: 'Harlan Wilton',
-    siteDescription: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
+    description: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
     language: 'en-AU',
+  },
+
+  experimental: {
+    headCapoPlugin: true,
   },
 
   devtools: {
@@ -30,14 +35,11 @@ export default defineNuxtConfig({
     },
   },
 
-  runtimeConfig: {
-    public: {
-      titleSeparator: '·',
-      siteUrl: 'https://harlanzw.com/',
-      siteName: 'Harlan Wilton',
-      siteDescription: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
-      language: 'en-AU',
-    },
+  linkChecker: {
+    enabled: false,
+    excludeLinks: [
+      'https://twitter.com/harlan_zw',
+    ],
   },
 
   css: [
@@ -69,13 +71,7 @@ export default defineNuxtConfig({
         },
       ],
       link: [
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'preconnect', href: 'https://res.cloudinary.com' },
-      ],
-      meta: [
-        { 'http-equiv': 'accept-ch', 'content': 'DPR' },
       ],
     },
   },
@@ -104,6 +100,7 @@ export default defineNuxtConfig({
   studio: {
     enabled: false,
   },
+
 
   nitro: {
     prerender: {
