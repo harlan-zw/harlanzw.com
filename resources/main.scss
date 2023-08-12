@@ -7,7 +7,7 @@ html.dark body.text-gray-800 {
 }
 html:not(.dark) body {
   background-color: rgb(247,247,247) !important;
-  background-image: linear-gradient(0deg, #33e47f10, #ffffff) !important;
+  background-image: linear-gradient(0deg, #33e47f00, white) !important;
 }
 
 .prose *:not(h1, h2, h3, h4, h5, h6) > a:not(.unstyled) {

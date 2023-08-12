@@ -5,6 +5,7 @@ publishedAt: "2022-12-27"
 aside: false
 tags:
 - nuxt
+newsletter: false
 ---
 
 ## Introduction

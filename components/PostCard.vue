@@ -68,87 +68,32 @@ onMounted(() => {
       startMarquee()
   })
 })
-
-const isHidden = computed(() => {
-  return props.post.status === 'unlisted'
-})
-
-const isSponsorsOnly = computed(() => {
-  return props.post.status === 'sponsors-only'
-})
-
-const component = computed(() => {
-  if (isSponsorsOnly.value)
-    return 'div'
-  return resolveComponent('NuxtLink')
-})
-
-const componentAttrs = computed(() => {
-  return {
-    ...isSponsorsOnly.value && {
-      class: 'relative inline-block transition-all',
-    },
-    ...!isSponsorsOnly.value && {
-      to: props.post._path,
-    },
-  }
-})
-
-const daysSincePublish = computed(() => {
-  const publishedAt = new Date(props.post.publishOn)
-  const now = new Date()
-  const diff = now.getTime() - publishedAt.getTime()
-  return Math.abs(Math.floor(diff / (1000 * 60 * 60 * 24)))
-})
 </script>
 
 <template>
-  <div class="w-full relative group">
-    <TagList v-if="post.tags" :tags="post.tags" small class="absolute right-0 filter grayscale group-hover:grayscale-0 transition-all" />
-    <component :is="component" v-if="!isHidden" ref="card" v-bind="componentAttrs" class="block max-w-full transition-all ">
-      <div v-if="isSponsorsOnly" class="group-hover:flex hidden left-30 w-120 -top-5 page-enter-active absolute rounded-lg px-5 py-3 text-white items-center bg-gray-900/90 z-10">
-        <Icon name="material-symbols:lock-outline" class="!w-8 !h-8" />
-        <div class="ml-3">
-          <p class="mb-1 font-bold">
-            Super secret content
-          </p>
-          <p class="text-sm mb-1 opacity-80">
-            This post is only available to my <a href="https://github.com/sponsors/harlan-zw" target="_blank">GitHub Sponsor community</a>.
-          </p>
-          <p class="text-xs  opacity-50">
-            It will be made public in {{ daysSincePublish }} days.
-          </p>
-        </div>
-      </div>
-      <div class="flex items-center" :class="[isSponsorsOnly ? 'opacity-50 cursor-not-allowed ' : '']">
-        <div class="opacity-70 group-hover:(opacity-90) transition-all absolute top-3 -left-20">
-          <div class="">
-            {{ month }}
-          </div>
-          <div class="text-sm">
-            {{ day }}
-          </div>
-        </div>
-        <div class="max-w-full">
-          <h3 class="opacity-90 text-xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
-            <span>{{ post.title }}</span>
-          </h3>
-          <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">
-            <span v-if="post.readingMins" class="opacity-70">{{ post.readingMins }} min</span>
-            <span class="px-2 opacity-50 hidden sm:inline-block">·</span>
-            <div ref="marqueeEl" class="hidden sm:inline-flex overflow-hidden items-center">
-              <div class="opacity-60">
-                {{ post.description }}
-              </div>
+<div class="max-w-full relative group">
+  <NuxtLink ref="card" :to="post._path" class="block max-w-full transition-all ">
+    <div class="flex items-center">
+      <div class="max-w-full">
+        <h3 class="opacity-90 text-xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
+          <span>{{ post.title }}</span>
+        </h3>
+        <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">
+          <span v-if="post.readingMins" class="opacity-70">{{ post.readingMins }} min</span>
+          <span class="px-2 opacity-50 hidden sm:inline-block">·</span>
+          <div ref="marqueeEl" class="hidden sm:inline-flex overflow-hidden items-center">
+            <div class="opacity-60">
+              {{ post.description }}
             </div>
           </div>
-          <div class="opacity-60 text-sm sm:hidden">
-            {{ post.description }}
-          </div>
+        </div>
+        <div class="opacity-60 text-sm sm:hidden">
+          {{ post.description }}
         </div>
       </div>
-    </component>
-  </div>
+    </div>
+  </NuxtLink>
+</div>
 </template>
 
 <style lang="scss" scoped>

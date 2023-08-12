@@ -1,18 +1,17 @@
 <script lang="ts" setup>
 const { page: post } = useContent()
 defineOgImage({
-  component: 'Post',
-  ...post.value.ogImage || {},
+  component: 'Newsletter',
   readingMins: post.value.readingMins,
+  ...post.value.ogImage || {},
 })
 </script>
 
 <template>
   <DocsPageLayout>
     <SchemaOrgArticle />
-    <div class="flex items-center mb-3">
-      <SBreadcrumb v-if="post.breadcrumbs !== false" hide-separator hide-current class="mb-0" />
-      <TagList :tags="post.tags" class="opacity-50 hover:opacity-100 transition text-sm" />
+    <div v-if="post.breadcrumbs !== false" class="flex items-center mb-3">
+      <SBreadcrumb hide-separator hide-current class="mb-0" />
     </div>
     <PageTitle :post="post" />
     <PostMeta :post="post" />

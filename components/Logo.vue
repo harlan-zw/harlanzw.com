@@ -8,7 +8,7 @@ const initials = siteMeta.name
 
 <template>
   <div class="flex items-center space-x-10">
-    <NuxtLink to="/" class="flex items-center group unstyled py-4" title="Go Home">
+    <NuxtLink to="/" class="flex items-center group unstyled" title="Go Home">
       <NuxtImg
         :src="siteMeta.logo"
         width="80"

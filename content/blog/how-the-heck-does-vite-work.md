@@ -8,6 +8,7 @@ image: "https://harlanzw.com/social/how-vite-works.png"
 tags: 
   - webpack
   - vite
+newsletter: false
 ---
 
 ::tip

@@ -29,7 +29,7 @@ const props = defineProps({
   },
   titleFontSize: {
     type: String,
-    default: '50px',
+    default: '20px',
   },
   descriptionFontSize: {
     type: String,
@@ -102,17 +102,6 @@ const backgroundFlareTwoAttrs = computed(() => {
   }
 })
 
-const titleAttrs = computed(() => {
-  const classes = []
-  const styles = {
-    fontWeight: 'bold',
-    marginBottom: '50px',
-    lineHeight: '70px',
-    fontSize: props.titleFontSize,
-  }
-  return { class: classes, style: styles }
-})
-
 const siteConfig = useSiteConfig()
 const siteName = computed(() => {
   return props.siteName || siteConfig.name
@@ -131,13 +120,26 @@ const siteLogo = computed(() => {
       <div class="flex flex-col h-full justify-between text-gray-100">
         <div class="flex flex-row justify-between items-center">
           <div class="flex flex-col">
-            <div v-bind="titleAttrs">
+            <span
+              :style="{
+                fontWeight: 'bold',
+                lineHeight: '50px',
+                fontSize: '40px',
+                marginBottom: '15px',
+              }"
+            >
               {{ title || 'Null Title' }}
-            </div>
-            <div class="text-2xl">
+            </span>
+            <span class="text-2xl">
               {{ readingMins }} min read
-            </div>
+            </span>
           </div>
+        </div>
+        <div class="flex flex-row">
+          <ScoreCard label="GitHub stars" :before="6112" :after="6295" class="mr-2 bg-gray-900 text-white border-gray-600" />
+          <ScoreCard label="Hours Worked" suffix=" hrs" :before="87" :after="195" class="mr-2 bg-gray-900 text-white border-gray-600">
+          </ScoreCard>
+          <ScoreCard label="MRR" currency :before="867" :after="966" class="mr-2 bg-gray-900 text-white border-gray-600" />
         </div>
         <div class="text-white w-full flex flex-row">
           <img v-if="siteLogo" :src="siteLogo" height="50" class="rounded mr-5">

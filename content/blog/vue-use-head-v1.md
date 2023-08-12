@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VueUse Head v1 release 🎉"
+title: "VueUse Head v1 release"
 description: "Learn about the new @vueuse/head v1 release including new features and breaking changes"
 publishedAt: '2022-11-12'
 status: published
@@ -8,6 +8,7 @@ aside: false
 image: "https://harlanzw.com/social/how-vite-works.png"
 tags: 
   - vue
+newsletter: false
 ---
 
 This post aims to provide some insight into the v1 release, what's new and what's changed.

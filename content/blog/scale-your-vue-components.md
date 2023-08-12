@@ -6,6 +6,7 @@ aside: false
 image: "https://harlanzw.com/social/scale-your-vue-components.png"
 tags:
   - vue
+newsletter: false
 ---
 
 One of the key pieces in scaling your Vue app is having good component architecture.

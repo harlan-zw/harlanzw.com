@@ -61,6 +61,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      title: 'Harlan Wilton',
+      titleTemplate: '%s - Harlan Wilton',
       // fathom analytics
       script: [
         {
@@ -100,7 +102,6 @@ export default defineNuxtConfig({
   studio: {
     enabled: false,
   },
-
 
   nitro: {
     prerender: {

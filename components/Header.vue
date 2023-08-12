@@ -4,14 +4,14 @@ const { data: nav } = await useHeaderNav()
 
 <template>
   <header>
-    <div class="flex justify-between items-center max-w-8xl mx-auto mx-auto sm:px-8 px-4">
+    <div class="flex justify-between items-center max-w-12xl mx-auto mx-auto sm:px-8 px-4 py-4 sm:py-0">
       <Logo />
       <div class="flex items-center">
         <!-- Navigation -->
         <nav aria-label="Main Menu" class="opacity-75">
           <ul class="flex lg:(space-x-7 mr-15) sm:space-x-2 space-x-1 text-sm md:text-base items-center">
             <template v-for="(link, key) in nav">
-              <li v-if="link._path !== '/'" :key="key">
+              <li v-if="link._path !== '/'" :key="key" :class="key >= 4 ? 'hidden xl:block' : ''">
                 <NuxtLink v-slot="slot" :to="link._path" class="!inline-flex items-center group" :title="`Visit ${link.title} Page`">
                   <div :class="slot?.isActive ? ['sm:bg-green-50', 'text-green-800', 'dark:(sm:bg-green-800/10 text-green-50)'] : []" class="md:(px-3 py-2) px-1 py-1 rounded">
                     <icon v-if="link.icon" :name="link.icon" :class="slot?.isActive ? 'opacity-100' : 'opacity-75'" class="hidden text-sm w-3 h-3 lg:inline-block text mr-2 mb-1 transition opacity-75 group-hover:opacity-100" />

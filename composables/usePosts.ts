@@ -21,6 +21,32 @@ export function usePosts(options?: UsePostsOptions) {
     .sort({
       publishedAt: -1,
     })
+    .where({
+      newsletter: {
+        $eq: false,
+      },
+    })
+    .limit(options?.limit || 10)
+    .find(), {
+    // group posts by the publish year
+    transform: (posts) => {
+      posts = posts.filter(p => p.publishedAt)
+      return groupBy(posts, p => new Date(p.publishedAt).getFullYear())
+    },
+  })
+}
+
+export function useNewsletterPosts(options?: UsePostsOptions) {
+  return useAsyncData('content:newsletter-partials', () => queryContent<Post>('blog/')
+    .only(['_path', 'description', 'title', 'publishedAt', 'readingMins', 'status', 'tags', 'publishOn'])
+    .sort({
+      publishedAt: -1,
+    })
+    .where({
+      newsletter: {
+        $eq: true,
+      },
+    })
     .limit(options?.limit || 10)
     .find(), {
     // group posts by the publish year

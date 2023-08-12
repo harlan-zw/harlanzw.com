@@ -7,6 +7,7 @@ image: "https://harlanzw.com/social/vue-automatic-component-imports.png"
 tags: 
  - webpack
  - vue
+newsletter: false
 ---
 
 When first learning Vue, you are taught you need to import and add components to `components` in the script block.
