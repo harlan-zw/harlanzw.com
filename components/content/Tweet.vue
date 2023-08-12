@@ -5,6 +5,7 @@ defineProps<{ id: string }>()
 <template>
   <LegoTweet
     v-slot="{ url }"
+    v-if="id"
     :tweet-id="id"
     class="tweet max-w-[550px] mx-auto my-15 dark:bg-black bg-white p-4 rounded-xl border not-prose dark:border-gray-700"
   >
