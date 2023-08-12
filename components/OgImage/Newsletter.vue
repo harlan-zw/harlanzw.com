@@ -137,8 +137,7 @@ const siteLogo = computed(() => {
         </div>
         <div class="flex flex-row">
           <ScoreCard label="GitHub stars" :before="6112" :after="6295" class="mr-2 bg-gray-900 text-white border-gray-600" />
-          <ScoreCard label="Hours Worked" suffix=" hrs" :before="87" :after="195" class="mr-2 bg-gray-900 text-white border-gray-600">
-          </ScoreCard>
+          <ScoreCard label="Hours Worked" suffix=" hrs" :before="87" :after="195" class="mr-2 bg-gray-900 text-white border-gray-600" />
           <ScoreCard label="MRR" currency :before="867" :after="966" class="mr-2 bg-gray-900 text-white border-gray-600" />
         </div>
         <div class="text-white w-full flex flex-row">

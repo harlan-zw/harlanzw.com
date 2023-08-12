@@ -17,9 +17,11 @@ const newsletters = Object.values(posts.value).flat()
 </script>
 
 <template>
-<div class="space-y-7 text-left">
-  <div v-for="(post, key) in newsletters" :key="key">
-    <NuxtLink :to="post._path">{{ post.title }}</Nuxtlink>
+  <div class="space-y-7 text-left">
+    <div v-for="(post, key) in newsletters" :key="key">
+      <NuxtLink :to="post._path">
+        {{ post.title }}
+      </Nuxtlink>
+    </div>
   </div>
-</div>
 </template>

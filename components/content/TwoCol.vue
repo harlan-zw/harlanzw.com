@@ -3,10 +3,8 @@
     <div class="col-span-7">
       <slot name="left" />
     </div>
-    <div class="col-span-5 text-center">
-      <div class="sticky top-35">
-        <slot name="right" />
-      </div>
+    <div class="col-span-5">
+      <slot name="right" />
     </div>
   </div>
 </template>

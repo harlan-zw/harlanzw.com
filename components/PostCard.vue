@@ -2,7 +2,7 @@
 import { TransitionPresets } from '@vueuse/core'
 import type { Post } from '~/types'
 import { dayNth } from '~/logic'
-import { resolveComponent, useElementHover, useTransition } from '#imports'
+import { useElementHover, useTransition } from '#imports'
 
 const props = defineProps<{ post: Post }>()
 
@@ -71,29 +71,29 @@ onMounted(() => {
 </script>
 
 <template>
-<div class="max-w-full relative group">
-  <NuxtLink ref="card" :to="post._path" class="block max-w-full transition-all ">
-    <div class="flex items-center">
-      <div class="max-w-full">
-        <h3 class="opacity-90 text-xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
-          <span>{{ post.title }}</span>
-        </h3>
-        <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">
-          <span v-if="post.readingMins" class="opacity-70">{{ post.readingMins }} min</span>
-          <span class="px-2 opacity-50 hidden sm:inline-block">·</span>
-          <div ref="marqueeEl" class="hidden sm:inline-flex overflow-hidden items-center">
-            <div class="opacity-60">
-              {{ post.description }}
+  <div class="max-w-full relative group">
+    <NuxtLink ref="card" :to="post._path" class="block max-w-full transition-all ">
+      <div class="flex items-center">
+        <div class="max-w-full">
+          <h3 class="opacity-90 text-xl mb-3 group-hover:(sm:-mx-3 tracking-wide text-green-700 font-bold) transition-all">
+            <span>{{ post.title }}</span>
+          </h3>
+          <div class="text-sm wrap overflow-hidden whitespace-nowrap mb-3 flex items-center">
+            <span v-if="post.readingMins" class="opacity-70">{{ post.readingMins }} min</span>
+            <span class="px-2 opacity-50 hidden sm:inline-block">·</span>
+            <div ref="marqueeEl" class="hidden sm:inline-flex overflow-hidden items-center">
+              <div class="opacity-60">
+                {{ post.description }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="opacity-60 text-sm sm:hidden">
-          {{ post.description }}
+          <div class="opacity-60 text-sm sm:hidden">
+            {{ post.description }}
+          </div>
         </div>
       </div>
-    </div>
-  </NuxtLink>
-</div>
+    </NuxtLink>
+  </div>
 </template>
 
 <style lang="scss" scoped>

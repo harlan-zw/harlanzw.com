@@ -12,7 +12,7 @@ const { data: nav } = await useHeaderNav()
           <ul class="flex lg:(space-x-7 mr-15) sm:space-x-2 space-x-1 text-sm md:text-base items-center">
             <template v-for="(link, key) in nav">
               <li v-if="link._path !== '/'" :key="key" :class="key >= 4 ? 'hidden xl:block' : ''">
-                <NuxtLink v-slot="slot" :to="link._path" class="!inline-flex items-center group" :title="`Visit ${link.title} Page`">
+                <NuxtLink v-slot="slot" :to="link._path" class="!inline-flex items-center group px-2 py-1 lg:px-0" :title="`Visit ${link.title} Page`">
                   <div :class="slot?.isActive ? ['sm:bg-green-50', 'text-green-800', 'dark:(sm:bg-green-800/10 text-green-50)'] : []" class="md:(px-3 py-2) px-1 py-1 rounded">
                     <icon v-if="link.icon" :name="link.icon" :class="slot?.isActive ? 'opacity-100' : 'opacity-75'" class="hidden text-sm w-3 h-3 lg:inline-block text mr-2 mb-1 transition opacity-75 group-hover:opacity-100" />
                     {{ link.title }}
