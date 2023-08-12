@@ -43,11 +43,11 @@ html:not(.dark) body {
 
 a:not(.unstyled), .link {
   position: relative;
-  display: inline-block;
+  display: inline;
   transition: 0.2s;
 
   &[target="_blank"]:hover + .link-favicon {
-    display: inline-block;
+    display: inline;
     opacity: 1;
     animation: fadeInUp 0.2s ease-in-out;
   }
@@ -139,3 +139,17 @@ a:not(.unstyled), .link {
   @apply hidden group-hover:inline-block;
 }
 
+.page-body {
+  @media (max-width: 1024px) {
+    padding-top: 1rem !important;
+  }
+}
+.toc-wrapper {
+  background-color: transparent !important;
+}
+.toc {
+  border-color: transparent !important;
+}
+.docs-page-content {
+  padding: 0 !important;
+}

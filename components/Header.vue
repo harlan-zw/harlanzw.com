@@ -34,7 +34,7 @@ const { data: nav } = await useHeaderNav()
   </header>
 </template>
 
-<style>
+<style scoped>
 header {
   border-style: none;
   backdrop-filter: blur(2px);

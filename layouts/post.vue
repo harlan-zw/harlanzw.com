@@ -17,7 +17,7 @@ defineOgImage({
     <PostMeta :post="post" />
     <article>
       <div class="prose-wrap max-w-85ch">
-        <NewsletterAlert v-if="post.tags.includes('newsletter')" class="my-10" />
+        <NewsletterAlert v-if="post.tags.includes('newsletter')" class="md:mt-10 mt-3" />
         <Prose>
           <ContentRenderer :value="post" />
         </Prose>
