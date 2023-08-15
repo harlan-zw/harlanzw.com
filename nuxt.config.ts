@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    headCapoPlugin: true,
+    headNext: true,
   },
 
   devtools: {
