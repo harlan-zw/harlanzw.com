@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 const siteMeta = useSiteMeta()
-
 const year = computed(() => new Date().getFullYear())
-
-useSeoKit()
 </script>
 
 <template>
