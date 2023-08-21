@@ -25,6 +25,7 @@ export default defineNuxtConfig({
 
   experimental: {
     headNext: true,
+    asyncContext: true,
   },
 
   devtools: {
