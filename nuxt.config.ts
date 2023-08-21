@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '~/app/module',
     '~/modules/unplugin-icons',
     '@nuxt/content',
-    'nuxt-seo-kit-module',
+    '@nuxtseo/module',
     'nuxt-link-checker',
     'nuxt-simple-sitemap',
   ],
@@ -62,7 +62,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Harlan Wilton',
-      titleTemplate: '%s - Harlan Wilton',
       // fathom analytics
       script: [
         {
