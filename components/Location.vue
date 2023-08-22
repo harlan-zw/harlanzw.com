@@ -14,13 +14,17 @@ const location = computed(() => {
     return '🇧🇬 Bulgaria'
   else if (month === 8 && day >= 15)
     return '🇲🇰 North Macedonia'
+  else if (month === 8 && day >= 22)
+    return '🇦🇱 Albania'
+  else if (month === 9)
+    return '🇲🇪 Montenegro'
   else
     return 'Europe'
 })
 </script>
 
 <template>
-  <p>
-    <slot />{{ location }}
-  </p>
+<p>
+  <slot />{{ location }}
+</p>
 </template>
