@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { page: post } = useContent()
 defineOgImage({
-  component: 'Newsletter',
+  component: post.value._path.startsWith('2023') ? 'Newsletter' : 'Post',
   readingMins: post.value.readingMins,
   ...post.value.ogImage || {},
 })
