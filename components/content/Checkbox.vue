@@ -14,11 +14,11 @@ function changed() {
         <icon v-if="value" name="line-md:confirm" class="absolute check" />
       </div>
       <div class="ml-3 capitalize">
-        <Markdown :use="$slots.default" unwrap="p" />
+        <MDCSlot :use="$slots.default" name="default" unwrap="p" />
       </div>
     </label>
     <div class="ml-12 opacity-85 max-h-full overflow-hidden transition-all" :class="value ? ['max-h-5'] : []">
-      <Markdown :use="$slots.tip" />
+      <MDCSlot :use="$slots.tip" name="tip" />
     </div>
   </div>
 </template>

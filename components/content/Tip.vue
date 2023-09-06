@@ -5,7 +5,7 @@
         <i-line-md-lightbulb class="icon mt-1" />
       </div>
       <div class="ml-3">
-        <Markdown :use="$slots.default" unwrap="p" />
+        <MDCSlot :use="$slots.default" unwrap="p" />
       </div>
     </div>
   </div>
