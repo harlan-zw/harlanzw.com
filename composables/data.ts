@@ -1,5 +1,4 @@
-import { useAsyncData } from '#app'
-import { queryContent } from '#imports'
+import { fetchContentNavigation, queryContent, useAsyncData } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
 import { groupBy } from '~/logic'
 

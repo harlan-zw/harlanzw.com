@@ -1,5 +1,4 @@
-import { useAsyncData } from '#app'
-import { queryContent } from '#imports'
+import { queryContent, useAsyncData } from '#imports'
 import type { Post } from '~/types'
 
 export function groupBy<T extends {}>(values: T[], fn: (v: T) => any) {
