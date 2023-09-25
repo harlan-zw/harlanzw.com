@@ -18,10 +18,25 @@ const location = computed(() => {
     return '🇦🇱 Albania'
   else if (month === 9 && day < 9)
     return '🇲🇪 Montenegro'
-  else if (month === 9 && day >= 9)
+  else if (month === 9 && day >= 9 && day < 16)
     return '🇧🇦 Bosnia and Herzegovina'
-  else
-    return 'Europe'
+  else if (month === 9 && day >= 16 && day <= 18)
+    return '🇭🇷 Croatia'
+  else if (month === 9 && day > 18 && day < 25)
+    return '🇸🇮 Slovenia'
+  else if (month === 9 && day >= 25 && day < 28)
+    return '🇭🇺 Hungary'
+  else if (month === 9 && day >= 28 && day < 30)
+    return '🇦🇹 Austria'
+  else if (month === 9 && day === 30)
+    return '🇨🇿 Czech Republic'
+  else if (month === 10 && day < 5)
+    return '🇩🇪 Germany'
+  else if (month === 10 && day >= 5 && day < 8)
+    return '🇳🇱 Netherlands'
+  else if (month === 10 && day >= 8 && day < 18)
+    return '🇫🇷 France'
+  return 'Europe'
 })
 </script>
 
