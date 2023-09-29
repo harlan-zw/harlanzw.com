@@ -41,7 +41,7 @@ const location = computed(() => {
 </script>
 
 <template>
-<p>
-  <slot />{{ location }}
-</p>
+  <p>
+    <slot />{{ location }}
+  </p>
 </template>

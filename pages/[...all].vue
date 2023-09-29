@@ -16,14 +16,14 @@ useSeoMeta({
 </script>
 
 <template>
-<div class="document-driven-page">
-  <NuxtLayout :name="layout as string || 'default'">
-    <ContentRenderer v-if="page" :key="(page as any)._id" :value="page">
-      <template #empty="{ value }">
-      <DocumentDrivenEmpty :value="value" />
-      </template>
-    </ContentRenderer>
-    <DocumentDrivenNotFound v-else />
-  </NuxtLayout>
-</div>
+  <div class="document-driven-page">
+    <NuxtLayout :name="layout as string || 'default'">
+      <ContentRenderer v-if="page" :key="(page as any)._id" :value="page">
+        <template #empty="{ value }">
+          <DocumentDrivenEmpty :value="value" />
+        </template>
+      </ContentRenderer>
+      <DocumentDrivenNotFound v-else />
+    </NuxtLayout>
+  </div>
 </template>

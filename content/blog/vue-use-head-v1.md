@@ -167,12 +167,12 @@ useHead({
   htmlAttrs: {
     class: {
       // will be rendered
-      'dark': darkMode,
+      dark: darkMode,
       // will not be rendered
-      'light': !darkMode,
+      light: !darkMode,
     }
   },
-  bodyAttrs: { class: ['layout-id', 'page-id' ] }
+  bodyAttrs: { class: ['layout-id', 'page-id'] }
 })
 ```
 
@@ -274,12 +274,12 @@ Lets you define the priority of a tag with a number or string.
 
 ```ts
 useHead({
-  script: [{ key: 'not-important', src: '/not-important-script.js',},],
+  script: [{ key: 'not-important', src: '/not-important-script.js', },],
 })
 useHead({
   script: [
     {
-      // script is the tag name to target, `not-important` is the key we're targeting  
+      // script is the tag name to target, `not-important` is the key we're targeting
       tagPriority: 'before:script:not-important',
       src: '/must-be-first-script.js',
     },

@@ -15,6 +15,7 @@ When first learning Vue, you are taught you need to import and add components to
 ```vue
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
+
 export default {
   components: {
     HelloWorld
@@ -103,6 +104,7 @@ The `input` is a path to a file in your filesystem, the `output` is the string c
 
 ```js
 import txt from 'raw-loader!./hello.txt'
+
 // txt=HelloWorld
 ```
 
@@ -158,6 +160,7 @@ import { render } from './App.vue?vue&type=template&id=7ba5bd90'
 import script from './App.vue?vue&type=script&lang=js'
 
 import './App.vue?vue&type=style&index=0&id=7ba5bd90&lang=css'
+
 export * from './App.vue?vue&type=script&lang=js'
 script.render = render
 script.__file = 'src/App.vue'
@@ -343,6 +346,7 @@ To understand what components are being used, we need to have our new loader to 
 
 ```js [b. Find the template tags]
 const compiler = require('@vue/compiler-sfc')
+
 const parsed = compiler.parse(fs.readFileSync(`${this.context}/${path.basename(this.resourcePath)}`, 'utf8')).descriptor
 const template = compiler.compileTemplate({
   id: 'tmp',
@@ -399,8 +403,8 @@ Below is the full `imports-loader.js` for reference. This loader should _just wo
 a new component and then use it straight away, make sure you use PascalCase.
 
 ```js [imports-loader.js]
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 const globby = require('globby')
 const first = require('lodash/first')
 const filter = require('lodash/filter')

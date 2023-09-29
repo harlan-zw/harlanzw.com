@@ -180,7 +180,7 @@ See [Components Discovery](https://nuxtjs.org/docs/directory-structure/component
 
 ```ts [nuxt.config.ts]
 export default {
-    components: true
+  components: true
 }
 ```
 ::
@@ -228,11 +228,11 @@ To enable them we update `app.vue` with `NuxtLayout` and `NuxtPage`.
 
 ```vue [app.vue]
 <template>
-<div>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
-</div>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
 ```
 
@@ -240,9 +240,9 @@ Create an empty default layout file that will be updated later.
 
 ```vue [layouts/default.vue]
 <template>
-<div>
-  <slot />
-</div>
+  <div>
+    <slot />
+  </div>
 </template>
 ```
 
@@ -250,9 +250,9 @@ Create a basic index page, so we can see our changes.
 
 ```vue [pages/index.vue]
 <template>
-<div>
-  <h1>hello world</h1>
-</div>
+  <div>
+    <h1>hello world</h1>
+  </div>
 </template>
 ```
 ::
@@ -282,13 +282,13 @@ export default {
 ```ts
 // Nuxt 3
 export default defineNuxtConfig({
-    runtimeConfig: {
-        apiKey: process.env.NUXT_API_KEY || 'super-secret-key',
-        // Warning: `public` is exposed on client and server
-        public: {
-            websiteURL: 'https://public-data.com'
-        }
+  runtimeConfig: {
+    apiKey: process.env.NUXT_API_KEY || 'super-secret-key',
+    // Warning: `public` is exposed on client and server
+    public: {
+      websiteURL: 'https://public-data.com'
     }
+  }
 })
 ```
 
@@ -311,7 +311,7 @@ You will need to reference absolute links from the public directory. If you'd li
 // nuxt 2
 head: {
   meta: [
-      { hid: 'description', name: 'description', content: 'My custom description' },
+    { hid: 'description', name: 'description', content: 'My custom description' },
   ]
 }
 ```
@@ -396,9 +396,9 @@ In Nuxt 3 all modules should belong under the `modules` key. You will need to co
 
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
-    modules: [
-        // your modules
-    ]
+  modules: [
+    // your modules
+  ]
 })
 ```
 ::
@@ -491,7 +491,7 @@ OR you can generate robots dynamically.
 
 ```ts [server/routes/robots.txt.ts]
 export default defineEventHandler(
-    e => `User-agent: *\nDisallow: /\nSitemap: https://YOUR_SITE/sitemap_index.xml`
+  e => `User-agent: *\nDisallow: /\nSitemap: https://YOUR_SITE/sitemap_index.xml`
 )
 ```
 
@@ -540,13 +540,13 @@ Create your own plugin to use Moment instead.
 import moment from 'moment'
 import 'moment/locale/en'
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   moment.locale('en')
   moment.tz.setDefault('UTC')
   return {
-      provide: {
-        moment,
-      }
+    provide: {
+      moment,
+    }
   }
 })
 ```
@@ -581,16 +581,16 @@ You can create your own code to handle gtm.
 ```ts [nuxt.config.ts]
 export default defineNuxtConfig({
   app: {
-      head: {
-        script: [
-          {
-             innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    head: {
+      script: [
+        {
+          innerHTML: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','YOUR_GTM_ID');`
-          },
-        ],
+        },
+      ],
     },
   }
 })
@@ -772,7 +772,7 @@ export default defineNuxtComponent({
       required: true
     }
   },
-  mounted () {
+  mounted() {
     console.log(this.name)
   }
 })

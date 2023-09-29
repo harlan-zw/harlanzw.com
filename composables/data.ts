@@ -4,8 +4,7 @@ import { groupBy } from '~/logic'
 
 export function useProjects() {
   return useAsyncData('content:projects', () =>
-    queryContent<JsonParsedContent<ProjectList>>('_projects').findOne(),
-  )
+    queryContent<JsonParsedContent<ProjectList>>('_projects').findOne())
 }
 
 export function useHeaderNav() {
@@ -31,8 +30,7 @@ export function useRoutesContent<T extends Post>(path?: string) {
   return useAsyncData(`content:${path}`, () => queryContent<T>()
     .where({ path: new RegExp(path) })
     .without(['excerpt'])
-    .findOne(),
-  )
+    .findOne())
 }
 
 export const usePost = async (path?: string) => useRoutesContent<Post>(path)

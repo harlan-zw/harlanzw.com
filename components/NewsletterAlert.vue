@@ -11,8 +11,8 @@ const { prev } = useContent()
       <div class="text-sm mt-1 text-gray-500 dark:text-gray-300 prose">
         <p class="mb-2">
           I'm backpacking Europe while working on open-source. I'm currently in <Location class="inline" />, let's <NuxtLink to="/meet" class="link">
-          meet up
-        </NuxtLink>!
+            meet up
+          </NuxtLink>!
         </p>
         <p class="mb-2">
           Previously:  <NuxtLink :to="prev._path" class="link">

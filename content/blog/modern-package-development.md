@@ -137,7 +137,7 @@ const engineContext = createContext<UnlighthouseContext>()
 
 export const useUnlighthouse = engineContext.use as () => UnlighthouseContext
 
-export const createUnlighthouse = async (userConfig: UserConfig, provider?: Provider) => {
+export async function createUnlighthouse(userConfig: UserConfig, provider?: Provider) {
   // ...
   engineContext.set(ctx, true)
 }
