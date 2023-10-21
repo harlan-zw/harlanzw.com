@@ -5,13 +5,15 @@ defineOgImage({
   readingMins: post.value.readingMins,
   ...post.value.ogImage || {},
 })
+const items = useBreadcrumbItems()
+const ui = useBreadcrumbsUi()
 </script>
 
 <template>
   <DocsPageLayout>
     <SchemaOrgArticle />
-    <div v-if="post.breadcrumbs !== false" class="flex items-center mb-3">
-      <SBreadcrumb hide-separator hide-current class="mb-0" />
+    <div v-if="post.breadcrumbs !== false" class="mb-3 w-full">
+      <SBreadcrumb :items="items" :ui="ui" class="mb-0" />
     </div>
     <PageTitle :post="post" />
     <PostMeta :post="post" />

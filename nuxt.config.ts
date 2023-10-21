@@ -17,10 +17,9 @@ export default defineNuxtConfig({
   site: {
     name: 'Harlan Wilton',
     logo: '/harlan-wilton.jpeg',
-    titleSeparator: '·',
     url: 'https://harlanzw.com/',
     description: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
-    language: 'en-AU',
+    defaultLocale: 'en-AU',
   },
 
   experimental: {
@@ -62,6 +61,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Harlan Wilton',
+      templateParams: {
+        separator: '·',
+      },
       // fathom analytics
       script: [
         {
