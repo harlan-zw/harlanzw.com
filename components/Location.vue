@@ -36,7 +36,9 @@ const location = computed(() => {
     return '🇳🇱 Netherlands'
   else if (month === 10 && day >= 8 && day < 18)
     return '🇫🇷 France'
-  return '🇯🇵 Japan'
+  else if (month === 11 && day <= 2)
+    return '🇯🇵 Japan'
+  return '🇦🇺 Sydney'
 })
 </script>
 
