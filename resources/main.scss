@@ -129,14 +129,14 @@ a:not(.unstyled), .link {
 }
 
 .icon {
-  @apply md:(w-8 h-8) w-6 h-6;
+  //@apply md:(w-8 h-8) w-6 h-6;
 }
 
 .icon--off {
-  @apply group-hover:hidden inline-block;
+  //@apply group-hover:hidden inline-block;
 }
 .icon--on {
-  @apply hidden group-hover:inline-block;
+  //@apply hidden group-hover:inline-block;
 }
 
 .page-body {

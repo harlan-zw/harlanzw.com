@@ -28,8 +28,7 @@ defineOgImage({
     </div>
     <div v-for="(category, cKey) in categories.body" :key="cKey">
       <SubTitle>
-        <IconNuxt v-if="category.name === 'Nuxt'" class="text-black dark:text-white w-7 h-7 mr-1 inline" />
-        <icon v-else-if="category.icon" :name="category.icon" class="w-14 h-auto mr-2 group-hover:opacity-75 transition-all svg-container" />
+        <icon v-if="category.icon" :name="category.icon" class="w-14 h-auto mr-2 group-hover:opacity-75 transition-all svg-container" />
         {{ category.name }}
       </SubTitle>
       <div class="grid md:grid-cols-2 gap-5 text-left">

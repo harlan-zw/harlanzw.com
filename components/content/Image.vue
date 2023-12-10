@@ -55,26 +55,3 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
     </figcaption>
   </figure>
 </template>
-
-<style scoped>
-figure {
-  @apply transform lg:(max-w-900px) mx-auto max-w-full;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-@media(max-width: 1024px) {
-  figure {
-    @apply !translate-x-0;
-  }
-}
-
-figure :deep(img:not([src$=".svg"])) {
-  @apply w-auto rounded-lg shadow-lg max-h-70vh mx-auto;
-
-  max-height: min(65vh, 700px);
-}
-</style>

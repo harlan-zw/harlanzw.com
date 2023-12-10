@@ -1,18 +1,25 @@
 export default defineNuxtConfig({
-  extends: ['@nuxt-themes/docus', 'nuxt-lego'],
+  extends: [
+    'nuxt-lego',
+    '@nuxt/ui-pro',
+  ],
   modules: [
+    '@nuxt/ui',
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
-    '@nuxt/image-edge',
-    'nuxt-windicss',
+    '@nuxt/image',
     // custom content modules, need to come before the content module
     '~/app/module',
     '~/modules/unplugin-icons',
     '@nuxt/content',
     '@nuxtseo/module',
-    'nuxt-link-checker',
-    'nuxt-simple-sitemap',
+    'nuxt-delay-hydration',
   ],
+
+  delayHydration: {
+    mode: 'manual',
+    debug: true,
+  },
 
   site: {
     name: 'Harlan Wilton',
@@ -116,20 +123,6 @@ export default defineNuxtConfig({
         '/feed.json',
         '/feed.atom',
       ],
-    },
-  },
-  hooks: {
-    // Related to https://github.com/nuxt/nuxt/pull/22558
-    // Adding all global components to the main entry
-    // To avoid lagging during page navigation on client-side
-    // Downside: bigger JS bundle
-    // With sync: 465KB, gzip: 204KB
-    // Without: 418KB, gzip: 184KB
-    'components:extend': function (components) {
-      for (const comp of components) {
-        if (comp.global)
-          comp.global = 'sync'
-      }
     },
   },
 })

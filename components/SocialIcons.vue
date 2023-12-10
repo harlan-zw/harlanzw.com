@@ -17,6 +17,5 @@
 
 <style scoped>
 a {
-  @apply hover:text-gray-700 dark:hover:text-gray-300 p-2;
 }
 </style>

@@ -30,15 +30,3 @@ const shiftLargeImgStyles = computed(() => {
     <slot />
   </div>
 </template>
-
-<style scoped>
-div {
-  @apply transform xl:(max-w-1000px) mx-auto max-w-full;
-}
-
-@media(max-width: 1024px) {
-  div {
-    @apply !translate-x-0;
-  }
-}
-</style>

@@ -41,7 +41,6 @@ COMPONENTS=$(ls -lR **/*.vue | wc -l) && echo -e "You have ${COMPONENTS} compone
 - Inconsistent emits and props between components with the same functionality
 - Technical debt is being ignored because it is too painful
 
-
 ## Solving component scaling with rules
 
 Good code adheres to a set of rules. You either follow existing rules (syntax and conventions) or create
@@ -65,7 +64,6 @@ module.exports = {
   ],
 }
 ```
-
 
 ### Rule 2. Use a component naming convention
 
@@ -157,7 +155,7 @@ need to name it `HButtonDefault.vue`.
 ```shell
 components/
 |- Button/ # namespace
-|--- HButton.vue # The namespaces default component 
+|--- HButton.vue # The namespaces default component
 |--- HButtonCallToAction.vue # A call to action button
 |--- HButtonSubmitForm.vue # A button to submit forms
 ```
@@ -189,7 +187,6 @@ When creating new components it's natural to couple application logic in. With t
 
 ![A decision graph for component folders](/blog/component-folder-flow.svg){width="750" height="1200" max-height="600"}
 
-
 #### "Shared" Folder - Base Components
 These components are re-usable and include form inputs, buttons, dialogues and modals. They should never contain application logic or state data.
 
@@ -209,19 +206,19 @@ This exists as two "app" components, they contain logic for validation and posti
 
 ![Newsletter component example](/blog/newsletter-example.png){width="841" height="296"}
 
-```shell 
+```shell
 components/
 # application component scope
-|- app/ 
+|- app/
 |-- Newsletter # namespace
 |--- HNewsletterForm.vue # validates and posts data
 |--- HNewsletterCard.vue # handles successful form post
 # shared component scope
-|- shared/ 
+|- shared/
 |-- Alert/
 |--- HAlertSuccess.vue
-|-- Button/ 
-|--- HButton.vue 
+|-- Button/
+|--- HButton.vue
 |-- Card/
 |--- HCard.vue
 |-- Form
@@ -263,7 +260,6 @@ components/
 </template>
 ```
 
-
 ## Example: Forum Thread
 
 Now imagine you want to build a forum thread page. A user can see comments, upvote comments and post their own comment.
@@ -272,10 +268,10 @@ Now imagine you want to build a forum thread page. A user can see comments, upvo
 
 Using `F` as our component prefix, let's look at what you need.
 
-```shell 
+```shell
 components/
 # application component scope
-|- app/ 
+|- app/
 |-- Thread # namespace
 |--- FThread.vue # Wraps the entire thread
 |--- FThreadPost.vue # A single post / reply
@@ -285,7 +281,7 @@ components/
 |-- Button/
 |--- FButtonUpvote.vue # The thumbs up button
 # shared component scope
-|- shared/ 
+|- shared/
 |-- Img/
 |--- FImgAvatar.vue # Users photos
 |-- Field/
@@ -398,7 +394,6 @@ This one should be pretty obvious and there are enough articles elsewhere on usi
 You want to pull out common logic from components and put them in either mixins or composables.
 
 Check out [VueUse](https://github.com/antfu/vueuse) for some ideas on what that could look like.
-
 
 ## Thanks for reading
 

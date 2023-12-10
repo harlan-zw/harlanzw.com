@@ -4,7 +4,7 @@ description: "Components magically being imported into your app is the latest de
 publishedAt: '2020-12-22'
 aside: false
 image: "https://harlanzw.com/social/vue-automatic-component-imports.png"
-tags: 
+tags:
  - webpack
  - vue
 newsletter: false
@@ -50,7 +50,6 @@ a Webpack loader and what the performance cost of using them has on your app.
 
 Finally, we'll look at some other compile-time DX upgrades that are possible.
 
-
 ## Why Automatic Component Imports?
 
 The _why_ that comes first to my mind, is the developer experience is great. No more confusion or typos on import paths,
@@ -92,7 +91,6 @@ can ensure webpack optimisations are running out of the box for your app with th
 
 > This will also make code-splitting more effective, as webpack will only load the components required for that chunk to be displayed.
 
-
 ## Fundamental: How Does webpack Load Vue Files?
 
 Before we jump into building our own automatic component importer, we'll need to have a basic understanding of how webpack loads Vue files.
@@ -110,7 +108,6 @@ import txt from 'raw-loader!./hello.txt'
 
 The `vue-loader` is the loader for `.vue` files. The loader compiles and bundles your component Single File Component (SFC) into code
 that the browser can understand and run.
-
 
 ### Vue Loader in Action
 
@@ -153,7 +150,6 @@ export default {
 
 Internally, the loader parses this code using the compiler, getting an SFC descriptor object that is used to create the
 final string output of the loader.
-
 
 ```js
 import { render } from './App.vue?vue&type=template&id=7ba5bd90'
@@ -274,7 +270,6 @@ module.exports = {
 Normally a webpack would handle this configuration changing for you.
 ::
 </details>
-
 
 Now we create the loader called `imports-loader.js` in your apps root directory. We're going to make sure we only run it for the virtual SFC module.
 
@@ -490,7 +485,6 @@ module.exports = async function loader(source) {
 
 For Vue 3 there may be a new way to optimise this feature. I've based the proof of concept on how the existing Vue 2 plugins work.
 
-
 ### Static code only
 
 If you have a dynamic import then it's not going to work. I don't think this is a massive issue as you can
@@ -577,7 +571,6 @@ The `@nuxt/components` package does offer this functionality as opt-in through a
 It makes use webpack's [Lazy Loading](https://webpack.js.org/guides/lazy-loading/) which bundles imports as their own dependency.
 This is useful for if you have heavy components that aren't above the fold.
 
-
 ## Conclusion
 
 Vue is already one of the most developer-friendly frontend frameworks around, with continued improvements in the dev experience
@@ -593,4 +586,3 @@ webpack and Vue internals are a challenging topic and if you made it all the way
 
 If you like the technical side of Vue and Laravel, I'll be posting regular articles on this site. The best
 way to keep up to date is by following me [@harlan_zw](https://twitter.com/harlan_zw) or signing up for the newsletter below.
-

@@ -6,7 +6,7 @@ publishedAt: '2022-11-12'
 status: published
 aside: false
 image: "https://harlanzw.com/social/how-vite-works.png"
-tags: 
+tags:
   - vue
 newsletter: false
 ---
@@ -55,7 +55,7 @@ So my full attention went into performance ([e1bc8d2](https://github.com/vueuse/
 
 ## Why a major bump?
 
-While most issues were closed and easy to solve, there was a major outstanding issue that I wanted to address, *Server Only Tags* (see [discussion](https://github.com/nuxt/framework/discussions/7785)). 
+While most issues were closed and easy to solve, there was a major outstanding issue that I wanted to address, *Server Only Tags* (see [discussion](https://github.com/nuxt/framework/discussions/7785)).
 There was also a nasty issue with tags disappearing unexpectedly when hydrating.
 
 Both of these were blocked by how the DOM patching was designed. The old strategy was to add state to the DOM and use this
@@ -81,7 +81,7 @@ This had a issues when you look closely:
 
 ### Deleting DOM elements it doesn't own
 
-It would modify whatever element is in the position regardless if it's an element created from `@vueuse/head`. 
+It would modify whatever element is in the position regardless if it's an element created from `@vueuse/head`.
 
 This led to issues with a third-party script inserting something in between these DOM elements, and it getting deleted.
 
@@ -96,7 +96,6 @@ To solve these issues, a new DOM patching algorithm was needed that tracked side
 ### State in DOM isn't so nice
 
 Purely from a DX perspective, it's not nice to have state in the DOM that isn't needed. It's not a big deal, but it's not ideal.
-
 
 ## Unhead
 
@@ -132,7 +131,6 @@ Featuring:
 - Vue 2.7 Support  ([docs](https://unhead.harlanzw.com/integrations/vue/setup))
 - Options API Support ([docs](https://unhead.harlanzw.com/integrations/vue/options-api))
 
-
 #### htmlAttrs / bodyAttrs merging
 
 [Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy)
@@ -153,7 +151,6 @@ useHead({
 })
 // <html class="my-class another-class">
 ```
-
 
 #### Array / Object Classes
 
@@ -198,7 +195,6 @@ useHead({
 })
 ```
 
-
 #### Prop promises
 
 You can provide a promise to props and it will be resolved when rendering the tags.
@@ -212,7 +208,6 @@ useHead({
   ],
 })
 ```
-
 
 ### 🚀 New Features
 
@@ -287,11 +282,9 @@ useHead({
 })
 ```
 
-
 #### tagDuplicateStrategy
 
 [Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy)
-
 
 #### DOM Event Handlers
 
@@ -390,7 +383,6 @@ useHead({
 ```
 
 Check the [documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy) to learn more.
-
 
 ### Duplicate tags in `useHead`
 
