@@ -78,8 +78,8 @@ devDependencies:
     specifier: ^12.1.0
     version: 12.1.0(eslint@8.55.0)(typescript@5.3.3)
   '@nuxtseo/module':
-    specifier: 2.0.0-beta.48
-    version: 2.0.0-beta.48(@nuxt/devtools@1.0.5)(@unhead/shared@1.8.9)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(unhead@1.8.9)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
+    specifier: 2.0.0-beta.49
+    version: 2.0.0-beta.49(@nuxt/devtools@1.0.5)(@unhead/shared@1.8.9)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(unhead@1.8.9)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
   '@vue/repl':
     specifier: ^3.0.0
     version: 3.0.0
@@ -2633,14 +2633,14 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxtseo/module@2.0.0-beta.48(@nuxt/devtools@1.0.5)(@unhead/shared@1.8.9)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(unhead@1.8.9)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2):
-    resolution: {integrity: sha512-2e2ALnYTsnsNEI2klZdx3ctlH3D2z7sKEPR3r4jxMGxCRPxlEeJUlv6QnBUhCI+E/2IXVVxuocpm1XU89moCNA==}
+  /@nuxtseo/module@2.0.0-beta.49(@nuxt/devtools@1.0.5)(@unhead/shared@1.8.9)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(unhead@1.8.9)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2):
+    resolution: {integrity: sha512-5n0vmnoHbMGlFYgA2NODoTyn7FAaM8xmUoFuKt5xBEFG16DGY8i5rba7kmyU5SUxmyiCdvMjAlsEWoi22HI3dQ==}
     dependencies:
       '@nuxt/kit': 3.8.2(rollup@3.29.4)
       chalk: 5.3.0
       defu: 6.1.3
       nuxt-link-checker: 2.1.11(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
-      nuxt-og-image: 3.0.0-rc.8(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
+      nuxt-og-image: 3.0.0-rc.9(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
       nuxt-schema-org: 3.2.1(@nuxt/devtools@1.0.5)(@unhead/shared@1.8.9)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(unhead@1.8.9)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
       nuxt-seo-experiments: 3.1.9(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
       nuxt-seo-ui: 0.4.4(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2)
@@ -5168,7 +5168,7 @@ packages:
     resolution: {integrity: sha512-2XZi+wqlluYQcxJ1G8qE/U0IeO5CbxUyv1lnSdD7ByJtd5Z3+1063Q6IHbRaYkka1Kb6WgGqEkBrSMaBtbHuFQ==}
     engines: {node: '>=16.14.0'}
     dependencies:
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.5
       '@rollup/pluginutils': 5.1.0(rollup@3.29.4)
       pathe: 1.1.1
     transitivePeerDependencies:
@@ -10668,8 +10668,8 @@ packages:
       - webpack
     dev: true
 
-  /nuxt-og-image@3.0.0-rc.8(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2):
-    resolution: {integrity: sha512-UiuyWMFY0x4luIZobPEVcdw60IIUqoRR4oVFfvhmZF9JB267608wHT0bE12HdUJ9uq5VgvH5lpWuwFCeIETZjQ==}
+  /nuxt-og-image@3.0.0-rc.9(@nuxt/devtools@1.0.5)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(rollup@3.29.4)(vite@4.5.0)(vue@3.3.8)(webpack@5.88.2):
+    resolution: {integrity: sha512-QCXV/OKZNEOBNHDN8bw81R3F3Jcia2vCb0cgnmA6y6uA4j7ZfQd57YH0+7Ioo4FJuR62p+NRkTDpyj5QNihYrA==}
     dependencies:
       '@iconify-json/noto': 1.1.17
       '@nuxt/devtools-kit': 1.0.5(nuxt@3.8.2)(rollup@3.29.4)(vite@4.5.0)
@@ -12353,7 +12353,7 @@ packages:
       rollup: 3.29.4
       typescript: 5.3.3
     optionalDependencies:
-      '@babel/code-frame': 7.22.13
+      '@babel/code-frame': 7.23.5
     dev: true
 
   /rollup-plugin-visualizer@5.11.0(rollup@4.8.0):
@@ -13831,8 +13831,8 @@ packages:
     engines: {node: '>=16.14.0'}
     dependencies:
       '@antfu/utils': 0.7.6
-      '@babel/generator': 7.23.0
-      '@babel/parser': 7.23.3
+      '@babel/generator': 7.23.5
+      '@babel/parser': 7.23.5
       '@rollup/pluginutils': 5.1.0(rollup@3.29.4)
       ast-kit: 0.6.9(rollup@3.29.4)
       magic-string-ast: 0.1.3
