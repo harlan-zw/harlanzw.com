@@ -6,7 +6,8 @@ export default {
 
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
-  alt: string
+  label?: string
+  alt?: string
   src: string
   lazy?: boolean | 'false' | 'true'
   width?: number
@@ -39,19 +40,20 @@ const provider = props.src.startsWith('https://') ? '' : 'cloudinary'
 </script>
 
 <template>
-  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:(!my-10)', figureClass]" @click.prevent="handleClick">
+  <figure :style="shiftLargeImgStyles" :class="[noMargin ? '!my-0' : ' lg:!my-10', figureClass]" class="transform">
     <nuxt-img
       v-bind="$attrs"
-      height="700"
+      height="1400"
       format="auto"
-      :alt="alt"
+      :alt="alt || label"
       :width="width"
       :src="src"
       :loading="loadingType"
       :provider="provider"
+      class="max-h-[700px] rounded"
     />
-    <figcaption v-if="alt" class="text-center">
-      {{ alt }}
+    <figcaption v-if="label || alt" class="text-center">
+      {{ label || alt }}
     </figcaption>
   </figure>
 </template>

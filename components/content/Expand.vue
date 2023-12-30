@@ -8,7 +8,7 @@ export default {
 const props = withDefaults(defineProps<{
   width?: number
 }>(), {
-  width: 1000,
+  width: 1100,
 })
 
 const { width } = useWindowSize()
