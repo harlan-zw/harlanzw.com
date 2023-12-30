@@ -21,7 +21,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="post-meta sm:(flex space-x-7 text-lg space-y-0) opacity-80 space-y-3 items-center">
+  <div class="post-meta sm:flex sm:space-x-7 sm:text-lg sm:space-y-0 opacity-80 space-y-3 items-center">
     <div>
       Published {{ month }} {{ day }} {{ year }}
     </div>
