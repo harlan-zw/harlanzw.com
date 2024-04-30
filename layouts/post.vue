@@ -6,14 +6,23 @@ defineOgImage({
   ...post.value.ogImage || {},
 })
 const items = useBreadcrumbItems()
-const ui = useBreadcrumbsUi()
 </script>
 
 <template>
   <DocsPageLayout>
     <SchemaOrgArticle />
     <div v-if="post.breadcrumbs !== false" class="mb-3 w-full">
-      <SBreadcrumb :items="items" :ui="ui" class="mb-0" />
+      <nav aria-label="Breadcrumbs">
+        <ul class="flex items-center gap-4 text-gray-500">
+          <li v-for="(item, key) in items" :key="key">
+            <NuxtLink v-bind="item">
+              <span v-if="item.label !== 'Home'">{{ item.label }}</span>
+              <Icon v-else name="carbon:home" class=" text-sm" style="width: 1.3rem; height: 1.3rem;" />
+            </NuxtLink>
+            <Icon v-if="key !== items.length - 1" name="carbon:chevron-right" class="opacity-50 ml-3" style="width: 1.3rem; height: 1.3rem;" />
+          </li>
+        </ul>
+      </nav>
     </div>
     <PageTitle :post="post" />
     <PostMeta :post="post" />
