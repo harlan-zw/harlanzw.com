@@ -43,7 +43,7 @@
     "@vueuse/nuxt": "^10.7.0",
     "eslint": "^9.1.1",
     "feed": "^4.2.2",
-    "nuxt": "3.11.2",
+    "nuxt": "3.12.4",
     "nuxt-icon": "^0.6.10",
     "nuxt-lego": "^0.0.14",
     "nuxt-windicss": "^2.6.1",
