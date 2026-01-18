@@ -14,12 +14,11 @@ newsletter: false
 This article is a work in progress. Feel free to read it, but some sections are incomplete.
 ::
 
-
 ## Introduction
 
 [Unlighthouse](https://github.com/harlan-zw/unlighthouse) is an open-source package I built to scan your entire site using Google Lighthouse.
 
-Building it was chaotic, with day-long bugs, constant refactoring and endless documentation reading. 
+Building it was chaotic, with day-long bugs, constant refactoring and endless documentation reading.
 
 Through building it, I learnt modern development practices, making use of the vast ecosystem of packages and tools.
 
@@ -48,7 +47,7 @@ I needed to build a tool that would run Google Lighthouse on an entire site with
 
 I had a plan of attack for the build.
 
-The backend would be build using Typescript and Node. 
+The backend would be build using Typescript and Node.
 
 The frontend client would be built using Vue and Vite.
 
@@ -60,7 +59,7 @@ With that, the package would be known as **Un** (inspired by Unjs) **Lighthouse*
 
 Keeping a keen eye on other modern packages coming out, I took some of the best practices and tools I saw implemented.
 
-The stack was split into three core parts: 
+The stack was split into three core parts:
 - Monorepo: containing the dependencies to build, test and deploy the code
 - Frontend: displaying searchable, filtering and sortable results
 - Backend: generating the frontend, running the scans and providing an API for the frontend
@@ -119,7 +118,6 @@ Unlighthouse wouldn't be possible if Google hadn't published Lighthouse as its o
 
 To make Unlighthouse fast, I combined the binary with the package [puppeteer-cluster](https://github.com/thomasdondorf/puppeteer-cluster), which allows for multi-threaded lighthouse scans.
 
-
 ### Unctx
 
 ![](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){alt="unctx" height="350"}
@@ -167,7 +165,6 @@ hooks.hookOnce('visited-client', () => {
 
 - [Hookable GitHub Repo](https://github.com/unjs/hookable)
 
-
 ### Unconfig
 
 ![](https://opengraph.githubassets.com/f8bdfdebc7f32dd928adc557ea624fe7e4e4003400e90b3c41b414d818432b21/antfu/unconfig){alt="Unconfig" height="350"}
@@ -199,7 +196,6 @@ if (configDefinition.sources?.[0]) {
 
 - [Unconfig GitHub Repo](https://github.com/antfu/unconfig)
 
-
 ### ufo
 
 ![](https://repository-images.githubusercontent.com/318601574/674ca800-3a4a-11eb-901f-31ab7e452816){alt="UFO" height="350"}
@@ -218,11 +214,9 @@ const site = new $URL(url).origin
 
 - [ufo GitHub Repo](https://github.com/unjs/ufo)
 
-
 ### Unrouted
 
 ![](https://repository-images.githubusercontent.com/432034546/262d14fd-f00c-46b9-8b72-423a07dca06f){alt="unrouted" height="350"}
-
 
 I needed an API for the client to communicate with the Node server to fetch the status of the scan and submit re-scans.
 
@@ -283,7 +277,6 @@ The beloved [Vite](https://github.com/vitejs/vite) was to be used to make the de
 
 Vue v3 used to make use of the vast collection of utilities available at [VueUse](https://vueuse.org/).
 
-
 ## Putting It Together - Part 2
 
 Part 2 of this article will be coming soon where I go over some technical feats in putting together the above packages.
@@ -291,4 +284,3 @@ Part 2 of this article will be coming soon where I go over some technical feats 
 ## Conclusion
 
 Thanks for reading Part 1. I hope you at least found it interesting or some of the links useful.
-

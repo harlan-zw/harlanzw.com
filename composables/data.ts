@@ -1,5 +1,5 @@
-import { fetchContentNavigation, queryContent, useAsyncData } from '#imports'
 import type { JsonParsedContent, Page, Post, ProjectList } from '~/types'
+import { fetchContentNavigation, queryContent, useAsyncData } from '#imports'
 import { groupBy } from '~/logic'
 
 export function useProjects() {

@@ -1,7 +1,7 @@
 import { addVitePlugin, defineNuxtModule } from '@nuxt/kit'
 import unpluginIcons from 'unplugin-icons'
-import Components from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
 
 export default defineNuxtModule({
   setup() {

@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="max-w-xl relative border transition rounded-xl overflow-hidden dark:border-gray-500">
     <div class="p-4">
@@ -9,11 +12,11 @@
           I'm back in Sydney for a couple of months while working on open-source.
         </p>
         <p>
-          In the area and want to catch up? <NuxtLink to="/meet" class="link">Get in touch</NuxtLink>!
+          In the area and want to catch up? <NuxtLink to="/meet" class="link">
+            Get in touch
+          </NuxtLink>!
         </p>
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-</script>

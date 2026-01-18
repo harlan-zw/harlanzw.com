@@ -11,7 +11,7 @@ Built as reference for optimal Nuxt code practices, SEO, performance and accessi
 - 🔎 Automated Schema.org
 - 📚 Markdown read time calculation
 - 👨‍💻 Code file name and language support
-- 🧩 Automatic Server Side Icon Resolving (no FOUC), powered by iconify & unplugin-icons 
+- 🧩 Automatic Server Side Icon Resolving (no FOUC), powered by iconify & unplugin-icons
 - 🤖 Sitemap.xml and feed generation
 - 🍞 Automatic breadcrumbs (with Schema.org)
 - 🤝 Integrated with @nuxt/image, images served with [cloudinary](https://cloudinary.com)

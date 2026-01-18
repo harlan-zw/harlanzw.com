@@ -1,6 +1,6 @@
-import { visit } from 'unist-util-visit'
 import type { MarkdownNode } from '@nuxt/content/dist/runtime/types'
 import type { ParsedContent } from '~/types'
+import { visit } from 'unist-util-visit'
 
 export function OgImage(content: ParsedContent) {
   content.ogImage = content.ogImage || {}

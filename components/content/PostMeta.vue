@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Post } from '../../types'
-import { dayNth } from '../../logic'
 import { useSeoMeta } from '#imports'
+import { dayNth } from '../../logic'
 
 const { post } = defineProps<{
   post: Post
