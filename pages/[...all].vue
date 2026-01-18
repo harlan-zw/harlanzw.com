@@ -9,10 +9,10 @@ if (!(page as any).value && process.server) {
   event.res.statusCode = 404
 }
 
-useSeoMeta({
-  title: () => page.value?.title,
-  description: () => page.value?.description,
-})
+// useSeoMeta({
+//   title: () => page.value?.title,
+//   description: () => page.value?.description,
+// })
 </script>
 
 <template>

@@ -1,7 +1,7 @@
-import { queryContent, useAsyncData } from '#imports'
 import type { Post } from '~/types'
+import { queryContent, useAsyncData } from '#imports'
 
-export function groupBy<T extends {}>(values: T[], fn: (v: T) => any) {
+export function groupBy<T extends Record<string, any>>(values: T[], fn: (v: T) => any) {
   return values.reduce((rv, x) => {
     (rv[fn(x)] = rv[fn(x)] || []).push(x)
     return rv

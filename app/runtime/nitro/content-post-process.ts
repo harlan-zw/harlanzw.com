@@ -2,13 +2,13 @@ import type { NitroAppPlugin } from 'nitropack'
 
 // import { Breadcrumbs } from './content/breadcrumbs'
 import { CodeFilename } from './content/code-file-name'
+import { Links } from './content/links'
+import { MetaNormaliser } from './content/meta-normaliser'
 import { NuxtImage } from './content/nuxt-image'
+import { OgImage } from './content/og-image'
+import { Projects } from './content/projects'
 import { ReadTime } from './content/read-time'
 import { StorageMeta } from './content/storage-meta'
-import { MetaNormaliser } from './content/meta-normaliser'
-import { Projects } from './content/projects'
-import { Links } from './content/links'
-import { OgImage } from './content/og-image'
 
 const mdPlugins = [
   // Breadcrumbs,

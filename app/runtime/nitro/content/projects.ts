@@ -1,5 +1,5 @@
-import { $fetch } from 'ofetch'
 import type { ParsedContent } from '~/types'
+import { $fetch } from 'ofetch'
 
 export async function Projects(content: ParsedContent) {
   if (content._file !== '_projects.json')
@@ -13,7 +13,7 @@ export async function Projects(content: ParsedContent) {
         project.description = repo.description
         project.updatedAt = repo.updatedAt
       }
-      catch (e) {}
+      catch {}
     }
   }
 
