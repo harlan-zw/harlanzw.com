@@ -3,15 +3,13 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
-    '@nuxt/image-edge',
-    'nuxt-windicss',
+    '@nuxt/image',
+    '@unocss/nuxt',
     // custom content modules, need to come before the content module
     '~/app/module',
     '~/modules/unplugin-icons',
     '@nuxt/content',
-    '@nuxtseo/module',
-    'nuxt-link-checker',
-    'nuxt-simple-sitemap',
+    '@nuxtjs/seo',
   ],
 
   site: {
@@ -22,23 +20,12 @@ export default defineNuxtConfig({
     defaultLocale: 'en-AU',
   },
 
-  experimental: {
-    headNext: true,
-  },
-
   devtools: {
     enabled: true,
 
     timeline: {
       enabled: true,
     },
-  },
-
-  linkChecker: {
-    enabled: false,
-    excludeLinks: [
-      'https://twitter.com/harlan_zw',
-    ],
   },
 
   css: [
@@ -109,12 +96,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       failOnError: false,
-      crawlLinks: true,
+      crawlLinks: false,
       routes: [
         '/',
-        '/feed.xml',
-        '/feed.json',
-        '/feed.atom',
+        // '/feed.xml',
+        // '/feed.json',
+        // '/feed.atom',
       ],
     },
   },

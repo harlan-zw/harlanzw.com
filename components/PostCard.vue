@@ -1,15 +1,9 @@
 <script lang="ts" setup>
-import { TransitionPresets } from '@vueuse/core'
 import type { Post } from '~/types'
-import { dayNth } from '~/logic'
 import { useElementHover, useTransition } from '#imports'
+import { TransitionPresets } from '@vueuse/core'
 
-const props = defineProps<{ post: Post }>()
-
-const formatPublishedDate = (options: any) => new Intl.DateTimeFormat('en', options).format(new Date(props.post.publishedAt))
-
-const month = formatPublishedDate({ month: 'short' })
-const day = dayNth(formatPublishedDate({ day: 'numeric' }))
+defineProps<{ post: Post }>()
 
 const card = ref()
 

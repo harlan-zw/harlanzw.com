@@ -1,6 +1,6 @@
-import { Feed } from 'feed'
-import * as cheerio from 'cheerio'
 import { serverQueryContent } from '#content/server'
+import * as cheerio from 'cheerio'
+import { Feed } from 'feed'
 import { SameAs, SiteDescription, SiteLanguage, SiteName, SiteTagLine, SiteUrl } from '~/logic'
 
 export async function generateBlogFeed(event) {
@@ -33,7 +33,6 @@ export async function generateBlogFeed(event) {
     $ = cheerio.load(prose!)
     // remove all attributes from all elements
     $('*').each(function () {
-      // eslint-disable-next-line @typescript-eslint/no-invalid-this
       this.attribs = {}
     })
     const item = {

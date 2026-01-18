@@ -7,7 +7,9 @@ const { data: categories } = await useProjects()
 const totalStars = computed(() => {
   return categories.value?.body
     // @ts-expect-error untyped
-    .map(c => c.projects).flat().map(p => p.stars || 0)
+    .map(c => c.projects)
+    .flat()
+    .map(p => p.stars || 0)
     // @ts-expect-error untyped
     .reduce((acc, stars) => acc + stars, 0)
 })

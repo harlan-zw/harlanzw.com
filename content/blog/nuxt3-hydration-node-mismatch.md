@@ -1,5 +1,5 @@
 ---
-title: Nuxt 3 "Hydration Mismatch" Errors 
+title: Nuxt 3 "Hydration Mismatch" Errors
 description: "Learn about the causes and solutions for the Hydration Children Mismatch error in Nuxt 3, including the use of client-only components, the <client-only> component, and the @nuxtjs/html-validator module."
 publishedAt: "2023-02-05"
 aside: false
@@ -52,7 +52,7 @@ be quite cryptic.
 
 As a quick check, if your error is pointing to a page component, it's possible that the error is from multiple root elements.
 
-While not technically required in Vue 3, it's required in Nuxt 3 to have a root element in your page components. 
+While not technically required in Vue 3, it's required in Nuxt 3 to have a root element in your page components.
 
 **Bad - Has 2 root elements**
 
