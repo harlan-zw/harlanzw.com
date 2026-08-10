@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "harlanzw-com",
+  "account_id": "5904138d55ca25d5670dca6adf99894e",
+  "compatibility_date": "2026-08-08",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "no_nodejs_compat_v2"
+  ],
+  "preview_urls": true,
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "harlanzw.com",
+      "custom_domain": true
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "harlanzw-com",
+      "database_id": "b2567f1e-7a4e-4a8e-835a-5b6fa5c6bc54"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.1
+    }
+  }
+}

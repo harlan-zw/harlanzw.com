@@ -85,7 +85,7 @@ Vitest makes writing your logic and tests a breeze and I'd recommend checking it
 
 ### Unbuild
 
-![](https://opengraph.githubassets.com/a12c58f21ffef9686653c51d0203ab07a995d7450d3d690a1c8bd51e975df35c/unjs/unbuild){alt="unbuild" height="350"}
+![unbuild](https://opengraph.githubassets.com/a12c58f21ffef9686653c51d0203ab07a995d7450d3d690a1c8bd51e975df35c/unjs/unbuild){height="350"}
 
 This package is described as a "A unified javascript build system".
 
@@ -120,7 +120,7 @@ To make Unlighthouse fast, I combined the binary with the package [puppeteer-clu
 
 ### Unctx
 
-![](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){alt="unctx" height="350"}
+![unctx](https://opengraph.githubassets.com/16b7d5bc9f0ddbbbc59c5f8fd24c1f1f311d2ab6bb835be58fb0698631d4b624/unjs/unctx){height="350"}
 
 It's amazing that a simple pattern like composition has evaded Node packages for so long.
 
@@ -145,7 +145,7 @@ export async function createUnlighthouse(userConfig: UserConfig, provider?: Prov
 
 ### Hookable
 
-![](https://opengraph.githubassets.com/6fd14beca1b9a811c7b46e4e61ec4ef8870a3f1407e21d47724b38cb6128e0b3/unjs/hookable){alt="hookable" height="350"}
+![hookable](https://opengraph.githubassets.com/6fd14beca1b9a811c7b46e4e61ec4ef8870a3f1407e21d47724b38cb6128e0b3/unjs/hookable){height="350"}
 
 For Nuxt.js users, you might be familiar with the concept of frameworks hooks. A way for you to modify or do something with the internal logic of Nuxt.
 
@@ -167,7 +167,7 @@ hooks.hookOnce('visited-client', () => {
 
 ### Unconfig
 
-![](https://opengraph.githubassets.com/f8bdfdebc7f32dd928adc557ea624fe7e4e4003400e90b3c41b414d818432b21/antfu/unconfig){alt="Unconfig" height="350"}
+![Unconfig](https://opengraph.githubassets.com/f8bdfdebc7f32dd928adc557ea624fe7e4e4003400e90b3c41b414d818432b21/antfu/unconfig){height="350"}
 
 Unconfig is a universal solution for loading configurations. This let me allow the package to load in a configuration from `unlighthouse.config.ts` or a custom path, with barely any code.
 
@@ -198,7 +198,7 @@ if (configDefinition.sources?.[0]) {
 
 ### ufo
 
-![](https://repository-images.githubusercontent.com/318601574/674ca800-3a4a-11eb-901f-31ab7e452816){alt="UFO" height="350"}
+![UFO](https://repository-images.githubusercontent.com/318601574/674ca800-3a4a-11eb-901f-31ab7e452816){height="350"}
 
 Dealing with URLs in Node isn't nice. For Unlighthouse I needed to deal with many URLS, I needed to make sure they were standardised no matter how they were formed.
 
@@ -216,7 +216,7 @@ const site = new $URL(url).origin
 
 ### Unrouted
 
-![](https://repository-images.githubusercontent.com/432034546/262d14fd-f00c-46b9-8b72-423a07dca06f){alt="unrouted" height="350"}
+![unrouted](https://repository-images.githubusercontent.com/432034546/262d14fd-f00c-46b9-8b72-423a07dca06f){height="350"}
 
 I needed an API for the client to communicate with the Node server to fetch the status of the scan and submit re-scans.
 

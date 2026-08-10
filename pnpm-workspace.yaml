@@ -1,0 +1,88 @@
+# Temporary exceptions for packages verified during this migration. The active
+# supply-chain policy blocks them until they age beyond its cutoff.
+minimumReleaseAgeExclude:
+  - '@harlan-zw/nuxt-dx@0.0.1'
+  - '@harlan-zw/nuxt-github-sponsors@0.0.1'
+  - '@cloudflare/workers-types@5.20260810.1'
+  - '@iconify-json/lucide@1.2.123'
+  - '@nuxt/icon@2.5.0'
+  - '@nuxtjs/seo@5.3.12'
+  - nuxtseo-shared@5.3.12
+  - '@takumi-rs/core-darwin-arm64@2.6.1'
+  - '@takumi-rs/core-darwin-x64@2.6.1'
+  - '@takumi-rs/core-linux-arm64-gnu@2.6.1'
+  - '@takumi-rs/core-linux-arm64-musl@2.6.1'
+  - '@takumi-rs/core-linux-x64-gnu@2.6.1'
+  - '@takumi-rs/core-linux-x64-musl@2.6.1'
+  - '@takumi-rs/core-win32-arm64-msvc@2.6.1'
+  - '@takumi-rs/core-win32-x64-msvc@2.6.1'
+  - '@takumi-rs/core@2.6.1'
+  - '@takumi-rs/helpers@2.6.1'
+  - '@takumi-rs/wasm@2.6.1'
+  - '@harlan-zw/nuxt-dx@0.0.1'
+  - wrangler@4.120.0
+shamefullyHoist: true
+shellEmulator: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 262800
+trustPolicyExclude:
+  - semver@6.3.1
+
+overrides:
+  nuxtseo-shared: ^5.3.12
+  oxc-parser: ^0.143.0
+  unplugin: ^3.3.0
+  vite: ^8.2.1
+
+allowBuilds:
+  better-sqlite3: true
+  esbuild: false
+  sharp: true
+  vue-demi: true
+  workerd: true
+
+catalog:
+  '@antfu/eslint-config': ^9.3.0
+  '@cloudflare/workers-types': 5.20260810.1
+  '@harlan-zw/nuxt-dx': 0.0.1
+  '@harlan-zw/nuxt-github-sponsors': 0.0.1
+  '@iconify-json/carbon': ^1.2.25
+  '@iconify-json/emojione-v1': ^1.2.3
+  '@iconify-json/ic': ^1.2.4
+  '@iconify-json/line-md': ^1.2.16
+  '@iconify-json/logos': ^1.2.12
+  '@iconify-json/lucide': ^1.2.123
+  '@iconify-json/noto': ^1.2.7
+  '@iconify-json/simple-icons': ^1.2.93
+  '@iconify-json/vscode-icons': ^1.2.70
+  '@nuxt/a11y': 1.0.0-alpha.1
+  '@nuxt/content': ^3.15.2
+  '@nuxt/fonts': ^0.14.0
+  '@nuxt/icon': ^2.5.0
+  '@nuxt/image': ^2.1.0
+  '@nuxt/ui': ^4.10.0
+  '@nuxtjs/html-validator': ^2.1.0
+  '@nuxtjs/seo': ^5.3.12
+  '@takumi-rs/core': ^2.6.1
+  '@takumi-rs/wasm': ^2.6.1
+  '@types/node': ^26.2.0
+  '@vueuse/core': ^14.4.0
+  '@vueuse/nuxt': ^14.4.0
+  better-sqlite3: ^12.11.1
+  cheerio: ^1.1.2
+  consola: ^3.4.2
+  eslint: ^10.8.1
+  eslint-plugin-harlanzw: ^0.17.1
+  feed: ^6.0.0
+  nuxt: ^4.5.2
+  typescript: ^6.0.3
+  vitest: ^4.1.10
+  vue-tsc: ^3.3.9
+  wrangler: ^4.120.0
+  zod: ^4.4.3
+
+peerDependencyRules:
+  allowedVersions:
+    # html-validate's optional Vitest matcher advertises support through v3.
+    # The Nuxt module uses its runtime validator, which is covered by the build.
+    vitest: '^0.34.0 || ^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0'

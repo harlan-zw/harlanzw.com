@@ -1,57 +1,162 @@
-export default defineNuxtConfig({
-  extends: ['@nuxt-themes/docus', 'nuxt-lego'],
-  modules: [
-    '@nuxtjs/color-mode',
-    '@vueuse/nuxt',
-    '@nuxt/image',
-    '@unocss/nuxt',
-    // custom content modules, need to come before the content module
-    '~/app/module',
-    '~/modules/unplugin-icons',
-    '@nuxt/content',
-    '@nuxtjs/seo',
-  ],
+import { isExpectedNitroBuildWarning } from './build/warnings'
+import { site } from './shared/site'
 
-  site: {
-    name: 'Harlan Wilton',
-    logo: '/harlan-wilton.jpeg',
-    url: 'https://harlanzw.com/',
-    description: 'Open source developer, contributing to the Vue, Nuxt, and Vite ecosystems.',
-    defaultLocale: 'en-AU',
+export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 5,
   },
 
-  devtools: {
-    enabled: true,
+  features: {
+    devLogs: false,
+  },
 
-    timeline: {
-      enabled: true,
+  compatibilityDate: '2026-08-10',
+
+  modules: [
+    '@harlan-zw/nuxt-dx',
+    '@nuxt/a11y',
+    '@nuxtjs/html-validator',
+    '@harlan-zw/nuxt-github-sponsors',
+    '@nuxtjs/seo',
+    '@nuxt/ui',
+    '@nuxt/content',
+    '@nuxt/fonts',
+    '@nuxt/image',
+    '@vueuse/nuxt',
+  ],
+
+  css: ['~/assets/css/main.css'],
+
+  experimental: {
+    payloadExtraction: true,
+    ssrStreaming: true,
+    typedPages: true,
+  },
+
+  runtimeConfig: {
+    githubSponsors: {
+      token: '',
     },
   },
 
-  css: [
-    '@/resources/scrollbars.css',
-    '@/resources/main.scss',
-  ],
-  // https://color-mode.nuxtjs.org
+  githubSponsors: {
+    login: 'harlan-zw',
+    mode: 'runtime',
+    route: '/api/sponsors',
+    tiers: [
+      { key: 'top', minimumMonthlyDollars: 50 },
+      { key: 'gold', minimumMonthlyDollars: 25 },
+    ],
+    overrides: {
+      MassiveMonster: { websiteUrl: 'https://massivemonster.co' },
+    },
+  },
+
+  content: {
+    database: {
+      type: 'd1',
+      bindingName: 'DB',
+    },
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: {
+              name: 'harlanzw-light-high-contrast',
+              type: 'light',
+              fg: '#0e1116',
+              bg: '#fff',
+              settings: [
+                { settings: { foreground: '#0e1116', background: '#fff' } },
+              ],
+            },
+            light: 'github-light-high-contrast',
+            dark: 'github-dark-high-contrast',
+          },
+        },
+      },
+    },
+  },
+
+  site: {
+    name: site.name,
+    logo: site.logo,
+    url: site.url,
+    description: site.description,
+    defaultLocale: site.language,
+  },
+
+  ui: {
+    theme: {
+      colors: ['primary', 'secondary', 'success', 'info', 'warning', 'error', 'neutral'],
+    },
+  },
+
+  fonts: {
+    families: [
+      { name: 'JetBrains Mono', provider: 'google' },
+    ],
+  },
+
+  icon: {
+    provider: 'none',
+    serverBundle: false,
+    clientBundle: {
+      icons: [
+        'emojione-v1:flag-for-australia',
+        'emojione-v1:gem-stone',
+        'ic:twotone-route',
+        'line-md:heart',
+        'line-md:discord',
+        'line-md:github',
+        'line-md:lightbulb',
+        'line-md:text-box-multiple',
+        'logos:laravel',
+        'logos:eslint',
+        'logos:lighthouse',
+        'logos:nuxt-icon',
+        'logos:vueuse',
+        'logos:youtube-icon',
+        'lucide:triangle',
+        'lucide:bot',
+        'lucide:cloud',
+        'lucide:search',
+        'lucide:settings',
+        'lucide:shield-check',
+        'noto:bento-box',
+        'noto:check-mark',
+        'noto:framed-picture',
+        'noto:seal',
+        'noto:wood',
+        'noto:world-map',
+        'simple-icons:x',
+        'vscode-icons:file-type-js',
+        'vscode-icons:file-type-nuxt',
+        'vscode-icons:file-type-text',
+        'vscode-icons:file-type-typescript',
+        'vscode-icons:file-type-vue',
+      ],
+      scan: true,
+      sizeLimitKb: 256,
+    },
+  },
+
   colorMode: {
+    preference: 'system',
     fallback: 'dark',
     classSuffix: '',
   },
 
-  pinceau: {
-    configFileName: 'tokens.config',
-    studio: false,
-    debug: true,
-    followSymbolicLinks: false,
-  },
-
   app: {
     head: {
-      title: 'Harlan Wilton',
+      htmlAttrs: {
+        lang: site.language,
+        dir: 'ltr',
+      },
+      title: site.name,
       templateParams: {
         separator: '·',
       },
-      // fathom analytics
       script: [
         {
           'src': 'https://idea-lets-dance.harlanzw.com/script.js',
@@ -61,22 +166,25 @@ export default defineNuxtConfig({
         },
       ],
       link: [
-        { rel: 'preconnect', href: 'https://res.cloudinary.com' },
+        { rel: 'preconnect', href: 'https://res.cloudinary.com', crossorigin: '' },
       ],
     },
   },
-  // https://content.nuxtjs.org
-  content: {
-    documentDriven: {
-      injectPage: false,
-    },
-    highlight: {
-      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      theme: 'dracula',
+
+  htmlValidator: {
+    failOnError: true,
+    options: {
+      rules: {
+        'long-title': 'off',
+        // Nuxt Content wraps Markdown images in paragraphs, where a native
+        // block-level figure would produce invalid HTML.
+        'prefer-native-element': 'off',
+      },
     },
   },
 
   image: {
+    provider: 'cloudinary',
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/dl6o1xpyq/image/upload/images',
       modifiers: {
@@ -84,39 +192,67 @@ export default defineNuxtConfig({
         dpr: 'auto',
       },
     },
-    domains: [
-      'avatars0.githubusercontent.com',
-    ],
+    domains: ['avatars0.githubusercontent.com'],
   },
 
-  studio: {
-    enabled: false,
+  ogImage: {
+    componentDirs: ['app/components/OgImage'],
+  },
+
+  routeRules: {
+    '/**': {
+      ssr: true,
+      streaming: false,
+      headers: {
+        'permissions-policy': 'camera=(), geolocation=(), microphone=(), payment=(), usb=()',
+        'referrer-policy': 'strict-origin-when-cross-origin',
+        'strict-transport-security': 'max-age=86400',
+        'x-content-type-options': 'nosniff',
+        'x-frame-options': 'DENY',
+      },
+    },
+    '/api/**': { prerender: false, robots: false },
+    '/experimental': { prerender: false, robots: false, streaming: true },
+  },
+
+  vite: {
+    build: {
+      rolldownOptions: {
+        checks: {
+          // Small builds make normal Tailwind and font work dominate timings.
+          pluginTimings: false,
+        },
+      },
+    },
   },
 
   nitro: {
+    compatibilityDate: {
+      cloudflare: '2026-08-08',
+    },
+    preset: 'cloudflare-module',
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+    // Shiki's Oniguruma binary has JS imports, so unwasm intentionally uses
+    // module mode for Cloudflare instead of WebAssembly ESM integration.
+    wasm: {
+      silent: true,
+    },
+    rollupConfig: {
+      onwarn(warning, warn) {
+        if (!isExpectedNitroBuildWarning(warning))
+          warn(warning)
+      },
+    },
     prerender: {
-      failOnError: false,
-      crawlLinks: false,
-      routes: [
-        '/',
-        // '/feed.xml',
-        // '/feed.json',
-        // '/feed.atom',
-      ],
+      crawlLinks: true,
+      routes: ['/', '/feed.xml', '/feed.json', '/feed.atom'],
     },
   },
-  hooks: {
-    // Related to https://github.com/nuxt/nuxt/pull/22558
-    // Adding all global components to the main entry
-    // To avoid lagging during page navigation on client-side
-    // Downside: bigger JS bundle
-    // With sync: 465KB, gzip: 204KB
-    // Without: 418KB, gzip: 184KB
-    'components:extend': function (components) {
-      for (const comp of components) {
-        if (comp.global)
-          comp.global = 'sync'
-      }
-    },
+
+  devtools: {
+    enabled: true,
   },
 })

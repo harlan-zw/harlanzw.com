@@ -1,15 +1,19 @@
 node_modules
 *.log*
+.DS_Store
+.claude
+.vscode
+coverage
+*.tsbuildinfo
 .nuxt
 .nitro
 .cache
 .output
+.data
+.wrangler
 .env
+.env.*
+!.env.example
 dist
 .idea
-images/*
-!images/README.md
-.vercel
-
-# Local Netlify folder
-.netlify
+wrangler.toml

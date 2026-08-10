@@ -1,51 +1,25 @@
-[![harlanzw.com](https://repository-images.githubusercontent.com/498703201/39a4dfce-bed2-48d9-9777-a076fb0f000f)](https://harlanzw.com)
-
 # harlanzw.com
 
-My personal website built with Nuxt 3, powered by [nuxt-seo-kit](https://github.com/harlan-zw/nuxt-seo-kit) and [Docus](https://docus.dev).
+Harlan Wilton's personal site and writing archive. Built with [Nuxt 4](https://nuxt.com), [Nuxt Content](https://content.nuxt.com), [Nuxt UI](https://ui.nuxt.com), and the current [Nuxt SEO](https://nuxtseo.com) stack.
 
-Built as reference for optimal Nuxt code practices, SEO, performance and accessibility.
+The site enables Nuxt 5 compatibility behavior and SSR streaming ahead of the Nuxt 5 release.
 
-## Features
+The interactive canvas prototype lives at `/experimental`. The production routes remain content-driven and include generated RSS, Atom, and JSON feeds.
 
-- 🔎 Automated Schema.org
-- 📚 Markdown read time calculation
-- 👨‍💻 Code file name and language support
-- 🧩 Automatic Server Side Icon Resolving (no FOUC), powered by iconify & unplugin-icons
-- 🤖 Sitemap.xml and feed generation
-- 🍞 Automatic breadcrumbs (with Schema.org)
-- 🤝 Integrated with @nuxt/image, images served with [cloudinary](https://cloudinary.com)
+## Development
 
-## More Features
-
-- Automatic routes based on content /w 404 handling
-- Automatic navigation generation
-- Easy content composables
-- Fully typed content
-- Split pages/posts for easier content organisation
-- [line-md](https://github.com/cyberalien/line-md) icons by cyberalien
-
-## Plus
-
-- pnpm
-- WindiCSS
-- Eslint with @antfu/eslint-config
-- SEO / i18n best practices
-- Fathom analytics
-- Vercel hosted
-
-## Setup
-
-Make sure to install the dependencies:
+Requires [Node.js](https://nodejs.org) 24 or newer and [pnpm](https://pnpm.io) 11.
 
 ```bash
-pnpm i
+pnpm install
+pnpm dev
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+Before submitting changes:
 
 ```bash
-pnpm dev
+pnpm lint
+pnpm typecheck
+pnpm test:run
+pnpm build
 ```

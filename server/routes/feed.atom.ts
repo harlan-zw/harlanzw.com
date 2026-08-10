@@ -1,5 +1,5 @@
 import { appendHeader } from 'h3'
-import { generateBlogFeed } from '~/server/util/rss'
+import { generateBlogFeed } from '../utils/rss'
 
 export default defineEventHandler(async (event) => {
   const feed = await generateBlogFeed(event)

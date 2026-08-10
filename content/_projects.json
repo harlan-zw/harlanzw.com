@@ -1,29 +1,18 @@
 {
   "body": [
     {
-      "name": "VueUse",
-      "icon": "logos:vueuse",
-      "projects": [
-        {
-          "name": "Head",
-          "repo": "vueuse/head",
-          "icon": "lucide:triangle"
-        },
-        {
-          "name": "Schema.org",
-          "repo": "vueuse/schema-org",
-          "icon": "lucide:triangle"
-        }
-      ]
-    },
-    {
       "name": "Nuxt",
       "icon": "logos:nuxt-icon",
       "projects": [
         {
-          "name": "SEO Kit",
-          "repo": "harlan-zw/nuxt-seo-kit",
+          "name": "Nuxt SEO",
+          "repo": "harlan-zw/nuxt-seo",
           "icon": "noto:bento-box"
+        },
+        {
+          "name": "Nuxt Scripts",
+          "repo": "nuxt/scripts",
+          "icon": "logos:nuxt-icon"
         },
         {
           "name": "Link Checker",
@@ -32,43 +21,38 @@
         },
         {
           "name": "Og Image",
-          "repo": "harlan-zw/nuxt-og-image",
+          "repo": "nuxt-modules/og-image",
           "icon": "noto:framed-picture"
         },
         {
-          "name": "Simple Robots",
-          "repo": "harlan-zw/nuxt-simple-robots",
-          "icon": "noto:robot"
-        },
-        {
-          "name": "Simple Sitemap",
-          "repo": "harlan-zw/nuxt-simple-sitemap",
+          "name": "Sitemap",
+          "repo": "nuxt-modules/sitemap",
           "icon": "noto:world-map"
         },
         {
-          "name": "SEO Experiments",
-          "repo": "harlan-zw/nuxt-seo-experiments",
+          "name": "SEO Utils",
+          "repo": "harlan-zw/nuxt-seo-utils",
           "icon": "lucide:triangle"
         },
         {
           "name": "Schema.org",
-          "repo": "harlan-zw/unhead-schema-org",
+          "repo": "harlan-zw/nuxt-schema-org",
           "icon": "lucide:triangle"
         },
         {
-          "name": "Webpack Optimisations",
-          "repo": "harlan-zw/nuxt-webpack-optimisations",
-          "icon": "logos:webpack"
+          "name": "Site Config",
+          "repo": "harlan-zw/nuxt-site-config",
+          "icon": "lucide:settings"
         },
         {
-          "name": "Delay Hydration",
-          "repo": "harlan-zw/nuxt-delay-hydration",
-          "icon": "noto:stopwatch"
+          "name": "AI Ready",
+          "repo": "harlan-zw/nuxt-ai-ready",
+          "icon": "lucide:bot"
         },
         {
-          "name": "WindiCSS",
-          "repo": "windicss/nuxt-windicss",
-          "icon": "simple-icons:windicss"
+          "name": "Skew Protection",
+          "repo": "harlan-zw/nuxt-skew-protection",
+          "icon": "lucide:shield-check"
         }
       ]
     },
@@ -79,6 +63,21 @@
           "name": "Unlighthouse",
           "repo": "harlan-zw/unlighthouse",
           "icon": "logos:lighthouse"
+        },
+        {
+          "name": "mdream",
+          "repo": "harlan-zw/mdream",
+          "icon": "lucide:cloud"
+        },
+        {
+          "name": "Request Indexing",
+          "repo": "harlan-zw/request-indexing",
+          "icon": "lucide:search"
+        },
+        {
+          "name": "Harlan Agent Kit",
+          "repo": "harlan-zw/harlan-agent-kit",
+          "icon": "lucide:bot"
         }
       ]
     },
@@ -91,29 +90,19 @@
           "icon": "lucide:triangle"
         },
         {
-          "name": "Unhead Schema.org",
-          "repo": "harlan-zw/unhead-schema-org",
-          "icon": "lucide:triangle"
-        },
-        {
           "name": "zHead",
           "repo": "harlan-zw/zhead",
           "icon": "emojione-v1:gem-stone"
         },
         {
+          "name": "ESLint Plugin",
+          "repo": "harlan-zw/eslint-plugin-harlanzw",
+          "icon": "logos:eslint"
+        },
+        {
           "name": "Unrouted",
           "repo": "harlan-zw/unrouted",
           "icon": "ic:twotone-route"
-        },
-        {
-          "name": "Changelogd",
-          "repo": "harlan-zw/changelogd",
-          "icon": "noto:wood"
-        },
-        {
-          "name": "Chonky Pkg",
-          "repo": "harlan-zw/chonky-pkg",
-          "icon": "noto:seal"
         }
       ]
     }

@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "harlanzw-com-www",
+  "main": "./workers/www-redirect.ts",
+  "account_id": "5904138d55ca25d5670dca6adf99894e",
+  "compatibility_date": "2026-08-08",
+  "preview_urls": false,
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "www.harlanzw.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true
+    }
+  }
+}

@@ -1,8 +1,14 @@
 import antfu from '@antfu/eslint-config'
+import harlanzw from 'eslint-plugin-harlanzw'
 
 export default antfu({
-  ignores: ['content/**'],
+  ignores: [
+    '.data/**',
+    'content/**',
+    'worker-configuration.d.ts',
+  ],
   rules: {
-    'no-use-before-define': 'off',
+    'node/prefer-global/buffer': 'off',
+    'node/prefer-global/process': 'off',
   },
-})
+}, ...harlanzw())
