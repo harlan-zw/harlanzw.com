@@ -1,5 +1,10 @@
+import { existsSync } from 'node:fs'
 import { isExpectedNitroBuildWarning } from './build/warnings'
+import { SENTRY_DSN, sentryRelease } from './shared/sentry'
 import { site } from './shared/site'
+
+const hasSentryAuthToken = Boolean(process.env.SENTRY_AUTH_TOKEN)
+  || existsSync('.env.sentry-build-plugin')
 
 export default defineNuxtConfig({
   future: {
@@ -18,16 +23,20 @@ export default defineNuxtConfig({
     '@nuxtjs/html-validator',
     '@harlan-zw/nuxt-github-sponsors',
     '@nuxtjs/seo',
+    'nuxt-ai-ready',
+    'nuxt-skew-protection',
     '@nuxt/ui',
     '@nuxt/content',
     '@nuxt/fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
+    '@sentry/nuxt/module',
   ],
 
   css: ['~/assets/css/main.css'],
 
   experimental: {
+    checkOutdatedBuildInterval: 5 * 60 * 1000,
     payloadExtraction: true,
     ssrStreaming: true,
     typedPages: true,
@@ -37,6 +46,22 @@ export default defineNuxtConfig({
     githubSponsors: {
       token: '',
     },
+    sentry: {
+      dsn: SENTRY_DSN,
+      enabled: process.env.NODE_ENV === 'production',
+      environment: 'production',
+      release: sentryRelease() ?? '',
+      tracesSampleRate: 0.05,
+    },
+  },
+
+  skewProtection: {
+    updateStrategy: 'polling',
+    reloadStrategy: 'idle',
+  },
+
+  aiReady: {
+    database: { type: 'd1', bindingName: 'DB' },
   },
 
   githubSponsors: {
@@ -250,6 +275,29 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ['/', '/feed.xml', '/feed.json', '/feed.atom'],
     },
+  },
+
+  sentry: {
+    enabled: process.env.NODE_ENV === 'production',
+    org: 'harlan-zw',
+    project: 'harlanzw-com',
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    release: { name: sentryRelease() },
+    sourcemaps: {
+      disable: !hasSentryAuthToken,
+      filesToDeleteAfterUpload: ['**/*.map'],
+    },
+    bundleSizeOptimizations: {
+      excludeReplayShadowDom: true,
+      excludeReplayIframe: true,
+      excludeReplayWorker: true,
+    },
+    telemetry: false,
+  },
+
+  sourcemap: {
+    client: hasSentryAuthToken ? 'hidden' : false,
+    server: false,
   },
 
   devtools: {
