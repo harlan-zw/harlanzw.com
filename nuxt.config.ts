@@ -17,6 +17,10 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2026-08-10',
 
+  nuxtDx: {
+    report: true,
+  },
+
   modules: [
     '@harlan-zw/nuxt-dx',
     '@nuxt/a11y',
