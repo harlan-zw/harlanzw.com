@@ -13,8 +13,8 @@ catalogs:
       specifier: 5.20260810.1
       version: 5.20260810.1
     '@harlan-zw/nuxt-dx':
-      specifier: 0.0.5
-      version: 0.0.5
+      specifier: 0.0.6
+      version: 0.0.6
     '@harlan-zw/nuxt-github-sponsors':
       specifier: 0.0.1
       version: 0.0.1
@@ -158,7 +158,7 @@ importers:
         version: 5.20260810.1
       '@harlan-zw/nuxt-dx':
         specifier: 'catalog:'
-        version: 0.0.5(8968618fb8f17206c0990cf486cf9a6d)
+        version: 0.0.6(8968618fb8f17206c0990cf486cf9a6d)
       '@harlan-zw/nuxt-github-sponsors':
         specifier: 'catalog:'
         version: 0.0.1(b0718db2b3cdb80077ef11c9781f6135)
@@ -1152,8 +1152,8 @@ packages:
   '@floating-ui/vue@1.1.11':
     resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
 
-  '@harlan-zw/nuxt-dx@0.0.5':
-    resolution: {integrity: sha512-s6Wwir8yWfvLaakc1D+8ZKBVnApRrMzG7fkdMSlSP1CqtobTPaY3KmUX9sytvE7RSvZbzQJRhGgkUJPO1RJF4A==}
+  '@harlan-zw/nuxt-dx@0.0.6':
+    resolution: {integrity: sha512-WgFsg/7Jx3lXrs5XvU/DgOVx3MP8C+E3RVoCum7vy2SGRxz/4tP0eyZFZyGDQPwGnivkHfMQzIlWvF7nfCcv8A==}
     engines: {node: '>=22.12.0'}
     hasBin: true
     peerDependencies:
@@ -8610,7 +8610,7 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@harlan-zw/nuxt-dx@0.0.5(8968618fb8f17206c0990cf486cf9a6d)':
+  '@harlan-zw/nuxt-dx@0.0.6(8968618fb8f17206c0990cf486cf9a6d)':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.143.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.27.7)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.27.7)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.0)))
       citty: 0.2.2
