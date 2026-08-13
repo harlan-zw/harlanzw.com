@@ -3,7 +3,7 @@
 @source "../../../content/**/*";
 
 @theme {
-  --font-sans: "Commit Mono", ui-monospace, monospace;
+  --font-sans: "Overused Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Commit Mono", ui-monospace, monospace;
 }
 
