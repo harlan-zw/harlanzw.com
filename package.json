@@ -42,6 +42,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
     "@cloudflare/workers-types": "catalog:",
+    "@harlan-zw/nuxt-cloudflare": "catalog:",
     "@harlan-zw/nuxt-dx": "catalog:",
     "@harlan-zw/nuxt-github-sponsors": "catalog:",
     "@iconify-json/carbon": "catalog:",

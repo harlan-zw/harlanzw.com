@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-08-10',
 
   modules: [
+    '@harlan-zw/nuxt-cloudflare',
     '@harlan-zw/nuxt-dx',
     '@nuxt/a11y',
     '@nuxtjs/html-validator',
