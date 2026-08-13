@@ -30,12 +30,12 @@ export default defineNuxtConfig({
     '@nuxt/a11y',
     '@nuxtjs/html-validator',
     '@harlan-zw/nuxt-github-sponsors',
+    '@nuxt/fonts',
     '@nuxtjs/seo',
     'nuxt-ai-ready',
     'nuxt-skew-protection',
     '@nuxt/ui',
     '@harlan-zw/comark-content',
-    '@nuxt/fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@sentry/nuxt/module',
@@ -100,8 +100,35 @@ export default defineNuxtConfig({
   },
 
   fonts: {
+    providers: {
+      adobe: false,
+      bunny: false,
+      fontshare: false,
+      fontsource: false,
+      google: false,
+      googleicons: false,
+      npm: false,
+    },
     families: [
-      { name: 'JetBrains Mono', provider: 'google' },
+      {
+        name: 'Overused Grotesk',
+        src: '/fonts/overused-grotesk-variable.woff2',
+        weight: [300, 900],
+        style: 'oblique -10deg 0deg',
+        display: 'swap',
+        global: true,
+        preload: true,
+      },
+      {
+        name: 'Commit Mono',
+        provider: 'local',
+        weights: [400, 700],
+        styles: ['normal'],
+        subsets: ['latin'],
+        formats: ['woff2'],
+        global: true,
+        preload: true,
+      },
     ],
   },
 
@@ -219,6 +246,7 @@ export default defineNuxtConfig({
       },
     },
     '/api/**': { prerender: false, robots: false },
+    '/sponsors': { prerender: false },
     '/experimental': { prerender: false, robots: false, streaming: true },
   },
 

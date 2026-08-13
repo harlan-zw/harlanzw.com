@@ -3,8 +3,8 @@
 @source "../../../content/**/*";
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Overused Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Commit Mono", ui-monospace, monospace;
 }
 
 :root {
@@ -45,6 +45,7 @@ body {
   background-attachment: fixed;
   color: var(--ui-text);
   font-family: var(--font-sans);
+  font-size-adjust: from-font;
   text-rendering: optimizeLegibility;
 }
 
@@ -129,6 +130,14 @@ a:not(.unstyled):hover,
 
 .prose :where(ol) {
   list-style: decimal;
+}
+
+.font-mono,
+code,
+kbd,
+pre,
+samp {
+  font-size-adjust: from-font;
 }
 
 .prose :where(code):not(pre code) {
