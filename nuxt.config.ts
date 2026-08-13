@@ -17,6 +17,13 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2026-08-10',
 
+  nuxtDx: {
+    report: true,
+    sizeBudget: {
+      overridesKb: { 'server/plugins/sentry.ts': 326 },
+    },
+  },
+
   modules: [
     '@harlan-zw/nuxt-cloudflare',
     '@harlan-zw/nuxt-dx',
