@@ -37,7 +37,8 @@
   "dependencies": {
     "cheerio": "catalog:",
     "consola": "catalog:",
-    "feed": "catalog:"
+    "feed": "catalog:",
+    "h3": "catalog:"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
