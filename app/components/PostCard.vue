@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { SitePage } from '#shared/types'
-import { TransitionPresets } from '@vueuse/core'
-import { useElementHover, useTransition } from '#imports'
+import { TransitionPresets, useElementHover, useTransition } from '@vueuse/core'
 import { getReadingMinutes } from '~/utils/content'
 
 const { post } = defineProps<{ post: SitePage }>()

@@ -6,6 +6,7 @@ const { align } = defineProps<{
 
 <template>
   <th
+    data-allow-mismatch="style"
     scope="col"
     :class="{
       'text-center': align === 'center',

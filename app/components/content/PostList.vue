@@ -26,7 +26,7 @@ const postGroups = computed(() => groupPostsByYear(data.value ?? []))
     </div>
     <div>
       <SubTitle>Personal Blog</SubTitle>
-      <NewsletterList style="max-width: 50ch;" />
+      <ContentNewsletterList style="max-width: 50ch;" />
     </div>
   </div>
 </template>

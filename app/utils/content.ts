@@ -1,4 +1,4 @@
-import type { MarkdownRoot, MinimarkNode } from '@nuxt/content'
+import type { MarkdownRoot, MinimarkNode } from '@harlan-zw/comark-content'
 
 const wordsPerMinute = 220
 
@@ -10,7 +10,7 @@ function collectText(node: MinimarkNode): string[] {
 }
 
 export function getReadingMinutes(body: MarkdownRoot): number {
-  const wordCount = body.value.flatMap(collectText)
+  const wordCount = body.nodes.flatMap(collectText)
     .join(' ')
     .trim()
     .split(/\s+/u)

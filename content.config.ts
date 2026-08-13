@@ -1,4 +1,4 @@
-import { defineCollection, defineContentConfig } from '@nuxt/content'
+import { defineCollection, defineContentConfig } from '@harlan-zw/comark-content'
 import { z } from 'zod'
 
 const ogImageSchema = z.object({
@@ -6,12 +6,6 @@ const ogImageSchema = z.object({
   description: z.string().optional(),
   image: z.string().optional(),
 }).loose()
-
-const projectSchema = z.object({
-  name: z.string(),
-  repo: z.string(),
-  icon: z.string().optional(),
-})
 
 export default defineContentConfig({
   collections: {
@@ -39,17 +33,6 @@ export default defineContentConfig({
         { columns: ['newsletter'] },
         { columns: ['status'] },
       ],
-    }),
-    projects: defineCollection({
-      type: 'data',
-      source: '_projects.json',
-      schema: z.object({
-        body: z.array(z.object({
-          name: z.string(),
-          icon: z.string().optional(),
-          projects: z.array(projectSchema),
-        })),
-      }),
     }),
   },
 })

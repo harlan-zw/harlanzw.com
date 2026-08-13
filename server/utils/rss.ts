@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import { queryCollection } from '@nuxt/content/server'
+import { queryCollection } from '@harlan-zw/comark-content/server'
 import { load } from 'cheerio'
 import { Feed } from 'feed'
 import { site } from '#shared/site'

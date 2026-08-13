@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     'nuxt-ai-ready',
     'nuxt-skew-protection',
     '@nuxt/ui',
-    '@nuxt/content',
+    '@harlan-zw/comark-content',
     '@nuxt/fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
@@ -82,32 +82,6 @@ export default defineNuxtConfig({
     ],
     overrides: {
       MassiveMonster: { websiteUrl: 'https://massivemonster.co' },
-    },
-  },
-
-  content: {
-    database: {
-      type: 'd1',
-      bindingName: 'DB',
-    },
-    build: {
-      markdown: {
-        highlight: {
-          theme: {
-            default: {
-              name: 'harlanzw-light-high-contrast',
-              type: 'light',
-              fg: '#0e1116',
-              bg: '#fff',
-              settings: [
-                { settings: { foreground: '#0e1116', background: '#fff' } },
-              ],
-            },
-            light: 'github-light-high-contrast',
-            dark: 'github-dark-high-contrast',
-          },
-        },
-      },
     },
   },
 

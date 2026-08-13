@@ -5,7 +5,7 @@ const props = withDefaults(defineProps<{
   alt?: string
   src: string
   lazy?: boolean | 'false' | 'true'
-  width?: number
+  width?: number | string
   noMargin?: boolean
   figureClass?: string
 }>(), {
@@ -13,16 +13,17 @@ const props = withDefaults(defineProps<{
 })
 
 const shiftLargeImgStyles = computed(() => {
-  if (!props.width)
+  const width = Number(props.width)
+  if (!width)
     return {}
-  if (props.width <= 812) {
+  if (width <= 812) {
     return {
-      width: `${props.width}px`,
+      width: `${width}px`,
     }
   }
-  const transformX = `-${Math.round((props.width - 812) / 2)}px`
+  const transformX = `-${Math.round((width - 812) / 2)}px`
   return {
-    width: `${props.width}px`,
+    width: `${width}px`,
     transform: `translateX(${transformX})`,
   }
 })
@@ -32,6 +33,7 @@ const loadingType = computed(() => {
 })
 
 const isRemote = computed(() => props.src.startsWith('https://'))
+const resolvedWidth = computed(() => Number(props.width) || undefined)
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const isRemote = computed(() => props.src.startsWith('https://'))
       v-if="isRemote"
       v-bind="$attrs"
       :alt="alt || label"
-      :width="width"
+      :width="resolvedWidth"
       :src="src"
       :loading="loadingType"
       decoding="async"
@@ -52,7 +54,7 @@ const isRemote = computed(() => props.src.startsWith('https://'))
       height="1400"
       format="auto"
       :alt="alt || label"
-      :width="width"
+      :width="resolvedWidth"
       :src="src"
       :loading="loadingType"
       provider="cloudinary"

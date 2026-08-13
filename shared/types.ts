@@ -1,6 +1,18 @@
-import type { PagesCollectionItem } from '@nuxt/content'
+import type { PageCollectionItemBase } from '@harlan-zw/comark-content'
 
-export type SitePage = PagesCollectionItem
+export interface SitePage extends PageCollectionItemBase {
+  layout?: string
+  prose?: boolean
+  breadcrumbs?: boolean
+  h1?: boolean
+  wide?: boolean
+  icon?: string
+  image?: string
+  status?: string
+  publishedAt?: string
+  newsletter?: boolean
+  tags?: string[]
+}
 
 export interface ProjectSource {
   name: string
@@ -17,6 +29,12 @@ export interface ProjectCategory {
   name: string
   icon?: string
   projects: Project[]
+}
+
+export interface ProjectSourceCategory {
+  name: string
+  icon?: string
+  projects: ProjectSource[]
 }
 
 export type ProjectsResult

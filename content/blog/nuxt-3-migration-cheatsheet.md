@@ -82,7 +82,9 @@ project for the upgrade.
 Learn the key differences between Nuxt 2 and Nuxt 3 and the new technologies that power it.
 
 ::checkbox
+#default
 Nuxt 3 Architecture
+
 #tip
 While there are many similarities to Nuxt 2, the underlying architecture is completely new, more complex and more powerful.
 
@@ -98,7 +100,9 @@ Daniel Roe's talk [What happens when you start Nuxt 3](https://www.youtube.com/w
 ::
 
 ::checkbox
+#default
 Read the official migration guide
+
 #tip
 Having a rough understanding of the [migration process](https://nuxt.com/docs/migration/overview) will allow you
 avoid common pitfalls.
@@ -107,7 +111,9 @@ Keep this open as you'll reference this as you continue on with the migration pr
 ::
 
 ::checkbox
+#default
 Play with Nuxt 3
+
 #tip
 Create a new fresh Nuxt 3 project using [nuxt.new](https://nuxt.new), play around with it.
 
@@ -115,14 +121,18 @@ This will help you get a feel for the new features and how they work.
 ::
 
 ::checkbox
+#default
 Learn Vue 3 / Composition API
+
 #tip
 Vue 3 is a major upgrade from Vue 2. You will need to learn the new syntax and features to be able to use Nuxt 3, particularly
 the [Composition API](https://vuejs.org/guide/extras/composition-api-faq.html).
 ::
 
 ::checkbox
+#default
 Learn the basics of TypeScript
+
 #tip
 Whether you like TypeScript or not is irrelevant. Nuxt 3 is written in TypeScript, trying to avoid it will only make your life harder.
 
@@ -132,7 +142,9 @@ You can learn the basics with [TypeScript in 5 minutes](https://www.typescriptla
 ::
 
 ::checkbox
+#default
 Learn about modules: CJS and ESM
+
 #tip
 Nuxt 3 requires ECMAScript modules, so you'll need to convert your CommonJS modules. See the Nuxt [ES modules](https://nuxt.com/docs/guide/concepts/esm) page.
 
@@ -147,7 +159,9 @@ Node modules can be a challenging subject, if you need further guidance see [thi
 Before you start migrating, you should prepare your Nuxt 2 app to make the upgrade process easier.
 
 ::checkbox
+#default
 Upgrade Nuxt 2
+
 #tip
 If you are on an earlier version, the first step is upgrading.
 
@@ -160,7 +174,9 @@ npm i nuxt@^2.15.4
 ::
 
 ::checkbox
+#default
 Upgrade Modules
+
 #tip
 Upgrade your modules to the latest version that supports Nuxt 2. This will make the upgrade process easier.
 
@@ -168,7 +184,9 @@ Be careful not to upgrade modules which may only support Nuxt 3 in future versio
 ::
 
 ::checkbox
+#default
 Enable component auto-imports
+
 #tip
 Nuxt 3 has auto-imports enabled by default, if you're not using this feature in Nuxt 2, you should enable it to identify
 any component paths that need to be updated.
@@ -185,7 +203,9 @@ export default {
 ::
 
 ::checkbox
+#default
 Audit your dependencies
+
 #tip
 Having hard dependencies in your project that aren't compatible with Nuxt 3 / Vue 3 is going to massively slow you down.
 
@@ -210,7 +230,9 @@ If there are bugs, then you will be able to debug them easily.
 The first step is creating the new apps boilerplate and migrate over safe config from `nuxt.config.ts`.
 
 ::checkbox
+#default
 Create a Fresh Nuxt 3 App
+
 #tip
 You can do so with `npx nuxi init my-app`.
 
@@ -218,7 +240,9 @@ This will create a new Nuxt 3 project.
 ::
 
 ::checkbox
+#default
 Create Boilerplate
+
 #tip
 By default, Nuxt 3 does not provide page routing and layouts. To make the migration easier, you'll be modifying the files to be Nuxt 2 compatible.
 
@@ -256,7 +280,9 @@ Create a basic index page, so we can see our changes.
 ::
 
 ::checkbox
+#default
 Migrate Runtime Config / env
+
 #tip
 Follow the [Migrate Runtime Config](https://nuxt.com/docs/bridge/overview#update-runtime-config) doc.
 
@@ -294,7 +320,9 @@ You can safely ignore TypeScript issues this causes for now.
 ::
 
 ::checkbox
+#default
 Migrate head
+
 #tip
 If you previously had head configuration in your `nuxt.config.ts`, you should migrate it to `app.head` config.
 
@@ -327,14 +355,18 @@ app: {
 ::
 
 ::checkbox
+#default
 Copy Static files
+
 #tip
 In Nuxt 3 the `/static` folder has been renamed to `/public`.
 Make the `public` directory and copy all of these files over.
 ::
 
 ::checkbox
+#default
 Copy CSS / Assets
+
 #tip
 In Nuxt 3, the assets folder serves the same function.
 Simply copy over your assets' folder.
@@ -385,7 +417,9 @@ Nuxt 2 modules are not compatible with Nuxt 3 out of the box, so many modules ar
 upgrade path for the most popular modules which are not supported.
 
 ::checkbox
+#default
 Copy over modules
+
 #tip
 
 In Nuxt 3 all modules should belong under the `modules` key. You will need to copy over your modules from the `buildModules` and `modules` fields.
@@ -400,7 +434,9 @@ export default defineNuxtConfig({
 ::
 
 ::checkbox
+#default
 Remove redundant modules
+
 #tip
 The following modules can be safely removed as functionality they provide is redundant.
 
@@ -412,7 +448,9 @@ The following modules can be safely removed as functionality they provide is red
 ::
 
 ::checkbox
+#default
 Remove Modules No Longer Recommended
+
 #tip
 [@nuxtjs/axios](https://axios.nuxtjs.org/) and [@nuxt/http](https://http.nuxtjs.org/) are not recommended with Nuxt 3.
 
@@ -424,7 +462,9 @@ See the [Nuxt 3 and Axios](https://github.com/nuxt/framework/discussions/4514) d
 ::
 
 ::checkbox
+#default
 Use alternative modules
+
 #tip
 
 #### @nuxtjs/auth
@@ -605,7 +645,9 @@ on how you can implement it with cookie control.
 ::
 
 ::checkbox
+#default
 Upgrade supported modules
+
 #tip
 If the module you're using supports Nuxt 3, it's important to check the migration notes.
 It's likely that the upgrade will include some
@@ -617,7 +659,9 @@ breaking changes.
 If you're using Vuex 3, you will need to upgrade your state management, as Vue 3 does not support it.
 
 ::checkbox
+#default
 Consider if you need a state management library
+
 #tip
 Nuxt 3 ships with its own statement management with the [useState](https://nuxt.com/docs/getting-started/state-management) composable.
 
@@ -647,7 +691,9 @@ export function useCounter() {
 ::
 
 ::checkbox
+#default
 Otherwise, migrate to Pinia or Vuex 4
+
 #tip
 [Pinia](https://pinia.vuejs.org/ssr/nuxt.html#nuxt-2-without-bridge) is the recommended state management solution for Nuxt 3, but you can use [Vuex 4](https://vuex.vuejs.org/guide/migrating-to-4-0-from-3-x.html) if you prefer.
 ::
@@ -657,7 +703,9 @@ Otherwise, migrate to Pinia or Vuex 4
 Components will only be parsed if they are imported. This means it's safe to copy over all our components and mixin files from Nuxt 2.
 
 ::checkbox
+#default
 Copy components
+
 #tip
 The folders have the same name and will be auto-imported. You don't need to add anything to `nuxt.config.ts`.
 
@@ -667,7 +715,9 @@ see [Component Names](https://nuxt.com/docs/guide/directory-structure/components
 ::
 
 ::checkbox
+#default
 Follow Component Options Migration
+
 #tip
 See the [Component Options Migration](https://nuxt.com/docs/migration/component-options) guide for more information.
 ::
@@ -684,14 +734,18 @@ It's important you reference the [Nuxt 3 Migration Guide](https://nuxt.com/docs/
 Remember to ask for help in the community channels if you get stuck.
 
 ::checkbox
+#default
 Home Page
+
 #tip
 Start with the home page, `pages/index.vue`.
 This will give you some momentum and help you get started.
 ::
 
 ::checkbox
+#default
 Copy static route pages
+
 #tip
 You'll start with routes which aren't dynamic which tend to be less complex and easier.
 
@@ -699,7 +753,9 @@ For example: `pages/about.vue`, `pages/contact.vue`, etc.
 ::
 
 ::checkbox
+#default
 Copy dynamic route pages
+
 #tip
 Nuxt 3 uses a new file system routing system, which means that all our pages need to be converted to the new format.
 
@@ -712,7 +768,9 @@ Nuxt 3 uses a completely new server engine and HTTP framework.
 This means that all our server routes and middleware need to be converted to the new format.
 
 ::checkbox
+#default
 Migrate server routes
+
 #tip
 See [Migrate Server Routes](https://nuxt.com/docs/migration/server).
 
@@ -720,7 +778,9 @@ You'll likely need to completely rewrite your server routes.
 ::
 
 ::checkbox
+#default
 Migrate server middleware
+
 #tip
 See [Migrate Server Routes](https://nuxt.com/docs/migration/server).
 
@@ -732,7 +792,9 @@ You'll likely need to completely rewrite your server middleware.
 ### 1. Recommendations
 
 ::checkbox
+#default
 Migrate to Composition API
+
 #tip
 While this is not required, it is highly recommended.
 The Composition API is a much better way to write Vue code and Nuxt provides
@@ -744,7 +806,9 @@ Tips:
 ::
 
 ::checkbox
+#default
 Migrate everything to TypeScript
+
 #tip
 Nuxt 3 is TypeScript first, it is the best practice to have all of your code in TypeScript.
 
@@ -769,7 +833,9 @@ export default defineNuxtComponent({
 ::
 
 ::checkbox
+#default
 Load static assets from an absolute path
+
 #tip
 In Nuxt 2 it was common to load everything from `~/assets`, however with Nuxt 3 the default is to use absolute paths.
 
@@ -779,7 +845,9 @@ Simply move images which aren't going to change to `static` and load them from `
 ::
 
 ::checkbox
+#default
 Use Vue Macros
+
 #tip
 To make the migration from Vue 2 as simple as possible, you can make use of [vue-macros](https://vue-macros.sxzz.moe/guide/getting-started.html).
 
@@ -799,7 +867,9 @@ modelValue.value = 'newValue'
 ::
 
 ::checkbox
+#default
 Switch to UnJS / VueUse where appropriate
+
 #tip
 The [VueUse](https://vueuse.org/) and [UnJS packages](https://unjs.io/) all support Nuxt 2 and Nuxt 3. If you can migrate to using them over other dependencies,
 you'll save yourself a lot of time.
@@ -810,7 +880,9 @@ you'll save yourself a lot of time.
 Testing in Nuxt 3 is still under development. There is some documentation around it, but it is fairly minimal.
 
 ::checkbox
+#default
 Migrate to Vitest
+
 #tip
 Nuxt 3 uses Vitest for testing. If you're using Jest or Mocha, you'll need to migrate.
 
@@ -818,13 +890,17 @@ See the [Why Vitest](https://vitest.dev/guide/why.html) guide for more informati
 ::
 
 ::checkbox
+#default
 Use @nuxt/test-utils
+
 #tip
 Follow the documentation on the [Testing](https://nuxt.com/docs/getting-started/testing) page,  to get started.
 ::
 
 ::checkbox
+#default
 Add vitest-environment-nuxt (optional)
+
 #tip
 The [vitest-environment-nuxt](https://github.com/danielroe/vitest-environment-nuxt) package will likely take over as the official testing environment for Nuxt 3.
 

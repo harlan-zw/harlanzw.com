@@ -45,7 +45,7 @@ on developer experience:
 To give you a quick idea on how much faster it is, the below comparison is for Vue CLI which uses webpack. The bigger your app
 is the more noticeable the speed difference will be.
 
-<figure>
+::figure
 
 |   | Build Time        | Dev Server Start Time  | Dev Page Load Time  |
 | ------------- |-------------:| -----:| -----:|
@@ -53,7 +53,7 @@ is the more noticeable the speed difference will be.
 | Vite     | <span class="text-green-500">2.39s</span> | <span class="text-green-500">232ms</span>️ | <span class="text-yellow-500">379ms</span> |
 
 <figcaption>New Vue 3 project / 10 components / no Babel / 2nd run, in development.</figcaption>
-</figure>
+::
 
 ## Vite vs webpack
 

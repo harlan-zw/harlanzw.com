@@ -2,24 +2,22 @@ import { describe, expect, it, vi } from 'vitest'
 import { resolveContentPage } from '../../app/utils/content-page'
 
 describe('resolveContentPage', () => {
-  it('moves generated Shiki styles out of rendered content', async () => {
-    const query = vi.fn().mockResolvedValue({
+  it('keeps the direct Comark document unchanged', async () => {
+    const page = {
       body: {
-        value: [
+        frontmatter: {},
+        meta: {},
+        nodes: [
           ['p', {}, 'Hello'],
-          ['style', {}, 'html pre.shiki .a { color: red; }'],
         ],
       },
-    })
+    }
+    const query = vi.fn().mockResolvedValue(page)
 
-    await expect(resolveContentPage('/post', query)).resolves.toMatchObject({
+    await expect(resolveContentPage('/post', query)).resolves.toEqual({
       _tag: 'Ok',
-      page: {
-        body: {
-          value: [['p', {}, 'Hello']],
-        },
-      },
-      styles: ['html pre.shiki .a { color: red; }'],
+      page,
+      styles: [],
     })
   })
 

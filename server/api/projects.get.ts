@@ -1,5 +1,5 @@
-import type { Project, ProjectCategory, ProjectSource, ProjectsResult } from '#shared/types'
-import { queryCollection } from '@nuxt/content/server'
+import type { Project, ProjectCategory, ProjectSource, ProjectSourceCategory, ProjectsResult } from '#shared/types'
+import projectSource from '../data/projects.json' with { type: 'json' }
 import { consola } from 'consola'
 import { z } from 'zod'
 
@@ -51,16 +51,13 @@ async function enrichProject(source: ProjectSource): Promise<EnrichedProject> {
   }
 }
 
-export default defineCachedEventHandler(async (event): Promise<ProjectsResult> => {
-  const source = await queryCollection(event, 'projects').first()
-  if (!source)
-    throw createError({ statusCode: 500, statusMessage: 'Project source is missing' })
-
-  const sourceProjects = source.body.flatMap(category => category.projects)
+export default defineCachedEventHandler(async (): Promise<ProjectsResult> => {
+  const source = projectSource.body as ProjectSourceCategory[]
+  const sourceProjects = source.flatMap(category => category.projects)
   const enrichedProjects = await Promise.all(sourceProjects.map(enrichProject))
   const failed = enrichedProjects.filter((result): result is Extract<EnrichedProject, { _tag: 'Err' }> => result._tag === 'Err')
   const projectByRepo = new Map(enrichedProjects.map(result => [result.project.repo, result.project]))
-  const categories: ProjectCategory[] = source.body.map(category => ({
+  const categories: ProjectCategory[] = source.map(category => ({
     ...category,
     projects: category.projects.map((project): Project => projectByRepo.get(project.repo) ?? {
       ...project,

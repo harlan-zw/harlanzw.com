@@ -70,12 +70,12 @@ defineOgImage('Default', {
 
     <SchemaOrgArticle v-if="isPost" />
     <PageTitle :post="page" />
-    <PostMeta v-if="isPost && page.publishedAt" :post="page" :reading-mins="readingMins" />
+    <ContentPostMeta v-if="isPost && page.publishedAt" :post="page" :reading-mins="readingMins" />
 
     <article :class="isPost ? 'mt-10' : ''">
-      <Prose v-if="page.prose !== false">
+      <ContentProse v-if="page.prose !== false">
         <ContentRenderer :value="page" />
-      </Prose>
+      </ContentProse>
       <ContentRenderer v-else :value="page" />
     </article>
   </div>

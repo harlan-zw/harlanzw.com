@@ -25,6 +25,7 @@ minimumReleaseAgeExclude:
   - sitemapd@0.2.2
   - '@harlan-zw/nuxt-cloudflare@0.0.14'
 shamefullyHoist: true
+autoInstallPeers: false
 shellEmulator: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 262800
@@ -39,7 +40,6 @@ overrides:
 
 allowBuilds:
   '@sentry/cli': true
-  better-sqlite3: true
   esbuild: false
   sharp: true
   vue-demi: true
@@ -61,7 +61,6 @@ catalog:
   '@iconify-json/simple-icons': ^1.2.93
   '@iconify-json/vscode-icons': ^1.2.71
   '@nuxt/a11y': 1.0.0-alpha.1
-  '@nuxt/content': ^3.15.2
   '@nuxt/fonts': ^0.14.0
   '@nuxt/icon': ^2.5.0
   '@nuxt/image': ^2.1.0
@@ -74,8 +73,6 @@ catalog:
   '@types/node': ^26.2.0
   '@vueuse/core': ^14.4.0
   '@vueuse/nuxt': ^14.4.0
-  # @nuxt/content 3.15 requires better-sqlite3 12.
-  better-sqlite3: ^12.11.1
   cheerio: ^1.2.0
   consola: ^3.4.2
   eslint: ^10.8.1

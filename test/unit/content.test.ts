@@ -5,8 +5,9 @@ describe('getReadingMinutes', () => {
   it('counts only prose text and rounds up at 220 words', () => {
     const words = Array.from({ length: 221 }, (_, index) => `word${index}`).join(' ')
     const body = {
-      type: 'minimark' as const,
-      value: [
+      frontmatter: {},
+      meta: {},
+      nodes: [
         ['p', {}, words],
         ['img', { alt: 'metadata should not count' }],
       ],
