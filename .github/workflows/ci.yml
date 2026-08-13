@@ -80,7 +80,7 @@ jobs:
         run: |
           for worker in harlanzw-com harlanzw-com-www; do
             for attempt in {1..12}; do
-              deployed_sha=$(pnpm exec wrangler deployments list --name "$worker" --json | jq -r '.[0].annotations["workers/message"]')
+              deployed_sha=$(pnpm exec wrangler deployments list --name "$worker" --json | jq -r 'sort_by(.created_on) | last | .annotations["workers/message"]')
               if [ "$deployed_sha" = "$GITHUB_SHA" ]; then
                 break
               fi
