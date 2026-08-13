@@ -245,6 +245,7 @@ export default defineNuxtConfig({
       },
     },
     '/api/**': { prerender: false, robots: false },
+    '/sponsors': { prerender: false },
     '/experimental': { prerender: false, robots: false, streaming: true },
   },
 
