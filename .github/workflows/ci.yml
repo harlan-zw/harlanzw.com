@@ -109,3 +109,5 @@ jobs:
           test "$(curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 --max-time 15 --output /dev/null --write-out '%{http_code}' https://harlanzw.com/)" = 200
           test "$(curl --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 --max-time 15 --output /dev/null --write-out '%{http_code} %{redirect_url}' https://www.harlanzw.com/)" = "308 https://harlanzw.com/"
           curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 --max-time 15 "https://harlanzw.com/api/sponsors?deployment=$GITHUB_SHA" | jq -e '._tag == "available" and (.sponsors | length > 0)'
+          curl --fail --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 --max-time 15 --output "$RUNNER_TEMP/sponsors.html" "https://harlanzw.com/sponsors?deployment=$GITHUB_SHA"
+          grep -q 'Top sponsors' "$RUNNER_TEMP/sponsors.html"
