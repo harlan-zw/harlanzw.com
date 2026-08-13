@@ -137,6 +137,15 @@ export default defineNuxtConfig({
     },
     families: [
       {
+        name: 'Overused Grotesk',
+        src: '/fonts/overused-grotesk-variable.woff2',
+        weight: [300, 900],
+        style: 'oblique -10deg 0deg',
+        display: 'swap',
+        global: true,
+        preload: true,
+      },
+      {
         name: 'Commit Mono',
         provider: 'local',
         weights: [400, 700],
