@@ -30,12 +30,12 @@ export default defineNuxtConfig({
     '@nuxt/a11y',
     '@nuxtjs/html-validator',
     '@harlan-zw/nuxt-github-sponsors',
+    '@nuxt/fonts',
     '@nuxtjs/seo',
     'nuxt-ai-ready',
     'nuxt-skew-protection',
     '@nuxt/ui',
     '@nuxt/content',
-    '@nuxt/fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@sentry/nuxt/module',
@@ -127,7 +127,16 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'JetBrains Mono', provider: 'google' },
+      {
+        name: 'Commit Mono',
+        provider: 'local',
+        weights: [400, 700],
+        styles: ['normal'],
+        subsets: ['latin'],
+        formats: ['woff2'],
+        global: true,
+        preload: true,
+      },
     ],
   },
 

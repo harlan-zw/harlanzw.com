@@ -4,7 +4,7 @@
 
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "Commit Mono", ui-monospace, monospace;
 }
 
 :root {
@@ -129,6 +129,14 @@ a:not(.unstyled):hover,
 
 .prose :where(ol) {
   list-style: decimal;
+}
+
+.font-mono,
+code,
+kbd,
+pre,
+samp {
+  font-size-adjust: from-font;
 }
 
 .prose :where(code):not(pre code) {
