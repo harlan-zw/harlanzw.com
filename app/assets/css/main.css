@@ -3,7 +3,7 @@
 @source "../../../content/**/*";
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Commit Mono", ui-monospace, monospace;
   --font-mono: "Commit Mono", ui-monospace, monospace;
 }
 
@@ -45,6 +45,7 @@ body {
   background-attachment: fixed;
   color: var(--ui-text);
   font-family: var(--font-sans);
+  font-size-adjust: from-font;
   text-rendering: optimizeLegibility;
 }
 
