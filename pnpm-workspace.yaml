@@ -21,9 +21,10 @@ minimumReleaseAgeExclude:
   - '@takumi-rs/core@2.6.1'
   - '@takumi-rs/helpers@2.6.1'
   - '@takumi-rs/wasm@2.6.1'
-  - wrangler@4.120.0
+  - wrangler@4.120.0 || 4.122.0
   - sitemapd@0.2.2
   - '@harlan-zw/nuxt-cloudflare@0.0.14'
+  - miniflare@5.20260811.0-alpha
 shamefullyHoist: true
 shellEmulator: true
 trustPolicy: no-downgrade
@@ -90,7 +91,7 @@ catalog:
   typescript: ^6.0.3
   vitest: ^4.1.10
   vue-tsc: ^3.3.9
-  wrangler: ^4.121.0
+  wrangler: ^4.122.0
   zod: ^4.4.3
 
 peerDependencyRules:
