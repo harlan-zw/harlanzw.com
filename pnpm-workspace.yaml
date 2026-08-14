@@ -50,7 +50,7 @@ allowBuilds:
 catalog:
   '@antfu/eslint-config': ^9.3.0
   '@cloudflare/workers-types': 5.20260813.1
-  '@harlan-zw/comark-content': ^0.0.7
+  '@harlan-zw/comark-content': ^0.0.15
   '@harlan-zw/nuxt-cloudflare': ^0.0.14
   '@harlan-zw/nuxt-dx': 0.0.7
   '@harlan-zw/nuxt-github-sponsors': 0.0.1
@@ -73,6 +73,7 @@ catalog:
   '@sentry/nuxt': ^10.70.0
   '@takumi-rs/core': ^2.7.2
   '@takumi-rs/wasm': ^2.7.2
+  '@tiptap/y-tiptap': ^3.0.7
   '@types/node': ^26.2.0
   '@vueuse/core': ^14.4.0
   '@vueuse/nuxt': ^14.4.0
@@ -92,6 +93,8 @@ catalog:
   vitest: ^4.1.10
   vue-tsc: ^3.3.9
   wrangler: ^4.122.0
+  y-protocols: ^1.0.7
+  yjs: ^13.6.31
   zod: ^4.4.3
 
 peerDependencyRules:

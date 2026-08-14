@@ -43,7 +43,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
     "@cloudflare/workers-types": "catalog:",
-    "@harlan-zw/comark-content": "^0.0.15",
+    "@harlan-zw/comark-content": "catalog:",
     "@harlan-zw/nuxt-cloudflare": "catalog:",
     "@harlan-zw/nuxt-dx": "catalog:",
     "@harlan-zw/nuxt-github-sponsors": "catalog:",
@@ -66,6 +66,7 @@
     "@sentry/nuxt": "catalog:",
     "@takumi-rs/core": "catalog:",
     "@takumi-rs/wasm": "catalog:",
+    "@tiptap/y-tiptap": "catalog:",
     "@types/node": "catalog:",
     "@vueuse/core": "catalog:",
     "@vueuse/nuxt": "catalog:",
@@ -79,6 +80,8 @@
     "vitest": "catalog:",
     "vue-tsc": "catalog:",
     "wrangler": "catalog:",
+    "y-protocols": "catalog:",
+    "yjs": "catalog:",
     "zod": "catalog:"
   }
 }
