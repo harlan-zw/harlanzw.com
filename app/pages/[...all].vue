@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getBreadcrumbs } from '~/utils/breadcrumbs'
 import { getReadingMinutes } from '~/utils/content'
 
 const route = useRoute()
@@ -21,13 +22,7 @@ const pageWidthClass = computed(() => {
     return 'mx-auto max-w-[109ch]'
   return page.value?.wide ? 'max-w-none' : 'mx-auto max-w-[85ch]'
 })
-const breadcrumbs = computed(() => route.path
-  .split('/')
-  .filter(Boolean)
-  .map((segment, index, segments) => ({
-    label: segment.replaceAll('-', ' '),
-    to: `/${segments.slice(0, index + 1).join('/')}`,
-  })))
+const breadcrumbs = computed(() => getBreadcrumbs(route.path))
 
 useSeoMeta({
   title: () => page.value?.title,
@@ -59,11 +54,14 @@ defineOgImage('Default', {
             <UIcon name="i-lucide-house" aria-hidden="true" />
           </NuxtLink>
         </li>
-        <li v-for="item in breadcrumbs" :key="item.to" class="flex min-h-11 items-center gap-2 capitalize">
+        <li v-for="item in breadcrumbs" :key="item.id" class="flex min-h-11 items-center gap-2 capitalize">
           <UIcon name="i-lucide-chevron-right" class="size-4 opacity-50" aria-hidden="true" />
-          <NuxtLink :to="item.to" class="inline-flex min-h-11 items-center">
+          <NuxtLink v-if="item._tag === 'Link'" :to="item.to" class="inline-flex min-h-11 items-center">
             {{ item.label }}
           </NuxtLink>
+          <span v-else aria-current="page" class="inline-flex min-h-11 items-center">
+            {{ item.label }}
+          </span>
         </li>
       </ol>
     </nav>
