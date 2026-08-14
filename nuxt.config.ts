@@ -70,6 +70,7 @@ export default defineNuxtConfig({
   skewProtection: {
     updateStrategy: 'polling',
     reloadStrategy: 'idle',
+    multiTab: false,
   },
 
   aiReady: {

@@ -2,7 +2,8 @@
 import { getReadingMinutes } from '~/utils/content'
 
 const route = useRoute()
-const { data } = await useContentPage(route.path)
+const nuxtApp = useNuxtApp()
+const { data } = await useContentPage(() => route.path)
 const page = computed(() => data.value?._tag === 'Ok' ? data.value.page : null)
 const contentStyles = computed(() => data.value?._tag === 'Ok' ? data.value.styles : [])
 
@@ -44,10 +45,12 @@ useHead(() => ({
   })),
 }))
 
-defineOgImage('Default', {
-  title: page.value.title,
-  description: page.value.description,
-})
+if (!nuxtApp.isHydrating) {
+  defineOgImage('Default', {
+    title: page.value.title,
+    description: page.value.description,
+  })
+}
 </script>
 
 <template>
