@@ -4,15 +4,23 @@ interface ErrorHint {
   originalException?: unknown
 }
 
-function isNotFoundError(value: unknown): value is { statusCode: 404 } {
-  return typeof value === 'object'
-    && value !== null
+function isExpectedRouteNotFoundError(value: unknown): value is Error & {
+  fatal: true
+  statusCode: 404
+  statusMessage: 'Page not found'
+} {
+  return value instanceof Error
+    && value.message === 'Page not found'
+    && 'fatal' in value
+    && value.fatal === true
     && 'statusCode' in value
     && value.statusCode === 404
+    && 'statusMessage' in value
+    && value.statusMessage === 'Page not found'
 }
 
 export function filterExpectedClientError<Event>(event: Event, hint: ErrorHint): Event | null {
-  return isNotFoundError(hint.originalException) ? null : event
+  return isExpectedRouteNotFoundError(hint.originalException) ? null : event
 }
 
 export function sentryRelease(): string | undefined {
