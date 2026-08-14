@@ -4,32 +4,35 @@
 
 @theme {
   --font-sans: "Overused Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Overused Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Commit Mono", ui-monospace, monospace;
 }
 
 :root {
   color-scheme: light;
+  --ui-primary: var(--color-emerald-700);
   --ui-bg: oklch(97.5% 0 0);
   --ui-bg-muted: oklch(95.5% 0 0);
   --ui-bg-elevated: oklch(100% 0 0);
   --ui-border: oklch(89% 0 0);
-  --ui-text: oklch(43% 0.02 250);
-  --ui-text-dimmed: oklch(66% 0.012 250);
-  --ui-text-muted: oklch(52% 0.016 250);
-  --ui-text-highlighted: oklch(32% 0.022 250);
+  --ui-text: oklch(40% 0.02 250);
+  --ui-text-dimmed: oklch(52% 0.014 250);
+  --ui-text-muted: oklch(47% 0.016 250);
+  --ui-text-highlighted: oklch(27% 0.022 250);
   --ui-radius: 0.25rem;
 }
 
 .dark {
   color-scheme: dark;
+  --ui-primary: var(--color-emerald-400);
   --ui-bg: oklch(18% 0.02 250);
   --ui-bg-muted: oklch(22% 0.02 250);
   --ui-bg-elevated: oklch(20% 0.02 250);
   --ui-border: oklch(31% 0.02 250);
-  --ui-text: oklch(82% 0.014 250);
-  --ui-text-dimmed: oklch(59% 0.012 250);
-  --ui-text-muted: oklch(69% 0.014 250);
-  --ui-text-highlighted: oklch(94% 0.008 250);
+  --ui-text: oklch(84% 0.014 250);
+  --ui-text-dimmed: oklch(72% 0.012 250);
+  --ui-text-muted: oklch(77% 0.014 250);
+  --ui-text-highlighted: oklch(96% 0.008 250);
 }
 
 html {
@@ -41,17 +44,48 @@ html {
 
 body {
   min-block-size: 100dvb;
-  background: linear-gradient(to bottom, var(--ui-bg-elevated), var(--ui-bg) 18rem);
-  background-attachment: fixed;
+  background-color: var(--ui-bg);
+  background-image: linear-gradient(to bottom, var(--ui-bg-elevated), var(--ui-bg) 18rem);
+  background-repeat: no-repeat;
+  background-size: 100% 18rem;
   color: var(--ui-text);
   font-family: var(--font-sans);
   font-size-adjust: from-font;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
+}
+
+:where(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
+:where(a, button, input, summary, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--ui-primary) 35%, transparent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 60;
+  border-radius: var(--ui-radius);
+  background: var(--ui-bg-elevated);
+  padding: 0.75rem 1rem;
+  color: var(--ui-text-highlighted);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-200%);
+  transition: transform 150ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 a:not(.unstyled),
@@ -80,13 +114,13 @@ a:not(.unstyled):hover,
 }
 
 .content-shell {
-  inline-size: min(100%, 73.25rem);
+  inline-size: min(100%, 72rem);
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 .prose {
-  inline-size: min(100%, 85ch);
+  inline-size: min(100%, 72ch);
   color: var(--ui-text);
   font-size: 1rem;
   line-height: 1.75;
@@ -99,11 +133,15 @@ a:not(.unstyled):hover,
   scroll-margin-block-start: 7rem;
 }
 
+.prose :where(p, li, blockquote) {
+  text-wrap: pretty;
+}
+
 .prose :where(h1) {
   margin-block: 0 1.5rem;
   font-size: 2.25rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.15;
 }
 
 .prose :where(h2) {
@@ -118,6 +156,24 @@ a:not(.unstyled):hover,
 
 .prose :where(p, ul, ol, blockquote, pre, table) {
   margin-block: 1rem;
+}
+
+.prose a:not(.unstyled) {
+  border-block-end: 1px solid transparent;
+  border-radius: 0.125rem;
+  color: var(--ui-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.prose a:not(.unstyled):hover {
+  border-block-end-color: currentColor;
+  color: var(--ui-primary);
+}
+
+.prose a:not(.unstyled):focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--ui-primary) 25%, transparent);
+  outline-offset: 2px;
 }
 
 .prose :where(ul, ol) {
@@ -158,17 +214,105 @@ samp {
 }
 
 .prose pre.shiki {
-  background-color: #fff;
+  background-color: var(--ui-bg-elevated);
 }
 
 .dark .prose pre.shiki {
-  background-color: #0a0c10;
+  background-color: var(--ui-bg-elevated);
+}
+
+.dark .prose .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.prose .shiki [style*="color:#E2931D"] {
+  color: var(--color-amber-800) !important;
+}
+
+.prose .shiki [style*="color:#91B859"] {
+  color: var(--color-green-800) !important;
+}
+
+.prose .shiki [style*="color:#90A4AE"],
+.prose .shiki [style*="color:#8796B0"] {
+  color: var(--color-slate-600) !important;
+}
+
+.prose .shiki [style*="color:#39ADB5"] {
+  color: var(--color-cyan-800) !important;
+}
+
+.prose .shiki [style*="color:#E53935"] {
+  color: var(--color-red-700) !important;
+}
+
+.prose .shiki [style*="color:#FF5370"] {
+  color: var(--color-rose-700) !important;
+}
+
+.prose .shiki [style*="color:#6182B8"] {
+  color: var(--color-blue-700) !important;
+}
+
+.prose .shiki [style*="color:#9C3EDA"] {
+  color: var(--color-purple-700) !important;
+}
+
+.prose .shiki [style*="color:#F76D47"] {
+  color: var(--color-orange-700) !important;
+}
+
+.dark .prose .shiki [style*="--shiki-dark:#676E95"] {
+  color: var(--color-slate-400) !important;
 }
 
 .prose :where(img) {
   max-inline-size: 100%;
   block-size: auto;
   border-radius: var(--ui-radius);
+}
+
+.talk-directory {
+  display: grid;
+  gap: 2rem;
+}
+
+.talk-directory > h2 {
+  margin: 0;
+  color: var(--ui-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.talk-directory > ul {
+  display: grid;
+  gap: 0;
+  margin: -1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.talk-directory > ul > li {
+  min-block-size: 3.5rem;
+  border-block-end: 1px solid var(--ui-border);
+  padding-block: 0.875rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.talk-directory > ul > li:last-child {
+  border-block-end: 0;
+}
+
+.talk-directory > ul > li :where(a) {
+  padding-block: 0.5rem;
 }
 
 .page-enter-active {
@@ -192,6 +336,32 @@ samp {
     inline-size: 2rem;
     block-size: 2rem;
   }
+
+  .talk-directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(3rem, 8vw, 7rem);
+    row-gap: 1rem;
+  }
+
+  .talk-directory > h2:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .talk-directory > ul:first-of-type {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .talk-directory > h2:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .talk-directory > ul:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 2;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -201,5 +371,9 @@ samp {
 
   .page-enter-active {
     animation: none;
+  }
+
+  .skip-link {
+    transition: none;
   }
 }

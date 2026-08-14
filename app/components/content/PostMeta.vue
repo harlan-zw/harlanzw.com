@@ -21,11 +21,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="post-meta sm:flex sm:space-x-7 sm:text-lg sm:space-y-0 opacity-80 space-y-3 items-center">
+  <div class="post-meta items-center space-y-3 opacity-80 sm:flex sm:space-y-0 sm:space-x-7 sm:text-lg">
     <div>
       Published {{ month }} {{ day }} {{ year }}
     </div>
-    <div class="opacity-50 text-xs hidden sm:block">
+    <div class="hidden text-sm opacity-50 sm:block">
       ●
     </div>
     <div>

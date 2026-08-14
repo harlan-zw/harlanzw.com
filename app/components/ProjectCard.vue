@@ -7,19 +7,21 @@ const repo = `https://github.com/${project.repo}`
 </script>
 
 <template>
-  <a :href="repo" target="_blank" rel="noopener" class="group relative rounded border border-default bg-elevated/45 px-4 py-3 transition hover:border-primary/40 hover:bg-elevated">
-    <div class="!flex">
-      <div class="flex-shrink mt-2 mr-2">
-        <Icon v-if="project.icon" :name="project.icon" class="mr-2 size-9 text-muted transition group-hover:text-primary" />
+  <a :href="repo" target="_blank" rel="noopener" class="unstyled group grid min-h-36 grid-rows-[auto_1fr] gap-4 rounded-lg border border-default bg-elevated p-5 shadow-sm transition-[border-color,box-shadow,transform] duration-150 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none">
+    <div class="flex min-w-0 items-start gap-3">
+      <Icon v-if="project.icon" :name="project.icon" class="size-9 shrink-0 text-muted transition-colors group-hover:text-primary" aria-hidden="true" />
+      <div class="min-w-0 flex-1">
+        <h3 class="font-semibold text-highlighted transition-colors group-hover:text-primary">
+          {{ project.name }}
+        </h3>
+        <p class="truncate text-sm text-dimmed">
+          {{ project.repo }}
+        </p>
       </div>
-      <div class="flex-grow">
-        <div class="mb-2">
-          <h3 class="-mb-1 font-semibold">{{ project.name }}</h3>
-          <span class="text-xs text-muted">{{ project.repo }}</span>
-        </div>
-      </div>
+      <span class="inline-flex shrink-0 items-center gap-1 text-sm text-muted"><UIcon name="i-carbon-star" class="size-4" aria-hidden="true" /> {{ project.stars }}</span>
     </div>
-    <p class="m-0 mb-3 text-sm text-muted">{{ project.description || 'Description unavailable.' }}</p>
-    <div class="absolute right-4 top-4 inline-flex items-center text-xs text-muted"><UIcon name="i-carbon-star" class="mr-1 size-4" /> {{ project.stars }}</div>
+    <p class="m-0 text-sm leading-6 text-muted">
+      {{ project.description || 'Description unavailable.' }}
+    </p>
   </a>
 </template>

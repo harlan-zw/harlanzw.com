@@ -9,9 +9,9 @@ const { data: newsletters } = await useAsyncData(`posts:newsletters:${limit}`, (
 </script>
 
 <template>
-  <div class="space-y-7 text-left">
-    <div v-for="post in newsletters" :key="post.path">
-      <NuxtLink :to="post.path">
+  <div class="text-left">
+    <div v-for="post in newsletters" :key="post.path" class="border-b border-default last:border-b-0">
+      <NuxtLink :to="post.path" class="unstyled block min-h-11 py-4 leading-7 text-default transition-[color,transform] duration-150 hover:translate-x-1 hover:text-primary motion-reduce:transform-none motion-reduce:transition-none">
         {{ post.title }}
       </NuxtLink>
     </div>

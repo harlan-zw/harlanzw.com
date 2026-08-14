@@ -13,7 +13,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="flex h-full w-full bg-[#07110d] p-[72px] font-mono text-zinc-100">
+  <div class="flex h-full w-full bg-zinc-950 p-[72px] font-sans text-zinc-100">
     <div class="flex w-full flex-col justify-between">
       <div class="flex max-w-[920px] flex-col">
         <p class="m-0 mb-7 text-[28px] font-bold text-emerald-400">
@@ -27,7 +27,7 @@ withDefaults(defineProps<{
         </p>
       </div>
       <div class="flex items-center gap-5">
-        <img :src="`${site.url}${site.logo}`" width="64" height="64" class="rounded-xl">
+        <img :src="`${site.url}${site.logo}`" :alt="site.name" width="64" height="64" class="rounded-xl">
         <p class="m-0 text-[30px] font-bold">
           {{ site.name }}
         </p>

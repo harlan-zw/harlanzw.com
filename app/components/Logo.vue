@@ -11,8 +11,7 @@ import { site } from '#shared/site'
         height="80"
         :alt="site.name"
         provider="cloudinary"
-        style="width: 40px; height: 40px;"
-        class="mr-3 size-10 rounded-lg transition group-hover:scale-105 group-hover:shadow-lg"
+        class="mr-3 size-10 rounded-lg transition-[box-shadow,transform] duration-150 group-hover:scale-[1.03] group-hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none"
       />
       <span aria-hidden="true" class="logo-initials hidden overflow-hidden text-3xl sm:block">
         <span class="logo-mark block">hw</span>
@@ -29,7 +28,7 @@ import { site } from '#shared/site'
 }
 
 .logo-mark {
-  background: linear-gradient(90deg, rgb(4 120 87 / 35%), rgb(52 211 153 / 35%));
+  background: linear-gradient(90deg, color-mix(in oklab, var(--color-emerald-700) 35%, transparent), color-mix(in oklab, var(--color-emerald-400) 35%, transparent));
   background-clip: text;
   color: transparent;
   font-weight: 400;
@@ -47,7 +46,7 @@ import { site } from '#shared/site'
 .group:hover .logo-mark {
   background: linear-gradient(90deg, var(--color-emerald-700), var(--color-emerald-400));
   background-clip: text;
-  filter: drop-shadow(0 0 10px rgb(52 211 153 / 40%));
+  filter: drop-shadow(0 0 10px color-mix(in oklab, var(--color-emerald-400) 40%, transparent));
   transform: translateY(18px) skewX(-10deg);
 }
 

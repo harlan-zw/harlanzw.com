@@ -5,9 +5,27 @@ export default defineAppConfig({
       neutral: 'zinc',
     },
     button: {
+      slots: {
+        base: 'min-h-11 min-w-11 justify-center transition-[color,background-color,border-color,transform] duration-150 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none',
+      },
       defaultVariants: {
         color: 'primary',
         variant: 'solid',
+      },
+    },
+    alert: {
+      slots: {
+        root: 'rounded-lg border border-default',
+        title: 'text-sm font-semibold text-highlighted',
+        description: 'text-sm text-default',
+      },
+      defaultVariants: {
+        variant: 'subtle',
+      },
+    },
+    dropdownMenu: {
+      slots: {
+        content: 'origin-[var(--reka-popper-transform-origin)]',
       },
     },
     prose: {

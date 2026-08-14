@@ -41,6 +41,10 @@ export default defineNuxtConfig({
     '@sentry/nuxt/module',
   ],
 
+  content: {
+    highlight: true,
+  },
+
   css: ['~/assets/css/main.css'],
 
   experimental: {
@@ -188,6 +192,10 @@ export default defineNuxtConfig({
         dir: 'ltr',
       },
       title: site.name,
+      meta: [
+        { name: 'theme-color', content: '#f9f9f9', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#171b22', media: '(prefers-color-scheme: dark)' },
+      ],
       templateParams: {
         separator: '·',
       },
@@ -210,7 +218,7 @@ export default defineNuxtConfig({
     options: {
       rules: {
         'long-title': 'off',
-        // Nuxt Content wraps Markdown images in paragraphs, where a native
+        // Markdown images render inside paragraphs, where a native
         // block-level figure would produce invalid HTML.
         'prefer-native-element': 'off',
       },

@@ -55,13 +55,13 @@ defineOgImage('Default', {
     <nav v-if="isPost && page.breadcrumbs !== false" aria-label="Breadcrumbs" class="mb-8">
       <ol class="flex flex-wrap items-center gap-2 text-sm text-muted">
         <li>
-          <NuxtLink to="/" aria-label="Home">
-            <UIcon name="i-lucide-house" />
+          <NuxtLink to="/" aria-label="Home" class="unstyled grid size-11 place-items-center rounded-md text-muted transition-colors hover:bg-elevated hover:text-highlighted">
+            <UIcon name="i-lucide-house" aria-hidden="true" />
           </NuxtLink>
         </li>
-        <li v-for="item in breadcrumbs" :key="item.to" class="flex items-center gap-2 capitalize">
-          <UIcon name="i-lucide-chevron-right" class="size-4 opacity-50" />
-          <NuxtLink :to="item.to">
+        <li v-for="item in breadcrumbs" :key="item.to" class="flex min-h-11 items-center gap-2 capitalize">
+          <UIcon name="i-lucide-chevron-right" class="size-4 opacity-50" aria-hidden="true" />
+          <NuxtLink :to="item.to" class="inline-flex min-h-11 items-center">
             {{ item.label }}
           </NuxtLink>
         </li>
@@ -72,7 +72,7 @@ defineOgImage('Default', {
     <PageTitle :post="page" />
     <ContentPostMeta v-if="isPost && page.publishedAt" :post="page" :reading-mins="readingMins" />
 
-    <article :class="isPost ? 'mt-10' : ''">
+    <article :class="[isPost ? 'mt-10' : '', page.path === '/talks' ? 'talk-directory' : '']">
       <ContentProse v-if="page.prose !== false">
         <ContentRenderer :value="page" />
       </ContentProse>

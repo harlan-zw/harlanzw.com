@@ -6,7 +6,7 @@ const backers = computed(() => data.value?.ungrouped ?? [])
 </script>
 
 <template>
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-20">
     <div class="max-w-lg">
       <p class="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary">
         Community funded
@@ -33,7 +33,7 @@ const backers = computed(() => data.value?.ungrouped ?? [])
           Top sponsors
         </h2>
         <div class="grid gap-5 sm:grid-cols-2">
-          <a v-for="sponsor in topSponsors" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" target="_blank" rel="sponsored noopener" class="unstyled group flex min-h-20 items-center gap-4 rounded border border-default bg-elevated p-4 shadow-sm transition hover:border-primary/40">
+          <a v-for="sponsor in topSponsors" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" target="_blank" rel="sponsored noopener" class="unstyled group flex min-h-20 items-center gap-4 rounded-lg border border-default bg-elevated p-4 shadow-sm transition-[border-color,box-shadow,transform] duration-150 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none">
             <img :src="sponsor.avatarUrl" :alt="sponsor.name" width="56" height="56" loading="lazy" decoding="async" class="size-14 shrink-0 rounded-full ring-1 ring-default">
             <span class="min-w-0">
               <span class="block text-lg font-semibold leading-tight text-highlighted transition-colors group-hover:text-primary">{{ sponsor.name }}</span>
@@ -48,23 +48,23 @@ const backers = computed(() => data.value?.ungrouped ?? [])
           Gold sponsors
         </h2>
         <div class="grid gap-4 sm:grid-cols-2">
-          <a v-for="sponsor in goldSponsors" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" target="_blank" rel="sponsored noopener" class="unstyled group flex min-h-18 items-center gap-3 rounded border border-default bg-elevated p-3 shadow-sm transition hover:border-primary/40">
+          <a v-for="sponsor in goldSponsors" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" target="_blank" rel="sponsored noopener" class="unstyled group flex min-h-18 items-center gap-3 rounded-lg border border-default bg-elevated p-3 shadow-sm transition-[border-color,box-shadow,transform] duration-150 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none">
             <img :src="sponsor.avatarUrl" :alt="sponsor.name" width="48" height="48" loading="lazy" decoding="async" class="size-12 shrink-0 rounded-full ring-1 ring-default">
             <span class="min-w-0">
               <span class="block truncate font-semibold text-highlighted transition-colors group-hover:text-primary">{{ sponsor.name }}</span>
-              <span class="block truncate text-xs text-dimmed">@{{ sponsor.login }}</span>
+              <span class="block truncate text-sm text-dimmed">@{{ sponsor.login }}</span>
             </span>
           </a>
         </div>
       </section>
 
-      <section aria-labelledby="backers">
+      <section v-if="backers.length" aria-labelledby="backers">
         <h2 id="backers" class="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-muted">
           Backers
         </h2>
         <div class="grid grid-cols-5 gap-3 sm:grid-cols-7 lg:grid-cols-6 xl:grid-cols-8">
           <a v-for="sponsor in backers" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" :aria-label="sponsor.name" :title="sponsor.name" target="_blank" rel="sponsored noopener" class="unstyled rounded-full outline-offset-4">
-            <img :src="sponsor.avatarUrl" :alt="sponsor.name" width="48" height="48" loading="lazy" decoding="async" class="size-12 rounded-full ring-1 ring-default transition hover:ring-2 hover:ring-primary">
+            <img :src="sponsor.avatarUrl" :alt="sponsor.name" width="48" height="48" loading="lazy" decoding="async" class="size-12 rounded-full ring-1 ring-default transition-shadow duration-150 hover:ring-2 hover:ring-primary">
           </a>
         </div>
       </section>

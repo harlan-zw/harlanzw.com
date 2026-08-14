@@ -14,7 +14,7 @@ const mobileNavigation = navigation.map(link => ({
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 bg-elevated/80 backdrop-blur-sm">
+  <header class="sticky top-0 z-50 border-b border-default bg-default/85 backdrop-blur-md">
     <div class="page-shell flex min-h-18 items-center justify-between gap-3">
       <Logo />
       <div class="flex min-w-0 items-center gap-1 sm:gap-2">
@@ -26,7 +26,7 @@ const mobileNavigation = navigation.map(link => ({
                 class="group inline-flex min-h-11 items-center gap-2 rounded px-2.5 text-muted transition-colors hover:bg-muted hover:text-highlighted"
                 active-class="bg-primary/10 text-primary"
               >
-                <UIcon :name="link.icon" class="hidden size-4 lg:block" />
+                <UIcon :name="link.icon" class="hidden size-4 lg:block" aria-hidden="true" />
                 {{ link.title }}
               </NuxtLink>
             </li>
@@ -34,7 +34,7 @@ const mobileNavigation = navigation.map(link => ({
         </nav>
         <div class="flex items-center gap-1 text-muted">
           <UDropdownMenu :items="mobileNavigation" :content="{ align: 'end' }">
-            <UButton icon="i-lucide-menu" color="neutral" variant="ghost" class="md:hidden" aria-label="Open navigation" />
+            <UButton icon="i-lucide-menu" color="neutral" variant="ghost" class="size-11 md:hidden" aria-label="Open navigation" />
           </UDropdownMenu>
           <SocialIcons class="hidden xl:flex" />
           <ColorModeSwitch />

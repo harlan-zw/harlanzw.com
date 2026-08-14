@@ -1,6 +1,6 @@
 # harlanzw.com
 
-Harlan Wilton's personal site and writing archive. Built with [Nuxt 4](https://nuxt.com), [Nuxt Content](https://content.nuxt.com), [Nuxt UI](https://ui.nuxt.com), and the current [Nuxt SEO](https://nuxtseo.com) stack.
+Harlan Wilton's personal site and writing archive. Built with [Nuxt 4](https://nuxt.com), Comark, [Nuxt UI](https://ui.nuxt.com), and the current [Nuxt SEO](https://nuxtseo.com) stack.
 
 The site enables Nuxt 5 compatibility behavior and SSR streaming ahead of the Nuxt 5 release.
 

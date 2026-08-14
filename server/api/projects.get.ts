@@ -1,7 +1,7 @@
 import type { Project, ProjectCategory, ProjectSource, ProjectSourceCategory, ProjectsResult } from '#shared/types'
-import projectSource from '../data/projects.json' with { type: 'json' }
 import { consola } from 'consola'
 import { z } from 'zod'
+import projectSource from '../data/projects.json' with { type: 'json' }
 
 const githubRepoSchema = z.object({
   repo: z.object({

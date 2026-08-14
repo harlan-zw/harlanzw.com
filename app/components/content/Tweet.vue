@@ -13,7 +13,7 @@ const formattedDate = computed(() => data.value?._tag === 'Ok'
   <article class="not-prose mx-auto my-14 max-w-[550px] rounded-xl border border-default bg-elevated p-5 shadow-sm">
     <USkeleton v-if="status === 'pending'" class="h-44" />
     <div v-else-if="error || data?._tag === 'Err'" class="text-center">
-      <UIcon name="i-lucide-message-circle-off" class="mb-3 size-8 text-muted" />
+      <UIcon name="i-lucide-message-circle-off" class="mb-3 size-8 text-muted" aria-hidden="true" />
       <p class="mb-3 text-sm text-muted">
         {{ data?._tag === 'Err' ? data.reason : 'This embedded post is temporarily unavailable.' }}
       </p>
@@ -42,8 +42,8 @@ const formattedDate = computed(() => data.value?._tag === 'Ok'
       <footer class="mt-5 flex items-center justify-between border-t border-default pt-4 text-sm text-muted">
         <time :datetime="data.tweet.createdAt">{{ formattedDate }}</time>
         <span class="flex gap-4">
-          <span class="inline-flex items-center gap-1"><UIcon name="i-lucide-heart" /> {{ data.tweet.favoriteCount }}</span>
-          <span class="inline-flex items-center gap-1"><UIcon name="i-lucide-message-circle" /> {{ data.tweet.replyCount }}</span>
+          <span class="inline-flex items-center gap-1"><UIcon name="i-lucide-heart" aria-hidden="true" /> {{ data.tweet.favoriteCount }}</span>
+          <span class="inline-flex items-center gap-1"><UIcon name="i-lucide-message-circle" aria-hidden="true" /> {{ data.tweet.replyCount }}</span>
         </span>
       </footer>
     </template>

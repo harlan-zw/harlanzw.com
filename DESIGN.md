@@ -1,27 +1,27 @@
 ---
 name: harlanzw.com
-description: Reference faithful personal site with neutral surfaces, compact system type, and emerald accents
+description: Technical editorial personal site with tinted neutral surfaces, Overused Grotesk, and restrained emerald accents
 colors:
   primary: "#047857"
   neutral: "#18181b"
   accent: "#34d399"
 typography:
   display:
-    fontFamily: System UI
-    fontSize: 2.25rem
-    fontWeight: 600
-    lineHeight: 1.25
+    fontFamily: Overused Grotesk
+    fontSize: 3rem
+    fontWeight: 700
+    lineHeight: "1.08"
   body:
-    fontFamily: System UI
+    fontFamily: Overused Grotesk
     fontSize: 1rem
-    lineHeight: 1.75
+    lineHeight: "1.6"
   mono:
-    fontFamily: JetBrains Mono
+    fontFamily: Commit Mono
     fontSize: 0.875rem
 rounded:
-  sm: 6px
-  md: 8px
-  lg: 12px
+  sm: 4px
+  md: 6px
+  lg: 8px
 spacing:
   sm: 8px
   md: 16px
@@ -35,99 +35,143 @@ components:
     padding: 12px
   button-primary-hover:
     backgroundColor: "#065f46"
+  focus-ring:
+    backgroundColor: "{colors.accent}"
+    width: 3px
   card-default:
     backgroundColor: "{colors.neutral}"
     textColor: "#f4f4f5"
-    rounded: "{rounded.sm}"
-    padding: 16px
+    rounded: "{rounded.lg}"
+    padding: 20px
 ---
 
 # Design: harlanzw.com
 
 ## Aesthetic Direction
 
-- **Theme**: Legacy parity, updated on Nuxt UI primitives with light and dark modes
-- **Mode**: Both
-- **Vibe**: Personal, technical, airy, understated
-- **Influences**: The production site’s neutral canvas, compact type, and emerald identity
-- **Design principle**: We prioritize readable technical content over decorative impact.
-- **Personality of motion**: Calm and responsive, 180 to 300ms ease out, with reduced motion respected.
+- **Theme**: Technical editorial with Nuxt UI primitives
+- **Mode**: Light and dark
+- **Vibe**: Personal, precise, airy, and understated
+- **Influences**: Developer documentation, independent publishing, and the
+  existing emerald identity
+- **Design principle**: We prioritize readable technical content over
+  decorative impact.
+- **Motion**: Calm feedback between 100ms and 300ms, with reduced motion respected.
 
 ## Color Decisions
 
-| Role | Value | Why |
-|------|-------|-----|
-| Primary | `#047857` | Emerald preserves the site identity and gives white text AA contrast. |
-| Neutral | `#18181b` | Tinted zinc keeps dark surfaces soft and legible. |
-| Accent | `#34d399` | A brighter emerald supports hover and glow without competing with prose. |
+| Role | Value | Purpose |
+| ------ | ------- | --------- |
+| Primary | `#047857` | Links, focus, active navigation, and primary actions |
+| Neutral | `#18181b` | Tinted dark surfaces and the neutral scale |
+| Accent | `#34d399` | Dark mode emphasis and restrained highlights |
 
-- **Neutral tinting**: Surfaces stay neutral. Emerald is reserved for links, active states, and the logo.
-- **60, 30, 10 split**: Neutral surfaces dominate, text and borders structure content, emerald is reserved for links and emphasis.
+- Neutral surfaces dominate every page.
+- Emerald identifies interaction and emphasis.
+- Large surfaces avoid pure black and green tinting.
+- Semantic `--ui-*` tokens control every shared surface.
 
 ### Contrast and Accessibility
 
-- **Body text contrast**: Semantic foreground values target at least WCAG AA against default surfaces.
-- **Dark mode adjustments**: Dark surfaces use tinted charcoal, never pure black; muted text stays above AA for normal copy.
-- **Known risks**: Dynamic Markdown content needs browser review for legacy inline colors.
+- Normal text targets WCAG AA in both color modes.
+- Small text never falls below 14px.
+- Body copy starts at 16px.
+- Controls provide at least a 44px target.
+- Focus indicators use the primary token and remain visible.
+- Status uses text or icons with color.
 
 ## Typography
 
-| Role | Font | Why |
-|------|------|-----|
-| Body | System UI | Matches the production reference and avoids an unnecessary web font request. |
-| Display | System UI | Keeps the compact, familiar production hierarchy. |
-| Mono | JetBrains Mono | Clear code punctuation and compact technical texture. |
+| Role | Font | Purpose |
+| ------ | ------ | --------- |
+| Display | Overused Grotesk | Compact, expressive page hierarchy |
+| Body | Overused Grotesk | Familiar technical reading texture |
+| Mono | Commit Mono | Code, status values, and technical metadata |
 
-- **Type system**: Compact 36px page headings with fixed rem body copy.
-- **OpenType features**: Default features; tabular numerals where metrics appear.
+- Page titles use a tight display rhythm and balanced wrapping.
+- Prose uses a 72 character measure and 1.75 line height.
+- Body paragraphs use improved wrapping as progressive enhancement.
+- Uppercase labels use 14px type and restrained tracking.
+- Code disables decorative type behavior through the mono family.
 
 ## Icons
 
-- **Collection**: Existing Iconify collections, rendered through Nuxt Icon.
-- **Why**: Content already carries meaningful ecosystem icons that should survive the migration.
-- **Color rule**: Icons inherit text color except meaningful brand marks.
+- Nuxt Icon renders interface and ecosystem icons.
+- Lucide supplies interface actions.
+- Brand collections supply product marks.
+- Icons inherit text color unless brand identity requires color.
+- Decorative icons stay outside the accessible reading order.
 
 ## Component Rules
 
-- Buttons use Nuxt UI variants and keep a 44px minimum tap target.
-- Cards use subtle semantic backgrounds, one pixel borders, and small radii.
-- Radius follows Nuxt UI’s semantic radius override.
-- Focus states remain visible on every interactive element.
-- Content errors explain what failed and retain a working navigation path.
+- Buttons use Nuxt UI variants and visible primary backgrounds.
+- Every button provides press feedback within 150ms.
+- Dropdowns scale from their trigger origin.
+- Project cards use borders, quiet elevation, and transform-only hover
+  motion.
+- Blog entries use divided rows instead of boxed cards.
+- Alerts explain the state and remove empty dependent sections.
+- Inline links use underlines or borders with visible focus.
+- Loading states match the final content shape.
 
 ## Spatial and Motion
 
-- **Spacing system**: 4px base with 8, 16, 24, 32, and 48px steps.
-- **Spacing philosophy**: Header spans 90rem. Page content and footer use a 72rem shell, with prose narrowed further.
-- **Transition speed**: 180 to 300ms with ease out.
-- **Animation style**: Subtle opacity and position changes; the experimental canvas keeps its intentional continuous motion.
-- **Reduced motion**: Page movement is removed and the experiment pauses automatic animation.
+- The spacing scale uses 4, 8, 12, 16, 24, 32, 48, 64, and 96px.
+- The header uses a 90rem page shell.
+- General content uses a 72rem content shell.
+- Technical prose narrows to 72 characters.
+- Frequent interactions finish within 150ms.
+- Page entrance motion finishes within 300ms.
+- Spatial motion only changes transform and opacity.
+- Reduced motion removes spatial transitions.
 
 ## Responsive Strategy
 
-- **Approach**: Mobile first at 375px, then 768px and wide desktop layouts.
-- **Input method**: Interactive targets remain at least 44px; hover is supplementary.
-- **Navigation adaptation**: Links wrap cleanly on small screens and remain horizontal when space allows.
+- Layouts start at 375px and add structure when content allows.
+- Header navigation becomes a menu below 768px.
+- Project cards use intrinsic grid tracks.
+- Blog columns split only when both columns remain readable.
+- Talks use one column on mobile and two groups on desktop.
+- Safe area padding protects the footer on mobile devices.
+- No route may create horizontal page overflow.
 
 ## Voice and Tone
 
-- **Button labels**: Direct verb phrases such as “Open project” and “Copy link”.
-- **Error style**: State the failed resource, then offer a retry or direct source link.
-- **Empty states**: Explain why content is absent and provide a useful next action.
+- Labels use direct, familiar words.
+- Errors name the unavailable resource and explain the cause.
+- Empty states hide headings that would introduce absent content.
+- Interface copy stays concise and technical.
 
 ## Avoid
 
-- Purple or blue gradients that replace the existing emerald identity.
-- Green tinted page canvases or oversized display type.
-- Pure black page backgrounds.
-- Decorative sections without real content.
-- Colorful icon mixtures without semantic meaning.
-- Continuous spatial motion when reduced motion is requested.
-- Layout widths that force horizontal scrolling at 375px.
+- Purple or blue hero gradients
+- Green page canvases
+- Pure black page backgrounds
+- Decorative sections without real content
+- Nested cards
+- Layout changing hover effects
+- Motion that ignores reduced motion
+- Text below 14px
+- Horizontal scrolling at 375px
+
+## Design Decisions
+
+- Home uses a modest vertical inset. Remaining space follows the flexible
+  page shell.
+- Blog entries use stable divided rows. Hover never starts a text marquee.
+- Project categories create hierarchy. Cards remain equal because every
+  project is actionable.
+- Sponsors hide empty groups when data is unavailable.
+- Talks become parallel groups on desktop and a single sequence on mobile.
+- The experimental route keeps its isolated dark canvas and embedded rendering palette.
+- The Open Graph image uses fixed raster dimensions with zinc and emerald
+  palette tokens.
 
 ## Custom Utilities
 
-| Class or token | What it does | When to use |
-|----------------|--------------|-------------|
-| `.page-shell` | Intrinsic 90rem centered content shell | Shared header, footer, and wide content pages |
-| `.content-shell` | Intrinsic 72rem centered content shell | Page content and footer |
+| Class | Purpose | Use |
+| ------- | --------- | ----- |
+| `.page-shell` | Centers content within 90rem | Header and wide site chrome |
+| `.content-shell` | Centers content within 72rem | Main content and footer |
+| `.skip-link` | Reveals keyboard navigation on focus | Before header |
+| `.talk-directory` | Aligns talk groups responsively | Talks container |
