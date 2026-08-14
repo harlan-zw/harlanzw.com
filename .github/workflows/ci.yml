@@ -29,6 +29,7 @@ jobs:
       - run: pnpm peers check
       - run: pnpm lint
       - run: pnpm typecheck
+      - run: pnpm exec playwright-core install --with-deps chromium
       - run: pnpm test:run
       - run: pnpm build
       - uses: harlan-zw/harlan-nuxt/.github/actions/nuxt-dx-budget@main
