@@ -14,6 +14,7 @@ coverage
 .env
 .env.*
 !.env.example
+.cf-tokens
 dist
 .idea
 wrangler.toml
