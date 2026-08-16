@@ -23,6 +23,17 @@ export function filterExpectedClientError<Event>(event: Event, hint: ErrorHint):
   return isExpectedRouteNotFoundError(hint.originalException) ? null : event
 }
 
+const LOCAL_PREVIEW_HOSTNAME = /^(?:localhost|\[?::1\]?|0\.0\.0\.0|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^.]+\.local)$/i
+
+/**
+ * `nuxi preview` and `wrangler dev` both run with `NODE_ENV=production`, so a
+ * local build reports into the live project and files issues no visitor ever hit.
+ * An unrecognised host still reports, so a real deployment cannot be silenced here.
+ */
+export function isLocalPreviewHost(hostname: string): boolean {
+  return LOCAL_PREVIEW_HOSTNAME.test(hostname)
+}
+
 export function sentryRelease(): string | undefined {
   return process.env.SENTRY_RELEASE || process.env.GITHUB_SHA || undefined
 }

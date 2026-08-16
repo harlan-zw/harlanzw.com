@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/nuxt'
-import { createSentryDataCollection, filterExpectedClientError, SENTRY_DSN } from './shared/sentry'
+import { createSentryDataCollection, filterExpectedClientError, isLocalPreviewHost, SENTRY_DSN } from './shared/sentry'
 
-if (!import.meta.dev) {
+if (!import.meta.dev && !isLocalPreviewHost(window.location.hostname)) {
   Sentry.init({
     dsn: SENTRY_DSN,
     environment: 'production',
