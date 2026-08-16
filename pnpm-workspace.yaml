@@ -67,6 +67,7 @@ catalog:
   '@nuxt/fonts': ^0.14.0
   '@nuxt/icon': ^2.5.0
   '@nuxt/image': ^2.1.0
+  '@nuxt/test-utils': ^4.1.0
   '@nuxt/ui': ^4.10.0
   '@nuxtjs/html-validator': ^2.1.0
   '@nuxtjs/seo': ^5.3.12
@@ -87,6 +88,7 @@ catalog:
   nuxt: ^4.5.2
   nuxt-ai-ready: ^1.7.11
   nuxt-skew-protection: ^1.4.4
+  playwright-core: ^1.55.0
   shiki: ^4.4.3
   # Vue tooling and typescript-eslint do not support TypeScript 7 yet.
   typescript: ^6.0.3

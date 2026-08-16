@@ -1,10 +1,17 @@
+import type { MaybeRefOrGetter } from 'vue'
 import type { SitePage } from '#shared/types'
-import { normalizeContentPath, resolveContentPage } from '~/utils/content-page'
+import { toValue } from 'vue'
+import { resolveContentPage } from '../utils/content-page'
 
-export function useContentPage(path: string) {
-  const contentPath = normalizeContentPath(path)
-  return useAsyncData(`page:${contentPath}`, () => resolveContentPage(
-    contentPath,
-    async pagePath => await queryCollection('pages').path(pagePath).first() as SitePage | null,
-  ))
+export function useContentPage(path: MaybeRefOrGetter<string>) {
+  return useAsyncData(
+    () => `page:${toValue(path)}`,
+    () => {
+      const pagePath = toValue(path)
+      return resolveContentPage(
+        pagePath,
+        async queryPath => await queryCollection('pages').path(queryPath).first() as SitePage | null,
+      )
+    },
+  )
 }
