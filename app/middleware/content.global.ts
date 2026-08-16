@@ -1,5 +1,7 @@
+import { normalizeContentPath } from '~/utils/content-page'
+
 export default defineNuxtRouteMiddleware(async (to) => {
-  if (to.path === '/experimental')
+  if (normalizeContentPath(to.path) === '/experimental')
     return
 
   const { data } = await useContentPage(to.path)
