@@ -36,4 +36,34 @@ describe('useContentPage', () => {
 
     expect(queriedPaths).toEqual(['/projects', '/blog'])
   })
+
+  it('resolves a trailing-slash route against the prerendered payload key', async () => {
+    const queriedPaths: string[] = []
+    let dataKey!: MaybeRefOrGetter<string>
+    let query!: () => Promise<unknown>
+
+    vi.stubGlobal('useAsyncData', (key: MaybeRefOrGetter<string>, handler: () => Promise<unknown>) => {
+      dataKey = key
+      query = handler
+      return {}
+    })
+    vi.stubGlobal('queryCollection', () => ({
+      path: (pagePath: string) => ({
+        first: async () => {
+          queriedPaths.push(pagePath)
+          return pagePath === '/blog/my-open-source-journey' ? { path: pagePath } : null
+        },
+      }),
+    }))
+
+    useContentPage(() => '/blog/my-open-source-journey/')
+    expect(toValue(dataKey)).toBe('page:/blog/my-open-source-journey')
+
+    await expect(query()).resolves.toEqual({
+      _tag: 'Ok',
+      page: { path: '/blog/my-open-source-journey' },
+      styles: [],
+    })
+    expect(queriedPaths).toEqual(['/blog/my-open-source-journey'])
+  })
 })
