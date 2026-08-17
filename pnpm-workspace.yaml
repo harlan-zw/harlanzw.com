@@ -26,6 +26,7 @@ minimumReleaseAgeExclude:
   - '@harlan-zw/nuxt-cloudflare@0.0.14 || 0.0.18'
   - '@harlan-zw/comark-content@0.0.7 || 0.0.8 || 0.0.9 || 0.0.12 || 0.0.15 || 0.0.17'
   - miniflare@5.20260811.0-alpha
+  - eslint-plugin-harlanzw@0.18.0
 shamefullyHoist: true
 autoInstallPeers: false
 shellEmulator: true
@@ -81,7 +82,7 @@ catalog:
   cheerio: ^1.2.0
   consola: ^3.4.2
   eslint: ^10.8.1
-  eslint-plugin-harlanzw: ^0.17.1
+  eslint-plugin-harlanzw: ^0.18.0
   feed: ^6.0.0
   # Nitro 2 requires H3 1. Keep its app types ahead of module-local H3 2.
   h3: ^1.15.11
