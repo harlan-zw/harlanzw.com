@@ -48,6 +48,7 @@
     "@harlan-zw/nuxt-cloudflare": "catalog:",
     "@harlan-zw/nuxt-dx": "catalog:",
     "@harlan-zw/nuxt-github-sponsors": "catalog:",
+    "@harlan-zw/nuxt-sentry": "catalog:",
     "@iconify-json/carbon": "catalog:",
     "@iconify-json/emojione-v1": "catalog:",
     "@iconify-json/ic": "catalog:",

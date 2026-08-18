@@ -33,6 +33,9 @@
       "database_id": "b2567f1e-7a4e-4a8e-835a-5b6fa5c6bc54"
     }
   ],
+  // The module now honours these rates instead of forcing its 1% default. This
+  // Worker only runs for API routes and pages that are not prerendered, so the
+  // event volume stays small and full logs are worth the metered events.
   "observability": {
     "enabled": true,
     "logs": {
