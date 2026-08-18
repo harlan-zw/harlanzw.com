@@ -22,8 +22,8 @@ catalogs:
       specifier: 0.1.0
       version: 0.1.0
     '@harlan-zw/nuxt-github-sponsors':
-      specifier: 0.1.0
-      version: 0.1.0
+      specifier: 0.1.2
+      version: 0.1.2
     '@iconify-json/carbon':
       specifier: ^1.2.25
       version: 1.2.25
@@ -191,7 +191,7 @@ importers:
         version: 0.1.0(2766cf3753e43075e3c8f2ef1a2df047)
       '@harlan-zw/nuxt-github-sponsors':
         specifier: 'catalog:'
-        version: 0.1.0(6da2c1d7e51c2369c423bcd10a2f91c6)
+        version: 0.1.2(6da2c1d7e51c2369c423bcd10a2f91c6)
       '@iconify-json/carbon':
         specifier: 'catalog:'
         version: 1.2.25
@@ -1211,8 +1211,8 @@ packages:
       nuxt: '>=4.5.0 <5.0.0'
       vite: ^8.2.1
 
-  '@harlan-zw/nuxt-github-sponsors@0.1.0':
-    resolution: {integrity: sha512-lCZy5dij7RGw5PyZLGh4RgiTq+/RkY9oawRsd7/slVpywX0fE7P5hRhRQlsmI/hAw4MVncHwsSA8Bey/lXTGnA==}
+  '@harlan-zw/nuxt-github-sponsors@0.1.2':
+    resolution: {integrity: sha512-CpRUFFIJxzP9y3+no8tSiGrJt7d23fF/9utxyCWgP41jzvC14VeXl+e1rBUZtNq4iIvGAyM8YNe975H8zkl+zg==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       nuxt: '>=4.5.0 <5.0.0'
@@ -8319,7 +8319,7 @@ snapshots:
       - unplugin
       - vue
 
-  '@harlan-zw/nuxt-github-sponsors@0.1.0(6da2c1d7e51c2369c423bcd10a2f91c6)':
+  '@harlan-zw/nuxt-github-sponsors@0.1.2(6da2c1d7e51c2369c423bcd10a2f91c6)':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.1)(magicast@0.5.4)(oxc-parser@0.143.0)(rolldown@1.2.4)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.4)(rollup@4.62.4)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       nitropack: 2.13.4(drizzle-orm@0.45.2(@cloudflare/workers-types@5.20260813.1)(@opentelemetry/api@1.9.1))(oxc-parser@0.143.0)(rolldown@1.2.4)(srvx@0.12.5)(supports-color@10.2.2)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))
