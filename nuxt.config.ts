@@ -1,10 +1,5 @@
-import { existsSync } from 'node:fs'
 import { isExpectedNitroBuildWarning } from './build/warnings'
-import { SENTRY_DSN, sentryRelease } from './shared/sentry'
 import { site } from './shared/site'
-
-const hasSentryAuthToken = Boolean(process.env.SENTRY_AUTH_TOKEN)
-  || existsSync('.env.sentry-build-plugin')
 
 export default defineNuxtConfig({
   future: {
@@ -19,11 +14,16 @@ export default defineNuxtConfig({
 
   nuxtDx: {
     report: true,
-    sizeBudget: {
-      // This app registers its own Sentry Nitro plugin, so the module's 400 kB
-      // allowance for `@sentry/nuxt` does not reach it.
-      overridesKb: { 'server/plugins/sentry.ts': 326 },
-    },
+  },
+
+  // One Report Policy for the browser and the Worker. The module owns
+  // registration, the enable gate, the Drop Rules and the Redaction Rules.
+  // `dataCollection: 'none'` keeps this site's current setting: no personal
+  // field the Sentry SDK collects by default is ever sent.
+  nuxtSentry: {
+    dsn: 'https://8b3cdae1f3b66b32c99644bdc5da7529@o4510507748163584.ingest.us.sentry.io/4511887363211264',
+    project: 'harlanzw-com',
+    dataCollection: 'none',
   },
 
   modules: [
@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vueuse/nuxt',
     '@sentry/nuxt/module',
+    '@harlan-zw/nuxt-sentry',
   ],
 
   css: ['~/assets/css/main.css'],
@@ -55,13 +56,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     githubSponsors: {
       token: '',
-    },
-    sentry: {
-      dsn: SENTRY_DSN,
-      enabled: process.env.NODE_ENV === 'production',
-      environment: 'production',
-      release: sentryRelease() ?? '',
-      tracesSampleRate: 0.05,
     },
   },
 
@@ -290,28 +284,11 @@ export default defineNuxtConfig({
     },
   },
 
-  sentry: {
-    enabled: process.env.NODE_ENV === 'production',
-    org: 'harlan-zw',
-    project: 'harlanzw-com',
-    authToken: process.env.SENTRY_AUTH_TOKEN,
-    release: { name: sentryRelease() },
-    sourcemaps: {
-      disable: !hasSentryAuthToken,
-      filesToDeleteAfterUpload: ['**/*.map'],
-    },
-    bundleSizeOptimizations: {
-      excludeReplayShadowDom: true,
-      excludeReplayIframe: true,
-      excludeReplayWorker: true,
-    },
-    telemetry: false,
-  },
-
-  sourcemap: {
-    client: hasSentryAuthToken ? 'hidden' : false,
-    server: false,
-  },
+  // `@harlan-zw/nuxt-sentry` sets `sourcemap.client` to 'hidden' when a Sentry
+  // auth token is present. It never writes `sourcemap.server`, and Nuxt defaults
+  // that to true, so state it here. Server maps add 79 files to the Worker
+  // upload, for no payoff: Nitro stacks are already readable.
+  sourcemap: { server: false },
 
   devtools: {
     enabled: true,
