@@ -1,8 +1,10 @@
 # Temporary exceptions for packages verified during this migration. The active
 # supply-chain policy blocks them until they age beyond its cutoff.
 minimumReleaseAgeExclude:
-  - '@harlan-zw/nuxt-dx@0.0.6 || 0.0.9'
-  - '@harlan-zw/nuxt-github-sponsors@0.0.1 || 0.0.2'
+  - '@harlan-zw/comark-content@0.1.0'
+  - '@harlan-zw/nuxt-cloudflare@0.1.0'
+  - '@harlan-zw/nuxt-dx@0.1.0'
+  - '@harlan-zw/nuxt-github-sponsors@0.1.0'
   - '@cloudflare/workers-types@5.20260810.1'
   - '@iconify-json/lucide@1.2.123'
   - '@nuxt/icon@2.5.0'
@@ -23,8 +25,6 @@ minimumReleaseAgeExclude:
   - '@takumi-rs/wasm@2.6.1'
   - wrangler@4.120.0 || 4.122.0
   - sitemapd@0.2.2
-  - '@harlan-zw/nuxt-cloudflare@0.0.14 || 0.0.18'
-  - '@harlan-zw/comark-content@0.0.7 || 0.0.8 || 0.0.9 || 0.0.12 || 0.0.15 || 0.0.17'
   - miniflare@5.20260811.0-alpha
 shamefullyHoist: true
 autoInstallPeers: false
@@ -50,10 +50,10 @@ allowBuilds:
 catalog:
   '@antfu/eslint-config': ^9.3.0
   '@cloudflare/workers-types': 5.20260813.1
-  '@harlan-zw/comark-content': 0.0.17
-  '@harlan-zw/nuxt-cloudflare': 0.0.18
-  '@harlan-zw/nuxt-dx': 0.0.9
-  '@harlan-zw/nuxt-github-sponsors': 0.0.2
+  '@harlan-zw/comark-content': 0.1.0
+  '@harlan-zw/nuxt-cloudflare': 0.1.0
+  '@harlan-zw/nuxt-dx': 0.1.0
+  '@harlan-zw/nuxt-github-sponsors': 0.1.0
   '@iconify-json/carbon': ^1.2.25
   '@iconify-json/emojione-v1': ^1.2.3
   '@iconify-json/ic': ^1.2.4

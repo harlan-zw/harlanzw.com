@@ -1,17 +1,11 @@
 import type { PageCollectionItemBase } from '@harlan-zw/comark-content'
 
+/** Front matter this site adds on top of the fields every page collection has. */
 export interface SitePage extends PageCollectionItemBase {
-  layout?: string
-  prose?: boolean
-  breadcrumbs?: boolean
   h1?: boolean
   wide?: boolean
-  icon?: string
-  image?: string
-  status?: string
-  publishedAt?: string
+  status?: 'published' | 'sponsors-only' | 'unlisted'
   newsletter?: boolean
-  tags?: string[]
 }
 
 export interface ProjectSource {

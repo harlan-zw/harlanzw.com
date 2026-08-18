@@ -20,6 +20,8 @@ export default defineNuxtConfig({
   nuxtDx: {
     report: true,
     sizeBudget: {
+      // This app registers its own Sentry Nitro plugin, so the module's 400 kB
+      // allowance for `@sentry/nuxt` does not reach it.
       overridesKb: { 'server/plugins/sentry.ts': 326 },
     },
   },
@@ -40,10 +42,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@sentry/nuxt/module',
   ],
-
-  content: {
-    highlight: true,
-  },
 
   css: ['~/assets/css/main.css'],
 
@@ -81,10 +79,6 @@ export default defineNuxtConfig({
     login: 'harlan-zw',
     mode: 'runtime',
     route: '/api/sponsors',
-    tiers: [
-      { key: 'top', minimumMonthlyDollars: 50 },
-      { key: 'gold', minimumMonthlyDollars: 25 },
-    ],
     overrides: {
       MassiveMonster: { websiteUrl: 'https://massivemonster.co' },
     },

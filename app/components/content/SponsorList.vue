@@ -3,6 +3,15 @@ const { data, error, status } = await useGitHubSponsors()
 const topSponsors = computed(() => data.value?.tiers.top ?? [])
 const goldSponsors = computed(() => data.value?.tiers.gold ?? [])
 const backers = computed(() => data.value?.ungrouped ?? [])
+
+// The route answers with a typed unavailable state instead of an error status,
+// so the reason decides the message.
+const failure = computed(() => {
+  const payload = data.value
+  if (payload?._tag === 'unavailable')
+    return payload.reason === 'not-configured' ? 'GitHub Sponsors is not configured.' : 'GitHub Sponsors did not answer.'
+  return error.value ? 'The GitHub Sponsors API could not be reached.' : null
+})
 </script>
 
 <template>
@@ -23,7 +32,7 @@ const backers = computed(() => data.value?.ungrouped ?? [])
     </div>
 
     <div class="min-w-0 space-y-10">
-      <UAlert v-if="error || data?._tag === 'unavailable'" color="error" title="Sponsors unavailable" :description="data?._tag === 'unavailable' ? 'GitHub Sponsors is not configured.' : 'The GitHub Sponsors API could not be reached.'" />
+      <UAlert v-if="failure" color="error" title="Sponsors unavailable" :description="failure" />
       <div v-else-if="status === 'pending'" class="grid grid-cols-5 gap-3" aria-label="Loading sponsors">
         <USkeleton v-for="index in 10" :key="index" class="size-12 rounded-full" />
       </div>
