@@ -25,8 +25,8 @@ catalogs:
       specifier: 0.1.2
       version: 0.1.2
     '@harlan-zw/nuxt-sentry':
-      specifier: 0.1.0
-      version: 0.1.0
+      specifier: 0.1.1
+      version: 0.1.1
     '@iconify-json/carbon':
       specifier: ^1.2.25
       version: 1.2.25
@@ -197,7 +197,7 @@ importers:
         version: 0.1.2(6da2c1d7e51c2369c423bcd10a2f91c6)
       '@harlan-zw/nuxt-sentry':
         specifier: 'catalog:'
-        version: 0.1.0(7378b8ef01d9e2576ec016ceb80fa07b)
+        version: 0.1.1(7378b8ef01d9e2576ec016ceb80fa07b)
       '@iconify-json/carbon':
         specifier: 'catalog:'
         version: 1.2.25
@@ -1223,8 +1223,8 @@ packages:
     peerDependencies:
       nuxt: '>=4.5.0 <5.0.0'
 
-  '@harlan-zw/nuxt-sentry@0.1.0':
-    resolution: {integrity: sha512-BGpa71iGREPeTijIj8KrvNt+lNht8p9HGX2fLRfP9H5Hvg0l5+b3bVnsakzRxV8lMqxsvwxjPOlgX4dCQzKvmw==}
+  '@harlan-zw/nuxt-sentry@0.1.1':
+    resolution: {integrity: sha512-zuENOjiI+5UmNOHCqD9xJDq5g4gz767sl2OxC1PWI0YN6gmKNpixNP5UIeq+sEJhmHgYAUfZ8BFzYDS1+t388A==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       '@sentry/cloudflare': ^10.70.0
@@ -8386,7 +8386,7 @@ snapshots:
       - webpack
       - xml2js
 
-  '@harlan-zw/nuxt-sentry@0.1.0(7378b8ef01d9e2576ec016ceb80fa07b)':
+  '@harlan-zw/nuxt-sentry@0.1.1(7378b8ef01d9e2576ec016ceb80fa07b)':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.1)(magicast@0.5.4)(oxc-parser@0.143.0)(rolldown@1.2.4)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.4)(rollup@4.62.4)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       '@sentry/nuxt': 10.70.0(c603c3b600485f9c7c284550b7e89a3d)

@@ -4,7 +4,7 @@ minimumReleaseAgeExclude:
   - '@harlan-zw/comark-content@0.1.1'
   - '@harlan-zw/nuxt-cloudflare@0.1.0'
   - '@harlan-zw/nuxt-dx@0.1.1'
-  - '@harlan-zw/nuxt-sentry@0.1.0'
+  - '@harlan-zw/nuxt-sentry@0.1.1'
   - '@harlan-zw/nuxt-github-sponsors@0.1.2'
   - '@cloudflare/workers-types@5.20260810.1'
   - '@iconify-json/lucide@1.2.123'
@@ -55,7 +55,7 @@ catalog:
   '@harlan-zw/nuxt-cloudflare': 0.1.0
   '@harlan-zw/nuxt-dx': 0.1.1
   '@harlan-zw/nuxt-github-sponsors': 0.1.2
-  '@harlan-zw/nuxt-sentry': 0.1.0
+  '@harlan-zw/nuxt-sentry': 0.1.1
   '@iconify-json/carbon': ^1.2.25
   '@iconify-json/emojione-v1': ^1.2.3
   '@iconify-json/ic': ^1.2.4
