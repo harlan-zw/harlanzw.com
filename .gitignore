@@ -5,6 +5,7 @@ node_modules
 .vscode
 coverage
 *.tsbuildinfo
+.eslintcache
 .nuxt
 .nitro
 .cache

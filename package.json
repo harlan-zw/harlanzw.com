@@ -29,6 +29,7 @@
     "preview": "wrangler dev",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
+    "lint:ci": "eslint . --cache --cache-strategy content",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "test": "vitest",
