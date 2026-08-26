@@ -55,7 +55,7 @@ So my full attention went into performance ([e1bc8d2](https://github.com/vueuse/
 
 ## Why a major bump?
 
-While most issues were closed and easy to solve, there was a major outstanding issue that I wanted to address, *Server Only Tags* (see [discussion](https://github.com/nuxt/framework/discussions/7785)).
+While most issues were closed and easy to solve, there was a major outstanding issue that I wanted to address, *Server Only Tags* (removed, `nuxt/framework` discussions were retired after the Nuxt 3 merge into `nuxt/nuxt`).
 There was also a nasty issue with tags disappearing unexpectedly when hydrating.
 
 Both of these were blocked by how the DOM patching was designed. The old strategy was to add state to the DOM and use this
@@ -111,7 +111,7 @@ So Unhead was born. It has first-party support for Vue, but there is planned wor
 @vueuse/head v1 is now a thin wrapper for unhead, while being fully backwards compatible.
 
 There are too many enhancements and feature improvements to mention here, check the below release notes or jump straight
-to the [docs](https://unhead.harlanzw.com).
+to the [docs](https://unhead.unjs.io).
 
 I'm excited about this new package, and I hope you are too! I'll be writing a dedicated blog post about it soon.
 
@@ -128,12 +128,12 @@ Featuring:
 
 ### ✨ Enhancements
 
-- Vue 2.7 Support  ([docs](https://unhead.harlanzw.com/integrations/vue/setup))
-- Options API Support ([docs](https://unhead.harlanzw.com/integrations/vue/options-api))
+- Vue 2.7 Support  ([docs](https://unhead.unjs.io))
+- Options API Support ([docs](https://unhead.unjs.io))
 
 #### htmlAttrs / bodyAttrs merging
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy)
+[Documentation](https://unhead.unjs.io)
 
 Now merged by default instead of replace.
 
@@ -154,7 +154,7 @@ useHead({
 
 #### Array / Object Classes
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/class-attr)
+[Documentation](https://unhead.unjs.io)
 
 When using the htmlAttrs or bodyAttrs options, you can use the class attribute to add classes to the html or body elements.
 
@@ -175,7 +175,7 @@ useHead({
 
 #### Better deduping
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#using-arrays-with-meta)
+[Documentation](https://unhead.unjs.io)
 
 Tag deduping is now vastly improved. It's likely you won't need `key` anymore.
 
@@ -213,7 +213,7 @@ useHead({
 
 #### useServerHead
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/server-only-tags)
+[Documentation](https://unhead.unjs.io)
 
 Lets you render tags on the server only. This has the same API as `useHead`.
 
@@ -230,7 +230,7 @@ useServerHead({
 
 #### useSeoMeta
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/useseometa)
+[Documentation](https://unhead.unjs.io)
 
 Define meta tags in a flat object, fully typed.
 
@@ -246,7 +246,7 @@ useSeoMeta({
 
 #### tagPosition
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/positions)
+[Documentation](https://unhead.unjs.io)
 
 Lets you define the position of a tag in the DOM.
 
@@ -263,7 +263,7 @@ useHead({
 
 #### tagPriority
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/sorting)
+[Documentation](https://unhead.unjs.io)
 
 Lets you define the priority of a tag with a number or string.
 
@@ -284,11 +284,11 @@ useHead({
 
 #### tagDuplicateStrategy
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy)
+[Documentation](https://unhead.unjs.io)
 
 #### DOM Event Handlers
 
-[Documentation](https://unhead.harlanzw.com/guide/guides/dom-event-handling)
+[Documentation](https://unhead.unjs.io)
 
 Function support for DOM event handlers.
 
@@ -315,7 +315,7 @@ useHead({
 Engine is now powered by hooks, provided by [hookable](https://github.com/unjs/hookable). This allows you to hook into
 any of the core functionality.
 
-See [API hooks](https://unhead.harlanzw.com/api/core/create-head) and [Infer SEO MetaTags](https://unhead.harlanzw.com/guide/recipes/infer-seo-meta-tags), not documented properly yet.
+See [API hooks](https://unhead.unjs.io) and [Infer SEO MetaTags](https://unhead.unjs.io), not documented properly yet.
 
 #### New shortcut composables
 
@@ -338,7 +338,7 @@ Same API as `useHead`, but targeted as a specific tag type.
 
 Please report any issues you find and they will fixed be promptly.
 
-You may consider using [@unhead/vue](https://unhead.harlanzw.com/integrations/vue/setup) directly if you [don't need @vueuse/head](https://unhead.harlanzw.com/integrations/vue/vueuse-head).
+You may consider using [@unhead/vue](https://unhead.unjs.io) directly if you [don't need @vueuse/head](https://unhead.unjs.io).
 
 ### Verify your tags
 
@@ -382,7 +382,7 @@ useHead({
 // <html class="my-class new-class">
 ```
 
-Check the [documentation](https://unhead.harlanzw.com/guide/guides/handling-duplicates#tagduplicatestrategy) to learn more.
+Check the [documentation](https://unhead.unjs.io) to learn more.
 
 ### Duplicate tags in `useHead`
 

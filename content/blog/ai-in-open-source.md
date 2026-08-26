@@ -30,8 +30,8 @@ I don't want to add to it. [Daniel Roe's post on using AI in open source](https:
 
 ### Sites I own
 
-- The [PR owner agent](https://github.com/harlan-zw/harlan-agent-kit/blob/main/harlan-agent-kit/skills/pr-owner/SKILL.md) watches the deployment and runs relevant smoke tests against production.
-- Agents may [repair post-merge CI](https://github.com/harlan-zw/harlan-agent-kit/blob/main/harlan-agent-kit/skills/pr-owner/SKILL.md) on the default branch.
+- The [PR owner agent](https://github.com/harlan-zw/harlan-agent-kit/blob/main/harlan-agent-kit/skills/take-ownership/SKILL.md) watches the deployment and runs relevant smoke tests against production.
+- Agents may [repair post-merge CI](https://github.com/harlan-zw/harlan-agent-kit/blob/main/harlan-agent-kit/skills/take-ownership/SKILL.md) on the default branch.
 
 ## Workflow: Issue Triaging
 

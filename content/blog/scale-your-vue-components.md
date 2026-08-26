@@ -383,7 +383,7 @@ Using a package like [Storybook](https://storybook.js.org/) is a great idea, but
 As a starting point, you can create pages under a `/demo` prefix and throw your components on it.
 You want an easy way to find components and classes that are available.
 
-Here is a rough demo page as an example: [Massive Monster UI Demo](https://massivemonster.co/demo). Keep it as basic as you want.
+Here is a rough demo page as an example: [Massive Monster](https://massivemonster.co) (the original demo page is gone). Keep it as basic as you want.
 
 ![Massive Monster Demo Page](/blog/brand-demo.png){width="939" height="464"}
 
