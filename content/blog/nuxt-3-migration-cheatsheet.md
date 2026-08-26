@@ -37,7 +37,7 @@ Let's do this!
 
 - [Nuxt 3 - Docs](https://nuxt.com/docs/getting-started/introduction)
 - [Nuxt 3 - Official Migration Guide](https://nuxt.com/docs/migration/overview)
-- [Nuxt 3 - Migration guide discussion](https://github.com/nuxt/framework/discussions/3989)
+- Nuxt 3 - Migration guide discussion (removed, `nuxt/framework` discussions were retired after the Nuxt 3 merge into `nuxt/nuxt`)
 - [Vue 3 - Migration Guide](https://v3-migration.vuejs.org/)
 
 **Tech**
@@ -49,7 +49,7 @@ Let's do this!
 **Nuxt 3 Examples**
 
 - [Nuxt Examples](https://nuxt.com/docs/examples/essentials/hello-world) - Minimal scoped examples
-- [NuxtBnB](https://github.com/MasteringNuxt/NuxtBnB) - Complex app
+- [NuxtBnB](https://web.archive.org/web/20230106223315/https://github.com/MasteringNuxt/NuxtBnB) - Complex app (repo removed; archived snapshot)
 - [Nuxt Movies](https://github.com/nuxt/movies) - Complex app
 - [harlanzw.com](https://github.com/harlan-zw/harlanzw.com) - @nuxt/content app
 
@@ -61,7 +61,7 @@ Let's do this!
 ### Getting help
 
 - [Discord](https://discord.com/invite/ps2h6QT): create a post in `#nuxt3-help` if you get stuck
-- [Twitter Nuxt Community](https://twitter.com/i/communities/1498235047194808320)
+- Twitter Nuxt Community (removed, the community no longer exists)
 - Post on StackOverflow with the tag [Nuxt](https://stackoverflow.com/questions/tagged/nuxt), [kissu](https://stackoverflow.com/users/8816585/kissu) may help you if you're lucky
 - [Reddit Nuxt.js](https://www.reddit.com/r/nuxtjs/)
 
@@ -458,7 +458,7 @@ It's best practice to use the [$fetch / useFetch](https://nuxt.com/docs/migratio
 
 If are determined to use `$http` you can use [nuxt-alt/http](https://github.com/nuxt-alt/http).
 
-See the [Nuxt 3 and Axios](https://github.com/nuxt/framework/discussions/4514) discussion for additional context.
+See the Nuxt 3 and Axios discussion for additional context (removed, `nuxt/framework` discussions were retired after the Nuxt 3 merge into `nuxt/nuxt`).
 ::
 
 ::checkbox
@@ -597,7 +597,7 @@ const { $moment } = useNuxtApp()
 I'd recommend using [nuxt-icon](https://github.com/nuxt-modules/icon).
 
 Alternatively,
-see the [Using FontAwesome in Nuxt 3](https://github.com/nuxt/framework/discussions/3823) discussion for plugin code sample.
+see the Using FontAwesome in Nuxt 3 discussion for plugin code sample (removed, `nuxt/framework` discussions were retired after the Nuxt 3 merge into `nuxt/nuxt`).
 
 #### @nuxtjs/dayjs
 
@@ -605,7 +605,7 @@ See [Nuxt3 support](https://github.com/nuxt-community/dayjs-module/issues/376) f
 
 #### @nuxtjs/toast
 
-See [Examples of using the @nuxtjs/toast or any vue toast plugin?](https://github.com/nuxt/framework/discussions/2732) discussion for plugin code sample.
+See the Examples of using the @nuxtjs/toast or any vue toast plugin? discussion for plugin code sample (removed, `nuxt/framework` discussions were retired after the Nuxt 3 merge into `nuxt/nuxt`).
 
 #### @nuxtjs/gtm
 

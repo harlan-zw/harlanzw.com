@@ -84,6 +84,11 @@ export default defineNuxtConfig({
     url: site.url,
     description: site.description,
     defaultLocale: site.language,
+    // Cloudflare serves prerendered content pages from their directory form
+    // (`/blog/` not `/blog`), 307-redirecting the bare path. Sitemap entries
+    // and canonical tags need to point at that final URL directly, or Google
+    // sees a redirect hop instead of a self-referencing canonical.
+    trailingSlash: true,
   },
 
   ui: {
@@ -243,6 +248,11 @@ export default defineNuxtConfig({
       },
     },
     '/api/**': { prerender: false, robots: false },
+    // `/hire` and `/meet` were removed in the Nuxt v4 rewrite with no direct
+    // replacement; redirect to the homepage rather than leave them 404ing
+    // for the traffic and backlinks that still land on them.
+    '/hire': { redirect: { to: '/', statusCode: 301 } },
+    '/meet': { redirect: { to: '/', statusCode: 301 } },
     '/sponsors': { prerender: false },
     '/experimental': { prerender: false, robots: false, streaming: true },
   },

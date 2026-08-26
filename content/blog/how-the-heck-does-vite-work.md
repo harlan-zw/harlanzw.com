@@ -62,12 +62,12 @@ The main functional difference you'll notice with Vite and your webpack app, is 
 Don't worry if the below terms don't make sense to you, we'll be exploring them below.
 
 ### webpack (Nuxt.js / Vue CLI / etc)
-- Supported Modules: [ES Modules](https://www.2ality.com/2014/09/es6-modules-final.html), [CommonJS](http://wiki.commonjs.org/) and [AMD Modules](https://github.com/amdjs/amdjs-api/wiki/AMD)
+- Supported Modules: [ES Modules](https://web.archive.org/web/20260511134339/https://2ality.com/2014/09/es6-modules-final.html), [CommonJS](http://wiki.commonjs.org/) and [AMD Modules](https://github.com/amdjs/amdjs-api/wiki/AMD)
 - Dev Server: Bundled modules served via webpack-dev-server using [Express.js](https://expressjs.com/) web server
 - Production Build: webpack
 
 ### Vite
-- Supported Modules: [ES Modules](https://www.2ality.com/2014/09/es6-modules-final.html)
+- Supported Modules: [ES Modules](https://web.archive.org/web/20260511134339/https://2ality.com/2014/09/es6-modules-final.html)
 - Dev Server: Native-ES-Modules, served via Vite using a [Koa](https://github.com/koajs/koa) web server
 - Production build: [Rollup](https://github.com/rollup/rollup)
 
