@@ -147,3 +147,9 @@ jobs:
             fi
             sleep 5
           done
+      # Last step on purpose: a failed deploy must leave the release
+      # unreleased, so it never becomes the resolution target.
+      - name: Finalize Sentry release
+        run: pnpm exec sentry-cli releases finalize "$GITHUB_SHA" --org harlan-zw -p harlanzw-com
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
