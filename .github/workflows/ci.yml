@@ -148,8 +148,12 @@ jobs:
             sleep 5
           done
       # Last step on purpose: a failed deploy must leave the release
-      # unreleased, so it never becomes the resolution target.
+      # unreleased, so it never becomes the resolution target. The build
+      # creates no release (no Sentry SDK init files, so @sentry/nuxt never
+      # installs its upload plugin), so create it here before finalizing.
       - name: Finalize Sentry release
-        run: pnpm exec sentry-cli releases finalize "$GITHUB_SHA" --org harlan-zw -p harlanzw-com
+        run: |
+          pnpm exec sentry-cli releases new "$GITHUB_SHA" --org harlan-zw -p harlanzw-com
+          pnpm exec sentry-cli releases finalize "$GITHUB_SHA" --org harlan-zw -p harlanzw-com
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
