@@ -1,5 +1,7 @@
 import { consola } from 'consola'
 import { parseArticleStats } from '../../shared/utils/article-stats'
+import { publicArticleReading } from '../../shared/utils/public-agent-work'
+import { lookupPublicAgentWork } from '../utils/public-agent-work'
 
 export default defineCachedEventHandler(async (event) => {
   const { hogwildStatsToken, hogwildStatsUrl } = useRuntimeConfig(event)
@@ -19,7 +21,7 @@ export default defineCachedEventHandler(async (event) => {
   const stats = parseArticleStats(upstream, Date.now())
   if (stats._tag === 'Unavailable')
     throw createError({ statusCode: 503, statusMessage: 'Live statistics are unavailable.' })
-  return stats
+  return publicArticleReading(stats, lookupPublicAgentWork)
 }, {
   name: 'article-stats',
   getKey: () => 'summary',

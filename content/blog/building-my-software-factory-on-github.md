@@ -152,6 +152,8 @@ Hogwild runs the factory and my self-hosted GitHub Actions runners. These are cu
 
 :ArticleLiveStats
 
+I wrote more about [moving CI onto my homelab](/blog/fighting-github-ci-bills-with-my-own-homelab), including a live runner cost comparison.
+
 CI cost helped motivate the move, but putting runners on a machine introduced a different problem. Heavy builds competed for the same memory.
 
 An earlier runner configuration recorded a Nuxt SEO deploy peaking at 10.7 GiB. Starting more containers didn't create more physical RAM.

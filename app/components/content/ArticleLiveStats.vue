@@ -1,37 +1,8 @@
 <script setup lang="ts">
-import { isFreshReading } from '#shared/utils/article-stats'
-
 defineProps<{ contained?: boolean }>()
-
 const section = useTemplateRef('section')
-const visible = useElementVisibility(section)
-const documentVisibility = useDocumentVisibility()
-const now = useNow({ interval: 10_000 })
-const { data, status, error, refresh } = useFetch('/api/article-stats', {
-  server: false,
-  immediate: false,
-  retry: 0,
-})
-const current = computed(() => data.value && isFreshReading(data.value.host.updatedAt, now.value.getTime()) ? data.value : null)
-const agents = computed(() => current.value?.agents._tag === 'Available' && isFreshReading(current.value.agents.updatedAt, now.value.getTime()) ? current.value.agents : null)
-const runners = computed(() => current.value?.runners._tag === 'Available' && isFreshReading(current.value.runners.updatedAt, now.value.getTime()) ? current.value.runners : null)
-const observedAt = computed(() => current.value ? new Date(current.value.host.updatedAt).toLocaleTimeString() : '')
+const { current, agents, runners, observedAt, status, error, update } = useArticleStats(section)
 const emptyReading = computed(() => !current.value && (status.value === 'pending' || status.value === 'idle') ? 'Loading…' : 'Unavailable')
-const active = computed(() => visible.value && documentVisibility.value === 'visible')
-function update() {
-  if (status.value !== 'pending')
-    return refresh()
-}
-const { pause, resume } = useIntervalFn(update, 30_000, { immediate: false })
-watch(active, (value) => {
-  if (value) {
-    update()
-    resume()
-  }
-  else {
-    pause()
-  }
-})
 </script>
 
 <template>
@@ -55,6 +26,15 @@ watch(active, (value) => {
                 </p>
                 <p v-if="current">
                   Uptime: {{ current.host.uptime }}.
+                </p>
+                <p v-if="contained && current">
+                  Memory: {{ current.host.memoryUsed }} / {{ current.host.memoryTotal }}.
+                </p>
+                <p v-if="contained && agents">
+                  {{ agents.openPullRequests }} open PRs.
+                </p>
+                <p v-if="contained && runners && runners.queued !== null">
+                  {{ runners.queued }} queued jobs.
                 </p>
                 <p v-if="runners">
                   {{ runners.capacity }} runner slots. {{ (runners.memoryReservedBytes / 1024 ** 3).toFixed(1) }} GiB reserved.
@@ -91,7 +71,7 @@ watch(active, (value) => {
           </dt>
           <dd class="mt-1 font-medium tabular-nums text-highlighted" :class="current ? 'text-xl' : 'text-sm'">
             {{ current ? `${Math.round(current.host.memoryPercent)}%` : emptyReading }}
-            <span v-if="current" class="mt-1 block text-sm font-normal text-muted">{{ current.host.memoryUsed }} / {{ current.host.memoryTotal }}</span>
+            <span v-if="current && !contained" class="mt-1 block text-sm font-normal text-muted">{{ current.host.memoryUsed }} / {{ current.host.memoryTotal }}</span>
           </dd>
         </div>
         <div>
@@ -105,7 +85,7 @@ watch(active, (value) => {
             <template v-else>
               {{ emptyReading }}
             </template>
-            <span v-if="runners && runners.queued !== null" class="mt-1 block text-sm font-normal text-muted">{{ runners.queued }} queued</span>
+            <span v-if="runners && runners.queued !== null && !contained" class="mt-1 block text-sm font-normal text-muted">{{ runners.queued }} queued</span>
           </dd>
         </div>
         <div>
@@ -119,7 +99,7 @@ watch(active, (value) => {
             <template v-else>
               {{ emptyReading }}
             </template>
-            <span v-if="agents" class="mt-1 block text-sm font-normal text-muted">{{ agents.openPullRequests }} open PRs</span>
+            <span v-if="agents && !contained" class="mt-1 block text-sm font-normal text-muted">{{ agents.openPullRequests }} open PRs</span>
           </dd>
         </div>
       </dl>

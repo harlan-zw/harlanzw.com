@@ -14,7 +14,7 @@ import { site } from '#shared/site'
       <img src="/agent-avatar.png" width="80" height="80" alt="Harlan GitHub Agent" class="mb-5 size-20 rounded-sm">
       <div class="identity-content">
         <slot name="agent" />
-        <ArticleLiveStats contained />
+        <HomeAgentWork />
       </div>
     </section>
   </div>
@@ -68,6 +68,43 @@ import { site } from '#shared/site'
   font-size: 0.875rem;
 }
 
+@media (min-width: 1024px) {
+  .home-duality {
+    grid-template-rows: auto auto auto;
+    row-gap: clamp(1rem, 2.5dvh, 1.5rem);
+  }
+
+  .human-home,
+  .agent-home {
+    display: grid;
+    grid-row: 1 / span 3;
+    grid-template-rows: subgrid;
+  }
+
+  .human-home {
+    grid-column: 1;
+  }
+
+  .agent-home {
+    grid-column: 2;
+  }
+
+  .identity-content {
+    display: contents;
+  }
+
+  .home-duality img {
+    margin-bottom: 0;
+  }
+
+  .home-duality :deep(.prose h1),
+  .home-duality :deep(.prose h2) {
+    min-height: 2.75rem;
+    margin-bottom: 0;
+    line-height: 2.75rem;
+  }
+}
+
 @media (max-width: 1023px) {
   .agent-home {
     margin-inline: -1rem;
@@ -92,7 +129,7 @@ import { site } from '#shared/site'
   .home-duality img {
     width: 3rem;
     height: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   .identity-content {
