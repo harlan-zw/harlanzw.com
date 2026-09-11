@@ -22,6 +22,7 @@ export async function publicArticleReading(reading: Reading, lookup: (repository
     host: reading.host,
     runners: reading.runners,
     cost: reading.cost,
+    costHistory: reading.costHistory,
     agents: reading.agents._tag === 'Available'
       ? { _tag: 'Available' as const, running: reading.agents.running, openPullRequests: reading.agents.openPullRequests, updatedAt: reading.agents.updatedAt }
       : { _tag: 'Unavailable' as const },

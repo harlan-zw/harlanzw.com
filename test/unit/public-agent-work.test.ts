@@ -8,6 +8,7 @@ it('excludes private work and uses titles read from public GitHub', async () => 
     host: { cpuPercent: 0, memoryPercent: 0, memoryUsed: '0', memoryTotal: '1', uptime: '1h', updatedAt: now, history: [] },
     runners: { _tag: 'Unavailable' },
     cost: { _tag: 'Unavailable' },
+    costHistory: { _tag: 'Unavailable' },
     agents: { _tag: 'Available', running: 2, openPullRequests: 3, updatedAt: now, work: [
       { repository: 'owner/private', number: 1, role: 'issue_work', state: 'Working', updatedAt: now },
       { repository: 'owner/public', number: 2, role: 'adversarial_review', state: 'Completed', updatedAt: now },

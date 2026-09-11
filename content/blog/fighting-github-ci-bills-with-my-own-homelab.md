@@ -61,6 +61,22 @@ Those are my purchase figures in Australian dollars. The runner estimate above i
 
 The machine also runs [my GitHub agent](/blog/building-my-software-factory-on-github), the [Hogwild status page](https://hogwild.harlanzw.com/), and services like Jellyfin. Charging the entire purchase to CI would be a choice, too.
 
+## What about electricity?
+
+I don't have a wall-meter reading for Hogwild yet. CPU utilisation can't tell me what the whole machine draws.
+
+[ServeTheHome measured roughly 19–21 W at idle and 145 W under sustained load](https://www.servethehome.com/minisforum-ms-02-ultra-review-intel-new-home-lab-king/4/) on an MS-02 Ultra. My services, operating system and network cards can change that. I've used 50 W average as a scenario, rather than treating an idle measurement as a day of CI.
+
+At 50 W, running around the clock uses 438 kWh a year. The calculator starts with a Victorian reference tariff. I still need to replace that with my own electricity plan.
+
+:ArticleRunnerProjection
+
+The projection uses the last seven complete days of runner activity. Today's partial total stays out of the average. Seven days is a short sample, so a busy release week can make the result look much better than a quiet month.
+
+The chart charges the full A$2,773 purchase to CI, converts hosted charges to AUD, then adds five years of electricity. It also subtracts an allowance for included GitHub minutes. The controls let you change the allowance and exclude work that would already run free on GitHub.
+
+I wouldn't buy the machine on this projection alone. I want to see a few months of work and a measured power average before calling it my actual saving.
+
 ## One container, one job
 
 The runner supervisor watches the configured repositories for queued work. A signed `workflow_job` webhook can wake it early; polling catches work if that notification doesn't arrive.
@@ -154,4 +170,4 @@ Even restarting the supervisor needs care. It drains running jobs before stoppin
 
 I still use GitHub-hosted runners where they make sense. Hogwild gives the private builds somewhere else to run, and I can see their memory use and cost comparison on a page I control.
 
-The next number I want is measured power consumption. For now, the live total tells me how much runner time I've moved home. I still need to put a meter on it.
+I still need to put a meter on Hogwild. That will replace the largest electricity assumption in the chart.

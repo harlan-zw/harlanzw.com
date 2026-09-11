@@ -21,6 +21,8 @@ const readingMins = computed(() => page.value ? getReadingMinutes(page.value.bod
 const pageWidthClass = computed(() => {
   if (page.value?.path === '/blog')
     return 'mx-auto max-w-[109ch]'
+  if (isPost.value)
+    return 'mx-auto w-full max-w-[41rem]'
   return page.value?.wide ? 'max-w-none' : 'mx-auto max-w-[85ch]'
 })
 const breadcrumbs = computed(() => getBreadcrumbs(route.path))
@@ -50,10 +52,10 @@ if (!nuxtApp.isHydrating) {
 
 <template>
   <div v-if="page" :class="pageWidthClass">
-    <nav v-if="isPost && page.breadcrumbs !== false" aria-label="Breadcrumbs" class="mb-8">
+    <nav v-if="isPost && page.breadcrumbs !== false" aria-label="Breadcrumbs" class="mb-5">
       <ol class="flex flex-wrap items-center gap-2 text-sm text-muted">
         <li>
-          <NuxtLink to="/" aria-label="Home" class="unstyled grid size-11 place-items-center rounded-md text-muted transition-colors hover:bg-elevated hover:text-highlighted">
+          <NuxtLink to="/" aria-label="Home" class="unstyled -ml-3 grid size-11 place-items-center rounded-md text-muted transition-colors hover:bg-elevated hover:text-highlighted">
             <UIcon name="i-lucide-house" aria-hidden="true" />
           </NuxtLink>
         </li>
@@ -70,10 +72,10 @@ if (!nuxtApp.isHydrating) {
     </nav>
 
     <SchemaOrgArticle v-if="isPost" />
-    <PageTitle :post="page" />
+    <PageTitle :post="page" :compact="isPost" />
     <ContentPostMeta v-if="isPost && page.publishedAt" :post="page" :reading-mins="readingMins" />
 
-    <article :class="[isPost ? 'mt-10' : '', page.path === '/talks' ? 'talk-directory' : '']">
+    <article :class="[isPost ? 'mt-8 sm:mt-10' : '', page.path === '/talks' ? 'talk-directory' : '']">
       <ContentProse v-if="page.prose !== false">
         <ContentRenderer :value="page" />
       </ContentProse>

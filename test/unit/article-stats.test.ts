@@ -6,6 +6,7 @@ const reading = {
   host: { cpuPercent: 20, memoryPercent: 40, memoryUsed: '12 GB', memoryTotal: '30 GB', uptime: '5h', updatedAt: now, history: [] },
   runners: { _tag: 'Unavailable' },
   cost: { _tag: 'Unavailable' },
+  costHistory: { _tag: 'Unavailable' },
   agents: { _tag: 'Available', running: 0, openPullRequests: 4, updatedAt: now, work: [] },
 }
 

@@ -26,6 +26,10 @@ const date = (value: number) => new Date(value).toLocaleDateString('en-AU', { da
     <p v-else class="my-3 text-sm text-muted">
       {{ status === 'pending' || status === 'idle' ? 'Reading Hogwild job totals…' : 'Job totals are unavailable.' }}
     </p>
+    <ArticleCostChart v-if="current?.costHistory._tag === 'Available'" :days="current.costHistory.days" />
+    <p v-else-if="cost" class="mt-4 text-sm text-muted">
+      Daily history is unavailable.
+    </p>
     <p class="mt-4 text-sm leading-relaxed text-muted">
       Recorded runtime, rounded up per job, at <a href="https://docs.github.com/en/billing/reference/actions-runner-pricing" class="text-primary underline">$0.006 per minute</a>.
       Excludes included GitHub minutes, hardware, electricity and any difference in runner speed. Net savings also depend on those costs.

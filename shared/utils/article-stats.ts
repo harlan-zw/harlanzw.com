@@ -26,6 +26,15 @@ const schema = z.object({
       updatedAt: count,
     })).max(8),
   })]),
+  costHistory: z.discriminatedUnion('_tag', [unavailable, z.object({
+    _tag: z.literal('Available'),
+    updatedAt: count,
+    days: z.array(z.object({
+      date: z.iso.date(),
+      billableMinutes: count,
+      completed: count,
+    })).min(1).max(3660),
+  })]),
   cost: z.discriminatedUnion('_tag', [unavailable, z.object({
     _tag: z.literal('Available'),
     billableMinutes: count,
@@ -51,11 +60,12 @@ export function parseArticleStats(value: unknown, now: number) {
   const parsed = schema.safeParse(value)
   if (!parsed.success || !isFreshReading(parsed.data.host.updatedAt, now))
     return { _tag: 'Unavailable' as const }
-  const { host, agents, runners, cost } = parsed.data
+  const { host, agents, runners, cost, costHistory } = parsed.data
   return {
     _tag: 'Available' as const,
     host,
     cost,
+    costHistory,
     agents: agents._tag === 'Available' && isFreshReading(agents.updatedAt, now) ? agents : { _tag: 'Unavailable' as const },
     runners: runners._tag === 'Available' && isFreshReading(runners.updatedAt, now) ? runners : { _tag: 'Unavailable' as const },
   }
