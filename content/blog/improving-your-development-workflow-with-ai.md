@@ -28,19 +28,27 @@ On 28 August I merged an agent-written Stripe integration into Nuxt SEO. It touc
 
 I merged it without reading the code.
 
-That's an uncomfortable place to start a talk about engineering, but it's an honest one. An agent can produce a convincing description much faster than I can check every claim in it.
+:ArticleFigure{src="/blog/ai-workflow/stripe-pr.webp" alt="Merged Stripe integration PR 636, showing 23 changed files and the agent disclosure" caption="The PR I merged on 28 August. The payment failure below is a separate teaching example." width="1792" height="1492"}
+
+The description looked convincing. Checking every claim would have taken me longer than the agent spent writing it.
 
 ### Where did the error go?
 
 One recurring problem was silent error handling. An older version of my admin code turned a failed Stripe balance request into `null`:
 
+::expand
+
 ```ts
 const balance = await stripe.balance.retrieve().catch(() => null)
 ```
 
+::
+
 The request failed, but the cause disappeared. Whatever happened next had to work with `null`.
 
 For the talk, I used a simplified payment example to make the consequence easier to see:
+
+::expand
 
 ```ts
 try {
@@ -51,13 +59,15 @@ catch {
 }
 ```
 
+::
+
 This is an illustration, not the code from that merged PR. The comment sounds reasonable. It doesn't tell the caller what failed or leave anything useful to investigate.
 
 There is another detail hiding in this tiny example. A resolved confirmation request can still require customer authentication. The caller needs to inspect the PaymentIntent status. [Stripe's confirmation documentation](https://docs.stripe.com/api/payment_intents/confirm) describes those transitions.
 
 I started by writing down a standing rule: no silent catches. Expected failures should have an explicit result. Unexpected failures should propagate or be reported with enough context to investigate.
 
-That gave the agent better instructions. It could still write the same bad code.
+The next agent could still write the same bad code.
 
 So I added a lint rule. It catches shapes like `.catch(() => null)` and empty catch blocks. A hook runs lint after edits so the agent gets feedback while it is still working.
 
@@ -69,13 +79,49 @@ My TypeScript preferences borrow from Effect, without requiring Effect as a depe
 
 For a payment, that means distinguishing a card decline from a service failure. The caller needs to know whether to ask the customer for another payment method or report a problem.
 
-I also want the original error attached to request context, with sensitive fields redacted before they leave the application. Nuxt SEO has shared logging rules for names, redaction and where events go. That gives each handler something consistent to use.
+The completed example from the talk keeps the original error and gives expected failures a result the caller can handle.
+
+<details>
+<summary class="min-h-11 cursor-pointer py-3">Show the error handling from the slide</summary>
+
+Illustrative excerpt. The request-bound logger, Stripe client and result helpers are set up outside this block.
+The PaymentIntent already exists with its payment method configured. A returned payment still needs its status handled.
+
+::expand
+
+```ts
+try {
+  const payment = await stripe.paymentIntents.confirm(paymentIntentId)
+  log.context({ paymentStatus: payment.status })
+  return ok(payment)
+}
+catch (error) {
+  log.level('error')
+  log.context({ paymentStatus: 'failed' })
+  if (error instanceof Stripe.errors.StripeCardError) {
+    log.warn('payment.declined', error)
+    return err({ _tag: 'PaymentDeclined' as const, code: error.code })
+  }
+  if (error instanceof Stripe.errors.StripeRateLimitError) {
+    log.warn('payment.rate_limited', error)
+    return err({ _tag: 'RateLimited' as const, retryAfter: error.headers?.['retry-after'] })
+  }
+  log.error('payment.failed', error)
+  throw error
+}
+```
+
+::
+
+</details>
+
+I want sensitive fields redacted before errors leave the application. Nuxt SEO has shared logging rules for names, redaction and where events go. That gives each handler something consistent to use.
 
 Then there is production. Sentry can surface an exception, but some broken journeys never throw. A user may retry several times and give up.
 
 Logs and usage signals can help find those cases. A drop in completed payments is a reason to investigate. It doesn't tell you whether the cause is a bug, confusing UI or something else.
 
-Fixing the catch was one part of the work. I also needed to improve the instructions, the checks, the return values and what I could see after deployment.
+By this point, fixing a catch had taken me from an instruction file to production monitoring.
 
 ### More tests didn't give me more confidence
 
@@ -95,6 +141,8 @@ Asking four agents to work at once is easy. Giving them four usable environments
 
 A branch alone doesn't give an agent a separate directory. A worktree does. Each task gets its own checkout, while the primary checkout stays clean on main.
 
+:ArticleFigure{src="/blog/ai-workflow/original-worktrees.webp" alt="Original worktree diagram showing four agents, shared package files and private task state" caption="The worktree diagram from slide 26. Branches and preview names are illustrative." width="1808" height="649"}
+
 I use [Worktrunk](https://github.com/max-sixty/worktrunk) to manage that setup. Before a task starts, the checkout needs its dependencies, local configuration and writable state ready.
 
 Otherwise, the agent spends the first part of the task fixing its environment. Sometimes it changes application code to compensate for an environment that was wrong to begin with.
@@ -109,7 +157,9 @@ Local databases need their own writable state. Sharing a database between two ta
 
 There are less interesting details that still make a difference. I use [Portless](https://github.com/vercel-labs/portless) for stable local preview names, and named browser pages for each task. I also built a JetBrains worktree plugin so I could see the checkouts in my IDE.
 
-If isolation makes the work awkward to inspect, I'll eventually work around it. The setup has to be usable for me too.
+This is the worktree panel I showed in the talk. I needed the separate checkouts to be easy to find, otherwise I'd work around the setup.
+
+:ArticleFigure{src="/blog/ai-workflow/worktree-ide.webp" alt="JetBrains worktree panel listing task branches and their latest activity" caption="The IDE view from the slides. The 86 entries are worktrees, not 86 agents running at once." width="1282" height="1042"}
 
 ### Separate checkouts still meet at the same files
 
@@ -131,7 +181,9 @@ Two agents can use different files and still make incompatible product decisions
 
 Eventually the agents could produce work faster than I could land it.
 
-Some of the delay was CI. I had to look at how much setup each PR repeated, which checks needed to run first, and which runs were already obsolete.
+Some of the delay was CI. I was paying for repeated setup and waiting for checks on commits I had already replaced.
+
+:ArticleFigure{src="/blog/ai-workflow/original-ci-ideas.webp" alt="Original CI slide showing fast PR checks, cheap checks first, superseded runs and scratch tests" caption="The four CI ideas from slide 30. A smaller PR gate moves some failure detection until after merge." width="1760" height="560"}
 
 Lint and type checks can reject a change before an expensive build starts. [GitHub Actions concurrency](https://docs.github.com/en/actions/concepts/workflows-and-actions/concurrency) can cancel superseded checks for the same PR. A deployment that needs to finish requires a different policy.
 
@@ -145,13 +197,21 @@ But faster CI only solves part of it. My attention is still finite.
 
 I want an agent review to try to disprove the change. Check the premise, follow the failure cases, and show what was actually verified.
 
-For a UI change, a browser screenshot is useful. For a bug fix, the failing test matters. For a change crossing several boundaries, a small diagram can save me reading the whole repository to understand it.
+This review comment shows the actual navigation the agent checked in two layouts. It also leaves a request error visible in one screenshot.
+
+:ArticleFigure{src="/blog/ai-workflow/browser-check.webp" alt="Browser verification comment with fleet and one-site navigation screenshots" caption="Evidence from the approved slides. The one-site screenshot contains a request error; these checks do not prove every path passed." width="1784" height="1038"}
+
+A diagram helps when the change crosses several boundaries. This PR shows where the Bing data comes from and where credentials enter the request.
+
+:ArticleFigure{src="/blog/ai-workflow/bing-flow.webp" alt="Bing PR diagram connecting views, Site credentials, bounded requests and the public Bing API" caption="A separate PR from the slide examples. The diagram gives the reviewer a route through the change." width="1626" height="864"}
 
 A confidence score helps only if it says what remains untested. It doesn't authorize a merge.
 
 With Unhead, I still need to think about framework integrations, breaking changes and bundle overhead. An agent may correctly implement its task while missing a reason I don't want the change at all.
 
-That puts a practical limit on how much work I should start. If review is full, another running agent can just produce another waiting PR.
+If review is full, another running agent can just produce another waiting PR.
+
+:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Original slide showing independent reviewers, selective auto-merge and a bounded review queue" caption="The review ideas from slide 33. Services and queue slots illustrate options; they are not a claim about current factory settings." width="1760" height="597"}
 
 ## Start with the problem you keep having
 

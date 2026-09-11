@@ -25,15 +25,17 @@ It produces PRs. I still review most of them.
 
 ## What I mean by a software factory
 
-In my talk, *Zero To Software Factories: Chasing the AI Dragon*, I show the simple view first. Work enters a queue. An agent writes code and checks it. Review sends problems back for repair. An approved change gets integrated and deployed, then monitoring feeds new work into the queue.
+In my talk, *Zero To Software Factories: Chasing the AI Dragon*, I start with this map. The frame around it is me.
 
-I own the decisions around that: what to work on, the constraints, and what ships.
+:ArticleFigure{src="/blog/ai-workflow/original-factory-map.webp" alt="Original factory map with Harlan owning the code, review, close off and monitoring loops" caption="The original loop map from slide 5. Human ownership surrounds the whole process." width="1696" height="716"}
 
-The actual service is more complicated. It has a poller, a SQLite journal, a scheduler, an agent pool, worktrees, and a gate for publishing back to GitHub.
+The actual service adds a poller, SQLite journal and scheduler to keep work moving between agents and GitHub.
 
-Each of those exists because handing an agent a prompt wasn't enough to keep the work moving reliably.
+I ended up maintaining all of those pieces too.
 
-This article describes the setup I prepared for the talk in September 2026. The implementation keeps changing. The useful part is understanding why those pieces ended up there.
+:ArticleFigure{src="/blog/ai-workflow/original-factory-architecture.webp" href="https://dragon.harlanzw.com/factory/index.html?theme=dark&present=1" link-label="Explore the original diagram" alt="Original factory architecture connecting routines, GitHub state, the Hogwild service and GitHub publication" caption="The architecture shown in slide 6. Open the original to zoom, follow the guided views and inspect source references." width="1920" height="1080"}
+
+This is the setup I prepared for the talk in September 2026. By the time you read it, I will probably have changed parts of it again.
 
 If you're still dealing with broken agent output or conflicting edits, I'd start with [improving your development workflow with AI](/blog/improving-your-development-workflow-with-ai). Those problems follow you into a factory.
 
@@ -63,17 +65,19 @@ A separate Review agent challenges that change. If it finds a defect the system 
 
 I don't want the author marking its own homework. Separating the roles also gives the reviewer a smaller job: find what's wrong and show the evidence.
 
-The review result names the commit it examined and records uncertainty. It doesn't become my personal approval just because it appeared on my repository.
+The review result names the commit it examined and records uncertainty. Here is the READY comment I used in the talk. Even at 95/100, it explicitly asks for a human merge decision.
+
+:ArticleFigure{src="/blog/ai-workflow/ready-review.webp" alt="Agent review marked READY at 95 out of 100, stating that human merge approval is still required" caption="Original review screenshot from the slides. This is a separate example from the Stripe and Bing PRs." width="1830" height="624"}
 
 ### Routine changes and judgement
 
-The factory policy shown in the talk permits selective auto-merge. Dependencies and formatting are examples of work that can qualify. A label delegates that authority, and the current commit still needs a READY review and the configured checks.
+The factory policy shown in the talk permits selective auto-merge. The label delegates that authority for work that needs no judgement.
 
-Payments and authentication wait for me. So does work where the premise or tradeoff needs judgement.
+:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Original slide showing independent reviewers, selective auto-merge and a bounded review queue" caption="The review ideas from slide 33. Services and queue slots illustrate options; they are not a claim about current factory settings." width="1760" height="597"}
 
 A high confidence score isn't permission. Neither is the fact that a previous version of the PR passed review. If the scope changes, the decision needs to change with it.
 
-This is a narrower exception than letting an agent decide what it may merge. I still review most PRs, and I remain responsible for the ones I allow the service to merge.
+I still review most PRs. I also own the consequences of the ones I allow the service to merge.
 
 ## The boring handoff that broke everything
 
@@ -83,17 +87,21 @@ The service triaged an issue, then looked up that triage session when implementa
 
 If main advanced in between, the lookup no longer matched. The issue hadn't changed. Its title and body were the same. Work still stopped with:
 
+::expand
+
 ```text
 The issue changed before work started.
 ```
+
+::
 
 Batch planning made the timing worse. By the time a task started, main had often moved. Re-triaging sent the same work around again.
 
 The [fix in PR #183](https://github.com/harlan-zw/harlan-agent-kit/pull/183) keyed the triage session on the issue's own state, independently of the default branch tip.
 
-That distinction is easy to miss. Implementation needs a checkout of the code it will change. The identity of a triage decision needs to describe the issue it examined.
+Implementation needs a checkout of the code it will change. The triage decision needs to identify the issue it examined. An unrelated merge should not invalidate it.
 
-A more capable model wouldn't have fixed that lookup. It was ordinary application state that I'd modelled incorrectly.
+I had modelled the application state incorrectly. No prompt was going to repair the lookup.
 
 The controller also needed recovery for expired worker ownership and limits on repair rounds. An unattended service has to know what work is still owned, what can resume, and when to stop trying.
 
@@ -133,7 +141,8 @@ The factory snapshot in the talk allowed four active agents, eight open PRs and 
 
 Those are settings from that snapshot, not a recommended number of agents to run.
 
-More agents can help while useful work is waiting on implementation. Once the queue is waiting on my review, more agents mostly add PRs for me to read.
+Once the queue is waiting on my review, more agents mostly add PRs for me to read.
+
 
 Repair needs a limit for the same reason. An agent can keep attempting a problem without getting closer to a change I'd accept. I want the service to stop and surface the blocked work.
 
@@ -149,11 +158,11 @@ Sentry check-ins look for production errors. Daily check-ins combine runtime and
 
 For the talk, I also prepared a clone of the MelbJS site with a feedback form that files GitHub issues. The plan was to invite feedback early, then inspect the issues, PRs and deployed site at the end.
 
-The interesting result could be unfinished work. An issue might need clarification. A PR might be waiting for review. A failed task is useful to inspect too.
+An issue might need clarification or a PR might still be waiting for review. I wanted those states visible too.
 
-I wanted the audience to see the state the system had reached, rather than promise that every suggestion would ship during the talk.
+I wasn't promising that every suggestion would ship during the talk.
 
-There is even a Factory review routine that examines the factory and proposes improvements. Those proposals still need the same scrutiny as other work. The service producing its own next task doesn't make that task worth doing.
+There is even a Factory review routine that proposes changes to the factory itself. Those proposals join the work I need to judge.
 
 ## What I still do
 
