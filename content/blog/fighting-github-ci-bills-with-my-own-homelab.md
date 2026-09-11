@@ -44,7 +44,8 @@ function billableMinutes(
 }
 
 const hostedCostUsd = jobs.reduce((total, job) => {
-  return total + billableMinutes(job.startedAt, job.completedAt)
+  const { startedAt, completedAt } = job
+  return total + billableMinutes(startedAt, completedAt)
 }, 0) * 0.006
 ```
 
