@@ -44,12 +44,12 @@ function openZoom() {
       <button
         v-else
         type="button"
-        class="block w-full cursor-zoom-in overflow-hidden rounded-lg border border-default focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        class="mx-auto block w-fit max-w-full cursor-zoom-in overflow-hidden rounded-lg border border-default focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
         :aria-label="`Enlarge image: ${alt}`"
         aria-haspopup="dialog"
         @click="openZoom"
       >
-        <img ref="image" :src="src" :alt="alt" :width="width" :height="height" loading="lazy" decoding="async" class="block h-auto w-full">
+        <img ref="image" :src="src" :alt="alt" :width="width" :height="height" loading="lazy" decoding="async" class="block h-auto w-auto max-w-full">
       </button>
       <figcaption class="mx-auto mt-3 max-w-prose text-sm leading-relaxed text-muted">
         {{ caption }}
