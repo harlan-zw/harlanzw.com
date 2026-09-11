@@ -6,7 +6,9 @@ const { current } = useArticleStats(section)
 const history = computed(() => current.value?.costHistory._tag === 'Available' ? current.value.costHistory : null)
 const rate = computed(() => history.value ? recentRunnerRate(history.value.days, history.value.updatedAt) : null)
 const watts = ref(50)
-const tariff = ref(25.96)
+// Simple mean of the five 2026–27 VDO residential flat usage tariffs, GST included.
+const tariff = ref(28.2)
+const electricitySource = 'https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202026-27%20Price%20Determination.pdf'
 const exchange = ref(0.722)
 const included = ref(2000)
 const share = ref(100)
@@ -83,7 +85,7 @@ const date = (at: number) => new Date(at).toLocaleDateString('en-AU', { day: 'nu
         </label>
       </div>
       <p class="text-sm leading-relaxed text-muted">
-        Default scenario: 50 W, 24/7; <a href="https://www.esc.vic.gov.au/sites/default/files/documents/victorian%20default%20offer%202026-27%20price%20determination.pdf" class="text-primary underline">CitiPower's reference tariff</a>, not my confirmed plan;
+        Default scenario: 50 W, 24/7; <a :href="electricitySource" class="text-primary underline">28.2¢/kWh Victorian flat-tariff mean, including GST</a>;
         <a href="https://www.rba.gov.au/statistics/frequency/exchange-rates.html" class="text-primary underline">US$0.722 per A$1 on 10 September 2026</a>;
         <a href="https://docs.github.com/en/billing/concepts/product-billing/github-actions" class="text-primary underline">2,000 included minutes</a> and all work eligible for billing. Replace these with your plan and measured power.
       </p>

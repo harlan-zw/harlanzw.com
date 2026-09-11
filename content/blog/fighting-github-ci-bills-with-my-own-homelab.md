@@ -67,7 +67,9 @@ I don't have a wall-meter reading for Hogwild yet. CPU utilisation can't tell me
 
 [ServeTheHome measured roughly 19–21 W at idle and 145 W under sustained load](https://www.servethehome.com/minisforum-ms-02-ultra-review-intel-new-home-lab-king/4/) on an MS-02 Ultra. My services, operating system and network cards can change that. I've used 50 W average as a scenario, rather than treating an idle measurement as a day of CI.
 
-At 50 W, running around the clock uses 438 kWh a year. The calculator starts with a Victorian reference tariff. I still need to replace that with my own electricity plan.
+At 50 W, running around the clock uses 438 kWh a year. I use 28.2¢/kWh as a local benchmark, the simple average of the [five Victorian Default Offer residential flat tariffs for 2026–27](https://www.esc.vic.gov.au/sites/default/files/documents/Victorian%20Default%20Offer%202026-27%20Price%20Determination.pdf), including GST. That puts electricity at about A$124 a year.
+
+This is a tariff benchmark, rather than a measured average of Melbourne household bills. It excludes the daily supply charge I already pay to connect my house.
 
 :ArticleRunnerProjection
 
