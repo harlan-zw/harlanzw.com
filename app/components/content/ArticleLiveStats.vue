@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { isFreshReading } from '#shared/utils/article-stats'
 
-const route = useRoute()
+defineProps<{ contained?: boolean }>()
+
 const section = useTemplateRef('section')
 const visible = useElementVisibility(section)
 const documentVisibility = useDocumentVisibility()
@@ -15,6 +16,7 @@ const current = computed(() => data.value && isFreshReading(data.value.host.upda
 const agents = computed(() => current.value?.agents._tag === 'Available' && isFreshReading(current.value.agents.updatedAt, now.value.getTime()) ? current.value.agents : null)
 const runners = computed(() => current.value?.runners._tag === 'Available' && isFreshReading(current.value.runners.updatedAt, now.value.getTime()) ? current.value.runners : null)
 const observedAt = computed(() => current.value ? new Date(current.value.host.updatedAt).toLocaleTimeString() : '')
+const emptyReading = computed(() => !current.value && (status.value === 'pending' || status.value === 'idle') ? 'Loading…' : 'Unavailable')
 const active = computed(() => visible.value && documentVisibility.value === 'visible')
 function update() {
   if (status.value !== 'pending')
@@ -33,8 +35,8 @@ watch(active, (value) => {
 </script>
 
 <template>
-  <Expand :width="route.path === '/' ? 736 : 1000">
-    <section ref="section" aria-label="Hogwild live statistics" class="hogwild-stats not-prose my-10 border-y border-default py-4">
+  <Expand :width="736" :contained="contained">
+    <section ref="section" aria-label="Hogwild live statistics" class="hogwild-stats @container not-prose my-10 border-y border-default py-3">
       <header class="flex items-center justify-between gap-3">
         <div class="flex items-center">
           <h2 class="font-medium text-highlighted">
@@ -42,12 +44,15 @@ watch(active, (value) => {
               <span aria-hidden="true">🐷</span> Hogwild
             </a>
           </h2>
-          <UPopover>
+          <UPopover :ui="{ content: contained ? 'dark bg-neutral-900' : undefined }">
             <UButton icon="i-lucide-info" color="neutral" variant="ghost" class="size-11" aria-label="About Hogwild" />
             <template #content>
               <div class="max-w-72 space-y-2 p-4 text-sm text-muted">
                 <p>My home server runs GitHub Actions jobs and Harlan GitHub Agent.</p>
                 <p>Readings refresh every 30 seconds. Running agents exclude completed reviews.</p>
+                <p v-if="current">
+                  Updated {{ observedAt }}.
+                </p>
                 <p v-if="current">
                   Uptime: {{ current.host.uptime }}.
                 </p>
@@ -58,9 +63,10 @@ watch(active, (value) => {
             </template>
           </UPopover>
         </div>
-        <p class="text-sm text-dimmed" role="status">
+        <p class="flex items-center gap-2 text-sm text-muted" role="status">
           <template v-if="current">
-            {{ error ? 'Last reading' : 'Updated' }} {{ observedAt }}
+            <span class="inline-block size-1.5 rounded-full" :class="error ? 'bg-muted' : 'bg-primary'" aria-hidden="true" />
+            {{ error ? 'Last reading' : 'Live' }}
           </template>
           <template v-else-if="status === 'pending' || status === 'idle'">
             Connecting…
@@ -70,37 +76,54 @@ watch(active, (value) => {
           </template>
         </p>
       </header>
-      <template v-if="current">
-        <div class="mb-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted tabular-nums">
-          <span>CPU {{ Math.round(current.host.cpuPercent) }}%</span>
-          <span>Memory {{ current.host.memoryUsed }} / {{ current.host.memoryTotal }}</span>
+      <dl class="mt-2 grid grid-cols-2 gap-x-6 gap-y-4 text-sm @min-[36rem]:grid-cols-4">
+        <div>
+          <dt class="text-muted">
+            CPU
+          </dt>
+          <dd class="mt-1 font-medium tabular-nums text-highlighted" :class="current ? 'text-xl' : 'text-sm'">
+            {{ current ? `${Math.round(current.host.cpuPercent)}%` : emptyReading }}
+          </dd>
         </div>
-        <dl class="grid gap-3 text-sm sm:grid-cols-2 sm:gap-8">
-          <div class="flex items-baseline justify-between gap-3">
-            <dt class="text-muted">
-              GitHub runners
-            </dt>
-            <dd v-if="runners" class="text-right tabular-nums text-highlighted">
-              {{ runners.running }} running<span v-if="runners.queued !== null" class="text-dimmed"> · {{ runners.queued }} queued</span>
-            </dd>
-            <dd v-else class="text-dimmed">
-              Unavailable
-            </dd>
-          </div>
-          <div class="flex items-baseline justify-between gap-3">
-            <dt class="text-muted">
-              Agents
-            </dt>
-            <dd v-if="agents" class="text-right tabular-nums text-highlighted">
-              {{ agents.running }} running<span class="text-dimmed"> · {{ agents.openPullRequests }} PRs</span>
-            </dd>
-            <dd v-else class="text-dimmed">
-              Unavailable
-            </dd>
-          </div>
-        </dl>
-      </template>
-      <button v-else-if="status !== 'pending' && status !== 'idle'" type="button" class="min-h-11 cursor-pointer text-sm text-primary underline underline-offset-4" @click="update">
+        <div>
+          <dt class="text-muted">
+            Memory
+          </dt>
+          <dd class="mt-1 font-medium tabular-nums text-highlighted" :class="current ? 'text-xl' : 'text-sm'">
+            {{ current ? `${Math.round(current.host.memoryPercent)}%` : emptyReading }}
+            <span v-if="current" class="mt-1 block text-sm font-normal text-muted">{{ current.host.memoryUsed }} / {{ current.host.memoryTotal }}</span>
+          </dd>
+        </div>
+        <div>
+          <dt class="text-muted">
+            GitHub runners
+          </dt>
+          <dd class="mt-1 font-medium tabular-nums text-highlighted" :class="runners ? 'text-xl' : 'text-sm'">
+            <template v-if="runners">
+              {{ runners.running }} <span class="text-sm font-normal text-muted">running</span>
+            </template>
+            <template v-else>
+              {{ emptyReading }}
+            </template>
+            <span v-if="runners && runners.queued !== null" class="mt-1 block text-sm font-normal text-muted">{{ runners.queued }} queued</span>
+          </dd>
+        </div>
+        <div>
+          <dt class="text-muted">
+            Agents
+          </dt>
+          <dd class="mt-1 font-medium tabular-nums text-highlighted" :class="agents ? 'text-xl' : 'text-sm'">
+            <template v-if="agents">
+              {{ agents.running }} <span class="text-sm font-normal text-muted">running</span>
+            </template>
+            <template v-else>
+              {{ emptyReading }}
+            </template>
+            <span v-if="agents" class="mt-1 block text-sm font-normal text-muted">{{ agents.openPullRequests }} open PRs</span>
+          </dd>
+        </div>
+      </dl>
+      <button v-if="!current && status !== 'pending' && status !== 'idle'" type="button" class="min-h-11 cursor-pointer text-sm text-primary underline underline-offset-4" @click="update">
         Try again
       </button>
     </section>

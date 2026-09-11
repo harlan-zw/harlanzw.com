@@ -28,20 +28,21 @@ const isHome = computed(() => route.path === '/')
 
 <style>
 .home-main {
+  position: relative;
   display: grid;
   align-content: center;
-  padding-block: clamp(0.75rem, 2dvh, 2rem);
+  padding-block: clamp(0.5rem, 1.5dvh, 1.5rem);
 }
 
 .home-main > div {
   width: 100%;
-  max-width: 46rem;
+  max-width: 68rem;
   margin-inline: auto;
 }
 
 .home-main article {
   display: grid;
-  gap: clamp(0.75rem, calc((100dvh - 36rem) / 4), 3rem);
+  gap: clamp(0.5rem, calc((100dvh - 36rem) / 4), 3rem);
 }
 
 .home-main .prose h1 {
@@ -64,5 +65,27 @@ const isHome = computed(() => route.path === '/')
   padding-block: 1rem max(1rem, env(safe-area-inset-bottom));
   text-align: center;
   font-size: 0.75rem;
+}
+@media (min-width: 1024px) {
+  .home-main::before,
+  .home-main::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: var(--color-neutral-950);
+    pointer-events: none;
+    content: '';
+  }
+
+  .home-main::before {
+    left: calc(50% + 48px);
+    right: calc((100vw - 100%) / -2);
+  }
+
+  .home-main::after {
+    left: calc(50% - 48px);
+    width: 96px;
+    mask: url('/agent-dither.svg') repeat-y;
+  }
 }
 </style>

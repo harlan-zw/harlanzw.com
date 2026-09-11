@@ -74,8 +74,7 @@ For a payment, that means distinguishing a card decline from a service failure. 
 
 Here is the same handler with explicit results for a declined card and a rate limit.
 
-<details>
-<summary class="min-h-11 cursor-pointer py-3">Show the complete error handling</summary>
+:::ArticleDisclosure{summary="Show the complete error handling"}
 
 Illustrative excerpt. The request-bound logger, Stripe client and result helpers are set up outside this block.
 The PaymentIntent already exists with its payment method configured. A returned payment still needs its status handled.
@@ -85,20 +84,25 @@ The PaymentIntent already exists with its payment method configured. A returned 
 ```ts
 try {
   const payment = await stripe.paymentIntents.confirm(paymentIntentId)
+  // The caller must still check the returned payment status.
+  // A successful request can require customer authentication.
   log.context({ paymentStatus: payment.status })
   return ok(payment)
 }
 catch (error) {
   log.level('error')
   log.context({ paymentStatus: 'failed' })
+  // A declined card becomes a result the caller can handle.
   if (error instanceof Stripe.errors.StripeCardError) {
     log.warn('payment.declined', error)
     return err({ _tag: 'PaymentDeclined' as const, code: error.code })
   }
+  // Keep retry information when Stripe provides it.
   if (error instanceof Stripe.errors.StripeRateLimitError) {
     log.warn('payment.rate_limited', error)
     return err({ _tag: 'RateLimited' as const, retryAfter: error.headers?.['retry-after'] })
   }
+  // Record unexpected failures, then let them propagate.
   log.error('payment.failed', error)
   throw error
 }
@@ -106,7 +110,7 @@ catch (error) {
 
 ::
 
-</details>
+:::
 
 I want sensitive fields redacted before errors leave the application. Nuxt SEO has shared logging rules for names, redaction and where events go. That gives each handler something consistent to use.
 

@@ -1,14 +1,15 @@
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-const { width = 1100 } = defineProps<{
+const { width = 1100, contained = false } = defineProps<{
   width?: number
+  contained?: boolean
 }>()
 
-const expandStyle = computed(() => ({ width: `min(${width}px, calc(100vw - 2rem))` }))
+const expandStyle = computed(() => contained ? undefined : ({ width: `min(${width}px, calc(100vw - 2rem))` }))
 </script>
 
 <template>
-  <div :style="expandStyle" class="content-expand">
+  <div :style="expandStyle" :class="contained ? undefined : 'content-expand'">
     <slot />
   </div>
 </template>

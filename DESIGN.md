@@ -156,6 +156,10 @@ components:
 
 ## Design Decisions
 
+- Home pairs Harlan’s editorial profile with the GitHub Agent’s dark orange terminal style.
+- A native SVG dither blends the two halves. Mobile stacks them vertically.
+- Home fits desktop screens down to 1024×600 without clipping content.
+
 - Home uses a modest vertical inset. Remaining space follows the flexible
   page shell.
 - Blog entries use stable divided rows. Hover never starts a text marquee.
