@@ -1,9 +1,10 @@
 <script setup lang="ts">
-const { src, embed, alt, caption, width, height } = defineProps<{
+const { src, embed, alt, caption, width, height, displayWidth = 1200 } = defineProps<{
   src: string
   embed?: string
   alt: string
   caption: string
+  displayWidth?: number | string
   width: number | string
   height: number | string
 }>()
@@ -31,7 +32,7 @@ function openZoom() {
 </script>
 
 <template>
-  <Expand :width="1200">
+  <Expand :width="Number(displayWidth)">
     <figure class="not-prose my-10 min-w-0">
       <iframe
         v-if="embed"

@@ -27,13 +27,13 @@ It produces PRs. I still review most of them.
 
 The frame around this map is me. I decide what to work on and what ships, while the agents move changes through the loops.
 
-:ArticleFigure{src="/blog/ai-workflow/original-factory-map.webp" alt="Factory map with Harlan owning the code, review, close off and monitoring loops" caption="Code, review, close off and monitoring, with human ownership across the whole process." width="1696" height="716"}
+:ArticleFigure{src="/blog/ai-workflow/original-factory-map.webp" display-width="1000" alt="Factory map with Harlan owning the code, review, close off and monitoring loops" caption="Code, review, close off and monitoring, with human ownership across the whole process." width="1696" height="716"}
 
 The actual service adds a poller, SQLite journal and scheduler to keep work moving between agents and GitHub.
 
 I ended up maintaining all of those pieces too.
 
-:ArticleFigure{src="/blog/ai-workflow/original-factory-architecture.webp" embed="/blog/ai-workflow/factory/index.html" alt="Interactive Harlan GitHub Agent architecture" caption="Follow Intake, Tasks and Agents, or Publication. Select a node to inspect its source references. Use the zoom controls to read the details." width="1920" height="1080"}
+:ArticleFigure{src="/blog/ai-workflow/original-factory-architecture.webp" display-width="1200" embed="/blog/ai-workflow/factory/index.html" alt="Interactive Harlan GitHub Agent architecture" caption="Follow Intake, Tasks and Agents, or Publication. Select a node to inspect its source references. Use the zoom controls to read the details." width="1920" height="1080"}
 
 This describes the service in September 2026. By the time you read it, I will probably have changed parts of it again.
 
@@ -67,13 +67,13 @@ I don't want the author marking its own homework. Separating the roles also give
 
 The review result names the commit it examined and records uncertainty. This READY comment shows what that looks like. Even at 95/100, it explicitly asks for a human merge decision.
 
-:ArticleFigure{src="/blog/ai-workflow/ready-review.webp" alt="Agent review marked READY at 95 out of 100, stating that human merge approval is still required" caption="A READY review with evidence, confidence and an explicit request for human approval." width="1830" height="624"}
+:ArticleFigure{src="/blog/ai-workflow/ready-review.webp" display-width="900" alt="Agent review marked READY at 95 out of 100, stating that human merge approval is still required" caption="A READY review with evidence, confidence and an explicit request for human approval." width="1830" height="624"}
 
 ### Routine changes and judgement
 
 My factory policy permits selective auto-merge. The label delegates that authority for work that needs no judgement.
 
-:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Review diagram showing independent reviewers, selective auto-merge and a bounded review queue" caption="Independent review, selective auto-merge and a bounded queue. The services and queue slots are illustrative." width="1760" height="597"}
+:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" display-width="1000" alt="Review diagram showing independent reviewers, selective auto-merge and a bounded review queue" caption="Independent review, selective auto-merge and a bounded queue. The services and queue slots are illustrative." width="1760" height="597"}
 
 A high confidence score isn't permission. Neither is the fact that a previous version of the PR passed review. If the scope changes, the decision needs to change with it.
 
@@ -87,13 +87,9 @@ The service triaged an issue, then looked up that triage session when implementa
 
 If main advanced in between, the lookup no longer matched. The issue hadn't changed. Its title and body were the same. Work still stopped with:
 
-::expand
-
 ```text
 The issue changed before work started.
 ```
-
-::
 
 Batch planning made the timing worse. By the time a task started, main had often moved. Re-triaging sent the same work around again.
 
@@ -101,7 +97,7 @@ The [fix in PR #183](https://github.com/harlan-zw/harlan-agent-kit/pull/183) key
 
 The lookup changed from this:
 
-::expand
+::expand{width="1100"}
 
 ```diff
 - const scopeDigest = issueSnapshotDigest({ ...snapshot.value, baseSha: prepared.value.defaultBranchSha })
@@ -137,8 +133,6 @@ I wouldn't treat a synced `AGENTS.md` as a security boundary.
 
 For example, the service checks repository permission when a caller asks for a write credential. The [write gate](https://github.com/harlan-zw/harlan-agent-kit/blob/ca1cb363a452ecadc03648df9613f38e4585560e/packages/harlan-github-agent/src/github-write-gate.ts) contains this check:
 
-::expand
-
 ```ts
 getToken(repository, access, signal) {
   if (!writeAccess.has(access) || options.mayWrite(repository))
@@ -149,8 +143,6 @@ getToken(repository, access, signal) {
   }))
 }
 ```
-
-::
 
 `writeAccess` contains the contents, issue and workflow write permissions. Read requests can pass through. A write request for a repository I haven't enabled returns an error before the caller gets a token.
 
@@ -176,14 +168,11 @@ I don't have a measured payback claim to make here. The machine gives me capacit
 
 The September example configuration sets the open PR cap to eight:
 
-::expand
-
 ```yaml
-# No new issue work starts when open pull requests reach this limit.
+# No new issue work starts when open pull requests
+# reach this limit.
 max_open_pull_requests: 8
 ```
-
-::
 
 That is an excerpt from the [versioned configuration](https://github.com/harlan-zw/harlan-agent-kit/blob/ca1cb363a452ecadc03648df9613f38e4585560e/packages/harlan-github-agent/config.example.yml). The cap pauses new issue work. Review and repair still need to run, otherwise the service cannot clear the queue.
 

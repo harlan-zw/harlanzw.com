@@ -28,7 +28,7 @@ On 28 August I merged an agent-written Stripe integration into Nuxt SEO. It touc
 
 I merged it without reading the code.
 
-:ArticleFigure{src="/blog/ai-workflow/stripe-pr.webp" alt="Merged Stripe integration PR 636, showing 23 changed files and the agent disclosure" caption="The PR I merged on 28 August. The payment failure below is a separate teaching example." width="1792" height="1492"}
+:ArticleFigure{src="/blog/ai-workflow/stripe-pr.webp" display-width="760" alt="Merged Stripe integration PR 636, showing 23 changed files and the agent disclosure" caption="The PR I merged on 28 August. The payment failure below is a separate teaching example." width="1792" height="1492"}
 
 The description looked convincing. Checking every claim would have taken me longer than the agent spent writing it.
 
@@ -36,19 +36,14 @@ The description looked convincing. Checking every claim would have taken me long
 
 One recurring problem was silent error handling. An older version of my admin code turned a failed Stripe balance request into `null`:
 
-::expand
-
 ```ts
-const balance = await stripe.balance.retrieve().catch(() => null)
+const balance = await stripe.balance.retrieve()
+  .catch(() => null)
 ```
-
-::
 
 The request failed, but the cause disappeared. Whatever happened next had to work with `null`.
 
 Take this simplified payment handler:
-
-::expand
 
 ```ts
 try {
@@ -58,8 +53,6 @@ catch {
   // Payment failed, let the user try again.
 }
 ```
-
-::
 
 This is an illustration, not the code from that merged PR. The comment sounds reasonable. It doesn't tell the caller what failed or leave anything useful to investigate.
 
@@ -87,7 +80,7 @@ Here is the same handler with explicit results for a declined card and a rate li
 Illustrative excerpt. The request-bound logger, Stripe client and result helpers are set up outside this block.
 The PaymentIntent already exists with its payment method configured. A returned payment still needs its status handled.
 
-::expand
+::expand{width="960"}
 
 ```ts
 try {
@@ -137,8 +130,6 @@ A rank-check bug in Nuxt SEO made that distinction painfully concrete. The data 
 
 This regression test starts with a keyword at position 21. When the fetch returns nothing, the saved position must stay at 21. This is an excerpt from the test, with its fixture helpers left out:
 
-::expand
-
 ```ts
 const db = await seed(21)
 
@@ -156,8 +147,6 @@ expect(await snapshots(db)).toEqual([
 ])
 ```
 
-::
-
 Checking for a string in the source wouldn't have caught that email. This test checks what the application writes.
 
 ## Do my agents work effectively in parallel?
@@ -166,21 +155,17 @@ Asking four agents to work at once is easy. Giving them four usable environments
 
 A branch alone doesn't give an agent a separate directory. A worktree does. Each task gets its own checkout, while the primary checkout stays clean on main.
 
-:ArticleFigure{src="/blog/ai-workflow/original-worktrees.webp" alt="Worktree diagram showing four agents, shared package files and private task state" caption="Each agent gets a checkout and private task state. Branches and preview names are illustrative." width="1808" height="649"}
+:ArticleFigure{src="/blog/ai-workflow/original-worktrees.webp" display-width="1100" alt="Worktree diagram showing four agents, shared package files and private task state" caption="Each agent gets a checkout and private task state. Branches and preview names are illustrative." width="1808" height="649"}
 
 I use [Worktrunk](https://github.com/max-sixty/worktrunk) to manage that setup. Before a task starts, the checkout needs its dependencies, local configuration and writable state ready.
 
 For example, I can start a task from the current main branch like this:
-
-::expand
 
 ```sh
 wt switch --create fix/payment-errors --base origin/main
 pnpm install --frozen-lockfile
 pnpm exec nuxt prepare
 ```
-
-::
 
 Worktrunk creates the checkout. The next two commands prepare that checkout's dependencies and Nuxt files. Project-specific setup still has to provide local configuration and a private database.
 
@@ -198,7 +183,7 @@ There are less interesting details that still make a difference. I use [Portless
 
 I needed the separate checkouts to be easy to find, otherwise I'd work around the setup.
 
-:ArticleFigure{src="/blog/ai-workflow/worktree-ide.webp" alt="JetBrains worktree panel listing task branches and their latest activity" caption="My JetBrains worktree panel. The 86 entries are worktrees, not concurrent agents." width="1282" height="1042"}
+:ArticleFigure{src="/blog/ai-workflow/worktree-ide.webp" display-width="700" alt="JetBrains worktree panel listing task branches and their latest activity" caption="My JetBrains worktree panel. The 86 entries are worktrees, not concurrent agents." width="1282" height="1042"}
 
 ### Separate checkouts still meet at the same files
 
@@ -210,7 +195,7 @@ I had a real pair of Nuxt SEO PRs that both rewrote the sitemap-failure handling
 
 [PR #728](https://github.com/harlan-zw/nuxtseo.com/pull/728) added a retry flag. [PR #733](https://github.com/harlan-zw/nuxtseo.com/pull/733) changed the event name on the same line. These shortened excerpts show the overlap:
 
-::expand
+::expand{width="1100"}
 
 ```diff
 # PR #728
@@ -240,13 +225,11 @@ Eventually the agents could produce work faster than I could land it. You can se
 
 Some of the delay was CI. I was paying for repeated setup and waiting for checks on commits I had already replaced.
 
-:ArticleFigure{src="/blog/ai-workflow/original-ci-ideas.webp" alt="CI diagram showing fast PR checks, cheap checks first, superseded runs and scratch tests" caption="Four ways to reduce CI waiting. A smaller PR gate moves some failure detection until after merge." width="1760" height="560"}
+:ArticleFigure{src="/blog/ai-workflow/original-ci-ideas.webp" display-width="1100" alt="CI diagram showing fast PR checks, cheap checks first, superseded runs and scratch tests" caption="Four ways to reduce CI waiting. A smaller PR gate moves some failure detection until after merge." width="1760" height="560"}
 
 Lint and type checks can reject a change before an expensive build starts. [GitHub Actions concurrency](https://docs.github.com/en/actions/concepts/workflows-and-actions/concurrency) can cancel superseded checks for the same PR. A deployment that needs to finish requires a different policy.
 
 For a PR-only validation workflow, this is enough to cancel an older run when a new commit arrives:
-
-::expand
 
 ```yaml
 name: Validate
@@ -266,8 +249,6 @@ jobs:
       - run: pnpm build
 ```
 
-::
-
 This is a configuration excerpt. Checkout and dependency setup depend on the project. The order means a failed lint step stops the job before the build starts.
 
 A smaller PR gate is also a tradeoff. Moving checks until after merge means some failures reach main before you discover them. I need to know what I'm giving up and how those failures get reported.
@@ -282,11 +263,11 @@ I want an agent review to try to disprove the change. Check the premise, follow 
 
 This review comment shows the actual navigation the agent checked in two layouts. It also leaves a request error visible in one screenshot.
 
-:ArticleFigure{src="/blog/ai-workflow/browser-check.webp" alt="Browser verification comment with fleet and one-site navigation screenshots" caption="The one-site screenshot contains a request error. The comment shows what the agent checked and what still needs attention." width="1784" height="1038"}
+:ArticleFigure{src="/blog/ai-workflow/browser-check.webp" display-width="1000" alt="Browser verification comment with fleet and one-site navigation screenshots" caption="The one-site screenshot contains a request error. The comment shows what the agent checked and what still needs attention." width="1784" height="1038"}
 
 A diagram helps when the change crosses several boundaries. This PR shows where the Bing data comes from and where credentials enter the request.
 
-:ArticleFigure{src="/blog/ai-workflow/bing-flow.webp" alt="Bing PR diagram connecting views, Site credentials, bounded requests and the public Bing API" caption="The Bing integration PR. The diagram gives the reviewer a route through the change." width="1626" height="864"}
+:ArticleFigure{src="/blog/ai-workflow/bing-flow.webp" display-width="1000" alt="Bing PR diagram connecting views, Site credentials, bounded requests and the public Bing API" caption="The Bing integration PR. The diagram gives the reviewer a route through the change." width="1626" height="864"}
 
 A confidence score helps only if it says what remains untested. It doesn't authorize a merge.
 
@@ -294,7 +275,7 @@ With Unhead, I still need to think about framework integrations, breaking change
 
 If review is full, another running agent can just produce another waiting PR.
 
-:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Review diagram showing independent reviewers, selective auto-merge and a bounded review queue" caption="Independent review, selective auto-merge and a bounded queue. The services and queue slots are illustrative." width="1760" height="597"}
+:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" display-width="1000" alt="Review diagram showing independent reviewers, selective auto-merge and a bounded review queue" caption="Independent review, selective auto-merge and a bounded queue. The services and queue slots are illustrative." width="1760" height="597"}
 
 ## Start with the problem you keep having
 
