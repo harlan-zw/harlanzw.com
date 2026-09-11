@@ -1,5 +1,5 @@
 ---
-title: "Improving your development workflow with AI"
+title: "Optimizing your development workflow with AI"
 description: "What I changed when AI agents wrote broken code, shared the same files, and produced more pull requests than I could review."
 publishedAt: '2026-09-11'
 status: unlisted
@@ -18,7 +18,7 @@ I knew pull requests would help. But adopting them brought more work: separate e
 
 Every improvement let the agents do more. Then something else became the problem.
 
-This became the basis of my talk, *Zero To Software Factories: Chasing the AI Dragon*. It's tempting to look at someone running a room full of agents and start there. I've ended up [building my own software factory on GitHub](/blog/building-my-software-factory-on-github), but most of the useful changes happened before that.
+It's tempting to look at someone running a room full of agents and start there. I've ended up [building my own software factory on GitHub](/blog/building-my-software-factory-on-github), but most of the useful changes happened before that.
 
 They came from three questions.
 
@@ -46,7 +46,7 @@ const balance = await stripe.balance.retrieve().catch(() => null)
 
 The request failed, but the cause disappeared. Whatever happened next had to work with `null`.
 
-For the talk, I used a simplified payment example to make the consequence easier to see:
+Take this simplified payment handler:
 
 ::expand
 
@@ -79,10 +79,10 @@ My TypeScript preferences borrow from Effect, without requiring Effect as a depe
 
 For a payment, that means distinguishing a card decline from a service failure. The caller needs to know whether to ask the customer for another payment method or report a problem.
 
-The completed example from the talk keeps the original error and gives expected failures a result the caller can handle.
+Here is the same handler with explicit results for a declined card and a rate limit.
 
 <details>
-<summary class="min-h-11 cursor-pointer py-3">Show the error handling from the slide</summary>
+<summary class="min-h-11 cursor-pointer py-3">Show the complete error handling</summary>
 
 Illustrative excerpt. The request-bound logger, Stripe client and result helpers are set up outside this block.
 The PaymentIntent already exists with its payment method configured. A returned payment still needs its status handled.
@@ -133,7 +133,32 @@ My testing skill now asks for concrete input, a call to an exported function, an
 
 I also use gitignored scratch tests. An agent can write a probe to understand a problem, run it, then throw it away. If it captures behaviour that needs protecting, it belongs in the maintained suite.
 
-There is no useful target number of tests here. I want a test that would notice the defect it claims to prevent.
+A rank-check bug in Nuxt SEO made that distinction painfully concrete. The data provider's spending limit stopped a request. My code treated the missing result as a missing ranking and emailed a customer about a drop that hadn't been measured.
+
+This regression test starts with a keyword at position 21. When the fetch returns nothing, the saved position must stay at 21. This is an excerpt from the test, with its fixture helpers left out:
+
+::expand
+
+```ts
+const db = await seed(21)
+
+const outcome = await recordRankCheck(db, {
+  keywordId: KEYWORD,
+  siteUrl: 'https://ranknm.example',
+  competitorDomains: [],
+  fetchSerp: async () => undefined,
+  now: NOW,
+})
+
+expect(outcome).toEqual({ _tag: 'not_measured' })
+expect(await snapshots(db)).toEqual([
+  { day: '2026-08-27', position: 21 },
+])
+```
+
+::
+
+Checking for a string in the source wouldn't have caught that email. This test checks what the application writes.
 
 ## Do my agents work effectively in parallel?
 
@@ -141,9 +166,23 @@ Asking four agents to work at once is easy. Giving them four usable environments
 
 A branch alone doesn't give an agent a separate directory. A worktree does. Each task gets its own checkout, while the primary checkout stays clean on main.
 
-:ArticleFigure{src="/blog/ai-workflow/original-worktrees.webp" alt="Original worktree diagram showing four agents, shared package files and private task state" caption="The worktree diagram from slide 26. Branches and preview names are illustrative." width="1808" height="649"}
+:ArticleFigure{src="/blog/ai-workflow/original-worktrees.webp" alt="Worktree diagram showing four agents, shared package files and private task state" caption="Each agent gets a checkout and private task state. Branches and preview names are illustrative." width="1808" height="649"}
 
 I use [Worktrunk](https://github.com/max-sixty/worktrunk) to manage that setup. Before a task starts, the checkout needs its dependencies, local configuration and writable state ready.
+
+For example, I can start a task from the current main branch like this:
+
+::expand
+
+```sh
+wt switch --create fix/payment-errors --base origin/main
+pnpm install --frozen-lockfile
+pnpm exec nuxt prepare
+```
+
+::
+
+Worktrunk creates the checkout. The next two commands prepare that checkout's dependencies and Nuxt files. Project-specific setup still has to provide local configuration and a private database.
 
 Otherwise, the agent spends the first part of the task fixing its environment. Sometimes it changes application code to compensate for an environment that was wrong to begin with.
 
@@ -157,9 +196,9 @@ Local databases need their own writable state. Sharing a database between two ta
 
 There are less interesting details that still make a difference. I use [Portless](https://github.com/vercel-labs/portless) for stable local preview names, and named browser pages for each task. I also built a JetBrains worktree plugin so I could see the checkouts in my IDE.
 
-This is the worktree panel I showed in the talk. I needed the separate checkouts to be easy to find, otherwise I'd work around the setup.
+I needed the separate checkouts to be easy to find, otherwise I'd work around the setup.
 
-:ArticleFigure{src="/blog/ai-workflow/worktree-ide.webp" alt="JetBrains worktree panel listing task branches and their latest activity" caption="The IDE view from the slides. The 86 entries are worktrees, not 86 agents running at once." width="1282" height="1042"}
+:ArticleFigure{src="/blog/ai-workflow/worktree-ide.webp" alt="JetBrains worktree panel listing task branches and their latest activity" caption="My JetBrains worktree panel. The 86 entries are worktrees, not concurrent agents." width="1282" height="1042"}
 
 ### Separate checkouts still meet at the same files
 
@@ -168,6 +207,22 @@ Worktrees didn't fix my architecture.
 Independent features still passed through shared configuration and registration points. Two tasks could work perfectly well in isolation, then arrive with competing edits to the same block.
 
 I had a real pair of Nuxt SEO PRs that both rewrote the sitemap-failure handling in one crawl job. They needed an explicit landing order and a rebase.
+
+[PR #728](https://github.com/harlan-zw/nuxtseo.com/pull/728) added a retry flag. [PR #733](https://github.com/harlan-zw/nuxtseo.com/pull/733) changed the event name on the same line. These shortened excerpts show the overlap:
+
+::expand
+
+```diff
+# PR #728
+- logWarn('crawl_audit.degraded', error, { stage, ...context })
++ logWarn('crawl_audit.degraded', error, { stage, ...context, retryable: sitemap.retryable })
+
+# PR #733
+- logWarn('crawl_audit.degraded', error, { stage, ...context, retryable: sitemap.retryable })
++ logWarn('crawl_audit.target_site_refused', error, { stage, ...context, retryable: sitemap.retryable })
+```
+
+::
 
 Sometimes that's unavoidable. If it keeps happening, I look at the boundary. Can the feature own its configuration? Can the shared module expose a smaller interface? Are the tasks actually independent?
 
@@ -183,9 +238,35 @@ Eventually the agents could produce work faster than I could land it.
 
 Some of the delay was CI. I was paying for repeated setup and waiting for checks on commits I had already replaced.
 
-:ArticleFigure{src="/blog/ai-workflow/original-ci-ideas.webp" alt="Original CI slide showing fast PR checks, cheap checks first, superseded runs and scratch tests" caption="The four CI ideas from slide 30. A smaller PR gate moves some failure detection until after merge." width="1760" height="560"}
+:ArticleFigure{src="/blog/ai-workflow/original-ci-ideas.webp" alt="CI diagram showing fast PR checks, cheap checks first, superseded runs and scratch tests" caption="Four ways to reduce CI waiting. A smaller PR gate moves some failure detection until after merge." width="1760" height="560"}
 
 Lint and type checks can reject a change before an expensive build starts. [GitHub Actions concurrency](https://docs.github.com/en/actions/concepts/workflows-and-actions/concurrency) can cancel superseded checks for the same PR. A deployment that needs to finish requires a different policy.
+
+For a PR-only validation workflow, this is enough to cancel an older run when a new commit arrives:
+
+::expand
+
+```yaml
+name: Validate
+on: pull_request
+
+concurrency:
+  group: validate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout and install dependencies first.
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm build
+```
+
+::
+
+This is a configuration excerpt. Checkout and dependency setup depend on the project. The order means a failed lint step stops the job before the build starts.
 
 A smaller PR gate is also a tradeoff. Moving checks until after merge means some failures reach main before you discover them. I need to know what I'm giving up and how those failures get reported.
 
@@ -199,11 +280,11 @@ I want an agent review to try to disprove the change. Check the premise, follow 
 
 This review comment shows the actual navigation the agent checked in two layouts. It also leaves a request error visible in one screenshot.
 
-:ArticleFigure{src="/blog/ai-workflow/browser-check.webp" alt="Browser verification comment with fleet and one-site navigation screenshots" caption="Evidence from the approved slides. The one-site screenshot contains a request error; these checks do not prove every path passed." width="1784" height="1038"}
+:ArticleFigure{src="/blog/ai-workflow/browser-check.webp" alt="Browser verification comment with fleet and one-site navigation screenshots" caption="The one-site screenshot contains a request error. The comment shows what the agent checked and what still needs attention." width="1784" height="1038"}
 
 A diagram helps when the change crosses several boundaries. This PR shows where the Bing data comes from and where credentials enter the request.
 
-:ArticleFigure{src="/blog/ai-workflow/bing-flow.webp" alt="Bing PR diagram connecting views, Site credentials, bounded requests and the public Bing API" caption="A separate PR from the slide examples. The diagram gives the reviewer a route through the change." width="1626" height="864"}
+:ArticleFigure{src="/blog/ai-workflow/bing-flow.webp" alt="Bing PR diagram connecting views, Site credentials, bounded requests and the public Bing API" caption="The Bing integration PR. The diagram gives the reviewer a route through the change." width="1626" height="864"}
 
 A confidence score helps only if it says what remains untested. It doesn't authorize a merge.
 
@@ -211,7 +292,7 @@ With Unhead, I still need to think about framework integrations, breaking change
 
 If review is full, another running agent can just produce another waiting PR.
 
-:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Original slide showing independent reviewers, selective auto-merge and a bounded review queue" caption="The review ideas from slide 33. Services and queue slots illustrate options; they are not a claim about current factory settings." width="1760" height="597"}
+:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Review diagram showing independent reviewers, selective auto-merge and a bounded review queue" caption="Independent review, selective auto-merge and a bounded queue. The services and queue slots are illustrative." width="1760" height="597"}
 
 ## Start with the problem you keep having
 

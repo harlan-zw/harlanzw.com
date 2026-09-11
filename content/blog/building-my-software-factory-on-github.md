@@ -25,19 +25,19 @@ It produces PRs. I still review most of them.
 
 ## What I mean by a software factory
 
-In my talk, *Zero To Software Factories: Chasing the AI Dragon*, I start with this map. The frame around it is me.
+The frame around this map is me. I decide what to work on and what ships, while the agents move changes through the loops.
 
-:ArticleFigure{src="/blog/ai-workflow/original-factory-map.webp" alt="Original factory map with Harlan owning the code, review, close off and monitoring loops" caption="The original loop map from slide 5. Human ownership surrounds the whole process." width="1696" height="716"}
+:ArticleFigure{src="/blog/ai-workflow/original-factory-map.webp" alt="Factory map with Harlan owning the code, review, close off and monitoring loops" caption="Code, review, close off and monitoring, with human ownership across the whole process." width="1696" height="716"}
 
 The actual service adds a poller, SQLite journal and scheduler to keep work moving between agents and GitHub.
 
 I ended up maintaining all of those pieces too.
 
-:ArticleFigure{src="/blog/ai-workflow/original-factory-architecture.webp" href="https://dragon.harlanzw.com/factory/index.html?theme=dark&present=1" link-label="Explore the original diagram" alt="Original factory architecture connecting routines, GitHub state, the Hogwild service and GitHub publication" caption="The architecture shown in slide 6. Open the original to zoom, follow the guided views and inspect source references." width="1920" height="1080"}
+:ArticleFigure{src="/blog/ai-workflow/original-factory-architecture.webp" embed="/blog/ai-workflow/factory/index.html" alt="Interactive Harlan GitHub Agent architecture" caption="Follow Intake, Tasks and Agents, or Publication. Select a node to inspect its source references. Use the zoom controls to read the details." width="1920" height="1080"}
 
-This is the setup I prepared for the talk in September 2026. By the time you read it, I will probably have changed parts of it again.
+This describes the service in September 2026. By the time you read it, I will probably have changed parts of it again.
 
-If you're still dealing with broken agent output or conflicting edits, I'd start with [improving your development workflow with AI](/blog/improving-your-development-workflow-with-ai). Those problems follow you into a factory.
+If you're still dealing with broken agent output or conflicting edits, I'd start with [optimizing your development workflow with AI](/blog/improving-your-development-workflow-with-ai). Those problems follow you into a factory.
 
 ## Why GitHub?
 
@@ -53,7 +53,7 @@ The result returns through the publication gate. That part of the service owns t
 
 That last check matters. While an agent is reviewing a PR, another commit can arrive. A review of the old code must not become a claim about the new code.
 
-The [architecture snapshot used in the talk](https://github.com/harlan-zw/harlan-agent-kit/tree/ca1cb363a452ecadc03648df9613f38e4585560e/packages/harlan-github-agent) separates reading GitHub state, doing the work and publishing the result. GitHub gives me the shared record; the service handles the work between observations.
+The [September architecture snapshot](https://github.com/harlan-zw/harlan-agent-kit/tree/ca1cb363a452ecadc03648df9613f38e4585560e/packages/harlan-github-agent) separates reading GitHub state, doing the work and publishing the result. GitHub gives me the shared record; the service handles the work between observations.
 
 ## Following one issue
 
@@ -65,15 +65,15 @@ A separate Review agent challenges that change. If it finds a defect the system 
 
 I don't want the author marking its own homework. Separating the roles also gives the reviewer a smaller job: find what's wrong and show the evidence.
 
-The review result names the commit it examined and records uncertainty. Here is the READY comment I used in the talk. Even at 95/100, it explicitly asks for a human merge decision.
+The review result names the commit it examined and records uncertainty. This READY comment shows what that looks like. Even at 95/100, it explicitly asks for a human merge decision.
 
-:ArticleFigure{src="/blog/ai-workflow/ready-review.webp" alt="Agent review marked READY at 95 out of 100, stating that human merge approval is still required" caption="Original review screenshot from the slides. This is a separate example from the Stripe and Bing PRs." width="1830" height="624"}
+:ArticleFigure{src="/blog/ai-workflow/ready-review.webp" alt="Agent review marked READY at 95 out of 100, stating that human merge approval is still required" caption="A READY review with evidence, confidence and an explicit request for human approval." width="1830" height="624"}
 
 ### Routine changes and judgement
 
-The factory policy shown in the talk permits selective auto-merge. The label delegates that authority for work that needs no judgement.
+My factory policy permits selective auto-merge. The label delegates that authority for work that needs no judgement.
 
-:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Original slide showing independent reviewers, selective auto-merge and a bounded review queue" caption="The review ideas from slide 33. Services and queue slots illustrate options; they are not a claim about current factory settings." width="1760" height="597"}
+:ArticleFigure{src="/blog/ai-workflow/original-review-ideas.webp" alt="Review diagram showing independent reviewers, selective auto-merge and a bounded review queue" caption="Independent review, selective auto-merge and a bounded queue. The services and queue slots are illustrative." width="1760" height="597"}
 
 A high confidence score isn't permission. Neither is the fact that a previous version of the PR passed review. If the scope changes, the decision needs to change with it.
 
@@ -99,6 +99,22 @@ Batch planning made the timing worse. By the time a task started, main had often
 
 The [fix in PR #183](https://github.com/harlan-zw/harlan-agent-kit/pull/183) keyed the triage session on the issue's own state, independently of the default branch tip.
 
+The lookup changed from this:
+
+::expand
+
+```diff
+- const scopeDigest = issueSnapshotDigest({ ...snapshot.value, baseSha: prepared.value.defaultBranchSha })
++ const scopeDigest = issueSnapshotDigest(snapshot.value)
+  const sessionId = options.store.getWorkerSession(
+    task.repository, task.issueNumber, 'issue_triage', scopeDigest,
+  )
+```
+
+::
+
+That excerpt is from the implementation worker, with the lookup wrapped for readability. The same change also had to happen when triage stored the session. Fixing only one side would leave the keys disagreeing.
+
 Implementation needs a checkout of the code it will change. The triage decision needs to identify the issue it examined. An unrelated merge should not invalidate it.
 
 I had modelled the application state incorrectly. No prompt was going to repair the lookup.
@@ -119,6 +135,25 @@ Shared instructions don't make untrusted input safe. Issues, comments and source
 
 I wouldn't treat a synced `AGENTS.md` as a security boundary.
 
+For example, the service checks repository permission when a caller asks for a write credential. The [write gate](https://github.com/harlan-zw/harlan-agent-kit/blob/ca1cb363a452ecadc03648df9613f38e4585560e/packages/harlan-github-agent/src/github-write-gate.ts) contains this check:
+
+::expand
+
+```ts
+getToken(repository, access, signal) {
+  if (!writeAccess.has(access) || options.mayWrite(repository))
+    return options.source.getToken(repository, access, signal)
+  return Promise.resolve(err({
+    repository,
+    message: repositoryQuarantineReason(repository),
+  }))
+}
+```
+
+::
+
+`writeAccess` contains the contents, issue and workflow write permissions. Read requests can pass through. A write request for a repository I haven't enabled returns an error before the caller gets a token.
+
 ## Hogwild 🐷
 
 Hogwild runs the factory and my self-hosted GitHub Actions runners.
@@ -131,18 +166,26 @@ I needed admission based on available capacity. The supervisor reserves memory b
 
 A container's hard limit and a reservation do different jobs. The limit stops one job using too much. The reservation helps stop the host accepting too many jobs at once.
 
-There is a [Hogwild status page](https://hogwild.harlanzw.com/) for seeing the machine's activity. The runner cost estimate in the talk compares that activity with equivalent hosted Linux runner charges. It doesn't subtract hardware or power, and included minutes or public repository allowances can change what I'd actually have paid.
+There is a [Hogwild status page](https://hogwild.harlanzw.com/) for seeing the machine's activity. Its runner cost estimate compares that activity with equivalent hosted Linux runner charges. It doesn't subtract hardware or power, and included minutes or public repository allowances can change what I'd actually have paid.
 
 I don't have a measured payback claim to make here. The machine gives me capacity I can manage, and another system I have to maintain.
 
 ## The queue needs a limit
 
-The factory snapshot in the talk allowed four active agents, eight open PRs and three repair rounds per contributor commit.
+The September example configuration sets the open PR cap to eight:
 
-Those are settings from that snapshot, not a recommended number of agents to run.
+::expand
+
+```yaml
+# No new issue work starts when open pull requests reach this limit.
+max_open_pull_requests: 8
+```
+
+::
+
+That is an excerpt from the [versioned configuration](https://github.com/harlan-zw/harlan-agent-kit/blob/ca1cb363a452ecadc03648df9613f38e4585560e/packages/harlan-github-agent/config.example.yml). The cap pauses new issue work. Review and repair still need to run, otherwise the service cannot clear the queue.
 
 Once the queue is waiting on my review, more agents mostly add PRs for me to read.
-
 
 Repair needs a limit for the same reason. An agent can keep attempting a problem without getting closer to a change I'd accept. I want the service to stop and surface the blocked work.
 
@@ -156,11 +199,7 @@ Scheduled routines are the part that solved my original problem.
 
 Sentry check-ins look for production errors. Daily check-ins combine runtime and usage signals. Their findings can become issues or proposed repairs, which feed back into GitHub for the factory to handle.
 
-For the talk, I also prepared a clone of the MelbJS site with a feedback form that files GitHub issues. The plan was to invite feedback early, then inspect the issues, PRs and deployed site at the end.
-
-An issue might need clarification or a PR might still be waiting for review. I wanted those states visible too.
-
-I wasn't promising that every suggestion would ship during the talk.
+I also built a feedback form on a clone of the MelbJS site that files GitHub issues. Feedback enters the same queue as everything else. An issue may need clarification, or its PR may wait for review.
 
 There is even a Factory review routine that proposes changes to the factory itself. Those proposals join the work I need to judge.
 
