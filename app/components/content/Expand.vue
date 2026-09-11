@@ -1,28 +1,27 @@
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-const props = withDefaults(defineProps<{
+const { width = 1100, contained = false } = defineProps<{
   width?: number
-}>(), {
-  width: 1100,
-})
+  contained?: boolean
+}>()
 
-const expandStyle = computed(() => ({ width: `${props.width}px` }))
+const expandStyle = computed(() => contained ? undefined : ({ width: `min(${width}px, calc(100vw - 2rem))` }))
 </script>
 
 <template>
-  <div :style="expandStyle">
+  <div :style="expandStyle" :class="contained ? undefined : 'content-expand'">
     <slot />
   </div>
 </template>
 
 <style scoped>
-div { max-width: min(100%, 1000px); margin-inline: auto; }
+:global(.prose:has(.content-expand)) {
+  margin-inline: auto;
+}
 
-@media(min-width: 1500px) {
-  div {
-    max-width: none;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
+.content-expand {
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 </style>

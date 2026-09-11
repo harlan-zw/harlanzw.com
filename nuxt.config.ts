@@ -54,6 +54,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    hogwildStatsToken: '',
+    hogwildStatsUrl: 'https://hogwild.harlanzw.com/api/article-stats',
     githubSponsors: {
       token: '',
     },
@@ -248,6 +250,11 @@ export default defineNuxtConfig({
       },
     },
     '/api/**': { prerender: false, robots: false },
+    '/blog/ai-workflow/factory/**': {
+      robots: false,
+      // CSP overrides X-Frame-Options without duplicate static header values.
+      headers: { 'content-security-policy': 'frame-ancestors \'self\'' },
+    },
     // `/hire` and `/meet` were removed in the Nuxt v4 rewrite with no direct
     // replacement; redirect to the homepage rather than leave them 404ing
     // for the traffic and backlinks that still land on them.

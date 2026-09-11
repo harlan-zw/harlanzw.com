@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { SitePage } from '#shared/types'
 
-defineProps<{ post: SitePage }>()
+defineProps<{ post: SitePage, compact?: boolean }>()
 </script>
 
 <template>
-  <div v-if="post.h1 !== false" class="mb-10 flex items-start gap-3">
+  <div v-if="post.h1 !== false" class="flex items-start gap-3" :class="compact ? 'mb-4' : 'mb-10'">
     <h1 class="max-w-[24ch] text-balance text-4xl leading-[1.08] font-bold tracking-[-0.025em] text-highlighted sm:text-5xl">
       {{ post.title }}
     </h1>

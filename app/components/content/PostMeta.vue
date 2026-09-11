@@ -21,15 +21,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="post-meta items-center space-y-3 opacity-80 sm:flex sm:space-y-0 sm:space-x-7 sm:text-lg">
-    <div>
-      Published {{ month }} {{ day }} {{ year }}
-    </div>
-    <div class="hidden text-sm opacity-50 sm:block">
-      ●
-    </div>
-    <div>
-      {{ readingMins }} minute read
-    </div>
+  <div class="post-meta flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+    <time :datetime="post.publishedAt">
+      {{ month }} {{ day }} {{ year }}
+    </time>
+    <span aria-hidden="true">·</span>
+    <span>{{ readingMins }} minute read</span>
   </div>
 </template>
