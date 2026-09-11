@@ -197,7 +197,7 @@ Independent features still passed through shared configuration and registration 
 
 I had a real pair of Nuxt SEO PRs that both rewrote the sitemap-failure handling in one crawl job. They needed an explicit landing order and a rebase.
 
-[PR #728](https://github.com/harlan-zw/nuxtseo.com/pull/728) added a retry flag. [PR #733](https://github.com/harlan-zw/nuxtseo.com/pull/733) changed the event name on the same line. These shortened excerpts show the overlap:
+PR #728 added a retry flag. PR #733 changed the event name on the same line. The repository is private, so I've included shortened excerpts to show the overlap:
 
 ::expand{width="1100"}
 
