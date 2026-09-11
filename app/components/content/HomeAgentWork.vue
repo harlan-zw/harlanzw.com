@@ -34,7 +34,7 @@ function sparkline(metric: 'cpuPercent' | 'memoryPercent') {
       </h2>
       <span class="text-sm text-muted" role="status">{{ agents ? `${agents.running} running` : status === 'pending' || status === 'idle' ? 'Connecting…' : 'Unavailable' }}</span>
     </header>
-    <ul v-if="current?.work.length" class="mt-2">
+    <ul v-if="current?.work.length" class="agent-work-list mt-2" tabindex="0" aria-label="Recent public agent work">
       <li v-for="item in current.work" :key="item.url">
         <a :href="item.url" class="group block min-h-11 py-2">
           <span class="block truncate text-sm text-highlighted">{{ item.title }}</span>
@@ -61,3 +61,13 @@ function sparkline(metric: 'cpuPercent' | 'memoryPercent') {
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (min-width: 1024px) and (max-height: 700px) {
+  .agent-work-list {
+    max-height: 15dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+</style>
