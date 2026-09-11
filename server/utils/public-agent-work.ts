@@ -5,16 +5,18 @@ const publicIssue = z.object({ title: z.string().max(1000), number: z.number().i
 
 export const lookupPublicAgentWork = defineCachedFunction(async (repository: string, number: number) => {
   // No GitHub credential: inaccessible items must never enter the public response.
-  const result = await $fetch<unknown>(`https://api.github.com/repos/${repository}/issues/${number}`, {
+  const result = await $fetch.raw<unknown>(`https://api.github.com/repos/${repository}/issues/${number}`, {
     headers: { 'accept': 'application/vnd.github+json', 'user-agent': 'harlanzw.com' },
     timeout: 4000,
     retry: 0,
-    redirect: 'error',
+    redirect: 'manual',
   }).catch(() => {
     consola.info('A work reference is not available through public GitHub.')
     return null
   })
-  const parsed = publicIssue.safeParse(result)
+  if (!result?.ok)
+    return null
+  const parsed = publicIssue.safeParse(result._data)
   if (!parsed.success || parsed.data.number !== number)
     return null
   return { title: parsed.data.title, url: `https://github.com/${repository}/${parsed.data.pull_request ? 'pull' : 'issues'}/${number}` }
