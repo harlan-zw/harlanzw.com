@@ -234,7 +234,9 @@ Two agents can use different files and still make incompatible product decisions
 
 ## Can I keep up with what they produce?
 
-Eventually the agents could produce work faster than I could land it.
+Eventually the agents could produce work faster than I could land it. You can see the current workload below: agents doing work, PRs still open, and CI jobs running or waiting.
+
+:ArticleLiveStats
 
 Some of the delay was CI. I was paying for repeated setup and waiting for checks on commits I had already replaced.
 

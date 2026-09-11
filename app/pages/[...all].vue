@@ -57,8 +57,8 @@ if (!nuxtApp.isHydrating) {
             <UIcon name="i-lucide-house" aria-hidden="true" />
           </NuxtLink>
         </li>
-        <li v-for="item in breadcrumbs" :key="item.id" class="flex min-h-11 items-center gap-2">
-          <UIcon name="i-lucide-chevron-right" class="size-4 opacity-50" aria-hidden="true" />
+        <li v-for="item in breadcrumbs" :key="item.id" :class="item._tag === 'Current' ? 'hidden sm:flex' : 'flex'" class="min-h-11 min-w-0 items-center gap-2">
+          <UIcon name="i-lucide-chevron-right" class="size-4 shrink-0 opacity-50" aria-hidden="true" />
           <NuxtLink v-if="item._tag === 'Link'" :to="item.to" class="inline-flex min-h-11 items-center capitalize">
             {{ item.label }}
           </NuxtLink>

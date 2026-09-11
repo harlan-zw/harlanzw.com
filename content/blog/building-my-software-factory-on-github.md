@@ -156,7 +156,9 @@ getToken(repository, access, signal) {
 
 ## Hogwild 🐷
 
-Hogwild runs the factory and my self-hosted GitHub Actions runners.
+Hogwild runs the factory and my self-hosted GitHub Actions runners. These are current readings from the machine and the agent service.
+
+:ArticleLiveStats
 
 CI cost helped motivate the move, but putting runners on a machine introduced a different problem. Heavy builds competed for the same memory.
 

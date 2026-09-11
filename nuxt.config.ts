@@ -54,6 +54,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    hogwildStatsToken: '',
+    hogwildStatsUrl: 'https://hogwild.harlanzw.com/api/article-stats',
     githubSponsors: {
       token: '',
     },
