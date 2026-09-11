@@ -27,6 +27,10 @@ const isHome = computed(() => route.path === '/')
 </template>
 
 <style>
+.home-layout {
+  overflow-x: clip;
+}
+
 .home-main {
   position: relative;
   display: grid;
