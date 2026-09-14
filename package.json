@@ -33,7 +33,8 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "checkin": "nuxt-checkin prepare && nuxt-checkin"
   },
   "dependencies": {
     "cheerio": "catalog:",
@@ -45,6 +46,7 @@
     "@antfu/eslint-config": "catalog:",
     "@cloudflare/workers-types": "catalog:",
     "@harlan-zw/comark-content": "catalog:",
+    "@harlan-zw/nuxt-checkin": "catalog:",
     "@harlan-zw/nuxt-cloudflare": "catalog:",
     "@harlan-zw/nuxt-dx": "catalog:",
     "@harlan-zw/nuxt-github-sponsors": "catalog:",

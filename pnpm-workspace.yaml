@@ -1,10 +1,11 @@
 # Temporary exceptions for packages verified during this migration. The active
 # supply-chain policy blocks them until they age beyond its cutoff.
 minimumReleaseAgeExclude:
+  - '@harlan-zw/nuxt-checkin@0.2.0'
+  - '@harlan-zw/nuxt-cloudflare@0.4.2'
+  - '@harlan-zw/nuxt-sentry@0.1.6'
   - '@harlan-zw/comark-content@0.1.5'
-  - '@harlan-zw/nuxt-cloudflare@0.3.1'
   - '@harlan-zw/nuxt-dx@0.1.2'
-  - '@harlan-zw/nuxt-sentry@0.1.3'
   - '@harlan-zw/nuxt-github-sponsors@0.1.4'
   - '@cloudflare/workers-types@5.20260826.1'
   - '@nuxt/icon@2.5.0'
@@ -38,10 +39,11 @@ catalog:
   '@antfu/eslint-config': ^9.3.0
   '@cloudflare/workers-types': 5.20260826.1
   '@harlan-zw/comark-content': 0.1.5
-  '@harlan-zw/nuxt-cloudflare': 0.3.1
+  '@harlan-zw/nuxt-checkin': 0.2.0
+  '@harlan-zw/nuxt-cloudflare': 0.4.2
   '@harlan-zw/nuxt-dx': 0.1.2
   '@harlan-zw/nuxt-github-sponsors': 0.1.4
-  '@harlan-zw/nuxt-sentry': 0.1.3
+  '@harlan-zw/nuxt-sentry': 0.1.6
   '@iconify-json/carbon': ^1.2.25
   '@iconify-json/emojione-v1': ^1.2.3
   '@iconify-json/ic': ^1.2.4

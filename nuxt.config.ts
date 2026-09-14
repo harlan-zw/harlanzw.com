@@ -1,7 +1,9 @@
 import { isExpectedNitroBuildWarning } from './build/warnings'
+import { externalCheckin } from './shared/checkin-external'
 import { site } from './shared/site'
 
 export default defineNuxtConfig({
+  checkin: { external: externalCheckin },
   future: {
     compatibilityVersion: 5,
   },
@@ -27,6 +29,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@harlan-zw/nuxt-checkin',
     '@harlan-zw/nuxt-cloudflare',
     '@harlan-zw/nuxt-dx',
     '@nuxt/a11y',
@@ -54,6 +57,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    checkinToken: '',
+    checkinEnvironment: 'production',
+    checkinDeployment: process.env.GITHUB_SHA || '',
     hogwildStatsToken: '',
     hogwildStatsUrl: 'https://hogwild.harlanzw.com/api/article-stats',
     githubSponsors: {
