@@ -3,7 +3,7 @@ name: daily-checkin
 description: Check production content, the homepage, and unresolved Sentry issues for harlanzw.com.
 ---
 
-Run `node scripts/checkin.mjs` from this checkout.
+Run `pnpm checkin` from this checkout.
 Load `CHECKIN_TOKEN`, `CHECKIN_DEPLOYMENT`, and `SENTRY_AUTH_TOKEN` from the repository environment.
 Use the expected production deployment SHA from deployment evidence, not the local branch HEAD.
 Never print tokens. Never send email or change provider state during collection.
@@ -19,3 +19,6 @@ Do not resolve issues merely because a check completed.
 Add site checks in `server/checks/*.ts` using the public check-in API.
 Maintain required IDs independently in `shared/checkin.ts`.
 Keep provider administration credentials in this external runner.
+
+The module discovers external checks in `checks/external` during preparation.
+Keep required external IDs in `shared/checkin-external.ts`.

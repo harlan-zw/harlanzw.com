@@ -34,7 +34,7 @@
     "typecheck": "nuxt typecheck",
     "test": "vitest",
     "test:run": "vitest run",
-    "checkin": "node scripts/checkin.mjs"
+    "checkin": "nuxt-checkin prepare && nuxt-checkin"
   },
   "dependencies": {
     "cheerio": "catalog:",

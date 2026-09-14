@@ -1,7 +1,9 @@
 import { isExpectedNitroBuildWarning } from './build/warnings'
+import { externalCheckin } from './shared/checkin-external'
 import { site } from './shared/site'
 
 export default defineNuxtConfig({
+  checkin: { external: externalCheckin },
   future: {
     compatibilityVersion: 5,
   },
