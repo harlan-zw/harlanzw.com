@@ -1,10 +1,7 @@
 # Daily check-in
 
-This draft depends on harlan-nuxt PR143. Do not enable it before that release.
-
-After publication, resolve the released check-in and Sentry versions, then regenerate `pnpm-lock.yaml`.
-The current Sentry catalog version lacks the new public checks export.
-The committed lockfile remains unchanged until registry resolution is possible.
+Use `@harlan-zw/nuxt-checkin@0.1.0` and `@harlan-zw/nuxt-sentry@0.1.5` from the registry.
+The lockfile pins both public packages.
 
 Set `NUXT_CHECKIN_TOKEN` in the Worker and `CHECKIN_TOKEN` in the agent environment.
 Set `NUXT_CHECKIN_DEPLOYMENT` to the deployed commit if the build does not provide `GITHUB_SHA`.

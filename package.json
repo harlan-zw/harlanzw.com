@@ -46,6 +46,7 @@
     "@antfu/eslint-config": "catalog:",
     "@cloudflare/workers-types": "catalog:",
     "@harlan-zw/comark-content": "catalog:",
+    "@harlan-zw/nuxt-checkin": "catalog:",
     "@harlan-zw/nuxt-cloudflare": "catalog:",
     "@harlan-zw/nuxt-dx": "catalog:",
     "@harlan-zw/nuxt-github-sponsors": "catalog:",
@@ -87,7 +88,6 @@
     "wrangler": "catalog:",
     "y-protocols": "catalog:",
     "yjs": "catalog:",
-    "zod": "catalog:",
-    "@harlan-zw/nuxt-checkin": "0.1.0"
+    "zod": "catalog:"
   }
 }
