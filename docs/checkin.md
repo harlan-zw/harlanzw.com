@@ -1,7 +1,7 @@
 # Daily check-in
 
-Use `@harlan-zw/nuxt-checkin@0.1.0` and `@harlan-zw/nuxt-sentry@0.1.5` from the registry.
-The lockfile retains the previous release until the shared CLI prerelease is published.
+Use `@harlan-zw/nuxt-checkin@0.2.0-alpha.0` and `@harlan-zw/nuxt-sentry@0.1.5` from the registry.
+The lockfile pins the published shared CLI prerelease.
 
 Set `NUXT_CHECKIN_TOKEN` in the Worker and `CHECKIN_TOKEN` in the agent environment.
 Set `NUXT_CHECKIN_DEPLOYMENT` to the deployed commit if the build does not provide `GITHUB_SHA`.
@@ -34,4 +34,4 @@ Add external checks in `checks/external/*.ts`.
 Keep required external IDs in `shared/checkin-external.ts`.
 The module owns report validation, response limits, deadlines, JSON output, and exit codes.
 Server checks stay behind the authenticated route.
-This draft requires Nuxt Check-in 0.2.0-alpha.0. Publication and dependency refresh remain pending.
+This draft uses Nuxt Check-in 0.2.0-alpha.0 while the stable release is pending.
