@@ -4,6 +4,8 @@ Use `@harlan-zw/nuxt-checkin@0.2.0` and `@harlan-zw/nuxt-sentry@0.1.6` from the 
 The lockfile pins the published shared CLI release.
 
 Set `NUXT_CHECKIN_TOKEN` in the Worker and `CHECKIN_TOKEN` in the agent environment.
+The scheduled agent loads its private token from `~/.config/harlan-checkin/harlanzw.com.env`.
+Keep that file at mode 600 and its directory at mode 700 on the desktop and Hogwild.
 Set `NUXT_CHECKIN_DEPLOYMENT` to the deployed commit if the build does not provide `GITHUB_SHA`.
 Set `CHECKIN_DEPLOYMENT` from deployment evidence before each external run.
 The endpoint rejects missing authentication and missing deployment identity.

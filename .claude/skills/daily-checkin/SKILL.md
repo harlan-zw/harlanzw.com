@@ -3,8 +3,16 @@ name: daily-checkin
 description: Check production content, the homepage, and unresolved Sentry issues for harlanzw.com.
 ---
 
-Run `pnpm checkin` from this checkout.
-Load `CHECKIN_TOKEN`, `CHECKIN_DEPLOYMENT`, and `SENTRY_AUTH_TOKEN` from the repository environment.
+Before running `pnpm checkin`, load the private agent credentials:
+
+```sh
+set -a
+. "$HOME/.config/harlan-checkin/harlanzw.com.env"
+set +a
+```
+
+Load `SENTRY_AUTH_TOKEN` from the repository environment.
+Set `CHECKIN_DEPLOYMENT` from the active Worker deployment evidence.
 Use the expected production deployment SHA from deployment evidence, not the local branch HEAD.
 Never print tokens. Never send email or change provider state during collection.
 
