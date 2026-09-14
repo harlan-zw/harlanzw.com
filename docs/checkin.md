@@ -1,0 +1,31 @@
+# Daily check-in
+
+This draft depends on harlan-nuxt PR143. Do not enable it before that release.
+
+After publication, resolve the released check-in and Sentry versions, then regenerate `pnpm-lock.yaml`.
+The current Sentry catalog version lacks the new public checks export.
+The committed lockfile remains unchanged until registry resolution is possible.
+
+Set `NUXT_CHECKIN_TOKEN` in the Worker and `CHECKIN_TOKEN` in the agent environment.
+Set `NUXT_CHECKIN_DEPLOYMENT` to the deployed commit if the build does not provide `GITHUB_SHA`.
+Set `CHECKIN_DEPLOYMENT` from deployment evidence before each external run.
+The endpoint rejects missing authentication and missing deployment identity.
+
+Run `node scripts/checkin.mjs` with `SENTRY_AUTH_TOKEN` containing read access.
+Sentry covers every retained unresolved issue in `harlanzw-com`, across environments.
+The runner checks homepage status and validates the authenticated content report's identity and freshness.
+A nonzero exit means a warning, failure, or incomplete coverage requires attention.
+
+The content check uses the same query API and published filter as the feed.
+It checks archive availability and feed metadata without rendering every article or fetching GitHub metadata.
+Add checks through `server/checks/*.ts` and maintain required IDs in `shared/checkin.ts`.
+There are no existing system-health emails in this site.
+
+```mermaid
+flowchart LR
+  Agent --> Homepage
+  Agent --> Sentry
+  Agent --> AuthenticatedReport
+  AuthenticatedReport --> VirtualRegistry
+  VirtualRegistry --> PublishedContent
+```

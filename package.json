@@ -33,7 +33,8 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "checkin": "node scripts/checkin.mjs"
   },
   "dependencies": {
     "cheerio": "catalog:",
@@ -86,6 +87,7 @@
     "wrangler": "catalog:",
     "y-protocols": "catalog:",
     "yjs": "catalog:",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "@harlan-zw/nuxt-checkin": "0.1.0"
   }
 }

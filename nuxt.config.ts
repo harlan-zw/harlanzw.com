@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@harlan-zw/nuxt-checkin',
     '@harlan-zw/nuxt-cloudflare',
     '@harlan-zw/nuxt-dx',
     '@nuxt/a11y',
@@ -54,6 +55,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    checkinToken: '',
+    checkinEnvironment: 'production',
+    checkinDeployment: process.env.GITHUB_SHA || '',
     hogwildStatsToken: '',
     hogwildStatsUrl: 'https://hogwild.harlanzw.com/api/article-stats',
     githubSponsors: {
