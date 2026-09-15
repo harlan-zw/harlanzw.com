@@ -228,7 +228,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'cloudinary',
+    provider: process.env.NODE_ENV === 'development' ? 'ipx' : 'ipxStatic',
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/dl6o1xpyq/image/upload/images',
       modifiers: {

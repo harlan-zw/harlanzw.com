@@ -11,7 +11,7 @@ import { site } from '#shared/site'
       </div>
     </section>
     <section aria-label="Harlan GitHub Agent" class="agent-home dark relative z-1 min-w-0 lg:pl-16">
-      <img src="/agent-avatar.png" width="80" height="80" alt="Harlan GitHub Agent" class="mb-5 size-20 rounded-sm">
+      <NuxtImg src="/agent-avatar.png" width="80" height="80" densities="1x 2x" format="webp" alt="Harlan GitHub Agent" class="mb-5 size-20 rounded-sm" />
       <div class="identity-content">
         <slot name="agent" />
         <HomeAgentWork />
