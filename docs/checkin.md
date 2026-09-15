@@ -1,6 +1,6 @@
 # Daily check-in
 
-Use `@harlan-zw/nuxt-checkin@0.3.0` and `@harlan-zw/nuxt-sentry@0.1.6` from the registry.
+Use `@harlan-zw/nuxt-checkin@0.3.0` and `@harlan-zw/nuxt-sentry@0.1.7` from the registry.
 The lockfile pins the published shared CLI release.
 
 Set `NUXT_CHECKIN_TOKEN` in the Worker and `CHECKIN_TOKEN` in the agent environment.
