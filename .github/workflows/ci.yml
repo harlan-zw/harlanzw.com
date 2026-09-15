@@ -19,8 +19,6 @@ jobs:
     permissions:
       contents: read
       actions: read
-      # the budget action comments the diff on the pull request
-      pull-requests: write
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -57,12 +55,11 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm exec playwright-core install --with-deps chromium
       - run: pnpm test:run
+      # Main builds in the deploy job. Keep the build check on pull requests.
       - run: pnpm build
-      - uses: harlan-zw/harlan-nuxt/.github/actions/nuxt-dx-budget@main
-        with:
-          report-path: .nuxt/dx/size-budget.json
-          threshold-kb: 10
+        if: github.event_name == 'pull_request'
       - run: pnpm cf:types:check
+        if: github.event_name == 'pull_request'
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -93,6 +90,7 @@ jobs:
         timeout-minutes: 10
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      - run: pnpm cf:types:check
       - name: Prepare Worker secrets
         run: |
           test -n "$NUXT_GITHUB_SPONSORS_TOKEN"
@@ -157,3 +155,22 @@ jobs:
           pnpm exec sentry-cli releases finalize "$GITHUB_SHA" --org harlan-zw -p harlanzw-com
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
+      # Reuse the deploy build. Reporting errors must not change deployment status.
+      - name: Report Nuxt DX budget
+        id: dx_budget
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 2
+        uses: harlan-zw/harlan-nuxt/.github/actions/nuxt-dx-budget@3754a3e332d758ef6f34af0a2f1c854dc334b3e2
+        with:
+          artifact-name: nuxt-dx-size-budget-v3-prod
+          report-path: .nuxt/dx/size-budget.json
+          threshold-kb: 10
+          comment: 'false'
+      - name: Surface unavailable size report
+        if: steps.dx_budget.outcome == 'failure'
+        run: |
+          echo '::warning::Nuxt DX reporting failed. See the report step.'
+          echo '### Nuxt DX report unavailable' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Reporting failed. The deployment result is unchanged.' >> "$GITHUB_STEP_SUMMARY"
