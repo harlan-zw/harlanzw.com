@@ -22,8 +22,8 @@ catalogs:
       specifier: 0.4.2
       version: 0.4.2
     '@harlan-zw/nuxt-dx':
-      specifier: 0.1.2
-      version: 0.1.2
+      specifier: 0.1.3
+      version: 0.1.3
     '@harlan-zw/nuxt-github-sponsors':
       specifier: 0.1.4
       version: 0.1.4
@@ -198,7 +198,7 @@ importers:
         version: 0.4.2(4273643d129eb28bd7d0eeb847210a33)
       '@harlan-zw/nuxt-dx':
         specifier: 'catalog:'
-        version: 0.1.2(1a50d1b1b20827ba276ff28402f46bb4)
+        version: 0.1.3(1a50d1b1b20827ba276ff28402f46bb4)
       '@harlan-zw/nuxt-github-sponsors':
         specifier: 'catalog:'
         version: 0.1.4(0c7c6738d3823c2115180aaf310f6d5e)
@@ -1227,8 +1227,8 @@ packages:
       '@harlan-zw/nuxt-checkin':
         optional: true
 
-  '@harlan-zw/nuxt-dx@0.1.2':
-    resolution: {integrity: sha512-Py9m04a2TFwEbUCRtrjeSVp9FcEl6fB4X23zHRUktmdKH/xS58G5MCg0czbrH1lEWXfp8l/0WjUMnc5smc7COQ==}
+  '@harlan-zw/nuxt-dx@0.1.3':
+    resolution: {integrity: sha512-Blzy0RqG0oYFLHIVoIoBQR6GRw2s2MZ9eBh3eJ9GJTRZaPtwq5m+oicUrJ/dU2hrjq8HSKm6ERb34KGu9KBJ3A==}
     engines: {node: '>=22.12.0'}
     hasBin: true
     peerDependencies:
@@ -8447,7 +8447,7 @@ snapshots:
       - webpack
       - xml2js
 
-  '@harlan-zw/nuxt-dx@0.1.2(1a50d1b1b20827ba276ff28402f46bb4)':
+  '@harlan-zw/nuxt-dx@0.1.3(1a50d1b1b20827ba276ff28402f46bb4)':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.2.2)(magicast@0.5.4)(oxc-parser@0.147.0)(rolldown@1.2.4)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.4)(rollup@4.62.4)(vite@8.2.2(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       '@vueuse/core': 14.4.0(vue@3.5.41(typescript@6.0.3))
