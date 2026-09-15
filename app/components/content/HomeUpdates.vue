@@ -4,7 +4,7 @@ const paths = [
   '/blog/improving-your-development-workflow-with-ai',
   '/blog/building-my-software-factory-on-github',
 ]
-const { data: posts } = await useAsyncData('home:featured-articles', () => Promise.all(paths.map(path => queryCollection('pages').where('path', '=', path).first())))
+const { data: posts } = await useAsyncData('home:featured-articles', () => Promise.all(paths.map(path => queryCollection('pages').where('path', '=', path).select('path', 'title').first())))
 </script>
 
 <template>
