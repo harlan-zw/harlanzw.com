@@ -6,6 +6,7 @@ through Comark, deployed as two Cloudflare Workers.
 ## Read first
 
 - [`DESIGN.md`](DESIGN.md) — the visual filter. Tokens, shells, motion budgets, and an Avoid list. Read before any UI work.
+- [`COPY.md`](COPY.md) — the verbal filter. The canonical strings, the register per context, and the banned language. Read before any user-visible string.
 - [`README.md`](README.md) — what this is and how to run it.
 - `docs/runbooks/` — operational procedures. Present tense, no status.
 - [`docs/work/`](docs/work/README.md) — open briefs, one `EXECUTE-*.md` per initiative. `ls docs/work/` shows everything unfinished. The contract is in its README.
