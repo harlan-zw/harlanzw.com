@@ -137,10 +137,8 @@ components:
 
 ## Voice and Tone
 
-- Labels use direct, familiar words.
-- Errors name the unavailable resource and explain the cause.
-- Empty states hide headings that would introduce absent content.
-- Interface copy stays concise and technical.
+[`COPY.md`](COPY.md) owns every user-facing string: the canonical assets, the register per
+context, and the banned language. Read it before writing a label, heading, error or empty state.
 
 ## Avoid
 
