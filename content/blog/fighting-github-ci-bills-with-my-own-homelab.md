@@ -127,7 +127,7 @@ The reservation and limit deliberately differ. The supervisor budgets 13 GiB bef
 
 I also give waiting deploys the next available capacity. Otherwise a steady stream of smaller checks can keep taking the space a deploy needs.
 
-Getting the limits wrong produces misleading failures. A `gscdump.com` cold build measured 7.82 GiB, close enough to its old 8 GiB limit that the container could kill it mid-bundle. The same commit passed on the desktop, where the job had more memory.
+Getting the limits wrong produces misleading failures. A [gscdump.com](https://gscdump.com) cold build measured 7.82 GiB, close enough to its old 8 GiB limit that the container could kill it mid-bundle. The same commit passed on the desktop, where the job had more memory.
 
 I had to fix the runner configuration before another code change could tell me anything useful.
 
