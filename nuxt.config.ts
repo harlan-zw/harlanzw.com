@@ -26,6 +26,11 @@ export default defineNuxtConfig({
     dsn: 'https://8b3cdae1f3b66b32c99644bdc5da7529@o4510507748163584.ingest.us.sentry.io/4511887363211264',
     project: 'harlanzw-com',
     dataCollection: 'none',
+    policy: {
+      // The article-stats route intentionally returns 503 when the Hogwild
+      // upstream is unavailable. A transient blip is not an error to report.
+      dropServerStatus: [404, 503],
+    },
   },
 
   modules: [
