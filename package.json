@@ -68,6 +68,7 @@
     "@nuxt/ui": "catalog:",
     "@nuxtjs/html-validator": "catalog:",
     "@nuxtjs/seo": "catalog:",
+    "@sentry/cli": "catalog:",
     "@sentry/nuxt": "catalog:",
     "@takumi-rs/core": "catalog:",
     "@takumi-rs/wasm": "catalog:",

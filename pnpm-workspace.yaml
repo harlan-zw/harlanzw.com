@@ -115,6 +115,7 @@ catalog:
   '@nuxt/ui': ^4.11.3
   '@nuxtjs/html-validator': ^2.1.0
   '@nuxtjs/seo': ^5.3.16
+  '@sentry/cli': ^3.8.0
   '@sentry/nuxt': ^11.4.0
   '@takumi-rs/core': ^2.14.0
   '@takumi-rs/wasm': ^2.14.0
