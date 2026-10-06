@@ -4,7 +4,7 @@ import { isFreshReading } from '#shared/utils/article-stats'
 export function useArticleStats(element: Ref<HTMLElement | null>) {
   const visible = useElementVisibility(element)
   const documentVisibility = useDocumentVisibility()
-  const now = useNow({ interval: 10_000 })
+  const now = useNow({ scheduler: cb => useIntervalFn(cb, 10_000) })
   const { data, status, error, refresh } = useFetch('/api/article-stats', { server: false, immediate: false, retry: 0 })
   const current = computed(() => data.value && isFreshReading(data.value.host.updatedAt, now.value.getTime()) ? data.value : null)
   const agents = computed(() => current.value?.agents._tag === 'Available' && isFreshReading(current.value.agents.updatedAt, now.value.getTime()) ? current.value.agents : null)

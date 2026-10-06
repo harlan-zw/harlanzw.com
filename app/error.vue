@@ -9,10 +9,10 @@ defineProps<{ error: NuxtError }>()
     <main class="min-h-dvh grid place-items-center px-6 text-center">
       <div>
         <p class="mb-3 font-mono text-sm text-primary">
-          {{ error.statusCode }}
+          {{ error.status }}
         </p>
         <h1 class="mb-4 text-4xl font-bold">
-          {{ error.statusMessage || 'Something went wrong' }}
+          {{ error.statusText || 'Something went wrong' }}
         </h1>
         <p class="mb-8 text-muted">
           The page may have moved, or never existed.

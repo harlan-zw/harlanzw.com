@@ -1,5 +1,7 @@
 import type { TweetResult } from '#shared/types'
 import { consola } from 'consola'
+import { createError, getRouterParam } from 'h3'
+import { defineCachedEventHandler } from 'nitropack/runtime'
 import { z } from 'zod'
 
 const tweetIdSchema = z.string().regex(/^\d{10,20}$/u)
@@ -20,7 +22,7 @@ export default defineCachedEventHandler(async (event): Promise<TweetResult> => {
   const parsedTweetId = tweetIdSchema.safeParse(getRouterParam(event, 'tweetId'))
 
   if (!parsedTweetId.success)
-    throw createError({ statusCode: 400, statusMessage: 'Invalid tweet ID' })
+    throw createError({ status: 400, statusText: 'Invalid tweet ID' })
 
   const SYNDICATION_URL = 'https://cdn.syndication.twimg.com'
 
