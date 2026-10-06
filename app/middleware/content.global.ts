@@ -7,8 +7,8 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const { data } = await useContentPage(to.path)
   if (data.value?._tag === 'NotFound') {
     throw createError({
-      statusCode: 404,
-      statusMessage: 'Page not found',
+      status: 404,
+      statusText: 'Page not found',
       fatal: true,
     })
   }

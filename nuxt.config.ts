@@ -1,6 +1,6 @@
-import { isExpectedNitroBuildWarning } from './build/warnings'
-import { externalCheckin } from './shared/checkin-external'
-import { site } from './shared/site'
+import { isExpectedNitroBuildWarning } from './build/warnings.ts'
+import { externalCheckin } from './shared/checkin-external.ts'
+import { site } from './shared/site.ts'
 
 export default defineNuxtConfig({
   checkin: { external: externalCheckin },
@@ -56,9 +56,8 @@ export default defineNuxtConfig({
 
   experimental: {
     checkOutdatedBuildInterval: 5 * 60 * 1000,
-    payloadExtraction: true,
     ssrStreaming: true,
-    typedPages: true,
+    strictRouteTypes: true,
   },
 
   runtimeConfig: {
@@ -306,10 +305,11 @@ export default defineNuxtConfig({
           warn(warning)
       },
     },
-    prerender: {
-      crawlLinks: true,
-      routes: ['/', '/feed.xml', '/feed.json', '/feed.atom'],
-    },
+  },
+
+  prerender: {
+    crawlLinks: true,
+    routes: ['/', '/feed.xml', '/feed.json', '/feed.atom'],
   },
 
   // `@harlan-zw/nuxt-sentry` sets `sourcemap.client` to 'hidden' when a Sentry
