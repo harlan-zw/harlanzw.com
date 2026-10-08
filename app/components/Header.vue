@@ -34,7 +34,7 @@ const mobileNavigation = navigation.map(link => ({
         </nav>
         <div class="flex items-center gap-1 text-muted">
           <UDropdownMenu :items="mobileNavigation" :content="{ align: 'end' }">
-            <UButton icon="i-lucide-menu" color="neutral" variant="ghost" class="size-11 md:hidden" aria-label="Open navigation" />
+            <UButton icon="i-lucide-menu" color="neutral" variant="ghost" size="xl" class="md:hidden" aria-label="Open navigation" />
           </UDropdownMenu>
           <SocialIcons class="hidden xl:flex" />
           <ColorModeSwitch />

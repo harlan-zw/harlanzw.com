@@ -16,7 +16,7 @@ const emptyReading = computed(() => !current.value && (status.value === 'pending
             </a>
           </h2>
           <UPopover :ui="{ content: contained ? 'dark bg-neutral-900' : undefined }">
-            <UButton icon="i-lucide-info" color="neutral" variant="ghost" class="size-11" aria-label="About Hogwild" />
+            <UButton icon="i-lucide-info" color="neutral" variant="ghost" size="xl" aria-label="About Hogwild" />
             <template #content>
               <div class="max-w-72 space-y-2 p-4 text-sm text-muted">
                 <p>My home server runs GitHub Actions jobs and Harlan GitHub Agent.</p>
