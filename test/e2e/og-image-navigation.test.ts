@@ -18,7 +18,7 @@ describe('og image navigation', async () => {
     expect(initialImage).toContain('title_Projects')
 
     await page.getByRole('link', { name: 'Blog', exact: true }).click()
-    await page.waitForURL('**/blog')
+    await page.waitForURL('**/blog/')
     await page.locator('a[href="/blog/ai-in-open-source"]').click()
     await page.waitForURL('**/blog/ai-in-open-source')
     await page.waitForFunction(() => document.querySelector('meta[property="og:title"]')?.getAttribute('content') === 'How I use AI in open source')
