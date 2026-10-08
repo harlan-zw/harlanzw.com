@@ -11,6 +11,8 @@ Set `CHECKIN_DEPLOYMENT` from deployment evidence before each external run.
 The endpoint rejects missing authentication and missing deployment identity.
 
 Run `pnpm checkin` with `SENTRY_AUTH_TOKEN` containing read access.
+If the host has no terminal, run `CI=true pnpm checkin`.
+This permits pnpm to prepare dependencies without asking for input.
 Sentry covers every retained unresolved issue in `harlanzw-com`, across environments.
 The runner checks homepage status and validates the authenticated content report's identity and freshness.
 A nonzero exit means a warning, failure, or incomplete coverage requires attention.
