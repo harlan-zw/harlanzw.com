@@ -1,28 +1,31 @@
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { parse } from 'yaml'
+import { deployRunCommands, readCiWorkflow } from '../../shared/ci-workflow'
 
-interface WorkflowStep {
-  run?: string
-}
+describe('deployRunCommands', () => {
+  it('splits each deploy step run into trimmed commands', () => {
+    const workflow = {
+      jobs: {
+        deploy: {
+          steps: [
+            { run: '  pnpm build\n\n  pnpm cf:types:check ' },
+            { name: 'checkout', uses: 'actions/checkout@v1' },
+          ],
+        },
+      },
+    }
 
-interface WorkflowJob {
-  steps?: WorkflowStep[]
-}
+    expect(deployRunCommands(workflow)).toEqual(['pnpm build', 'pnpm cf:types:check'])
+  })
 
-interface Workflow {
-  jobs: Record<string, WorkflowJob>
-}
+  it('returns no commands when the workflow has no deploy job', () => {
+    expect(deployRunCommands({ jobs: { validate: { steps: [{ run: 'pnpm lint' }] } } })).toEqual([])
+  })
+})
 
 describe('ci workflow sentry release', () => {
   it('creates the release before finalizing it', () => {
-    const workflowPath = fileURLToPath(new URL('../../.github/workflows/ci.yml', import.meta.url))
-    const workflow = parse(readFileSync(workflowPath, 'utf8')) as Workflow
+    const commands = deployRunCommands(readCiWorkflow())
 
-    const commands = (workflow.jobs.deploy.steps ?? [])
-      .flatMap(step => (step.run ?? '').split('\n'))
-      .map(line => line.trim())
     const createIndex = commands.findIndex(command => command.includes('sentry-cli releases new "$GITHUB_SHA"'))
     const finalizeIndex = commands.findIndex(command => command.includes('sentry-cli releases finalize "$GITHUB_SHA"'))
 

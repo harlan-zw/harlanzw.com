@@ -1,36 +1,30 @@
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { parse } from 'yaml'
+import { readCiWorkflow, secretExposedDlxOffenders } from '../../shared/ci-workflow'
 
-interface WorkflowStep {
-  run?: string
-  env?: Record<string, string>
-}
+describe('secretExposedDlxOffenders', () => {
+  it('labels steps that hand a secret env to pnpm dlx', () => {
+    const workflow = {
+      jobs: {
+        deploy: {
+          steps: [
+            { run: 'pnpm dlx secret-tool', env: { TOKEN: '${{ secrets.TOKEN' } },
+            { run: 'pnpm dlx safe-tool', env: { TOKEN: 'literal' } },
+            { run: 'pnpm exec safe-tool', env: { TOKEN: '${{ secrets.TOKEN' } },
+          ],
+        },
+      },
+    }
 
-interface WorkflowJob {
-  steps?: WorkflowStep[]
-}
+    expect(secretExposedDlxOffenders(workflow)).toEqual(['deploy.steps[0]: pnpm dlx secret-tool'])
+  })
 
-interface Workflow {
-  jobs: Record<string, WorkflowJob>
-}
+  it('returns no offenders when jobs have no steps', () => {
+    expect(secretExposedDlxOffenders({ jobs: { deploy: {} } })).toEqual([])
+  })
+})
 
 describe('ci workflow secret pinning', () => {
   it('never hands a secret env to an unpinned pnpm dlx package', () => {
-    const workflowPath = fileURLToPath(new URL('../../.github/workflows/ci.yml', import.meta.url))
-    const workflow = parse(readFileSync(workflowPath, 'utf8')) as Workflow
-
-    const offenders: string[] = []
-    for (const [jobName, job] of Object.entries(workflow.jobs)) {
-      for (const [index, step] of (job.steps ?? []).entries()) {
-        const exposesSecret = Object.values(step.env ?? {})
-          .some(env => env.includes('${{ secrets.'))
-        if (exposesSecret && step.run?.includes('pnpm dlx '))
-          offenders.push(`${jobName}.steps[${index}]: ${step.run}`)
-      }
-    }
-
-    expect(offenders).toEqual([])
+    expect(secretExposedDlxOffenders(readCiWorkflow())).toEqual([])
   })
 })
