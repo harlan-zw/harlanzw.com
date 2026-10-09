@@ -90,14 +90,20 @@ jobs:
         timeout-minutes: 10
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          NUXT_OG_IMAGE_SECRET: ${{ secrets.NUXT_OG_IMAGE_SECRET }}
       - run: pnpm cf:types:check
       - name: Prepare Worker secrets
         run: |
           test -n "$NUXT_GITHUB_SPONSORS_TOKEN"
           umask 077
           printf '%s' "$NUXT_GITHUB_SPONSORS_TOKEN" | jq -Rs '{NUXT_GITHUB_SPONSORS_TOKEN: .}' > "$RUNNER_TEMP/worker-secrets.json"
+          if [ -n "$NUXT_OG_IMAGE_SECRET" ]; then
+            jq --arg NUXT_OG_IMAGE_SECRET "$NUXT_OG_IMAGE_SECRET" '. + {NUXT_OG_IMAGE_SECRET: $NUXT_OG_IMAGE_SECRET}' "$RUNNER_TEMP/worker-secrets.json" > "$RUNNER_TEMP/worker-secrets.json.tmp"
+            mv "$RUNNER_TEMP/worker-secrets.json.tmp" "$RUNNER_TEMP/worker-secrets.json"
+          fi
         env:
           NUXT_GITHUB_SPONSORS_TOKEN: ${{ secrets.NUXT_GITHUB_SPONSORS_TOKEN }}
+          NUXT_OG_IMAGE_SECRET: ${{ secrets.NUXT_OG_IMAGE_SECRET }}
       - name: Deploy application Worker
         run: pnpm exec wrangler deploy --message "$GITHUB_SHA" --secrets-file "$RUNNER_TEMP/worker-secrets.json"
         env:
