@@ -12,15 +12,15 @@ The endpoint rejects missing authentication and missing deployment identity.
 
 Run `pnpm checkin` with `SENTRY_AUTH_TOKEN` containing read access.
 If the host has no terminal, run `CI=true pnpm checkin`.
-This permits pnpm to prepare dependencies without asking for input.
-Sentry covers every retained unresolved issue in `harlanzw-com`, across environments.
+This permits [pnpm](https://pnpm.io) to prepare dependencies without asking for input.
+[Sentry](https://sentry.io) covers every retained unresolved issue in `harlanzw-com`, across environments.
 The runner checks homepage status and validates the authenticated content report's identity and freshness.
 A nonzero exit means a warning, failure, or incomplete coverage requires attention.
 
 The content check uses the same query API and published filter as the feed.
-It checks archive availability and feed metadata without rendering every article or fetching GitHub metadata.
+It checks archive availability and feed metadata without rendering every article or fetching [GitHub](https://github.com) metadata.
 Add checks through `server/checks/*.ts` and maintain required IDs in `shared/checkin.ts`.
-There are no existing system-health emails in this site.
+This site sends no system-health emails.
 
 ```mermaid
 flowchart LR
