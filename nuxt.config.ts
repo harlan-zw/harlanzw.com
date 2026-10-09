@@ -96,11 +96,10 @@ export default defineNuxtConfig({
     url: site.url,
     description: site.description,
     defaultLocale: site.language,
-    // Cloudflare serves prerendered content pages from their directory form
-    // (`/blog/` not `/blog`), 307-redirecting the bare path. Sitemap entries
-    // and canonical tags need to point at that final URL directly, or Google
-    // sees a redirect hop instead of a self-referencing canonical.
-    trailingSlash: true,
+    // Nav, breadcrumbs, and article links are all authored bare (`/blog`),
+    // so the bare form is canonical. Sitemap entries, canonical tags, and the
+    // link checker then agree with those links instead of warning on them.
+    trailingSlash: false,
   },
 
   ui: {
