@@ -30,6 +30,10 @@ export default defineNuxtConfig({
       // The article-stats route intentionally returns 503 when the Hogwild
       // upstream is unavailable. A transient blip is not an error to report.
       dropServerStatus: [404, 503],
+      // A dead URL throws the same expected 404 in the browser as on the
+      // Worker. The vue-error hook reports it as unhandled. The 401 and 403
+      // entries pin the module's browser noise defaults.
+      dropClientStatus: [401, 403, 404],
     },
   },
 
