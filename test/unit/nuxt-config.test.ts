@@ -8,22 +8,18 @@ function serializePattern(entry: RegExp | string): MessagePattern {
   return { _tag: 'pattern', source: entry.source, flags: entry.flags.replace(/[gy]/g, '') }
 }
 
-async function clientIgnoreErrors(): Promise<ReportPolicy['ignoreErrors']> {
+// Only the rules this file declares, none of the module's built-in browser
+// noise, so the decision reflects what the config says.
+async function clientPolicy(): Promise<ReportPolicy> {
   Object.assign(globalThis, { defineNuxtConfig: (config: unknown) => config })
   const { default: nuxtConfig } = await import('../../nuxt.config')
-  const ignoreErrors = (nuxtConfig as { nuxtSentry?: { policy?: { ignoreErrors?: Array<RegExp | string> } } }).nuxtSentry?.policy?.ignoreErrors
-  return (ignoreErrors ?? []).map(serializePattern)
-}
-
-// Only the configured message rules, none of the built-in browser noise, so
-// the decision reflects what this file declares.
-function policyWith(ignoreErrors: ReportPolicy['ignoreErrors']): ReportPolicy {
+  const policy = (nuxtConfig as { nuxtSentry?: { policy?: { dropClientStatus?: number[] | false, ignoreErrors?: Array<RegExp | string> } } }).nuxtSentry?.policy
   return {
     scope: 'client',
     dataCollection: 'none',
-    dropStatus: [],
+    dropStatus: (policy?.dropClientStatus ?? []).map(status => ({ from: status, to: status })),
     dropTransient: false,
-    ignoreErrors,
+    ignoreErrors: (policy?.ignoreErrors ?? []).map(serializePattern),
     dropStacklessErrors: [],
     dropBreadcrumbMessages: [],
     denyUrls: [],
@@ -42,6 +38,12 @@ describe('nuxt config site urls', () => {
 })
 
 describe('nuxt config sentry policy', () => {
+  it('drops the browser report of an expected 404 page error', async () => {
+    const error = Object.assign(new Error('Page not found'), { statusCode: 404, fatal: true })
+
+    expect(decideReport({ message: 'Error: Page not found' }, error, await clientPolicy())).toEqual({ _tag: 'drop', rule: 'status' })
+  })
+
   it('drops the closed BroadcastChannel InvalidStateError Firefox reports', async () => {
     const message = 'An attempt was made to use an object that is not, or is no longer, usable'
     const report: ErrorReport = {
@@ -55,7 +57,7 @@ describe('nuxt config sentry policy', () => {
     }
     const error = new DOMException(message, 'InvalidStateError')
 
-    expect(decideReport(report, error, policyWith(await clientIgnoreErrors())))
+    expect(decideReport(report, error, await clientPolicy()))
       .toEqual({ _tag: 'drop', rule: 'ignore-message' })
   })
 
@@ -68,7 +70,7 @@ describe('nuxt config sentry policy', () => {
     }
     const error = new DOMException(message, 'InvalidStateError')
 
-    expect(decideReport(report, error, policyWith(await clientIgnoreErrors())))
+    expect(decideReport(report, error, await clientPolicy()))
       .toEqual({ _tag: 'send' })
   })
 })
