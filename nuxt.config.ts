@@ -34,6 +34,15 @@ export default defineNuxtConfig({
       // Worker. The vue-error hook reports it as unhandled. The 401 and 403
       // entries pin the module's browser noise defaults.
       dropClientStatus: [401, 403, 404],
+      // Legacy bundles fan Nuxt's outdated-build check out over a
+      // BroadcastChannel. After a bfcache or frozen-tab restore the channel is
+      // closed, and postMessage throws a benign InvalidStateError.
+      // `multiTab: false` stopped new bundles opening the channel, and the
+      // Chrome and Safari wordings already hit the module's built-in
+      // `Channel is closed` drop. Firefox words every InvalidStateError the
+      // same way, so this matches the message, not the frame: Drop Rules run
+      // before source maps resolve, when frames still point at hashed chunks.
+      ignoreErrors: [/An attempt was made to use an object that is not, or is no longer, usable/i],
     },
   },
 
