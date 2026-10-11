@@ -32,7 +32,7 @@ routines:
   - name: d1-query-review
     on:
       schedule:
-        - cron: '0 10 * * 1'
+        - cron: '0 12 * * 1'
     timezone: Australia/Melbourne
     mode: propose
     enabled: true
