@@ -30,6 +30,15 @@ export default defineNuxtConfig({
       // The article-stats route intentionally returns 503 when the Hogwild
       // upstream is unavailable. A transient blip is not an error to report.
       dropServerStatus: [404, 503],
+      // Legacy bundles fan Nuxt's outdated-build check out over a
+      // BroadcastChannel. After a bfcache or frozen-tab restore the channel is
+      // closed, and postMessage throws a benign InvalidStateError.
+      // `multiTab: false` stopped new bundles opening the channel, and the
+      // Chrome and Safari wordings already hit the module's built-in
+      // `Channel is closed` drop. Firefox words every InvalidStateError the
+      // same way, so this matches the message, not the frame: Drop Rules run
+      // before source maps resolve, when frames still point at hashed chunks.
+      ignoreErrors: [/An attempt was made to use an object that is not, or is no longer, usable/i],
     },
   },
 
