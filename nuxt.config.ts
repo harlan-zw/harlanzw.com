@@ -55,8 +55,6 @@ export default defineNuxtConfig({
     '@harlan-zw/nuxt-github-sponsors',
     '@nuxt/fonts',
     '@nuxtjs/seo',
-    'nuxt-ai-ready',
-    'nuxt-skew-protection',
     '@nuxt/ui',
     '@harlan-zw/comark-content',
     '@nuxt/image',
@@ -321,7 +319,8 @@ export default defineNuxtConfig({
 
   prerender: {
     crawlLinks: true,
-    routes: ['/', '/feed.xml', '/feed.json', '/feed.atom'],
+    // AI Ready 2 used to pull the sitemap into the prerender. Keep it a static file.
+    routes: ['/', '/feed.xml', '/feed.json', '/feed.atom', '/sitemap.xml'],
   },
 
   // `@harlan-zw/nuxt-sentry` sets `sourcemap.client` to 'hidden' when a Sentry

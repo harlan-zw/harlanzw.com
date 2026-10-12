@@ -3,19 +3,40 @@ minimumReleaseAgeExcludePrune: true
 # Temporary exceptions for packages verified during this migration. The active
 # supply-chain policy blocks them until they age beyond its cutoff.
 minimumReleaseAgeExclude:
-  - '@harlan-zw/comark-content@0.2.0'
+  - '@harlan-zw/comark-content@0.1.5 || 0.2.0'
   - '@harlan-zw/nuxt-checkin@0.4.0'
   - '@harlan-zw/nuxt-cloudflare@0.5.0'
-  - '@harlan-zw/nuxt-dx@0.3.0'
-  - '@harlan-zw/nuxt-github-sponsors@0.2.0'
+  - '@harlan-zw/nuxt-dx@0.2.0 || 0.3.0'
+  - '@harlan-zw/nuxt-github-sponsors@0.1.4 || 0.2.0'
   - '@harlan-zw/nuxt-sentry@0.3.0'
-  - '@harlan-zw/comark-content@0.1.5'
-  - '@harlan-zw/nuxt-dx@0.2.0'
-  - '@harlan-zw/nuxt-github-sponsors@0.1.4'
   - '@cloudflare/workers-types@5.20260826.1'
   - '@nuxt/icon@2.5.0'
-  - sitemapd@0.2.2
+  - sitemapd@0.2.2 || 0.2.3
   - eslint-plugin-harlanzw@0.20.0
+  - '@nuxtjs/robots@7.0.1'
+  - '@nuxtjs/seo@6.0.1'
+  - '@nuxtjs/sitemap@9.0.1'
+  - '@takumi-rs/core-darwin-arm64@2.15.1'
+  - '@takumi-rs/core-darwin-x64@2.15.1'
+  - '@takumi-rs/core-linux-arm64-gnu@2.15.1'
+  - '@takumi-rs/core-linux-arm64-musl@2.15.1'
+  - '@takumi-rs/core-linux-x64-gnu@2.15.1'
+  - '@takumi-rs/core-linux-x64-musl@2.15.1'
+  - '@takumi-rs/core-win32-arm64-msvc@2.15.1'
+  - '@takumi-rs/core-win32-x64-msvc@2.15.1'
+  - '@takumi-rs/core@2.15.1'
+  - '@takumi-rs/helpers@2.15.1'
+  - '@takumi-rs/wasm@2.15.1'
+  - nuxt-ai-ready@3.0.1
+  - nuxt-link-checker@6.0.0
+  - nuxt-og-image@7.0.1
+  - nuxt-schema-org@7.0.0
+  - nuxt-seo-utils@9.0.0
+  - nuxt-site-config-kit@5.0.1
+  - nuxt-site-config@5.0.1
+  - nuxt-skew-protection@2.0.1
+  - nuxtseo-shared@6.0.1
+  - site-config-stack@5.0.1
   - '@nuxt/cli@4.0.0'
   - '@nuxt/kit@4.6.0'
   - '@nuxt/nitro-server@4.6.0'
@@ -61,6 +82,38 @@ trustPolicyExclude:
   - postcss-svgo@9.0.4
   - postcss-unique-selectors@9.0.5
   - stylehacks@9.0.7
+  # @nuxt/vite-builder 4.6.1 moves the family to these releases. Each one has a
+  # trusted publisher and SLSA provenance from github.com/cssnano/cssnano, checked on 2026-10-12.
+  - cssnano@9.6.0
+  - cssnano-preset-default@9.6.0
+  - cssnano-utils@9.0.0
+  - postcss-svgo@9.0.6
+  - postcss-merge-rules@9.1.4
+  - postcss-colormin@9.0.8
+  - postcss-discard-empty@9.0.8
+  - postcss-minify-params@9.0.8
+  - postcss-normalize-url@9.0.7
+  - postcss-ordered-values@9.0.9
+  - postcss-convert-values@9.0.9
+  - postcss-merge-longhand@9.4.0
+  - postcss-reduce-initial@9.0.7
+  - postcss-discard-comments@9.0.8
+  - postcss-minify-gradients@9.0.8
+  - postcss-minify-selectors@9.0.8
+  - postcss-unique-selectors@9.0.6
+  - postcss-normalize-string@9.0.7
+  - postcss-normalize-charset@9.0.6
+  - postcss-normalize-unicode@9.1.1
+  - postcss-reduce-transforms@9.0.6
+  - postcss-discard-duplicates@9.0.7
+  - postcss-discard-overridden@9.0.6
+  - postcss-minify-font-values@9.0.9
+  - postcss-normalize-positions@9.0.8
+  - postcss-normalize-whitespace@9.0.8
+  - postcss-normalize-repeat-style@9.0.7
+  - postcss-normalize-display-values@9.0.7
+  - postcss-normalize-timing-functions@9.0.7
+  - stylehacks@9.0.8
 
 autoInstallPeers: false
 
@@ -74,10 +127,6 @@ shamefullyHoist: true
 shellEmulator: true
 
 overrides:
-  # 8.3.4 calls `globalThis.$fetch.raw` during prerender, which nitro v3 removed.
-  # 8.5.0 resolves the fetch handler from the server entry instead.
-  '@nuxtjs/sitemap': ^8.5.0
-  nuxtseo-shared: ^5.3.14
   oxc-parser: ^0.147.0
   unplugin: ^3.3.0
   vite: ^8.2.2
@@ -108,32 +157,31 @@ catalog:
   '@iconify-json/simple-icons': ^1.2.98
   '@iconify-json/vscode-icons': ^1.2.84
   '@nuxt/a11y': 1.0.0-alpha.1
-  '@nuxt/fonts': ^0.14.0
+  '@nuxt/fonts': ^1.0.1
   '@nuxt/icon': ^2.5.1
   '@nuxt/image': ^2.1.0
   '@nuxt/test-utils': ^4.3.3
   '@nuxt/ui': ^4.11.3
   '@nuxtjs/html-validator': ^2.1.0
-  '@nuxtjs/seo': ^5.3.16
+  '@nuxtjs/seo': ^6.0.1
   '@sentry/cli': ^3.8.0
   '@sentry/nuxt': ^11.4.0
-  '@takumi-rs/core': ^2.14.0
-  '@takumi-rs/wasm': ^2.14.0
+  '@takumi-rs/core': ^2.15.0
+  '@takumi-rs/wasm': ^2.15.0
   '@tiptap/y-tiptap': ^3.0.9
   '@types/node': ^26.6.4
   '@vueuse/core': ^15.0.0
   '@vueuse/nuxt': ^15.0.0
   cheerio: ^1.2.0
   consola: ^3.4.2
+  drizzle-orm: 1.0.0-rc.4
   eslint: ^10.12.0
   eslint-plugin-harlanzw: ^0.23.0
   feed: ^6.0.0
   # Nitro 2 requires H3 1. Keep its app types ahead of module-local H3 2.
   h3: ^1.15.11
-  nuxt: 4.6.0
-  nuxt-ai-ready: ^2.5.1
-  nuxt-skew-protection: ^1.6.1
-  playwright-core: ^1.63.0
+  nuxt: ^4.6.1
+  playwright-core: ^1.64.0
   shiki: ^4.5.0
   # Vue tooling and typescript-eslint do not support TypeScript 7 yet.
   typescript: ^6.0.3
@@ -142,4 +190,4 @@ catalog:
   wrangler: ^4.147.0
   y-protocols: ^1.0.7
   yjs: ^13.6.33
-  zod: ^4.6.5
+  zod: ^4.6.6
