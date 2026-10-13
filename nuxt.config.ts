@@ -75,6 +75,21 @@ export default defineNuxtConfig({
       if (Number.isFinite(published.getTime()))
         content.sitemap = { lastmod: published.toISOString().slice(0, 10) }
     },
+    // A zone rewrite rule serves a prerendered page's `.md` asset for
+    // `Accept: text/markdown`, so the page's HTML must vary on Accept too.
+    // One exact path per page: a `/blog/*` glob also matches `/blog/x.md`,
+    // which `/*.md` already varies, and Cloudflare would send `Accept, Accept`.
+    // See docs/runbooks/markdown-negotiation.md.
+    'nitro:init': function (nitro) {
+      nitro.hooks.hook('prerender:done', ({ prerenderedRoutes }) => {
+        for (const { route, fileName, error } of prerenderedRoutes) {
+          if (error || !fileName?.endsWith('.html'))
+            continue
+          const rule = nitro.options.routeRules[route] ||= {}
+          rule.headers = { ...rule.headers, vary: 'Accept' }
+        }
+      })
+    },
   },
 
   experimental: {
@@ -291,9 +306,11 @@ export default defineNuxtConfig({
     },
     // `/hire` and `/meet` were removed in the Nuxt v4 rewrite with no direct
     // replacement; redirect to the homepage rather than leave them 404ing
-    // for the traffic and backlinks that still land on them.
-    '/hire': { redirect: { to: '/', statusCode: 301 } },
-    '/meet': { redirect: { to: '/', statusCode: 301 } },
+    // for the traffic and backlinks that still land on them. Prerendered, each
+    // becomes a static refresh page that answers 200, so only the Worker can
+    // send the 301.
+    '/hire': { redirect: { to: '/', statusCode: 301 }, prerender: false },
+    '/meet': { redirect: { to: '/', statusCode: 301 }, prerender: false },
     '/sponsors': { prerender: false },
     '/experimental': { prerender: false, robots: false, streaming: true },
   },
