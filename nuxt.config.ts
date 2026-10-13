@@ -65,6 +65,18 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  hooks: {
+    // The sitemap reads a page's `lastmod` from its `sitemap` field, and posts
+    // only carry `publishedAt`. Without this no sitemap URL has a `lastmod`.
+    'content:file:afterParse': function ({ content }) {
+      if (content.sitemap !== undefined || typeof content.publishedAt !== 'string')
+        return
+      const published = new Date(content.publishedAt)
+      if (Number.isFinite(published.getTime()))
+        content.sitemap = { lastmod: published.toISOString().slice(0, 10) }
+    },
+  },
+
   experimental: {
     checkOutdatedBuildInterval: 5 * 60 * 1000,
     ssrStreaming: true,
@@ -90,6 +102,13 @@ export default defineNuxtConfig({
 
   aiReady: {
     database: { type: 'd1', bindingName: 'DB' },
+    // Allow search, AI answers, and AI training. An unset `aiTrain` writes `ai-train=no`.
+    contentSignal: { search: true, aiInput: true, aiTrain: true },
+    // Route prerendered pages through the Worker so `Accept: text/markdown` gets
+    // Markdown. Static assets otherwise answer first with HTML. Each page adds
+    // two of the 100 allowed `run_worker_first` patterns, and the build fails
+    // past that limit.
+    contentNegotiation: true,
   },
 
   githubSponsors: {
@@ -298,6 +317,12 @@ export default defineNuxtConfig({
   nitro: {
     compatibilityDate: {
       cloudflare: '2026-08-08',
+    },
+    prerender: {
+      // Write `/blog/x.html`, not `/blog/x/index.html`. Workers static assets
+      // redirect a bare URL to its subfolder index, so every page answered with
+      // a 307 to a trailing-slash URL that canonical and the sitemap do not use.
+      autoSubfolderIndex: false,
     },
     preset: 'cloudflare-module',
     cloudflare: {
