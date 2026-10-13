@@ -65,6 +65,24 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  hooks: {
+    // A zone rewrite rule serves a prerendered page's `.md` asset for
+    // `Accept: text/markdown`, so the page's HTML must vary on Accept too.
+    // One exact path per page: a `/blog/*` glob also matches `/blog/x.md`,
+    // which `/*.md` already varies, and Cloudflare would send `Accept, Accept`.
+    // See docs/runbooks/markdown-negotiation.md.
+    'nitro:init': function (nitro) {
+      nitro.hooks.hook('prerender:done', ({ prerenderedRoutes }) => {
+        for (const { route, fileName, error } of prerenderedRoutes) {
+          if (error || !fileName?.endsWith('.html'))
+            continue
+          const rule = nitro.options.routeRules[route] ||= {}
+          rule.headers = { ...rule.headers, vary: 'Accept' }
+        }
+      })
+    },
+  },
+
   experimental: {
     checkOutdatedBuildInterval: 5 * 60 * 1000,
     ssrStreaming: true,
@@ -90,6 +108,8 @@ export default defineNuxtConfig({
 
   aiReady: {
     database: { type: 'd1', bindingName: 'DB' },
+    // Allow search, AI answers, and AI training. An unset `aiTrain` writes `ai-train=no`.
+    contentSignal: { search: true, aiInput: true, aiTrain: true },
   },
 
   githubSponsors: {
@@ -277,9 +297,11 @@ export default defineNuxtConfig({
     },
     // `/hire` and `/meet` were removed in the Nuxt v4 rewrite with no direct
     // replacement; redirect to the homepage rather than leave them 404ing
-    // for the traffic and backlinks that still land on them.
-    '/hire': { redirect: { to: '/', statusCode: 301 } },
-    '/meet': { redirect: { to: '/', statusCode: 301 } },
+    // for the traffic and backlinks that still land on them. Prerendered, each
+    // becomes a static refresh page that answers 200, so only the Worker can
+    // send the 301.
+    '/hire': { redirect: { to: '/', statusCode: 301 }, prerender: false },
+    '/meet': { redirect: { to: '/', statusCode: 301 }, prerender: false },
     '/sponsors': { prerender: false },
     '/experimental': { prerender: false, robots: false, streaming: true },
   },
@@ -298,6 +320,12 @@ export default defineNuxtConfig({
   nitro: {
     compatibilityDate: {
       cloudflare: '2026-08-08',
+    },
+    prerender: {
+      // Write `/blog/x.html`, not `/blog/x/index.html`. Workers static assets
+      // redirect a bare URL to its subfolder index, so every page answered with
+      // a 307 to a trailing-slash URL that canonical and the sitemap do not use.
+      autoSubfolderIndex: false,
     },
     preset: 'cloudflare-module',
     cloudflare: {
