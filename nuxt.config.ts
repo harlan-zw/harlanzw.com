@@ -66,15 +66,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   hooks: {
-    // The sitemap reads a page's `lastmod` from its `sitemap` field, and posts
-    // only carry `publishedAt`. Without this no sitemap URL has a `lastmod`.
-    'content:file:afterParse': function ({ content }) {
-      if (content.sitemap !== undefined || typeof content.publishedAt !== 'string')
-        return
-      const published = new Date(content.publishedAt)
-      if (Number.isFinite(published.getTime()))
-        content.sitemap = { lastmod: published.toISOString().slice(0, 10) }
-    },
     // A zone rewrite rule serves a prerendered page's `.md` asset for
     // `Accept: text/markdown`, so the page's HTML must vary on Accept too.
     // One exact path per page: a `/blog/*` glob also matches `/blog/x.md`,

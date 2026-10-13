@@ -15,7 +15,7 @@ minimumReleaseAgeExclude:
   - eslint-plugin-harlanzw@0.20.0
   - '@nuxtjs/robots@7.0.2'
   - '@nuxtjs/seo@6.0.1'
-  - '@nuxtjs/sitemap@9.0.2'
+  - '@nuxtjs/sitemap@9.1.0'
   - '@takumi-rs/core-darwin-arm64@2.15.1'
   - '@takumi-rs/core-darwin-x64@2.15.1'
   - '@takumi-rs/core-linux-arm64-gnu@2.15.1'
@@ -27,11 +27,11 @@ minimumReleaseAgeExclude:
   - '@takumi-rs/core@2.15.1'
   - '@takumi-rs/helpers@2.15.1'
   - '@takumi-rs/wasm@2.15.1'
-  - nuxt-ai-ready@3.0.4
+  - nuxt-ai-ready@3.1.0
   - nuxt-link-checker@6.0.1
   - nuxt-og-image@7.0.3
   - nuxt-schema-org@7.0.1
-  - nuxt-seo-utils@9.0.0
+  - nuxt-seo-utils@9.0.1
   - nuxt-site-config-kit@5.0.3
   - nuxt-site-config@5.0.3
   - nuxt-skew-protection@2.0.2
