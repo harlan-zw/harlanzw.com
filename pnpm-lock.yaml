@@ -6070,8 +6070,8 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
-  nuxt-ai-ready@3.1.0:
-    resolution: {integrity: sha512-2XT/f7PW88tgwKKMYKFfnGRfx1b4yY3wtcHy+l3BTh0savOcWpnlEou3VNgEiSpnJGwpB+2YbuYEFupZEtDFOw==}
+  nuxt-ai-ready@3.2.0:
+    resolution: {integrity: sha512-lw0iqQmicKJTpxyw/jXYVuNVrLnE1ckq7MpvcFthVtSnbyTbdmR5VzPzkhRfZtGUZBpXoEmQEZxIAmq6qCkjeA==}
     engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
@@ -6096,8 +6096,8 @@ packages:
     peerDependencies:
       nuxt: ^4.6.0 || ^5.0.0
 
-  nuxt-og-image@7.0.3:
-    resolution: {integrity: sha512-D2YLYSSH3ZLmFuZ9XejbN3n4jiyohhm5FVvEx/EZZ6SdnFxkWhaVdGaqDVmI0SY1gEj2DJl7k0nk+531Fd8JqQ==}
+  nuxt-og-image@7.0.4:
+    resolution: {integrity: sha512-F9ScOY9JHHwtJ7u7zEt4ScToFw666/idHOCxh5y+6m8O7e7fhZLhUoIebVKlabxr7HYF8WtbggXofTrDjBhJVQ==}
     engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
@@ -10566,9 +10566,9 @@ snapshots:
       '@nuxtjs/robots': 7.0.2(67fb454324b32b6e332257ed718daf7d)
       '@nuxtjs/sitemap': 9.1.0(a90de7310c7dd97da1010adf7ad8d8c0)
       nuxt: 4.6.1(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.147.0)(@types/node@26.6.4)(@vue/compiler-sfc@3.5.43)(acorn@8.18.0)(confbox@0.3.1)(db0@0.3.4(drizzle-orm@1.0.0-rc.4(@cloudflare/workers-types@5.20261005.1)(@opentelemetry/api@1.9.1)(zod@4.6.6)))(dotenv@17.4.2)(drizzle-orm@1.0.0-rc.4(@cloudflare/workers-types@5.20261005.1)(@opentelemetry/api@1.9.1)(zod@4.6.6))(esbuild@0.28.2)(eslint@10.12.0(jiti@2.7.0)(supports-color@10.2.2))(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.147.0)(rolldown@1.2.4)(rollup-plugin-visualizer@7.0.1(rolldown@1.2.4)(rollup@4.62.4))(rollup@4.62.4)(srvx@1.0.5)(supports-color@10.2.2)(terser@5.50.0)(typescript@6.0.3)(vite@8.2.2(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.1))(vue-tsc@3.3.12(typescript@6.0.3))(yaml@2.9.1)
-      nuxt-ai-ready: 3.1.0(4f2fbd1d4a0d6e603a4b74972869a332)
+      nuxt-ai-ready: 3.2.0(4f2fbd1d4a0d6e603a4b74972869a332)
       nuxt-link-checker: 6.0.1(bb3d754442dc3efa9bde29be43cc154e)
-      nuxt-og-image: 7.0.3(b341208ef758085ae00d061b6f23117e)
+      nuxt-og-image: 7.0.4(b341208ef758085ae00d061b6f23117e)
       nuxt-schema-org: 7.0.1(c65e217086fd436448714d13f29a9564)
       nuxt-seo-utils: 9.0.1(eda5ce2facb83401a5343bd7b2cabed7)
       nuxt-site-config: 5.0.3(67fb454324b32b6e332257ed718daf7d)
@@ -14686,7 +14686,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxt-ai-ready@3.1.0(4f2fbd1d4a0d6e603a4b74972869a332):
+  nuxt-ai-ready@3.2.0(4f2fbd1d4a0d6e603a4b74972869a332):
     dependencies:
       '@mdream/js': 2.0.1
       '@nuxt/kit': 4.6.1(@nuxt/schema@4.6.1)(confbox@0.3.1)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(magic-string@1.4.3)(mlly@1.8.2)(oxc-parser@0.147.0)(rolldown@1.2.4)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.4)(rollup@4.62.4)(vite@8.2.2(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.1)))
@@ -14773,7 +14773,7 @@ snapshots:
       - vue
       - zod
 
-  nuxt-og-image@7.0.3(b341208ef758085ae00d061b6f23117e):
+  nuxt-og-image@7.0.4(b341208ef758085ae00d061b6f23117e):
     dependencies:
       '@clack/prompts': 1.8.1
       '@nuxt/kit': 4.6.1(@nuxt/schema@4.6.1)(confbox@0.3.1)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(magic-string@1.4.3)(mlly@1.8.2)(oxc-parser@0.147.0)(rolldown@1.2.4)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.4)(rollup@4.62.4)(vite@8.2.2(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.1)))
