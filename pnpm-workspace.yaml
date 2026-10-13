@@ -3,6 +3,21 @@ minimumReleaseAgeExcludePrune: true
 # Temporary exceptions for packages verified during this migration. The active
 # supply-chain policy blocks them until they age beyond its cutoff.
 minimumReleaseAgeExclude:
+  - '@mdream/js@2.0.3'
+  - '@mdream/rust-android-arm-eabi@2.0.3'
+  - '@mdream/rust-android-arm64@2.0.3'
+  - '@mdream/rust-darwin-arm64@2.0.3'
+  - '@mdream/rust-darwin-x64@2.0.3'
+  - '@mdream/rust-freebsd-x64@2.0.3'
+  - '@mdream/rust-linux-arm-gnueabihf@2.0.3'
+  - '@mdream/rust-linux-arm64-gnu@2.0.3'
+  - '@mdream/rust-linux-arm64-musl@2.0.3'
+  - '@mdream/rust-linux-x64-gnu@2.0.3'
+  - '@mdream/rust-linux-x64-musl@2.0.3'
+  - '@mdream/rust-wasm32-wasi@2.0.3'
+  - '@mdream/rust-win32-arm64-msvc@2.0.3'
+  - '@mdream/rust-win32-x64-msvc@2.0.3'
+  - mdream@2.0.3
   - '@harlan-zw/comark-content@0.1.5 || 0.2.0'
   - '@harlan-zw/nuxt-checkin@0.4.0'
   - '@harlan-zw/nuxt-cloudflare@0.5.0'
@@ -27,7 +42,7 @@ minimumReleaseAgeExclude:
   - '@takumi-rs/core@2.15.1'
   - '@takumi-rs/helpers@2.15.1'
   - '@takumi-rs/wasm@2.15.1'
-  - nuxt-ai-ready@3.2.0
+  - nuxt-ai-ready@3.3.1
   - nuxt-link-checker@6.0.1
   - nuxt-og-image@7.0.4
   - nuxt-schema-org@7.0.1
