@@ -34,9 +34,8 @@
     }
   ],
   // The module now honours these rates instead of forcing its 1% default. This
-  // Worker also runs first for every prerendered page, because
-  // `aiReady.contentNegotiation` routes them through it. Each page view is a
-  // metered event at these rates.
+  // Worker only runs for API routes and pages that are not prerendered, so the
+  // event volume stays small and full logs are worth the metered events.
   "observability": {
     "enabled": true,
     "logs": {
