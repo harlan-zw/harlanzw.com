@@ -6,6 +6,8 @@ export interface BuildWarning {
   names?: string[]
 }
 
+const NITRO_SERVER_COOKIE_HELPERS = new Set(['deleteCookie', 'parseCookies'])
+
 export function isExpectedNitroBuildWarning(warning: BuildWarning): boolean {
   if (warning.code === 'CIRCULAR_DEPENDENCY' || warning.code === 'EVAL')
     return true
@@ -14,8 +16,14 @@ export function isExpectedNitroBuildWarning(warning: BuildWarning): boolean {
     return true
 
   if (warning.code === 'UNUSED_EXTERNAL_IMPORT') {
-    return warning.ids?.some(id => id.endsWith('/node_modules/@nuxt/nitro-server/dist/h3.mjs')) === true
-      && warning.names?.includes('H3Event') === true
+    const importedBy = (suffix: string) => warning.ids?.some(id => id.endsWith(suffix)) === true
+    if (importedBy('/node_modules/@nuxt/nitro-server/dist/h3.mjs'))
+      return warning.names?.includes('H3Event') === true
+    // Nuxt 4.6.1's server runtime imports cookie helpers that a build without
+    // cookie handling never calls.
+    if (importedBy('/node_modules/@nuxt/nitro-server/dist/runtime/server.mjs'))
+      return warning.names?.every(name => NITRO_SERVER_COOKIE_HELPERS.has(name)) === true
+    return false
   }
 
   return warning.code === 'INVALID_ANNOTATION'

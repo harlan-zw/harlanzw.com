@@ -1,4 +1,8 @@
-export default defineAppConfig({
+import type { AppConfigInput } from 'nuxt/schema'
+
+// A plain object, not `defineAppConfig()`. The Nitro bundle also loads this file,
+// and with Nuxt 5 compatibility Nitro has no auto-import to define that helper.
+const appConfig = {
   ui: {
     colors: {
       primary: 'emerald',
@@ -40,4 +44,6 @@ export default defineAppConfig({
       },
     },
   },
-})
+}
+
+export default appConfig satisfies AppConfigInput

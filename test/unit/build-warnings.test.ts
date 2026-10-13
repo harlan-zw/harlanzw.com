@@ -17,8 +17,23 @@ describe('isExpectedNitroBuildWarning', () => {
       message: '"H3Event" is imported from external module "h3" but never used',
       names: ['H3Event'],
     },
+    {
+      code: 'UNUSED_EXTERNAL_IMPORT',
+      ids: ['/project/node_modules/.pnpm/@nuxt+nitro-server@4.6.1/node_modules/@nuxt/nitro-server/dist/runtime/server.mjs'],
+      message: '"parseCookies" is imported from external module "h3" but never used',
+      names: ['parseCookies'],
+    },
   ])('ignores expected Nitro warning $code', (warning) => {
     expect(isExpectedNitroBuildWarning(warning)).toBe(true)
+  })
+
+  it('preserves an unused import the Nitro server runtime does not own', () => {
+    expect(isExpectedNitroBuildWarning({
+      code: 'UNUSED_EXTERNAL_IMPORT',
+      ids: ['/project/node_modules/@nuxt/nitro-server/dist/runtime/server.mjs'],
+      message: '"readBody" is imported from external module "h3" but never used',
+      names: ['readBody'],
+    })).toBe(false)
   })
 
   it('preserves unrelated invalid annotation warnings', () => {
