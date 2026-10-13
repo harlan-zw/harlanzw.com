@@ -45,7 +45,7 @@ On projects I maintain myself, I use AI to help write code and pull request desc
 
 When Harlan Agent Kit drafts or edits a description, the pull request links back to this page and includes this:
 
-> 🤖 AI disclosure: [Harlan Agent Kit](https://github.com/harlan-zw/harlan-agent-kit) modified this description. [My AI open-source policy](https://harlanzw.com/blog/ai-in-open-source).
+> 🤖 AI disclosure: [Harlan Agent Kit](https://github.com/harlan-zw/harlan-agent-kit) modified this description. [My AI open-source policy](/blog/ai-in-open-source).
 
 The description still needs to help someone review the change. AI involvement is no excuse for a wall of text or claims that nobody checked.
 
@@ -57,7 +57,7 @@ If the agent finds a real problem and has permission to fix it, it pushes a norm
 
 The final status is posted as one bot comment. It names the exact commit reviewed, says what remains uncertain and starts with:
 
-> 🤖 Bot review: [Harlan Agent Kit](https://github.com/harlan-zw/harlan-agent-kit) posted this comment. It is not Harlan's personal review or approval. [My AI open-source policy](https://harlanzw.com/blog/ai-in-open-source).
+> 🤖 Bot review: [Harlan Agent Kit](https://github.com/harlan-zw/harlan-agent-kit) posted this comment. It is not Harlan's personal review or approval. [My AI open-source policy](/blog/ai-in-open-source).
 
 Later runs update the same comment instead of adding more noise. The bot never approves or merges a pull request. That decision stays with a human.
 

@@ -86,7 +86,7 @@ Using a prefix avoids conflicts with HTML tags and third-party components. It al
 Prefixing becomes especially important when working with a component library ([Vuetify](https://vuetifyjs.com/), [VueStrap](https://yuche.github.io/vue-strap/), etc) or third-party components
 ([algolia](https://github.com/algolia/vue-instantsearch), [google maps](https://github.com/xkjyeah/vue-google-maps), etc).
 
-You should use something which relates to your app, for example, I use `h` as the prefix because my site is harlanzw.com.
+You should use something which relates to your app, for example, I use `h` as the prefix because my site is [harlanzw.com](/).
 
 ```vue
 <template>
