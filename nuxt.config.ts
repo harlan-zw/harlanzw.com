@@ -107,6 +107,7 @@ export default defineNuxtConfig({
   },
 
   aiReady: {
+    llmsTxt: { directive: { html: true } },
     database: { type: 'd1', bindingName: 'DB' },
     // Allow search, AI answers, and AI training. An unset `aiTrain` writes `ai-train=no`.
     contentSignal: { search: true, aiInput: true, aiTrain: true },
