@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { resolveEmbedUrl } from '~/utils/embed-url'
+
 const { src, embed, alt, caption, width, height, displayWidth = 1200 } = defineProps<{
   src: string
   embed?: string
@@ -14,7 +16,7 @@ const zoomImage = useTemplateRef('zoomImage')
 const dialog = useTemplateRef('dialog')
 const reducedMotion = usePreferredReducedMotion()
 const colorMode = useColorMode()
-const embedUrl = computed(() => embed ? `${embed}?present=1&theme=${colorMode.value === 'dark' ? 'dark' : 'light'}` : undefined)
+const embedUrl = computed(() => resolveEmbedUrl(embed, colorMode.value === 'dark' ? 'dark' : 'light'))
 
 function openZoom() {
   if (!image.value || !dialog.value || !zoomImage.value)
