@@ -35,6 +35,14 @@ describe('nuxt config site urls', () => {
     const trailingSlash = (nuxtConfig as { site?: { trailingSlash?: boolean } }).site?.trailingSlash
     expect(trailingSlash).toBe(false)
   })
+
+  it('does not prerender the externally served factory diagram', async () => {
+    Object.assign(globalThis, { defineNuxtConfig: (config: unknown) => config })
+    const { default: nuxtConfig } = await import('../../nuxt.config')
+
+    const routeRules = (nuxtConfig as { routeRules?: Record<string, { prerender?: boolean }> }).routeRules
+    expect(routeRules?.['/blog/ai-workflow/factory/**']?.prerender).toBe(false)
+  })
 })
 
 describe('nuxt config sentry policy', () => {
