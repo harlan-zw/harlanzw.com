@@ -292,6 +292,9 @@ export default defineNuxtConfig({
     },
     '/api/**': { prerender: false, robots: false },
     '/blog/ai-workflow/factory/**': {
+      // This diagram is served by the production static asset store. It has no
+      // local Nuxt route, so following the article iframe during prerender fails.
+      prerender: false,
       robots: false,
       // CSP overrides X-Frame-Options without duplicate static header values.
       headers: { 'content-security-policy': 'frame-ancestors \'self\'' },
