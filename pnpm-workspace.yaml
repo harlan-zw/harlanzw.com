@@ -18,13 +18,13 @@ minimumReleaseAgeExclude:
   - '@mdream/rust-win32-arm64-msvc@2.0.3'
   - '@mdream/rust-win32-x64-msvc@2.0.3'
   - mdream@2.0.3
-  - '@harlan-zw/comark-content@0.1.5 || 0.2.0'
+  - '@harlan-zw/comark-content@0.1.5 || 0.2.0 || 0.2.2'
   - '@harlan-zw/nuxt-checkin@0.4.0'
   - '@harlan-zw/nuxt-cloudflare@0.5.0'
   - '@harlan-zw/nuxt-dx@0.2.0 || 0.3.0'
   - '@harlan-zw/nuxt-github-sponsors@0.1.4 || 0.2.0'
   - '@harlan-zw/nuxt-sentry@0.3.0'
-  - '@cloudflare/workers-types@5.20260826.1'
+  - '@cloudflare/workers-types@5.20260826.1 || 5.20261014.1'
   - '@nuxt/icon@2.5.0'
   - sitemapd@0.2.2 || 0.2.3
   - eslint-plugin-harlanzw@0.20.0
@@ -62,6 +62,8 @@ minimumReleaseAgeExclude:
   - '@nuxt/vite-builder@4.6.0'
   - '@nuxt/vite-server@4.6.0'
   - nuxt@4.6.0
+  - miniflare@5.20261006.2-beta
+  - wrangler@4.150.0
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 262800
@@ -158,10 +160,10 @@ allowBuilds:
 
 catalog:
   '@antfu/eslint-config': ^9.5.1
-  '@cloudflare/workers-types': 5.20261005.1
-  '@harlan-zw/comark-content': 0.2.0
-  '@harlan-zw/nuxt-checkin': 0.4.0
-  '@harlan-zw/nuxt-cloudflare': 0.5.0
+  '@cloudflare/workers-types': 5.20261014.1
+  '@harlan-zw/comark-content': 0.2.2
+  '@harlan-zw/nuxt-checkin': 0.4.1
+  '@harlan-zw/nuxt-cloudflare': 0.5.1
   '@harlan-zw/nuxt-dx': 0.3.0
   '@harlan-zw/nuxt-github-sponsors': 0.2.0
   '@harlan-zw/nuxt-sentry': 0.3.0
@@ -169,11 +171,11 @@ catalog:
   '@iconify-json/emojione-v1': ^1.2.3
   '@iconify-json/ic': ^1.2.4
   '@iconify-json/line-md': ^1.2.16
-  '@iconify-json/logos': ^1.2.15
-  '@iconify-json/lucide': ^1.2.139
+  '@iconify-json/logos': ^1.2.16
+  '@iconify-json/lucide': ^1.2.143
   '@iconify-json/noto': ^1.2.9
-  '@iconify-json/simple-icons': ^1.2.98
-  '@iconify-json/vscode-icons': ^1.2.84
+  '@iconify-json/simple-icons': ^1.2.100
+  '@iconify-json/vscode-icons': ^1.2.88
   '@nuxt/a11y': 1.0.0-alpha.1
   '@nuxt/fonts': ^1.0.1
   '@nuxt/icon': ^2.5.1
@@ -183,11 +185,11 @@ catalog:
   '@nuxtjs/html-validator': ^2.1.0
   '@nuxtjs/seo': ^6.0.1
   '@sentry/cli': ^3.8.0
-  '@sentry/nuxt': ^11.4.0
+  '@sentry/nuxt': ^11.7.0
   '@takumi-rs/core': ^2.15.0
   '@takumi-rs/wasm': ^2.15.0
   '@tiptap/y-tiptap': ^3.0.9
-  '@types/node': ^26.6.4
+  '@types/node': ^26.6.5
   '@vueuse/core': ^15.0.0
   '@vueuse/nuxt': ^15.0.0
   cheerio: ^1.2.0
@@ -203,9 +205,9 @@ catalog:
   shiki: ^4.5.0
   # Vue tooling and typescript-eslint do not support TypeScript 7 yet.
   typescript: ^6.0.3
-  vitest: ^5.0.3
-  vue-tsc: ^3.3.12
-  wrangler: ^4.147.0
+  vitest: ^5.0.4
+  vue-tsc: ^3.3.13
+  wrangler: ^4.150.0
   y-protocols: ^1.0.7
   yjs: ^13.6.33
-  zod: ^4.6.6
+  zod: ^4.6.7
