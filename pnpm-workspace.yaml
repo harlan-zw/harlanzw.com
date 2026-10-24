@@ -24,24 +24,24 @@ minimumReleaseAgeExclude:
   - '@harlan-zw/nuxt-dx@0.2.0 || 0.3.0'
   - '@harlan-zw/nuxt-github-sponsors@0.1.4 || 0.2.0'
   - '@harlan-zw/nuxt-sentry@0.3.0'
-  - '@cloudflare/workers-types@5.20260826.1 || 5.20261014.1'
+  - '@cloudflare/workers-types@5.20260826.1 || 5.20261014.1 || 5.20261021.1'
   - '@nuxt/icon@2.5.0'
   - sitemapd@0.2.2 || 0.2.3
   - eslint-plugin-harlanzw@0.20.0
   - '@nuxtjs/robots@7.0.2'
   - '@nuxtjs/seo@6.0.1'
   - '@nuxtjs/sitemap@9.1.0'
-  - '@takumi-rs/core-darwin-arm64@2.15.1'
-  - '@takumi-rs/core-darwin-x64@2.15.1'
-  - '@takumi-rs/core-linux-arm64-gnu@2.15.1'
-  - '@takumi-rs/core-linux-arm64-musl@2.15.1'
-  - '@takumi-rs/core-linux-x64-gnu@2.15.1'
-  - '@takumi-rs/core-linux-x64-musl@2.15.1'
-  - '@takumi-rs/core-win32-arm64-msvc@2.15.1'
-  - '@takumi-rs/core-win32-x64-msvc@2.15.1'
-  - '@takumi-rs/core@2.15.1'
-  - '@takumi-rs/helpers@2.15.1'
-  - '@takumi-rs/wasm@2.15.1'
+  - '@takumi-rs/core-darwin-arm64@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-darwin-x64@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-linux-arm64-gnu@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-linux-arm64-musl@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-linux-x64-gnu@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-linux-x64-musl@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-win32-arm64-msvc@2.15.1 || 2.17.1'
+  - '@takumi-rs/core-win32-x64-msvc@2.15.1 || 2.17.1'
+  - '@takumi-rs/core@2.15.1 || 2.17.1'
+  - '@takumi-rs/helpers@2.15.1 || 2.17.1'
+  - '@takumi-rs/wasm@2.15.1 || 2.17.1'
   - nuxt-ai-ready@3.3.1
   - nuxt-link-checker@6.0.1
   - nuxt-og-image@7.0.4
@@ -63,7 +63,7 @@ minimumReleaseAgeExclude:
   - '@nuxt/vite-server@4.6.0'
   - nuxt@4.6.0
   - miniflare@5.20261006.2-beta
-  - wrangler@4.150.0
+  - wrangler@4.150.0 || 4.151.3
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 262800
@@ -160,7 +160,7 @@ allowBuilds:
 
 catalog:
   '@antfu/eslint-config': ^9.5.1
-  '@cloudflare/workers-types': 5.20261014.1
+  '@cloudflare/workers-types': 5.20261021.1
   '@harlan-zw/comark-content': 0.2.2
   '@harlan-zw/nuxt-checkin': 0.4.1
   '@harlan-zw/nuxt-cloudflare': 0.5.1
@@ -171,43 +171,43 @@ catalog:
   '@iconify-json/emojione-v1': ^1.2.3
   '@iconify-json/ic': ^1.2.4
   '@iconify-json/line-md': ^1.2.16
-  '@iconify-json/logos': ^1.2.16
-  '@iconify-json/lucide': ^1.2.143
+  '@iconify-json/logos': ^1.2.17
+  '@iconify-json/lucide': ^1.2.147
   '@iconify-json/noto': ^1.2.9
   '@iconify-json/simple-icons': ^1.2.100
-  '@iconify-json/vscode-icons': ^1.2.88
+  '@iconify-json/vscode-icons': ^1.2.92
   '@nuxt/a11y': 1.0.0-alpha.1
   '@nuxt/fonts': ^1.0.1
   '@nuxt/icon': ^2.5.1
-  '@nuxt/image': ^2.1.0
-  '@nuxt/test-utils': ^4.3.3
-  '@nuxt/ui': ^4.11.3
+  '@nuxt/image': ^2.2.0
+  '@nuxt/test-utils': ^4.3.4
+  '@nuxt/ui': ^4.12.0
   '@nuxtjs/html-validator': ^2.1.0
   '@nuxtjs/seo': ^6.0.1
   '@sentry/cli': ^3.8.0
-  '@sentry/nuxt': ^11.7.0
-  '@takumi-rs/core': ^2.15.0
-  '@takumi-rs/wasm': ^2.15.0
-  '@tiptap/y-tiptap': ^3.0.9
+  '@sentry/nuxt': ^11.8.0
+  '@takumi-rs/core': ^2.17.1
+  '@takumi-rs/wasm': ^2.17.1
+  '@tiptap/y-tiptap': ^3.0.10
   '@types/node': ^26.6.5
   '@vueuse/core': ^15.0.0
   '@vueuse/nuxt': ^15.0.0
   cheerio: ^1.2.0
   consola: ^3.4.2
   drizzle-orm: 1.0.0-rc.4
-  eslint: ^10.12.0
+  eslint: ^10.13.0
   eslint-plugin-harlanzw: ^0.23.0
   feed: ^6.0.0
   # Nitro 2 requires H3 1. Keep its app types ahead of module-local H3 2.
   h3: ^1.15.11
-  nuxt: ^4.6.1
-  playwright-core: ^1.64.0
+  nuxt: ^4.6.2
+  playwright-core: ^1.64.1
   shiki: ^4.5.0
   # Vue tooling and typescript-eslint do not support TypeScript 7 yet.
   typescript: ^6.0.3
-  vitest: ^5.0.4
+  vitest: ^5.0.5
   vue-tsc: ^3.3.13
-  wrangler: ^4.150.0
+  wrangler: ^4.151.3
   y-protocols: ^1.0.7
   yjs: ^13.6.33
   zod: ^4.6.7

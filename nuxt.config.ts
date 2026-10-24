@@ -87,6 +87,10 @@ export default defineNuxtConfig({
     checkOutdatedBuildInterval: 5 * 60 * 1000,
     ssrStreaming: true,
     strictRouteTypes: true,
+    // Nuxt 4.6.2 empties nitro auto-import presets under compatibilityVersion 5,
+    // which breaks nitro's own cloudflare dev plugin (`getRequestURL` import).
+    // Keep them on until Nuxt restores the presets.
+    nitroAutoImports: true,
   },
 
   runtimeConfig: {
