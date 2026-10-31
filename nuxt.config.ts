@@ -10,6 +10,9 @@ export default defineNuxtConfig({
 
   features: {
     devLogs: false,
+    // Nuxt's default only inlines Vue styles. Include the global Tailwind
+    // and Nuxt UI styles so the first paint needs no entry CSS request.
+    inlineStyles: true,
   },
 
   compatibilityDate: '2026-08-10',
