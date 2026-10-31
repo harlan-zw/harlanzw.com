@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getReadingMinutes, groupPostsByYear } from '../../app/utils/content'
+import { getReadingMinutes, groupPostsByYear, toPostCard } from '../../app/utils/content'
 
 describe('getReadingMinutes', () => {
   it('counts only prose text and rounds up at 220 words', () => {
@@ -28,5 +28,31 @@ describe('groupPostsByYear', () => {
     const groups = groupPostsByYear(posts)
     expect(groups.map(group => group.year)).toEqual(['2026', '2024'])
     expect(groups[0]?.posts[0]?.path).toBe('/blog/new')
+  })
+})
+
+describe('toPostCard', () => {
+  it('keeps card details and calculates reading time before omitting article content', () => {
+    const body = {
+      frontmatter: {},
+      meta: {},
+      nodes: [['p', {}, Array.from({ length: 221 }).fill('word').join(' ')]],
+    }
+
+    expect(toPostCard({
+      path: '/blog/example',
+      title: 'Example',
+      description: 'An example article',
+      publishedAt: '2026-10-31',
+      status: 'published',
+      body,
+    })).toEqual({
+      path: '/blog/example',
+      title: 'Example',
+      description: 'An example article',
+      publishedAt: '2026-10-31',
+      status: 'published',
+      readingMinutes: 2,
+    })
   })
 })

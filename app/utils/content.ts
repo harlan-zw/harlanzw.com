@@ -1,4 +1,5 @@
 import type { MarkdownRoot, MinimarkNode } from '@harlan-zw/comark-content'
+import type { SitePage } from '#shared/types'
 
 const wordsPerMinute = 220
 
@@ -18,6 +19,17 @@ export function getReadingMinutes(body: MarkdownRoot): number {
     .length
 
   return Math.max(1, Math.ceil(wordCount / wordsPerMinute))
+}
+
+export function toPostCard(post: Pick<SitePage, 'path' | 'title' | 'description' | 'publishedAt' | 'status' | 'body'>) {
+  return {
+    path: post.path,
+    title: post.title,
+    description: post.description,
+    publishedAt: post.publishedAt,
+    status: post.status,
+    readingMinutes: getReadingMinutes(post.body),
+  }
 }
 
 export function groupPostsByYear<T extends { publishedAt?: string }>(posts: T[]): Array<{ year: string, posts: T[] }> {

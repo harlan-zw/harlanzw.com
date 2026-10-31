@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import type { SitePage } from '#shared/types'
-import { getReadingMinutes } from '~/utils/content'
+import type { toPostCard } from '~/utils/content'
 
-const { post } = defineProps<{ post: SitePage }>()
-const readingMins = computed(() => getReadingMinutes(post.body))
+const { post } = defineProps<{ post: ReturnType<typeof toPostCard> }>()
 </script>
 
 <template>
@@ -14,7 +12,7 @@ const readingMins = computed(() => getReadingMinutes(post.body))
           {{ post.title }}
         </h3>
         <p class="text-sm text-muted">
-          {{ readingMins }} min read
+          {{ post.readingMinutes }} min read
         </p>
         <p class="text-base leading-7 text-muted">
           {{ post.description }}
