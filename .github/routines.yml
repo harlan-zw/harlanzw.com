@@ -29,6 +29,20 @@ routines:
     timezone: Australia/Melbourne
     mode: propose
     enabled: true
+  - name: seo-review
+    on:
+      schedule:
+        - cron: '40 9 * * 2'
+    timezone: Australia/Sydney
+    mode: propose
+    enabled: true
+  - name: vitals-review
+    on:
+      schedule:
+        - cron: '40 10 * * 3'
+    timezone: Australia/Sydney
+    mode: propose
+    enabled: true
   - name: d1-query-review
     on:
       schedule:
