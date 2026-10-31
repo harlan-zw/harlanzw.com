@@ -5,6 +5,7 @@ const { data: newsletters } = await useAsyncData(`posts:newsletters:${limit}`, (
   .where('newsletter', '=', true)
   .order('publishedAt', 'DESC')
   .limit(Number(limit))
+  .select('path', 'title')
   .all())
 </script>
 

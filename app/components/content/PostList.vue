@@ -1,11 +1,15 @@
 <script lang="ts" setup>
+import { toPostCard } from '~/utils/content'
+
 const { limit = 10 } = defineProps<{ limit?: number }>()
 const { data } = await useAsyncData('posts:articles', () => queryCollection('pages')
   .where('path', 'LIKE', '/blog/%')
   .where('newsletter', '=', false)
   .order('publishedAt', 'DESC')
   .limit(limit)
-  .all())
+  .all(), {
+  transform: posts => posts.map(toPostCard),
+})
 const postGroups = computed(() => groupPostsByYear(data.value ?? []))
 </script>
 
