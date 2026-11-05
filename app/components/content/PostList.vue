@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import { toPostCard } from '~/utils/content'
 
-const { limit = 10 } = defineProps<{ limit?: number }>()
 const { data } = await useAsyncData('posts:articles', () => queryCollection('pages')
   .where('path', 'LIKE', '/blog/%')
   .where('newsletter', '=', false)
+  .where('status', '<>', 'unlisted')
   .order('publishedAt', 'DESC')
-  .limit(limit)
   .all(), {
   transform: posts => posts.map(toPostCard),
 })
@@ -23,7 +22,7 @@ const postGroups = computed(() => groupPostsByYear(data.value ?? []))
             {{ group.year }}
           </div>
           <div>
-            <PostCard v-for="post in group.posts.filter(post => post.status !== 'unlisted')" :key="post.path" :post="post" />
+            <PostCard v-for="post in group.posts" :key="post.path" :post="post" />
           </div>
         </div>
       </div>
