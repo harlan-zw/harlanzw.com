@@ -1,6 +1,6 @@
 ---
-title: "Nuxt 3 Migration Simplified: A Cheat Sheet"
-description: "A simplified cheat sheet for migrating from Nuxt 2 to Nuxt 3. Includes a list of all the changes you need to make to your Nuxt 2 project to get it working with Nuxt 3."
+title: "Nuxt 2 to Nuxt 3 Migration: A Cheat Sheet"
+description: "A step-by-step cheat sheet for migrating a Nuxt 2 app to Nuxt 3: resources, preparing your Nuxt 2 app, the migration itself, and upgrade notes for 23 modules."
 publishedAt: "2022-12-27"
 aside: false
 tags:
