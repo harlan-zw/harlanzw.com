@@ -310,6 +310,10 @@ export default defineNuxtConfig({
     // send the 301.
     '/hire': { redirect: { to: '/', statusCode: 301 }, prerender: false },
     '/meet': { redirect: { to: '/', statusCode: 301 }, prerender: false },
+    // Removed pages that external sites still link to. Each redirects to the
+    // project the page described, so the link keeps its meaning.
+    '/blog/building-unlighthouse': { redirect: { to: 'https://unlighthouse.dev/', statusCode: 301 }, prerender: false },
+    '/export-blockfolio': { redirect: { to: 'https://github.com/harlan-zw/blockfolio-php', statusCode: 301 }, prerender: false },
     '/sponsors': { prerender: false },
     '/experimental': { prerender: false, robots: false, streaming: true },
   },
