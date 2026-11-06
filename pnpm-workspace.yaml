@@ -200,7 +200,7 @@ catalog:
   feed: ^6.0.0
   # Nitro 2 requires H3 1. Keep its app types ahead of module-local H3 2.
   h3: ^1.15.11
-  nuxt: ^4.6.2
+  nuxt: ^4.6.3
   playwright-core: ^1.64.1
   shiki: ^4.5.0
   # Vue tooling and typescript-eslint do not support TypeScript 7 yet.
