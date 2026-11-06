@@ -5,6 +5,8 @@ import { describe, expect, it } from 'vitest'
 describe('blog directory', async () => {
   await setup({
     dev: true,
+    // Disable unused parent-build HMR. The CLI child pins HMR to its HTTP port.
+    nuxtConfig: { vite: { server: { hmr: false, ws: false } } },
     rootDir: fileURLToPath(new URL('../..', import.meta.url)),
     setupTimeout: 120_000,
   })
