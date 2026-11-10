@@ -146,6 +146,9 @@ peerDependencyRules:
 shamefullyHoist: true
 shellEmulator: true
 
+packages:
+  - tools/typecheck
+
 overrides:
   oxc-parser: ^0.147.0
   unplugin: ^3.3.0
@@ -201,6 +204,8 @@ catalog:
   feed: ^6.0.0
   # Nitro 2 requires H3 1. Keep its app types ahead of module-local H3 2.
   h3: ^1.15.11
+  jsonc-parser: 3.3.1
+
   nuxt: ^4.6.2
   playwright-core: ^1.64.1
   shiki: ^4.5.0
@@ -212,3 +217,8 @@ catalog:
   y-protocols: ^1.0.7
   yjs: ^13.6.33
   zod: ^4.6.7
+
+catalogs:
+  native:
+    '@vue/content-mapper': 4.0.0-alpha.3
+    typescript: 7.1.0-beta

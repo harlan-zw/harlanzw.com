@@ -9,7 +9,7 @@ import { site } from '#shared/site'
         :src="site.logo"
         width="80"
         height="80"
-        :alt="site.name"
+        v-bind="{ alt: site.name } satisfies { alt?: string }"
         provider="cloudinary"
         class="mr-3 size-10 rounded-lg transition-[box-shadow,transform] duration-150 group-hover:scale-[1.03] group-hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none"
       />

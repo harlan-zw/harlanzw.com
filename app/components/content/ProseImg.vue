@@ -40,14 +40,12 @@ const dimensions = computed(() => resolveContentImageDimensions(props))
     >
     <NuxtImg
       v-else
-      v-bind="$attrs"
       format="auto"
-      :alt="alt || label"
+      v-bind="{ ...$attrs, alt: alt || label, loading: loadingType } satisfies { alt?: string, loading: 'eager' | 'lazy' }"
       :width="dimensions.width"
       :height="dimensions.height"
       :style="dimensions.style"
       :src="src"
-      :loading="loadingType"
       provider="cloudinary"
       class="max-h-[700px] rounded"
     />

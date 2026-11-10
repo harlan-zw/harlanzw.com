@@ -5,13 +5,13 @@ import { site } from '#shared/site'
 <template>
   <div class="home-duality grid gap-24 lg:grid-cols-2 lg:gap-0">
     <section aria-label="Harlan Wilton" class="human-home relative z-1 min-w-0 lg:pr-16">
-      <NuxtImg :src="site.logo" provider="cloudinary" width="80" height="80" alt="Harlan Wilton" class="mb-5 size-20 rounded-full" />
+      <NuxtImg :src="site.logo" provider="cloudinary" width="80" height="80" v-bind="{ alt: 'Harlan Wilton' } satisfies { alt?: string }" class="mb-5 size-20 rounded-full" />
       <div class="identity-content">
         <slot name="human" />
       </div>
     </section>
     <section aria-label="Harlan GitHub Agent" class="agent-home dark relative z-1 min-w-0 lg:pl-16">
-      <NuxtImg src="/agent-avatar.png" width="80" height="80" densities="1x 2x" format="webp" alt="Harlan GitHub Agent" class="mb-5 size-20 rounded-sm" />
+      <NuxtImg src="/agent-avatar.png" width="80" height="80" densities="1x 2x" format="webp" v-bind="{ alt: 'Harlan GitHub Agent' } satisfies { alt?: string }" class="mb-5 size-20 rounded-sm" />
       <div class="identity-content">
         <slot name="agent" />
         <HomeAgentWork />
