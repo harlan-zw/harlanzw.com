@@ -31,10 +31,11 @@
     "lint": "eslint .",
     "lint:ci": "eslint . --cache --cache-strategy content",
     "lint:fix": "eslint . --fix",
-    "typecheck": "nuxt typecheck",
+    "typecheck": "nuxt prepare && site-typecheck --noEmit --incremental false",
     "test": "vitest",
     "test:run": "vitest run",
-    "checkin": "nuxt-checkin prepare && nuxt-checkin --save"
+    "checkin": "nuxt-checkin prepare && nuxt-checkin --save",
+    "typecheck:legacy": "nuxt typecheck"
   },
   "dependencies": {
     "cheerio": "catalog:",
@@ -82,6 +83,7 @@
     "nuxt": "catalog:",
     "playwright-core": "catalog:",
     "shiki": "catalog:",
+    "site-typecheck": "workspace:*",
     "typescript": "catalog:",
     "vitest": "catalog:",
     "vue-tsc": "catalog:",
