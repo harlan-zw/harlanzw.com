@@ -15,7 +15,7 @@
     "url": "https://github.com/harlan-zw/harlanzw.com"
   },
   "engines": {
-    "node": ">=24.15.0"
+    "node": ">=26.13.0 <27"
   },
   "scripts": {
     "dev": "nuxi dev",
