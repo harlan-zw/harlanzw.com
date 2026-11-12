@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     devLogs: false,
   },
 
-  compatibilityDate: '2026-08-10',
+  compatibilityDate: '2026-10-19',
 
   nuxtDx: {
     report: true,
@@ -331,7 +331,7 @@ export default defineNuxtConfig({
 
   nitro: {
     compatibilityDate: {
-      cloudflare: '2026-08-08',
+      cloudflare: '2026-10-19',
     },
     prerender: {
       // Write `/blog/x.html`, not `/blog/x/index.html`. Workers static assets
