@@ -1,6 +1,7 @@
 import type { Project, ProjectCategory, ProjectSource, ProjectSourceCategory, ProjectsResult } from '#shared/types'
 import { consola } from 'consola'
 import { defineCachedEventHandler } from 'nitropack/runtime'
+import { $fetch } from 'ofetch'
 import { z } from 'zod'
 import projectSource from '../data/projects.json' with { type: 'json' }
 

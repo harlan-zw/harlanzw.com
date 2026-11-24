@@ -7,7 +7,11 @@ describe('og image navigation', async () => {
     browser: true,
     dev: true,
     // Disable unused parent-build HMR. The CLI child pins HMR to its HTTP port.
-    nuxtConfig: { vite: { server: { hmr: false, ws: false } } },
+    nuxtConfig: {
+      // These tests exercise Nuxt pages and API routes. Wrangler checks the Worker separately.
+      nitro: { preset: 'node-server', builder: 'rollup' },
+      vite: { server: { hmr: false, ws: false } },
+    },
     rootDir: fileURLToPath(new URL('../..', import.meta.url)),
     setupTimeout: 120_000,
   })
@@ -59,9 +63,11 @@ describe('og image navigation', async () => {
         if (nuxtApp.isHydrating && to.path === '/blog/ai-in-open-source')
           state.__catchAllMountedDuringHydration = true
       })
-      void nuxtApp.$router.push('/blog/ai-in-open-source')
+      // Keep hydration pending until the navigation has reached its destination.
+      const finishHydration = nuxtApp.deferHydration()
+      void nuxtApp.$router.push('/blog/ai-in-open-source').finally(finishHydration)
       return true
-    })
+    }, undefined, { polling: 2 })
     await page.waitForFunction(() => window.__catchAllMountedDuringHydration)
     await page.waitForFunction(() => document.querySelector('h1')?.textContent === 'How I use AI in open source')
     await page.waitForFunction(() => window.useNuxtApp?.().isHydrating === false)

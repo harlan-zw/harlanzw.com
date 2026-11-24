@@ -1,5 +1,6 @@
 import { consola } from 'consola'
 import { defineCachedFunction } from 'nitropack/runtime'
+import { $fetch } from 'ofetch'
 import { z } from 'zod'
 
 const publicIssue = z.object({ title: z.string().max(1000), number: z.number().int().positive(), pull_request: z.object({}).optional() })

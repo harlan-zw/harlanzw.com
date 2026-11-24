@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 5,
   },
+  // Preserve the h3 v1 helpers used by the server and its Nuxt modules.
+  nitroLegacy: true,
 
   features: {
     devLogs: false,

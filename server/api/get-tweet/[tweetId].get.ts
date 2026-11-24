@@ -2,6 +2,7 @@ import type { TweetResult } from '#shared/types'
 import { consola } from 'consola'
 import { createError, getRouterParam } from 'h3'
 import { defineCachedEventHandler } from 'nitropack/runtime'
+import { $fetch } from 'ofetch'
 import { z } from 'zod'
 
 const tweetIdSchema = z.string().regex(/^\d{10,20}$/u)

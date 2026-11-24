@@ -1,6 +1,7 @@
 import { consola } from 'consola'
 import { createError } from 'h3'
 import { defineCachedEventHandler, useRuntimeConfig } from 'nitropack/runtime'
+import { $fetch } from 'ofetch'
 import { parseArticleStats } from '#shared/utils/article-stats'
 import { publicArticleReading } from '#shared/utils/public-agent-work'
 import { lookupPublicAgentWork } from '../utils/public-agent-work'
