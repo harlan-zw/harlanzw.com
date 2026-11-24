@@ -85,4 +85,5 @@ export default defineCachedHandler(async (event): Promise<TweetResult> => {
 }, {
   maxAge: 60 * 60 * 24,
   name: 'tweet',
+  swr: true,
 })

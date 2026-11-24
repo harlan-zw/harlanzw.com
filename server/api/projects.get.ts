@@ -78,4 +78,5 @@ export default defineCachedHandler(async (): Promise<ProjectsResult> => {
 }, {
   maxAge: 60 * 60,
   name: 'projects',
+  swr: true,
 })
