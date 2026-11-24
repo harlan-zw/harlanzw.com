@@ -21,6 +21,7 @@ minimumReleaseAgeExclude:
   - '@harlan-zw/comark-content@0.1.5 || 0.2.0 || 0.2.2'
   - '@harlan-zw/nuxt-checkin@0.4.0'
   - '@harlan-zw/nuxt-cloudflare@0.5.0'
+  - '@harlan-zw/nuxt-cloudflare@0.5.2'
   - '@harlan-zw/nuxt-dx@0.2.0 || 0.3.0'
   - '@harlan-zw/nuxt-github-sponsors@0.1.4 || 0.2.0'
   - '@harlan-zw/nuxt-sentry@0.3.0'
@@ -167,7 +168,7 @@ catalog:
   '@cloudflare/workers-types': 5.20261021.1
   '@harlan-zw/comark-content': 0.2.2
   '@harlan-zw/nuxt-checkin': 0.4.1
-  '@harlan-zw/nuxt-cloudflare': 0.5.1
+  '@harlan-zw/nuxt-cloudflare': 0.5.2
   '@harlan-zw/nuxt-dx': 0.3.0
   '@harlan-zw/nuxt-github-sponsors': 0.2.0
   '@harlan-zw/nuxt-sentry': 0.3.0
