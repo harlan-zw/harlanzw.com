@@ -1,6 +1,7 @@
 import type { Project, ProjectCategory, ProjectSource, ProjectSourceCategory, ProjectsResult } from '#shared/types'
 import { consola } from 'consola'
-import { defineCachedEventHandler } from 'nitropack/runtime'
+import { defineCachedHandler } from 'nitro/cache'
+import { $fetch } from 'ofetch'
 import { z } from 'zod'
 import projectSource from '../data/projects.json' with { type: 'json' }
 
@@ -52,7 +53,7 @@ async function enrichProject(source: ProjectSource): Promise<EnrichedProject> {
   }
 }
 
-export default defineCachedEventHandler(async (): Promise<ProjectsResult> => {
+export default defineCachedHandler(async (): Promise<ProjectsResult> => {
   const source = projectSource.body as ProjectSourceCategory[]
   const sourceProjects = source.flatMap(category => category.projects)
   const enrichedProjects = await Promise.all(sourceProjects.map(enrichProject))

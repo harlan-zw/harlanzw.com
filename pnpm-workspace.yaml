@@ -20,8 +20,7 @@ minimumReleaseAgeExclude:
   - mdream@2.0.3
   - '@harlan-zw/comark-content@0.1.5 || 0.2.0 || 0.2.2'
   - '@harlan-zw/nuxt-checkin@0.4.0'
-  - '@harlan-zw/nuxt-cloudflare@0.5.0'
-  - '@harlan-zw/nuxt-cloudflare@0.5.2'
+  - '@harlan-zw/nuxt-cloudflare@0.5.0 || 0.5.2'
   - '@harlan-zw/nuxt-dx@0.2.0 || 0.3.0'
   - '@harlan-zw/nuxt-github-sponsors@0.1.4 || 0.2.0'
   - '@harlan-zw/nuxt-sentry@0.3.0'
@@ -29,7 +28,7 @@ minimumReleaseAgeExclude:
   - '@nuxt/icon@2.5.0'
   - sitemapd@0.2.2 || 0.2.3
   - eslint-plugin-harlanzw@0.20.0
-  - '@nuxtjs/robots@7.0.2'
+  - '@nuxtjs/robots@7.0.2 || 7.1.0'
   - '@nuxtjs/seo@6.0.1'
   - '@nuxtjs/sitemap@9.1.0'
   - '@takumi-rs/core-darwin-arm64@2.15.1 || 2.17.1'
@@ -48,23 +47,26 @@ minimumReleaseAgeExclude:
   - nuxt-og-image@7.0.4
   - nuxt-schema-org@7.0.1
   - nuxt-seo-utils@9.0.1
-  - nuxt-site-config-kit@5.0.3
-  - nuxt-site-config@5.0.3
-  - nuxt-skew-protection@2.0.2
+  - nuxt-site-config-kit@5.0.3 || 5.0.4
+  - nuxt-site-config@5.0.3 || 5.0.4
+  - nuxt-skew-protection@2.0.2 || 2.0.6
   - nuxtseo-shared@6.0.2
-  - site-config-stack@5.0.3
-  - unhead@3.4.3
-  - '@unhead/bundler@3.4.3'
-  - '@unhead/vue@3.4.3'
+  - site-config-stack@5.0.3 || 5.0.4
+  - unhead@3.4.3 || 3.5.0
+  - '@unhead/bundler@3.4.3 || 3.5.0'
+  - '@unhead/vue@3.4.3 || 3.5.0'
   - '@nuxt/cli@4.0.0'
-  - '@nuxt/kit@4.6.0'
-  - '@nuxt/nitro-server@4.6.0'
-  - '@nuxt/schema@4.6.0'
-  - '@nuxt/vite-builder@4.6.0'
-  - '@nuxt/vite-server@4.6.0'
-  - nuxt@4.6.0
+  - '@nuxt/kit@4.6.0 || 4.7.0'
+  - '@nuxt/nitro-server@4.6.0 || 4.7.0'
+  - '@nuxt/schema@4.6.0 || 4.7.0'
+  - '@nuxt/vite-builder@4.6.0 || 4.7.0'
+  - '@nuxt/vite-server@4.6.0 || 4.7.0'
+  - nuxt@4.6.0 || 4.7.0
   - miniflare@5.20261006.2-beta
   - wrangler@4.150.0 || 4.151.3
+  - '@nuxt/nitro-v3-server@4.7.0'
+  - '@vercel/nft@1.11.12'
+  - nitropack@2.14.0
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 262800
@@ -151,9 +153,16 @@ packages:
   - tools/typecheck
 
 overrides:
+  '@nuxtjs/robots': 7.1.0
+  '@unhead/bundler@^3.0.0': 3.5.0
+  '@unhead/vue@^3.0.0': 3.5.0
+  nuxt-site-config: 5.0.4
+  nuxt-skew-protection: 2.0.6
   oxc-parser: ^0.147.0
+  unhead@^3.0.0: 3.5.0
   unplugin: ^3.3.0
   vite: ^8.2.2
+  vue: 3.5.46
   vue-tsc@3.3.14>@vue/language-core: 3.3.13
 
 allowBuilds:
@@ -182,6 +191,7 @@ catalog:
   '@iconify-json/simple-icons': ^1.2.100
   '@iconify-json/vscode-icons': ^1.2.92
   '@nuxt/a11y': 1.0.0-alpha.1
+  '@nuxt/devtools': 3.4.4
   '@nuxt/fonts': ^1.0.1
   '@nuxt/icon': ^2.5.1
   '@nuxt/image': ^2.2.0
@@ -203,15 +213,19 @@ catalog:
   eslint: ^10.13.0
   eslint-plugin-harlanzw: ^0.23.0
   feed: ^6.0.0
-  # Nitro 2 requires H3 1. Keep its app types ahead of module-local H3 2.
-  h3: ^1.15.11
+  # The server still uses h3 v1 helpers through Nitro's compatibility layer.
+  h3: 2.0.8
   jsonc-parser: 3.3.1
 
-  nuxt: ^4.6.4
+  nitro: 3.0.261103-rc
+  nuxt: 4.7.0
+  ofetch: ^1.5.1
   playwright-core: ^1.64.1
   shiki: ^4.5.0
   # Vue tooling and typescript-eslint do not support TypeScript 7 yet.
   typescript: ^6.0.3
+  # OG Image 7.0 uses the Unstorage 1 API.
+  unstorage: ^1.17.6
   vitest: ^5.0.5
   vue-tsc: 3.3.14
   wrangler: ^4.151.3

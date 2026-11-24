@@ -41,7 +41,9 @@
     "cheerio": "catalog:",
     "consola": "catalog:",
     "feed": "catalog:",
-    "h3": "catalog:"
+    "h3": "catalog:",
+    "nitro": "catalog:",
+    "ofetch": "catalog:"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
@@ -62,6 +64,7 @@
     "@iconify-json/simple-icons": "catalog:",
     "@iconify-json/vscode-icons": "catalog:",
     "@nuxt/a11y": "catalog:",
+    "@nuxt/devtools": "catalog:",
     "@nuxt/fonts": "catalog:",
     "@nuxt/icon": "catalog:",
     "@nuxt/image": "catalog:",
@@ -85,6 +88,7 @@
     "shiki": "catalog:",
     "site-typecheck": "workspace:*",
     "typescript": "catalog:",
+    "unstorage": "catalog:",
     "vitest": "catalog:",
     "vue-tsc": "catalog:",
     "wrangler": "catalog:",

@@ -7,7 +7,11 @@ describe('blog list payload', async () => {
     browser: true,
     dev: true,
     // Disable unused parent-build HMR. The CLI child pins HMR to its HTTP port.
-    nuxtConfig: { vite: { server: { hmr: false, ws: false } } },
+    nuxtConfig: {
+      // These tests exercise Nuxt pages and API routes. Wrangler checks the Worker separately.
+      nitro: { preset: 'node-server', builder: 'rollup' },
+      vite: { server: { hmr: false, ws: false } },
+    },
     rootDir: fileURLToPath(new URL('../..', import.meta.url)),
     setupTimeout: 120_000,
   })

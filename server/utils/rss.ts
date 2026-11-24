@@ -2,6 +2,7 @@ import type { H3Event } from 'h3'
 import { queryCollection } from '@harlan-zw/comark-content/server'
 import { load } from 'cheerio'
 import { Feed } from 'feed'
+import { serverFetch } from 'nitro'
 import { site } from '#shared/site'
 
 export async function generateBlogFeed(event: H3Event): Promise<Feed> {
@@ -31,7 +32,10 @@ export async function generateBlogFeed(event: H3Event): Promise<Feed> {
     if (!post.publishedAt)
       continue
 
-    const html = await event.$fetch<string>(post.path)
+    const response = await serverFetch(post.path, undefined, event.context)
+    if (!response.ok)
+      throw new Error(`Feed article ${post.path} returned ${response.status}.`)
+    const html = await response.text()
     const page = load(html)
     const content = load(page('.prose').html() ?? '')
     content('*').each(function removeAttributes() {
