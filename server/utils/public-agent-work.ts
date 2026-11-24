@@ -1,5 +1,5 @@
 import { consola } from 'consola'
-import { defineCachedFunction } from 'nitropack/runtime'
+import { defineCachedFunction } from 'nitro/cache'
 import { $fetch } from 'ofetch'
 import { z } from 'zod'
 

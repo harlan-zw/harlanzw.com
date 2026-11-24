@@ -1,7 +1,7 @@
-import { appendHeader, defineEventHandler } from 'h3'
+import { appendHeader, defineHandler } from 'h3'
 import { generateBlogFeed } from '../utils/rss'
 
-export default defineEventHandler(async (event) => {
+export default defineHandler(async (event) => {
   const feed = await generateBlogFeed(event)
   appendHeader(event, 'Content-Type', 'application/json')
   return feed.json1()

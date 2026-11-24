@@ -214,7 +214,7 @@ catalog:
   eslint-plugin-harlanzw: ^0.23.0
   feed: ^6.0.0
   # The server still uses h3 v1 helpers through Nitro's compatibility layer.
-  h3: ^1.15.11
+  h3: 2.0.8
   jsonc-parser: 3.3.1
 
   nitro: 3.0.261103-rc

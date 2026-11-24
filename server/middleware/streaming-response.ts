@@ -1,6 +1,6 @@
-import { defineEventHandler, getRequestURL, setResponseHeader, setResponseStatus } from 'h3'
+import { defineHandler, getRequestURL, setResponseHeader, setResponseStatus } from 'h3'
 
-export default defineEventHandler((event) => {
+export default defineHandler((event) => {
   if (getRequestURL(event).pathname !== '/experimental')
     return
 

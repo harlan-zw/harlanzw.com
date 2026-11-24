@@ -1,13 +1,14 @@
 import { consola } from 'consola'
 import { createError } from 'h3'
-import { defineCachedEventHandler, useRuntimeConfig } from 'nitropack/runtime'
+import { defineCachedHandler } from 'nitro/cache'
+import { useRuntimeConfig } from 'nitro/runtime-config'
 import { $fetch } from 'ofetch'
 import { parseArticleStats } from '#shared/utils/article-stats'
 import { publicArticleReading } from '#shared/utils/public-agent-work'
 import { lookupPublicAgentWork } from '../utils/public-agent-work'
 
-export default defineCachedEventHandler(async (event) => {
-  const { hogwildStatsToken, hogwildStatsUrl } = useRuntimeConfig(event)
+export default defineCachedHandler(async () => {
+  const { hogwildStatsToken, hogwildStatsUrl } = useRuntimeConfig()
   if (!hogwildStatsToken)
     throw createError({ status: 503, statusText: 'Live statistics are unavailable.' })
 

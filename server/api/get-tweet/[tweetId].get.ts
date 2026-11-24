@@ -1,7 +1,7 @@
 import type { TweetResult } from '#shared/types'
 import { consola } from 'consola'
 import { createError, getRouterParam } from 'h3'
-import { defineCachedEventHandler } from 'nitropack/runtime'
+import { defineCachedHandler } from 'nitro/cache'
 import { $fetch } from 'ofetch'
 import { z } from 'zod'
 
@@ -19,7 +19,7 @@ const tweetSchema = z.object({
   }),
 })
 
-export default defineCachedEventHandler(async (event): Promise<TweetResult> => {
+export default defineCachedHandler(async (event): Promise<TweetResult> => {
   const parsedTweetId = tweetIdSchema.safeParse(getRouterParam(event, 'tweetId'))
 
   if (!parsedTweetId.success)
