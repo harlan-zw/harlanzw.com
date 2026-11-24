@@ -330,6 +330,8 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    // Use Node for Vite SSR during development. The Cloudflare deployment uses workerd.
+    devServer: { runner: 'node-worker' },
     compatibilityDate: {
       cloudflare: '2026-10-19',
     },
