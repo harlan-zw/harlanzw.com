@@ -53,13 +53,18 @@ jobs:
       # it saves.
       - run: pnpm lint:ci
       - run: pnpm typecheck
-      - run: pnpm exec playwright-core install --with-deps chromium
       - run: pnpm test:run
       # Main builds in the deploy job. Keep the build check on pull requests.
       - run: pnpm build
         if: github.event_name == 'pull_request'
       - run: pnpm cf:types:check
         if: github.event_name == 'pull_request'
+      - name: Verify Worker startup and bundle
+        if: github.event_name == 'pull_request'
+        run: |
+          pnpm exec wrangler check startup --outfile "$RUNNER_TEMP/worker-startup.cpuprofile"
+          pnpm exec wrangler deploy --dry-run
+          pnpm exec wrangler deploy --config wrangler.www.jsonc --dry-run
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
