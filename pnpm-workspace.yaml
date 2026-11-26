@@ -18,10 +18,9 @@ minimumReleaseAgeExclude:
   - '@mdream/rust-win32-arm64-msvc@2.0.3'
   - '@mdream/rust-win32-x64-msvc@2.0.3'
   - mdream@2.0.3
-  - '@harlan-zw/comark-content@0.1.5 || 0.2.0 || 0.2.2'
+  - '@harlan-zw/comark-content@0.1.5 || 0.2.0 || 0.2.2 || 0.2.3'
   - '@harlan-zw/nuxt-checkin@0.4.0'
-  - '@harlan-zw/nuxt-cloudflare@0.5.0 || 0.5.2'
-  - '@harlan-zw/nuxt-cloudflare@0.5.3'
+  - '@harlan-zw/nuxt-cloudflare@0.5.0 || 0.5.2 || 0.5.3 || 0.6.1'
   - '@harlan-zw/nuxt-dx@0.2.0 || 0.3.0'
   - '@harlan-zw/nuxt-github-sponsors@0.1.4 || 0.2.0 || 0.2.1'
   - '@harlan-zw/nuxt-sentry@0.3.0'
@@ -43,16 +42,16 @@ minimumReleaseAgeExclude:
   - '@takumi-rs/core@2.15.1 || 2.17.1'
   - '@takumi-rs/helpers@2.15.1 || 2.17.1'
   - '@takumi-rs/wasm@2.15.1 || 2.17.1'
-  - nuxt-ai-ready@3.5.0
+  - nuxt-ai-ready@3.5.0 || 3.6.2
   - nuxt-link-checker@6.0.1
-  - nuxt-og-image@7.0.4
-  - nuxt-schema-org@7.0.1
-  - nuxt-seo-utils@9.0.1
-  - nuxt-site-config-kit@5.0.3 || 5.0.4
-  - nuxt-site-config@5.0.3 || 5.0.4
+  - nuxt-og-image@7.0.4 || 7.2.1
+  - nuxt-schema-org@7.0.1 || 7.1.2
+  - nuxt-seo-utils@9.0.1 || 9.1.1
+  - nuxt-site-config-kit@5.0.3 || 5.0.4 || 5.1.1
+  - nuxt-site-config@5.0.3 || 5.0.4 || 5.1.1
   - nuxt-skew-protection@2.0.2 || 2.0.6
   - nuxtseo-shared@6.0.2
-  - site-config-stack@5.0.3 || 5.0.4
+  - site-config-stack@5.0.3 || 5.0.4 || 5.1.1
   - unhead@3.4.3 || 3.5.0
   - '@unhead/bundler@3.4.3 || 3.5.0'
   - '@unhead/vue@3.4.3 || 3.5.0'
@@ -157,7 +156,7 @@ overrides:
   '@nuxtjs/robots': 7.1.0
   '@unhead/bundler@^3.0.0': 3.5.0
   '@unhead/vue@^3.0.0': 3.5.0
-  nuxt-site-config: 5.0.4
+  nuxt-site-config: 5.1.1
   nuxt-skew-protection: 2.0.6
   oxc-parser: ^0.147.0
   unhead@^3.0.0: 3.5.0
@@ -176,9 +175,9 @@ allowBuilds:
 catalog:
   '@antfu/eslint-config': ^9.5.1
   '@cloudflare/workers-types': 5.20261123.1
-  '@harlan-zw/comark-content': 0.2.2
+  '@harlan-zw/comark-content': 0.2.3
   '@harlan-zw/nuxt-checkin': 0.4.1
-  '@harlan-zw/nuxt-cloudflare': 0.5.3
+  '@harlan-zw/nuxt-cloudflare': 0.6.1
   '@harlan-zw/nuxt-dx': 0.3.0
   '@harlan-zw/nuxt-github-sponsors': 0.2.1
   '@harlan-zw/nuxt-sentry': 0.3.0

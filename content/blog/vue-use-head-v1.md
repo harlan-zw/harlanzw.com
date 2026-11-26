@@ -102,7 +102,7 @@ Purely from a DX perspective, it's not nice to have state in the DOM that isn't 
 This was a major piece of work, and I figured if I'm going to have to refactor the entire package, I should aim to also solve
 another outstanding issue, _Universal Head Management_.
 
-So I started on [Unhead](https://github.com/harlan-zw/unhead), a Universal document <head> tag manager.
+So I started on [Unhead](https://github.com/harlan-zw/unhead), a Universal document `<head>` tag manager.
 
 My initial concern was just feature parity with `@vueuse/head` while supporting server tags, but I quickly realised that I could do better.
 
