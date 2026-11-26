@@ -33,7 +33,9 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt prepare && site-typecheck --noEmit --incremental false",
     "test": "vitest",
-    "test:run": "vitest run",
+    "test:run": "vitest run --exclude 'test/e2e/**'",
+    "test:unit": "vitest run --exclude 'test/e2e/**'",
+    "test:e2e": "vitest run test/e2e",
     "checkin": "nuxt-checkin prepare && nuxt-checkin --save",
     "typecheck:legacy": "nuxt typecheck"
   },
