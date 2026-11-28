@@ -226,7 +226,7 @@ catalog:
   typescript: ^6.0.3
   # OG Image 7.0 uses the Unstorage 1 API.
   unstorage: ^1.17.6
-  vitest: ^5.1.1
+  vitest: ^5.1.2
   vue-tsc: 3.3.14
   wrangler: ^4.151.3
   y-protocols: ^1.0.7
