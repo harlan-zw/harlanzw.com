@@ -15,6 +15,9 @@ New Markdown at the repository root is an error. Identity and filters only.
 
 ## Rules
 
+- After an edit, run `pnpm test:run --since-last-run --reporter=agent` for affected tests.
+  After a failure, use `pnpm test:run --last-failed --reporter=agent`. Before opening a PR, run `pnpm test:run`.
+
 - **Two Workers ship this site.** `wrangler.jsonc` is the app, `wrangler.www.jsonc` is the
   `www` redirect. `pnpm deploy` builds once and deploys both. Deploying only the app leaves
   the redirect on an older build.
