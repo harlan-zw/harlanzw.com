@@ -18,7 +18,7 @@ const mobileNavigation = navigation.map(link => ({
     <div class="page-shell flex min-h-18 items-center justify-between gap-3">
       <Logo />
       <div class="flex min-w-0 items-center gap-1 sm:gap-2">
-        <nav aria-label="Main navigation" class="hidden max-w-[62vw] overflow-x-auto md:block [scrollbar-width:none]">
+        <nav aria-label="Main" class="hidden max-w-[62vw] overflow-x-auto md:block [scrollbar-width:none]">
           <ul class="flex items-center gap-2 text-sm lg:gap-5 lg:text-base">
             <li v-for="link in navigation" :key="link.to">
               <NuxtLink
