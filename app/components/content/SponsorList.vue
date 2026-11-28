@@ -43,7 +43,7 @@ const failure = computed(() => {
         </h2>
         <div class="grid gap-5 sm:grid-cols-2">
           <a v-for="sponsor in topSponsors" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" target="_blank" rel="sponsored noopener" class="unstyled group flex min-h-20 items-center gap-4 rounded-lg border border-default bg-elevated p-4 shadow-sm transition-[border-color,box-shadow,transform] duration-150 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none">
-            <img :src="sponsor.avatarUrl" :alt="sponsor.name" width="56" height="56" loading="lazy" decoding="async" class="size-14 shrink-0 rounded-full ring-1 ring-default">
+            <img :src="sponsor.avatarUrl" alt="" width="56" height="56" loading="lazy" decoding="async" class="size-14 shrink-0 rounded-full ring-1 ring-default">
             <span class="min-w-0">
               <span class="block text-lg font-semibold leading-tight text-highlighted transition-colors group-hover:text-primary">{{ sponsor.name }}</span>
               <span class="block truncate text-sm text-dimmed">@{{ sponsor.login }}</span>
@@ -58,7 +58,7 @@ const failure = computed(() => {
         </h2>
         <div class="grid gap-4 sm:grid-cols-2">
           <a v-for="sponsor in goldSponsors" :key="sponsor.login" :href="sponsor.websiteUrl || sponsor.profileUrl" target="_blank" rel="sponsored noopener" class="unstyled group flex min-h-18 items-center gap-3 rounded-lg border border-default bg-elevated p-3 shadow-sm transition-[border-color,box-shadow,transform] duration-150 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md motion-reduce:transform-none motion-reduce:transition-none">
-            <img :src="sponsor.avatarUrl" :alt="sponsor.name" width="48" height="48" loading="lazy" decoding="async" class="size-12 shrink-0 rounded-full ring-1 ring-default">
+            <img :src="sponsor.avatarUrl" alt="" width="48" height="48" loading="lazy" decoding="async" class="size-12 shrink-0 rounded-full ring-1 ring-default">
             <span class="min-w-0">
               <span class="block truncate font-semibold text-highlighted transition-colors group-hover:text-primary">{{ sponsor.name }}</span>
               <span class="block truncate text-sm text-dimmed">@{{ sponsor.login }}</span>
